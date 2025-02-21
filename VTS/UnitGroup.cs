@@ -4,9 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using VtolVrRankedMissionSetup.VT;
-using VtolVrRankedMissionSetup.VTS;
 
-namespace VtolVrRankedMissionSetup
+namespace VtolVrRankedMissionSetup.VTS
 {
     public class UnitGroup
     {
