@@ -8,6 +8,7 @@ using VtolVrRankedMissionSetup.VTS.UnitSpawners;
 using VtolVrRankedMissionSetup.VTS;
 using VtolVrRankedMissionSetup.Configs;
 using System.Text.Json;
+using System.IO;
 
 namespace VtolVrRankedMissionSetup.Step
 {
@@ -34,6 +35,7 @@ namespace VtolVrRankedMissionSetup.Step
 
         public void Start(CustomScenario scenario, BaseInfo baseA, BaseInfo baseB)
         {
+            // DONT FORGET ABOUT THE RTBs
             AirbaseConfig airbaseAConfig = baseA.Prefab.Prefab == "airbase1" ? Airbase1 : Airbase2;
             AirbaseConfig airbaseBConfig = baseB.Prefab.Prefab == "airbase1" ? Airbase1 : Airbase2;
 
