@@ -12,7 +12,16 @@ namespace VtolVrRankedMissionSetup
             SelectMapStep selectMap = new();
             selectMap.Start();
 
-            if (selectMap.Map.StaticPrefabs == null || selectMap.Map.StaticPrefabs.Length < 2)
+            if (selectMap.Map.StaticPrefabs == null)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($"Map '{selectMap.Map.MapID}' does not have any bases");
+                Console.ResetColor();
+
+                return;
+            }
+
+            if (selectMap.Map.StaticPrefabs.Count(prefab => prefab.Prefab.StartsWith("airbase")) < 2)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine($"Map '{selectMap.Map.MapID}' does not have enough bases");
