@@ -29,8 +29,8 @@ namespace VtolVrRankedMissionSetup.Step
             JsonSerializerOptions jsonOptions = new JsonSerializerOptions(JsonSerializerDefaults.Web);
             jsonOptions.Converters.Add(new Vector3JsonConverter());
 
-            Airbase1 = JsonSerializer.Deserialize<AirbaseConfig>(File.ReadAllText(Path.Join(Windows.ApplicationModel.Package.Current.InstalledPath, "Configs/airbase1.json")), jsonOptions)!;
-            Airbase2 = JsonSerializer.Deserialize<AirbaseConfig>(File.ReadAllText(Path.Join(Windows.ApplicationModel.Package.Current.InstalledPath, "Configs/airbase2.json")), jsonOptions)!;
+            Airbase1 = JsonSerializer.Deserialize<AirbaseConfig>(File.ReadAllText("Configs/airbase1.json"), jsonOptions)!;
+            Airbase2 = JsonSerializer.Deserialize<AirbaseConfig>(File.ReadAllText("Configs/airbase2.json"), jsonOptions)!;
         }
 
         public void Start(CustomScenario scenario, BaseInfo baseA, BaseInfo baseB)
