@@ -14,7 +14,7 @@ namespace VtolVrRankedMissionSetup.VTS
         public StaticPrefab Prefab { get; set; }
 
         public string OverrideBaseName { get; set; } = string.Empty;
-        public string BaseTeam { get; set; } = "Allied";
+        public Team BaseTeam { get; set; } = Team.Allied;
         [VTName("CUSTOM_DATA")]
         public Empty? CustomData { get; set; }
 

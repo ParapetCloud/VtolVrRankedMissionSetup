@@ -325,7 +325,7 @@ namespace VtolVrRankedMissionSetup.VT
             PropertyInfo? idProp = value?.GetType().GetProperties().Single(p => p.GetCustomAttribute<IdAttribute>() != null);
             object? id = idProp?.GetValue(value);
 
-            writer.WriteLine($"{indentation}{idLink.PropertyName} = {id ?? "null"}");
+            writer.WriteLine($"{indentation}{idLink.PropertyName} = {$"{idLink.ValuePrefix}{id}" ?? "null"}");
         }
 
         private static bool ShouldIgnoreValue(PropertyInfo prop, object? value, VTIgnoreAttribute vtIgnore)
