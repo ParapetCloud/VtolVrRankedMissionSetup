@@ -1,6 +1,7 @@
-I told myself I was gonna code nice, but then I remembered I don't care.
-
-Just follow the instructions
+Open a map
+Move the bases where they need to be
+Save the scenario!
+it's that easy!
 
 You need .net 9 https://aka.ms/get-dotnet-9
-<img width="1151" alt="image" src="https://github.com/user-attachments/assets/181dfe2e-f4a3-4188-a9ea-b7db15a5b429" />
+[An image explaining which dotnet version to get](docs/images/dotnetInstall.png)
