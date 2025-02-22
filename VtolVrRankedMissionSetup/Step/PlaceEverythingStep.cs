@@ -8,6 +8,7 @@ using VtolVrRankedMissionSetup.VTS.UnitSpawners;
 using VtolVrRankedMissionSetup.VTS;
 using VtolVrRankedMissionSetup.Configs;
 using System.Text.Json;
+using System.IO;
 
 namespace VtolVrRankedMissionSetup.Step
 {
@@ -28,12 +29,13 @@ namespace VtolVrRankedMissionSetup.Step
             JsonSerializerOptions jsonOptions = new JsonSerializerOptions(JsonSerializerDefaults.Web);
             jsonOptions.Converters.Add(new Vector3JsonConverter());
 
-            Airbase1 = JsonSerializer.Deserialize<AirbaseConfig>(File.ReadAllText("Configs/airbase1.json"), jsonOptions)!;
-            Airbase2 = JsonSerializer.Deserialize<AirbaseConfig>(File.ReadAllText("Configs/airbase2.json"), jsonOptions)!;
+            Airbase1 = JsonSerializer.Deserialize<AirbaseConfig>(File.ReadAllText(Path.Join(Windows.ApplicationModel.Package.Current.InstalledPath, "Configs/airbase1.json")), jsonOptions)!;
+            Airbase2 = JsonSerializer.Deserialize<AirbaseConfig>(File.ReadAllText(Path.Join(Windows.ApplicationModel.Package.Current.InstalledPath, "Configs/airbase2.json")), jsonOptions)!;
         }
 
         public void Start(CustomScenario scenario, BaseInfo baseA, BaseInfo baseB)
         {
+            // DONT FORGET ABOUT THE RTBs
             AirbaseConfig airbaseAConfig = baseA.Prefab.Prefab == "airbase1" ? Airbase1 : Airbase2;
             AirbaseConfig airbaseBConfig = baseB.Prefab.Prefab == "airbase1" ? Airbase1 : Airbase2;
 
@@ -55,7 +57,6 @@ namespace VtolVrRankedMissionSetup.Step
             scenario.Waypoints.Bullseye = bullseye;
             scenario.Waypoints.BullseyeB = bullseye;
 
-            baseA.BaseTeam = "Allied";
             AddAircraftToBase(baseA, airbaseAConfig.F26, "F/A-26B", spawners, "Allied:Alpha");
             AddAircraftToBase(baseA, airbaseAConfig.F45, "F-45A", spawners, "Allied:Bravo");
             AddAircraftToBase(baseA, airbaseAConfig.F24, "EF-24G", spawners, "Allied:Charlie", 2);
@@ -68,6 +69,7 @@ namespace VtolVrRankedMissionSetup.Step
                 Name = "TeamARTB"
             };
             waypoints.Add(teamABase);
+            scenario.RtbWpt = teamABase;
 
             waypoints.Add(new Waypoint()
             {
@@ -86,8 +88,6 @@ namespace VtolVrRankedMissionSetup.Step
                 });
             }
 
-
-            baseB.BaseTeam = "Enemy";
             AddAircraftToBase(baseB, airbaseBConfig.F26, "F/A-26B", spawners, "Enemy:Zulu");
             AddAircraftToBase(baseB, airbaseBConfig.F45, "F-45A", spawners, "Enemy:Yankee");
             AddAircraftToBase(baseB, airbaseBConfig.F24, "EF-24G", spawners, "Enemy:Xray", 2);
@@ -100,6 +100,7 @@ namespace VtolVrRankedMissionSetup.Step
                 Name = "TeamBRTB"
             };
             waypoints.Add(teamBBase);
+            scenario.RtbWptB = teamBBase;
 
             waypoints.Add(new Waypoint()
             {
@@ -118,11 +119,11 @@ namespace VtolVrRankedMissionSetup.Step
                 });
             }
 
-            objectives.Add(CreateForKill(objectiveCount++, objectives.Count, teamBBase));
-            objectives.Add(CreateForSpawnProt(objectiveCount++, objectives.Count));
+            objectives.Add(CreateObjectiveForKill(objectiveCount++, objectives.Count, teamBBase));
+            objectives.Add(CreateObjectiveForSpawnProt(objectiveCount++, objectives.Count));
 
-            objectivesb.Add(CreateForKill(objectiveCount++, objectivesb.Count, teamABase));
-            objectivesb.Add(CreateForSpawnProt(objectiveCount++, objectivesb.Count));
+            objectivesb.Add(CreateObjectiveForKill(objectiveCount++, objectivesb.Count, teamABase));
+            objectivesb.Add(CreateObjectiveForSpawnProt(objectiveCount++, objectivesb.Count));
 
             scenario.Objectives = objectives.ToArray();
             scenario.ObjectivesOpfor = objectivesb.ToArray();
@@ -145,7 +146,7 @@ namespace VtolVrRankedMissionSetup.Step
                 Vector3 rotation = baseInfo.Prefab.Rotation + aircraft.Rotation;
                 MathHelpers.ClampRotation(ref rotation);
 
-                MultiplayerSpawn spawn = new(unitParts[0], $"{unitParts[1]} 1-{i + 1}")
+                MultiplayerSpawn spawn = new(Enum.Parse<Team>(unitParts[0]), $"{unitParts[1]} 1-{i + 1}")
                 {
                     UnitInstanceID = spawners.Count,
                     GlobalPosition = location,
@@ -161,7 +162,7 @@ namespace VtolVrRankedMissionSetup.Step
             }
         }
 
-        static Objective CreateForKill(int objectiveId, int orderId, Waypoint waypoint)
+        static Objective CreateObjectiveForKill(int objectiveId, int orderId, Waypoint waypoint)
         {
             return new Objective()
             {
@@ -177,7 +178,7 @@ namespace VtolVrRankedMissionSetup.Step
             };
         }
 
-        static Objective CreateForSpawnProt(int objectiveId, int orderId)
+        static Objective CreateObjectiveForSpawnProt(int objectiveId, int orderId)
         {
             Objective objective = new()
             {

@@ -27,12 +27,12 @@ namespace VtolVrRankedMissionSetup.VTS.UnitSpawners
         [VTIgnore]
         public MultiplayerSpawnFields MultiplayerSpawnFields { get; }
 
-        public MultiplayerSpawn(string team, string? unitName = null)
+        public MultiplayerSpawn(Team team, string? unitName = null)
         {
             UnitName = unitName ?? "MP Spawn";
             MultiplayerSpawnFields = new MultiplayerSpawnFields();
 
-            if (team == "Enemy")
+            if (team == Team.Enemy)
                 UnitID += "Enemy";
         }
     }

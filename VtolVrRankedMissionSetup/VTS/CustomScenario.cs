@@ -27,7 +27,8 @@ namespace VtolVrRankedMissionSetup.VTS
         public bool EquipsConfigurable { get; set; } = true;
         public double BaseBudget { get; set; } = 100000;
         public bool IsTraining { get; set; } = false;
-        public string RtbWptID { get; set; } = string.Empty;
+        [IdLink("rtbWptID", ValuePrefix = "wpt:")]
+        public Waypoint RtbWpt { get; set; }
         public string RefuelWptID { get; set; } = string.Empty;
         public uint MpPlayerCount { get; set; } = 16;
         public bool AutoPlayerCount { get; set; } = false;
@@ -38,7 +39,8 @@ namespace VtolVrRankedMissionSetup.VTS
         public double ScorePerKill_A { get; set; } = 0;
         public double ScorePerKill_B { get; set; } = 0;
         public string MpBudgetMode { get; set; } = "Life";
-        public string RtbWptID_B { get; set; } = string.Empty;
+        [IdLink("rtbWptID_B", ValuePrefix = "wpt:")]
+        public Waypoint RtbWptB { get; set; }
         public string RefuelWptID_B { get; set; } = string.Empty;
         public bool SeparateBriefings { get; set; } = false;
         public double BaseBudgetB { get; set; } = 100000;

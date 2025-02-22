@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "VtolVrRankedMissionSetup (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "VtolVrRankedMissionSetup (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
