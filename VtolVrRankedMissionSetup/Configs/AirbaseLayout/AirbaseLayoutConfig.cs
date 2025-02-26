@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VtolVrRankedMissionSetup.Configs
+namespace VtolVrRankedMissionSetup.Configs.AirbaseLayout
 {
-    public class AirbaseConfig
+    public class AirbaseLayoutConfig
     {
         public AircraftConfig[]? F26 { get; set; }
         public AircraftConfig[]? F45 { get; set; }

@@ -29,10 +29,11 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <MenuBar Grid.Row="0" Grid.ColumnSpan="9999999">
+        <MenuBar Grid.Row="0" Background="#1f000000" >
             <MenuBarItem Title="File">
                 <MenuFlyoutItem Text="Open Map" Click="OnOpenClicked">
                     <MenuFlyoutItem.KeyboardAccelerators>
@@ -47,7 +48,9 @@
             </MenuBarItem>
         </MenuBar>
 
-        <ScrollView Grid.Row="1" HorizontalScrollMode="Auto" VerticalScrollMode="Disabled">
+        <ComboBox Grid.Row="1" x:Name="ScenarioModeComboBox" Header="Scenario Mode" Margin="8" SelectionChanged="ScenarioModeComboBox_SelectionChanged"/>
+
+        <ScrollView Grid.Row="2" HorizontalScrollMode="Auto" VerticalScrollMode="Disabled">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="400" />
@@ -62,7 +65,7 @@
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
 
-                    <TextBlock  Grid.Row="0">Allied</TextBlock>
+                    <TextBlock Grid.Row="0">Allied</TextBlock>
                     <ListView
                         Grid.Row="1"
                         AllowDrop="True"

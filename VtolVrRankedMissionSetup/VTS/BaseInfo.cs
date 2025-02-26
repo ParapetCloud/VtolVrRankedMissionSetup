@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using VtolVrRankedMissionSetup.VT;
+﻿using VtolVrRankedMissionSetup.VT;
 using VtolVrRankedMissionSetup.VTM;
 
 namespace VtolVrRankedMissionSetup.VTS
@@ -17,6 +12,9 @@ namespace VtolVrRankedMissionSetup.VTS
         public Team BaseTeam { get; set; } = Team.Allied;
         [VTName("CUSTOM_DATA")]
         public Empty? CustomData { get; set; }
+
+        [VTIgnore]
+        public string? Layout { get; set; }
 
         public BaseInfo(StaticPrefab prefab)
         {
