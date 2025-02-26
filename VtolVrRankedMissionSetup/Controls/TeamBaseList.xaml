@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UserControl
+    x:Class="VtolVrRankedMissionSetup.Controls.TeamBaseList"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:VtolVrRankedMissionSetup.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:vts="using:VtolVrRankedMissionSetup.VTS"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    
+    <Grid
+        x:Name="MainGrid"
+        Grid.Column="1"
+        Background="AliceBlue">
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="Allied" />
+
+                <VisualState x:Name="Enemy">
+                    <VisualState.Setters>
+                        <Setter Target="MainGrid.Background" Value="Pink" />
+                        <Setter Target="Label.Text" Value="Enemy" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <Grid.Resources>
+            <DataTemplate x:Key="BaseDisplay" x:DataType="vts:BaseInfo">
+                <Border 
+            BorderBrush="Black"
+            BorderThickness="1"
+            Margin="4"
+            Padding="8"
+            CornerRadius="8">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{x:Bind Prefab.Id}" Padding="0 0 8 0"/>
+                        <TextBlock Text="{x:Bind Prefab.BaseName}"/>
+                    </StackPanel>
+                </Border>
+            </DataTemplate>
+        </Grid.Resources>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <TextBlock x:Name="Label" Margin="8" Grid.Row="0">Allied</TextBlock>
+        <ListView
+            Grid.Row="1"
+            AllowDrop="True"
+            CanReorderItems="True"
+            CanDragItems="True"
+            DragItemsStarting="BaseInfoDragStarting"
+            DragEnter="TeamListDragEnter"
+            Drop="TeamListDrop"
+            ItemsSource="{x:Bind Bases, Mode=TwoWay}"
+            ItemTemplate="{StaticResource BaseDisplay}"
+            Padding="0 8"/>
+    </Grid>
+</UserControl>

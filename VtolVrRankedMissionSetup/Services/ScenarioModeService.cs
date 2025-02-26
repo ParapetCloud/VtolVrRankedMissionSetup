@@ -1,16 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
-using VtolVrRankedMissionSetup.Attributes;
 using VtolVrRankedMissionSetup.Configs;
-using VtolVrRankedMissionSetup.Configs.AirbaseLayout;
 using VtolVrRankedMissionSetup.Configs.ScenarioMode;
-using Windows.Storage;
 
 namespace VtolVrRankedMissionSetup.Services
 {

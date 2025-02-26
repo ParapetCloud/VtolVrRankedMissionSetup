@@ -2,26 +2,17 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.WindowsRuntime;
-using VtolVrRankedMissionSetup.Attributes;
-using VtolVrRankedMissionSetup.Configs.ScenarioMode;
 using VtolVrRankedMissionSetup.Services;
-using VtolVrRankedMissionSetup.Services.ScenarioCreation;
 using VtolVrRankedMissionSetup.VT;
 using VtolVrRankedMissionSetup.VTM;
 using VtolVrRankedMissionSetup.VTS;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.Storage;
 using Windows.Storage.Pickers;
-using Windows.Storage.Streams;
-using Windows.UI.Popups;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -35,8 +26,6 @@ namespace VtolVrRankedMissionSetup
     {
         public VTMapCustom? Map { get; set; }
         public CustomScenario? Scenario { get; set; }
-        public ObservableCollection<BaseInfo> TeamABases { get; set; }
-        public ObservableCollection<BaseInfo> TeamBBases { get; set; }
 
         private readonly nint Hwnd;
         private readonly ScenarioModeService scenarioMode;
@@ -98,12 +87,12 @@ namespace VtolVrRankedMissionSetup
                 CampaignOrderIdx = 0,
             };
 
-            TeamABases.Clear();
-            TeamBBases.Clear();
+            TeamABases.Bases.Clear();
+            TeamBBases.Bases.Clear();
 
             foreach (BaseInfo baseInfo in Scenario.Bases)
             {
-                TeamABases.Add(baseInfo);
+                TeamABases.Bases.Add(baseInfo);
             }
         }
 
@@ -115,28 +104,28 @@ namespace VtolVrRankedMissionSetup
                 return;
             }
 
-            if (TeamABases.Count == 0)
+            if (TeamABases.Bases.Count == 0)
             {
                 ShowDialog("Couldn't save scenario", "Allied Team doesn't have a base");
                 return;
             }
 
-            if (TeamBBases.Count == 0)
+            if (TeamBBases.Bases.Count == 0)
             {
                 ShowDialog("Couldn't save scenario", "Enemy Team doesn't have a base");
                 return;
             }
 
-            TeamABases[0].Layout = scenarioMode.ActiveMode.PrimaryDefaultLayout;
-            for (int i = 1; i < TeamABases.Count; ++i)
+            TeamABases.Bases[0].Layout = scenarioMode.ActiveMode.PrimaryDefaultLayout;
+            for (int i = 1; i < TeamABases.Bases.Count; ++i)
             {
-                TeamABases[i].Layout = scenarioMode.ActiveMode.SecondaryDefaultLayout;
+                TeamABases.Bases[i].Layout = scenarioMode.ActiveMode.SecondaryDefaultLayout;
             }
 
-            TeamBBases[0].Layout = scenarioMode.ActiveMode.PrimaryDefaultLayout;
-            for (int i = 1; i < TeamBBases.Count; ++i)
+            TeamBBases.Bases[0].Layout = scenarioMode.ActiveMode.PrimaryDefaultLayout;
+            for (int i = 1; i < TeamBBases.Bases.Count; ++i)
             {
-                TeamBBases[i].Layout = scenarioMode.ActiveMode.SecondaryDefaultLayout;
+                TeamBBases.Bases[i].Layout = scenarioMode.ActiveMode.SecondaryDefaultLayout;
             }
 
             FileSavePicker fileSave = new();
@@ -149,10 +138,23 @@ namespace VtolVrRankedMissionSetup
             if (file == null)
                 return;
 
-            Type scenarioCreationServiceType = Type.GetType(scenarioMode.ActiveMode.ScenarioCreationService)!;
+            Type? scenarioCreationServiceType = Type.GetType(scenarioMode.ActiveMode.ScenarioCreationService);
 
-            ScenarioCreationService scenarioCreationService = (ScenarioCreationService)App.Services.GetRequiredService(scenarioCreationServiceType);
-            scenarioCreationService.SetUpScenario(Scenario, TeamABases.ToArray(), TeamBBases.ToArray());
+            if (scenarioCreationServiceType == null)
+            {
+                ShowDialog("Couldn't save scenario", $"Scenario creation service \"{scenarioMode.ActiveMode.ScenarioCreationService}\" does not exist");
+                return;
+            }
+
+            ScenarioCreationService? scenarioCreationService = App.Services.GetService(scenarioCreationServiceType) as ScenarioCreationService;
+
+            if (scenarioCreationService == null)
+            {
+                ShowDialog("Couldn't save scenario", $"Scenario creation service \"{scenarioMode.ActiveMode.ScenarioCreationService}\" could not be initialized");
+                return;
+            }
+
+            scenarioCreationService.SetUpScenario(Scenario, TeamABases.Bases.ToArray(), TeamBBases.Bases.ToArray());
 
             string name = file.DisplayName;
 
@@ -189,37 +191,24 @@ namespace VtolVrRankedMissionSetup
         {
             uint id = (uint)await e.DataView.GetDataAsync("vtbase");
 
-            BaseInfo baseInfo = TeamBBases.First(b => b.Prefab.Id == id);
+            BaseInfo baseInfo = TeamBBases.Bases.First(b => b.Prefab.Id == id);
 
             baseInfo.BaseTeam = Team.Allied;
 
-            TeamBBases.Remove(baseInfo);
-            TeamABases.Add(baseInfo);
+            TeamBBases.Bases.Remove(baseInfo);
+            TeamABases.Bases.Add(baseInfo);
         }
 
         private async void TeamBDragDrop(object sender, DragEventArgs e)
         {
             uint id = (uint)await e.DataView.GetDataAsync("vtbase");
 
-            BaseInfo baseInfo = TeamABases.First(b => b.Prefab.Id == id);
+            BaseInfo baseInfo = TeamABases.Bases.First(b => b.Prefab.Id == id);
 
             baseInfo.BaseTeam = Team.Enemy;
 
-            TeamABases.Remove(baseInfo);
-            TeamBBases.Add(baseInfo);
-        }
-
-        private void TeamListDragEnter(object sender, DragEventArgs e)
-        {
-            e.AcceptedOperation = e.DataView.Contains("vtbase") ?
-                Windows.ApplicationModel.DataTransfer.DataPackageOperation.Move :
-                Windows.ApplicationModel.DataTransfer.DataPackageOperation.None;
-        }
-
-        private void BaseInfoDragStarting(object sender, DragItemsStartingEventArgs e)
-        {
-            e.Data.RequestedOperation = Windows.ApplicationModel.DataTransfer.DataPackageOperation.Move;
-            e.Data.SetData("vtbase", ((BaseInfo)e.Items[0]).Prefab.Id);
+            TeamABases.Bases.Remove(baseInfo);
+            TeamBBases.Bases.Add(baseInfo);
         }
 
         private void ScenarioModeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

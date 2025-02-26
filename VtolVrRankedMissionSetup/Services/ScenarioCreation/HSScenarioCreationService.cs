@@ -1,9 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Numerics;
-using VtolVrRankedMissionSetup.VTS.UnitSpawners;
 using VtolVrRankedMissionSetup.VTS;
 using VtolVrRankedMissionSetup.Configs.AirbaseLayout;
-using VtolVrRankedMissionSetup.Attributes;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
