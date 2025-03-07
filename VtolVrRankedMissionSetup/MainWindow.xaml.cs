@@ -216,6 +216,11 @@ namespace VtolVrRankedMissionSetup
             string newKey = (string)e.AddedItems[0];
 
             scenarioMode.ActiveMode = scenarioMode.Configs[newKey];
+
+            if (Map != null)
+            {
+                Scenario = new(Map);
+            }
         }
     }
 }
