@@ -9,21 +9,9 @@
     <UseWinUI>true</UseWinUI>
     <Nullable>enable</Nullable>
   </PropertyGroup>
-  <ItemGroup>
-    <None Remove="Configs\airbase1.json" />
-    <None Remove="Configs\airbase2.json" />
-    <None Remove="Configs\ScenarioMode\HS.json" />
-    <None Remove="Controls\TeamBaseList.xaml" />
-  </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Configs\AirbaseLayout\HS\airbase1.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Configs\AirbaseLayout\HS\airbase2.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Configs\ScenarioMode\HS.json">
+    <Content Include="Configs\**\*.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

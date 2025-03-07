@@ -199,8 +199,14 @@ namespace VtolVrRankedMissionSetup.VT
         {
             Type type = obj.GetType();
 
-            if (type.IsArray)
+            if (type.IsArray || (propertyInfo?.GetCustomAttribute<VTInlineArrayAttribute>() != null))
             {
+                if (type == typeof(Empty))
+                {
+                    // This object was null
+                    return;
+                }
+
                 SerializeArray((Array)obj, writer, indents, name!, propertyInfo!);
                 return;
             }
@@ -322,10 +328,32 @@ namespace VtolVrRankedMissionSetup.VT
         {
             string indentation = new('\t', indents);
 
-            PropertyInfo? idProp = value?.GetType().GetProperties().Single(p => p.GetCustomAttribute<IdAttribute>() != null);
-            object? id = idProp?.GetValue(value);
+            Type? valueType = value?.GetType();
+            object? id;
+            if (valueType?.IsArray ?? false)
+            {
+                id = string.Empty;
 
-            writer.WriteLine($"{indentation}{idLink.PropertyName} = {$"{idLink.ValuePrefix}{id}" ?? "null"}");
+                foreach (object obj in (Array)value!)
+                {
+                    PropertyInfo idProp = obj.GetType().GetProperties().Single(p => p.GetCustomAttribute<IdAttribute>() != null);
+                    id += $"{idProp.GetValue(obj)};";
+                }
+            }
+            else
+            {
+                PropertyInfo? idProp = valueType?.GetProperties().Single(p => p.GetCustomAttribute<IdAttribute>() != null);
+                id = idProp?.GetValue(value);
+            }
+
+            VTIgnoreAttribute? ignore = prop.GetCustomAttribute<VTIgnoreAttribute>();
+
+            if (id == null && ignore?.Condition == VTIgnoreCondition.WhenWritingNull)
+            {
+                return;
+            }
+
+            writer.WriteLine($"{indentation}{idLink.PropertyName} = {(id != null ? $"{idLink.ValuePrefix}{id}" : "null")}");
         }
 
         private static bool ShouldIgnoreValue(PropertyInfo prop, object? value, VTIgnoreAttribute vtIgnore)

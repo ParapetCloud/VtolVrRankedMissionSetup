@@ -10,10 +10,11 @@ using VtolVrRankedMissionSetup.VTS.UnitFields;
 namespace VtolVrRankedMissionSetup.VTS.UnitSpawners
 {
     [VTName("UnitSpawner")]
-    internal class MultiplayerSpawn : IUnitSpawner
+    public class MultiplayerSpawn : IUnitSpawner
     {
         public string UnitName { get; set; }
         public Vector3 GlobalPosition { get; set; }
+        [Id]
         public int UnitInstanceID { get; set; }
         public string UnitID { get; } = "MultiplayerSpawn";
         public Vector3 Rotation { get; set; }

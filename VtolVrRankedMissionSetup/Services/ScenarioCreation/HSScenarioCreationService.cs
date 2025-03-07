@@ -21,83 +21,43 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
             AirbaseLayoutConfig airbaseAConfig = layoutService.GetConfig(baseA.Layout ?? "HS", baseA.Prefab.Prefab);
             AirbaseLayoutConfig airbaseBConfig = layoutService.GetConfig(baseB.Layout ?? "HS", baseB.Prefab.Prefab);
 
-            List<Waypoint> waypoints = [];
             int objectiveCount = 0;
 
             scenario.Waypoints = new WaypointCollection();
 
-            Waypoint bullseye = new Waypoint()
-            {
-                Id = waypoints.Count,
-                GlobalPoint = (baseA.Prefab.GlobalPos + baseB.Prefab.GlobalPos) / 2.0f,
-                Name = "Bullseye",
-            };
-            waypoints.Add(bullseye);
+            Waypoint bullseye = scenario.Waypoints.CreateWaypoint("Bullseye", (baseA.Prefab.GlobalPos + baseB.Prefab.GlobalPos) / 2.0f);
             scenario.Waypoints.Bullseye = bullseye;
             scenario.Waypoints.BullseyeB = bullseye;
 
-            Waypoint teamABase = new()
-            {
-                Id = waypoints.Count,
-                GlobalPoint = MathHelpers.BaseToWorld(airbaseAConfig.Waypoints.Rtb, baseA),
-                Name = "TeamARTB"
-            };
-            waypoints.Add(teamABase);
-            scenario.RtbWpt = teamABase;
+            Waypoint teamABase = scenario.Waypoints.CreateWaypoint("TeamARTB", MathHelpers.BaseToWorld(airbaseAConfig.Waypoints.Rtb, baseA));
+            scenario.AlliedRTB = teamABase;
 
-            waypoints.Add(new Waypoint()
-            {
-                Id = waypoints.Count,
-                GlobalPoint = MathHelpers.BaseToWorld(airbaseAConfig.Waypoints.Protection, baseA),
-                Name = "spawncamp_A"
-            });
+            scenario.Waypoints.CreateWaypoint("spawncamp_A", MathHelpers.BaseToWorld(airbaseAConfig.Waypoints.Protection, baseA));
 
             foreach (Vector3 wp in airbaseAConfig.Waypoints.Perimeter)
             {
-                waypoints.Add(new Waypoint()
-                {
-                    Id = waypoints.Count,
-                    GlobalPoint = MathHelpers.BaseToWorld(wp, baseA),
-                    Name = "airbase_A"
-                });
+                scenario.Waypoints.CreateWaypoint("airbase_A", MathHelpers.BaseToWorld(wp, baseA));
             }
 
-            Waypoint teamBBase = new()
-            {
-                Id = waypoints.Count,
-                GlobalPoint = MathHelpers.BaseToWorld(airbaseBConfig.Waypoints.Rtb, baseB),
-                Name = "TeamBRTB"
-            };
-            waypoints.Add(teamBBase);
-            scenario.RtbWptB = teamBBase;
+            Waypoint teamBBase = scenario.Waypoints.CreateWaypoint("TeamBRTB", MathHelpers.BaseToWorld(airbaseBConfig.Waypoints.Rtb, baseB));
+            scenario.EnemyRTB = teamBBase;
 
-            waypoints.Add(new Waypoint()
-            {
-                Id = waypoints.Count,
-                GlobalPoint = MathHelpers.BaseToWorld(airbaseBConfig.Waypoints.Protection, baseB),
-                Name = "spawncamp_B"
-            });
+            scenario.Waypoints.CreateWaypoint("spawncamp_B", MathHelpers.BaseToWorld(airbaseBConfig.Waypoints.Protection, baseB));
 
             foreach (Vector3 wp in airbaseBConfig.Waypoints.Perimeter)
             {
-                waypoints.Add(new Waypoint()
-                {
-                    Id = waypoints.Count,
-                    GlobalPoint = MathHelpers.BaseToWorld(wp, baseB),
-                    Name = "airbase_B"
-                });
+                scenario.Waypoints.CreateWaypoint("airbase_B", MathHelpers.BaseToWorld(wp, baseB));
             }
-            scenario.Waypoints.Waypoints = waypoints.ToArray();
 
             List<Objective> objectives = [];
             objectives.Add(CreateObjectiveForKill(objectiveCount++, objectives.Count, teamBBase));
             objectives.Add(CreateObjectiveForSpawnProt(objectiveCount++, objectives.Count));
-            scenario.Objectives = objectives.ToArray();
+            scenario.AlliedObjectives = objectives.ToArray();
 
             List<Objective> objectivesb = [];
             objectivesb.Add(CreateObjectiveForKill(objectiveCount++, objectivesb.Count, teamABase));
             objectivesb.Add(CreateObjectiveForSpawnProt(objectiveCount++, objectivesb.Count));
-            scenario.ObjectivesOpfor = objectivesb.ToArray();
+            scenario.EnemyObjectives = objectivesb.ToArray();
         }
 
         static Objective CreateObjectiveForKill(int objectiveId, int orderId, Waypoint waypoint)

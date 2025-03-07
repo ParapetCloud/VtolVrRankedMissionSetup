@@ -28,7 +28,7 @@ namespace VtolVrRankedMissionSetup.VTS
         public double BaseBudget { get; set; } = 100000;
         public bool IsTraining { get; set; } = false;
         [IdLink("rtbWptID", ValuePrefix = "wpt:")]
-        public Waypoint RtbWpt { get; set; }
+        public Waypoint? AlliedRTB { get; set; }
         public string RefuelWptID { get; set; } = string.Empty;
         public uint MpPlayerCount { get; set; } = 16;
         public bool AutoPlayerCount { get; set; } = false;
@@ -40,7 +40,7 @@ namespace VtolVrRankedMissionSetup.VTS
         public double ScorePerKill_B { get; set; } = 0;
         public string MpBudgetMode { get; set; } = "Life";
         [IdLink("rtbWptID_B", ValuePrefix = "wpt:")]
-        public Waypoint RtbWptB { get; set; }
+        public Waypoint? EnemyRTB { get; set; }
         public string RefuelWptID_B { get; set; } = string.Empty;
         public bool SeparateBriefings { get; set; } = false;
         public double BaseBudgetB { get; set; } = 100000;
@@ -77,13 +77,13 @@ namespace VtolVrRankedMissionSetup.VTS
         [VTName("TRIGGER_EVENTS")]
         public object? TriggerEvents { get; set; }
         [VTName("OBJECTIVES")]
-        public Objective[] Objectives { get; set; }
+        public Objective[]? AlliedObjectives { get; set; }
         [VTName("OBJECTIVES_OPFOR")]
-        public Objective[] ObjectivesOpfor { get; set; }
+        public Objective[]? EnemyObjectives { get; set; }
         public object? StaticObjects { get; set; }
-        public object? Conditionals { get; set; }
+        public ConditionalCollection? Conditionals { get; set; }
         public object? ConditionalActions { get; set; }
-        public object? EventSequences { get; set; }
+        public SequenceCollection? EventSequences { get; set; }
         [VTName("BASES")]
         public BaseInfo[] Bases { get; set; }
         public object? GlobalValues { get; set; }
@@ -107,11 +107,14 @@ namespace VtolVrRankedMissionSetup.VTS
 
         private UnitGroups? _cachedGroups;
         [VTName("UNITGROUPS")]
-        public UnitGroups? UnitGroups 
+        public UnitGroups? UnitGroups
         {
             get
             {
-                _cachedGroups ??= new();
+                if (_cachedGroups != null)
+                    return _cachedGroups;
+
+                _cachedGroups = new();
 
                 if (Units != null)
                 {

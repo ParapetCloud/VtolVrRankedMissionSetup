@@ -12,5 +12,6 @@ namespace VtolVrRankedMissionSetup.Configs.ScenarioMode
         public string PrimaryDefaultLayout { get; set; }
         public string? SecondaryDefaultLayout { get; set; }
         public Dictionary<string, string> DefaultEquipment { get; set; }
+        public Dictionary<string, string>? ForcedEquipment { get; set; }
     }
 }
