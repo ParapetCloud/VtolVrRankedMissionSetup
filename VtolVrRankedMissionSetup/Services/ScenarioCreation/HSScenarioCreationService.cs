@@ -15,6 +15,9 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
         {
             base.SetUpScenario(scenario, teamABases, teamBBases);
 
+            scenario.CampaignID = "Headless Server";
+            scenario.ScenarioDescription = "24/7 BVR. Each team gets 8x F/A-26b, 2x EF-24, 3x T-55, 1x F-45";
+
             BaseInfo baseA = teamABases[0];
             BaseInfo baseB = teamBBases[0];
 

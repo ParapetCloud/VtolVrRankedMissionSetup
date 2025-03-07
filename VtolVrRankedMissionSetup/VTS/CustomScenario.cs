@@ -13,11 +13,11 @@ namespace VtolVrRankedMissionSetup.VTS
     public class CustomScenario
     {
         public string GameVersion { get; set; } = "1.10.1f1";
-        public string CampaignID { get; set; } = "Headless Server";
+        public string CampaignID { get; set; } = string.Empty;
         public uint CampaignOrderIdx { get; set; } = 0;
         public string ScenarioName { get; set; } = string.Empty;
         public string ScenarioID { get; set; } = string.Empty;
-        public string ScenarioDescription { get; set; } = "24/7 BVR. Each team gets 8x F/A-26b, 2x EF-24, 3x T-55, 1x F-45";
+        public string ScenarioDescription { get; set; } = string.Empty;
         public string MapID { get; set; } = string.Empty;
         public string Vehicle { get; set; } = "F-45A";
         public bool Multiplayer { get; set; } = true;
