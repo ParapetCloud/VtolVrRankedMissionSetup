@@ -16,5 +16,19 @@ namespace VtolVrRankedMissionSetup.VTS
         public int Delay { get; set; }
         public string NodeName { get; set; }
         public EventInfo EventInfo { get; set; }
+
+        public Event(string name, int delay = 0, Conditional? entryCondition = null, EventTarget[]? eventTargets = null)
+        {
+            NodeName = name;
+            Delay = delay;
+            Conditional = entryCondition;
+
+
+
+            EventInfo = new EventInfo()
+            {
+                EventTargets = eventTargets,
+            };
+        }
     }
 }

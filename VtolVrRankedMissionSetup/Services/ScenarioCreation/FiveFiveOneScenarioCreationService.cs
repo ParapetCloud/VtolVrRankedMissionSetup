@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using VtolVrRankedMissionSetup.VTS.UnitSpawners;
 using VtolVrRankedMissionSetup.VTS.Components;
 using System.Linq;
+using VtolVrRankedMissionSetup.VT.Methods;
 
 namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
 {
@@ -50,42 +51,28 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
 
             scenario.Conditionals = new ConditionalCollection();
 
-            Conditional teamAStartsLiving = scenario.Conditionals.CreateCondition();
-            teamAStartsLiving.Components = [CreateConditionalForLiving(teamASpawns)];
-            teamAStartsLiving.rootComponent = teamAStartsLiving.Components[0];
+            Conditional whenTeamAStartsLiving = scenario.Conditionals.CreateCondition(CreateConditionalComponentForLiving(teamASpawns));
+            Conditional whenTeamAIsDead = scenario.Conditionals.CreateCondition(CreateConditionalComponentForDead(teamASpawns));
 
-            Conditional teamAIsDead = scenario.Conditionals.CreateCondition();
-            teamAIsDead.Components = [CreateConditionalForDead(teamASpawns)];
-            teamAIsDead.rootComponent = teamAIsDead.Components[0];
-
-            Conditional teamBStartsLiving = scenario.Conditionals.CreateCondition();
-            teamBStartsLiving.Components = [CreateConditionalForLiving(teamBSpawns)];
-            teamBStartsLiving.rootComponent = teamBStartsLiving.Components[0];
-
-            Conditional teamBIsDead = scenario.Conditionals.CreateCondition();
-            teamBIsDead.Components = [CreateConditionalForDead(teamBSpawns)];
-            teamBIsDead.rootComponent = teamBIsDead.Components[0];
+            Conditional whenTeamBStartsLiving = scenario.Conditionals.CreateCondition(CreateConditionalComponentForLiving(teamBSpawns));
+            Conditional whenTeamBIsDead = scenario.Conditionals.CreateCondition(CreateConditionalComponentForDead(teamBSpawns));
 
             scenario.EventSequences = new SequenceCollection();
 
-            Sequence teamADead = scenario.EventSequences.CreateSequence();
-            teamADead.SequenceName = "Team A Dead?";
-            teamADead.StartImmediately = true;
+            Sequence teamADead = scenario.EventSequences.CreateSequence("Team A Dead?");
             teamADead.Events =
             [
-                CreateEventForAlive(teamAStartsLiving),
-                CreateEventForDead(teamAIsDead, "Team B Victory!///nPull chutes"),
-                CreateEventForReset(),
+                new Event("Wait for spawn", 5, whenTeamAStartsLiving),
+                new Event("Show text on death", 0, whenTeamAIsDead, [new EventTarget("Display Message", () => VT.Methods.System.DisplayMessage("Team B Victory!///nPull chutes", 10))]),
+                new Event("Reset Sequence", 240, null, [new EventTarget("Restart", () => Event_Sequences.Restart())]),
             ];
 
-            Sequence teamBDead = scenario.EventSequences.CreateSequence();
-            teamBDead.SequenceName = "Team B Dead?";
-            teamBDead.StartImmediately = true;
+            Sequence teamBDead = scenario.EventSequences.CreateSequence("Team B Dead?");
             teamBDead.Events =
             [
-                CreateEventForAlive(teamBStartsLiving),
-                CreateEventForDead(teamBIsDead, "Team A Victory!///nPull chutes"),
-                CreateEventForReset(),
+                new Event("Wait for spawn", 5, whenTeamBStartsLiving),
+                new Event("Show text on death", 0, whenTeamBIsDead, [new EventTarget("Display Message", () => VT.Methods.System.DisplayMessage("Team A Victory!///nPull chutes", 10))]),
+                new Event("Reset Sequence", 240, null, [new EventTarget("Restart", () => Event_Sequences.Restart())]),
             ];
         }
 
@@ -118,11 +105,10 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
             };
         }
 
-        private static IComponent CreateConditionalForLiving(IEnumerable<MultiplayerSpawn> mpSpawns)
+        private static IComponent CreateConditionalComponentForLiving(IEnumerable<MultiplayerSpawn> mpSpawns)
         {
             return new SCCUnitListComponent()
             { 
-                Id = 0,
                 MethodName = "SCC_NumAlive",
                 IsNot = false,
                 UnitList = mpSpawns.ToArray(),
@@ -133,11 +119,10 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
             };
         }
 
-        private static IComponent CreateConditionalForDead(IEnumerable<MultiplayerSpawn> mpSpawns)
+        private static IComponent CreateConditionalComponentForDead(IEnumerable<MultiplayerSpawn> mpSpawns)
         {
             return new SCCUnitListComponent()
             {
-                Id = 0,
                 MethodName = "SCC_NumAlive",
                 IsNot = false,
                 UnitList = mpSpawns.ToArray(),
@@ -145,100 +130,6 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
                     new MethodParameter("Equals"),
                     new MethodParameter("0"),
                 ]
-            };
-        }
-
-        private static Event CreateEventForAlive(Conditional conditional)
-        {
-            return new Event()
-            {
-                Conditional = conditional,
-                Delay = 5,
-                NodeName = "Wait For Spawn",
-                EventInfo = new(),
-            };
-        }
-
-        private static Event CreateEventForDead(Conditional conditional, string victoryText)
-        {
-            return new Event()
-            {
-                Conditional = conditional,
-                Delay = 0,
-                NodeName = "Show Text on death",
-                EventInfo = new()
-                {
-                    EventTargets = 
-                    [
-                        new EventTarget()
-                        {
-                            TargetType = "System",
-                            TargetID = 0,
-                            EventName = "Display Message",
-                            MethodName = "DisplayMessage",
-                            AltTargetIdx = -1,
-                            Params = 
-                            [
-                                new ParamInfo()
-                                {
-                                    Type = "System.String",
-                                    Value = victoryText,
-                                    Name = "Text",
-                                    Attrs = 
-                                    [
-                                        new ParamAttrInfo()
-                                        {
-                                            Type = "TextInputModes",
-                                            Data = "MultiLine",
-                                        },
-                                        new ParamAttrInfo()
-                                        {
-                                            Type = "System.Int32",
-                                            Data = "140",
-                                        },
-                                    ],
-                                },
-                                new ParamInfo()
-                                {
-                                    Type = "System.Single",
-                                    Value = "10",
-                                    Name = "Duration",
-                                    Attrs =
-                                    [
-                                        new ParamAttrInfo()
-                                        {
-                                            Type = "MinMax",
-                                            Data = "(1,9999)"
-                                        },
-                                    ],
-                                },
-                            ],
-                        },
-                    ],
-                },
-            };
-        }
-
-        private static Event CreateEventForReset()
-        {
-            return new Event()
-            {
-                Delay = 240,
-                NodeName = "Reset Sequence",
-                EventInfo = new EventInfo()
-                {
-                    EventTargets = 
-                    [
-                        new EventTarget()
-                        {
-                            TargetType = "Event_Sequences",
-                            TargetID = 0,
-                            EventName = "Restart",
-                            MethodName = "Restart",
-                            AltTargetIdx = -1,
-                        },
-                    ],
-                },
             };
         }
     }

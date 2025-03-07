@@ -20,11 +20,13 @@ namespace VtolVrRankedMissionSetup.VTS
             SequenceList = [];
         }
 
-        public Sequence CreateSequence()
+        public Sequence CreateSequence(string name, bool startsImmediately = true)
         {
             Sequence sequence = new()
             {
-                Id = SequenceList.Count
+                Id = SequenceList.Count,
+                SequenceName = name,
+                StartImmediately = startsImmediately,
             };
             SequenceList.Add(sequence);
 

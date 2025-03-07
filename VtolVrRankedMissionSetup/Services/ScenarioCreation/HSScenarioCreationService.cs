@@ -90,49 +90,7 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
                 ObjectiveType = ObjectiveType.Conditional
             };
 
-            objective.StartEvent.EventInfo.EventTarget = new ObjectiveEventTarget()
-            {
-                TargetType = "System",
-                TargetID = 1,
-                EventName = "Display Message",
-                MethodName = "DisplayMessage",
-                ParamInfos =
-                [
-                    new ObjectiveEventTarget.ParamInfo()
-                    {
-                        Type = "System.String",
-                        Value = "Approaching spawncamp protection zone",
-                        Name = "Text",
-                        ParamAttrInfos =
-                        [
-                            new ObjectiveEventTarget.ParamAttrInfo()
-                            {
-                                Type = "TextInputModes",
-                                Data = "MultiLine",
-                            },
-                            new ObjectiveEventTarget.ParamAttrInfo()
-                            {
-                                Type = "System.Int32",
-                                Data = "140",
-                            }
-                        ],
-                    },
-                    new ObjectiveEventTarget.ParamInfo()
-                    {
-                        Type = "System.Single",
-                        Value = "1",
-                        Name = "Duration",
-                        ParamAttrInfos =
-                        [
-                            new ObjectiveEventTarget.ParamAttrInfo()
-                            {
-                                Type = "MinMax",
-                                Data = "(1,9999)",
-                            },
-                        ],
-                    }
-                ],
-            };
+            objective.StartEvent = new ObjectiveEvent("Start Event", [new EventTarget("Display spawncamp warning", () => VT.Methods.System.DisplayMessage("Approaching spawncamp protection zone", 1))]);
 
             return objective;
         }

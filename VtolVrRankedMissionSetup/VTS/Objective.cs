@@ -22,11 +22,11 @@ namespace VtolVrRankedMissionSetup.VTS
         public ObjectiveStartMode StartMode { get; set; }
         public ObjectiveType ObjectiveType { get; set; }
         [VTName("startEvent")]
-        public ObjectiveEvent StartEvent { get; set; } = new() { EventInfo = new() { EventName = "Start Event" } };
+        public ObjectiveEvent StartEvent { get; set; } = new("Start Event");
         [VTName("failEvent")]
-        public ObjectiveEvent FailEvent { get; set; } = new() { EventInfo = new() { EventName = "Failed Event" } };
+        public ObjectiveEvent FailEvent { get; set; } = new("Failed Event");
         [VTName("completeEvent")]
-        public ObjectiveEvent CompleteEvent { get; set; } = new() { EventInfo = new() { EventName = "Completed Event" } };
+        public ObjectiveEvent CompleteEvent { get; set; } = new("Completed Event");
         [VTName("fields")]
         public ObjectiveFields Fields { get; set; } = new();
     }

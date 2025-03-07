@@ -8,6 +8,15 @@ namespace VtolVrRankedMissionSetup.VTS
 {
     public class ObjectiveEvent
     {
-        public ObjectiveEventInfo EventInfo { get; set; }
+        public EventInfo EventInfo { get; set; }
+
+        public ObjectiveEvent(string eventInfoName, EventTarget[]? eventTargets = null)
+        {
+            EventInfo = new EventInfo()
+            {
+                EventName = eventInfoName,
+                EventTargets = eventTargets,
+            };
+        }
     }
 }

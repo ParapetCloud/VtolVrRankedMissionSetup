@@ -20,11 +20,18 @@ namespace VtolVrRankedMissionSetup.VTS
             ConditionalList = [];
         }
 
-        public Conditional CreateCondition()
+        public Conditional CreateCondition(params IComponent[] components)
         {
+            for (int i = 0; i < components.Length; ++i)
+            {
+                components[i].Id = i;
+            }
+
             Conditional conditional = new()
             {
-                Id = ConditionalList.Count
+                Id = ConditionalList.Count,
+                Components = components,
+                rootComponent = components[0],
             };
             ConditionalList.Add(conditional);
 

@@ -105,16 +105,12 @@ namespace VtolVrRankedMissionSetup.VTS
             Bases = infos.ToArray();
         }
 
-        private UnitGroups? _cachedGroups;
         [VTName("UNITGROUPS")]
         public UnitGroups? UnitGroups
         {
             get
             {
-                if (_cachedGroups != null)
-                    return _cachedGroups;
-
-                _cachedGroups = new();
+                UnitGroups groups = new();
 
                 if (Units != null)
                 {
@@ -126,8 +122,8 @@ namespace VtolVrRankedMissionSetup.VTS
                         string[] ids = mpSpawn.MultiplayerSpawnFields.UnitGroup.Split(':');
 
                         UnitGroup? group = ids[0] == "Allied" ?
-                            (_cachedGroups.Allied ??= new()) :
-                            (_cachedGroups.Enemy ??= new());
+                            (groups.Allied ??= new()) :
+                            (groups.Enemy ??= new());
 
                         Type groupType = typeof(UnitGroup);
 
@@ -147,7 +143,7 @@ namespace VtolVrRankedMissionSetup.VTS
                     }
                 }
 
-                return _cachedGroups;
+                return groups;
             }
         }
     }

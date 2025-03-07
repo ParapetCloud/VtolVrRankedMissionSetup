@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using VtolVrRankedMissionSetup.VT;
+﻿using VtolVrRankedMissionSetup.VT;
 
 namespace VtolVrRankedMissionSetup.VTS
 {
@@ -12,6 +7,26 @@ namespace VtolVrRankedMissionSetup.VTS
         public string EventName { get; set; }
 
         [VTInlineArray]
-        public EventTarget[] EventTargets { get; set; }
+        public EventTarget[]? EventTargets { get; set; }
+
+        public EventInfo()
+        {
+            EventName = string.Empty;
+        }
+
+        public EventInfo(EventTarget[]? eventTargets)
+        {
+            EventName = string.Empty;
+
+            if (eventTargets != null)
+            {
+                for (int i = 0; i < eventTargets.Length; ++i)
+                {
+                    eventTargets[i].TargetID = i;
+                }
+            }
+
+            EventTargets = eventTargets;
+        }
     }
 }

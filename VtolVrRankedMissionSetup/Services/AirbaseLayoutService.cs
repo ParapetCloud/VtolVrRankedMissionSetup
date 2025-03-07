@@ -16,7 +16,7 @@ namespace VtolVrRankedMissionSetup.Services
         {
             string airbasePath = $"{layout}/{prefab}";
 
-            if (!configs.TryGetValue(airbasePath, out AirbaseLayoutConfig config))
+            if (!configs.TryGetValue(airbasePath, out AirbaseLayoutConfig? config))
             {
                 config = JsonSerializer.Deserialize<AirbaseLayoutConfig>(File.ReadAllText($"Configs/AirbaseLayout/{airbasePath}.json"), ConfigSerialization.SerializerOptions)!;
                 configs.Add(airbasePath, config);
