@@ -75,6 +75,13 @@ namespace VtolVrRankedMissionSetup.Services
                 spawn.MultiplayerSpawnFields.Equipment = scenarioMode.ActiveMode.DefaultEquipment[vehicle];
                 spawn.MultiplayerSpawnFields.Slots = slots;
 
+                string? forceEquipment = scenarioMode.ActiveMode.ForcedEquipment?[vehicle];
+
+                if (!string.IsNullOrWhiteSpace(forceEquipment))
+                {
+                    spawn.MultiplayerSpawnFields.ForcedEquipsList = forceEquipment;
+                }
+
                 spawners.Add(spawn);
             }
         }

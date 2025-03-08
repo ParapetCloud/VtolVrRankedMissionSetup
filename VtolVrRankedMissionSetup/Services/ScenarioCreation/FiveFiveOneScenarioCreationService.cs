@@ -87,6 +87,7 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
             AddAircraftToBase(baseInfo, layoutConfig.F45, "F-45A", spawners, $"{team}:Golf");
             AddAircraftToBase(baseInfo, layoutConfig.F24, "EF-24G", spawners, $"{team}:Echo", 2);
             AddAircraftToBase(baseInfo, layoutConfig.T55, "T-55", spawners, $"{team}:Foxtrot", 1);
+            AddAircraftToBase(baseInfo, layoutConfig.F16, "F-16", spawners, $"{team}:Foxtrot", 1);
         }
 
         private static Objective CreateObjectiveForWin(int objectiveId, int orderId, Waypoint waypoint)

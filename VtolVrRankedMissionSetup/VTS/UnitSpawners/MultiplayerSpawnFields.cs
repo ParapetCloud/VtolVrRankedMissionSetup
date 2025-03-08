@@ -18,12 +18,17 @@ namespace VtolVrRankedMissionSetup.VTS.UnitFields
 		public bool RtbIsSpawn {get; set; } = false;
 		public bool LimitedLives {get; set; } = false;
 		public uint LifeCount {get; set; } = 1;
-		public bool B_eqAssignmentMode {get; set; } = false;
 		public double CostToSpawn {get; set; } = 0;
 		public string LiveryRef {get; set; } = "0;";
 		public bool ReceiveFriendlyDamage {get; set; } = true;
 
         [VTIgnore(Condition = VTIgnoreCondition.WhenWritingDefault)]
         public int Slots { get; set; }
+
+        [VTIgnore(Condition = VTIgnoreCondition.WhenWritingNull)]
+        public string? ForcedEquipsList { get; set; }
+
+		[VTName("b_eqAssignmentMode")]
+		public bool ForceEquipment => !string.IsNullOrWhiteSpace(ForcedEquipsList);
     }
 }

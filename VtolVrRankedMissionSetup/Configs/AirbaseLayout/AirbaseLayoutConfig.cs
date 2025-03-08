@@ -12,6 +12,7 @@ namespace VtolVrRankedMissionSetup.Configs.AirbaseLayout
         public AircraftConfig[]? F45 { get; set; }
         public AircraftConfig[]? F24 { get; set; }
         public AircraftConfig[]? T55 { get; set; }
+        public AircraftConfig[]? F16 { get; set; }
 
         public WaypointConfig Waypoints { get; set; }
     }
