@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using VtolVrRankedMissionSetup.VT;
@@ -20,18 +21,20 @@ namespace VtolVrRankedMissionSetup.VTS
             ConditionalList = [];
         }
 
-        public Conditional CreateCondition(params IComponent[] components)
+        public Conditional CreateCondition(Expression<Func<bool>> method)
         {
-            for (int i = 0; i < components.Length; ++i)
+            IComponent root = Component.CreateComponents(method, out List<IComponent> localComps);
+
+            for (int i = 0; i < localComps.Count; ++i)
             {
-                components[i].Id = i;
+                localComps[i].Id = i;
             }
 
             Conditional conditional = new()
             {
                 Id = ConditionalList.Count,
-                Components = components,
-                rootComponent = components[0],
+                Components = localComps.ToArray(),
+                rootComponent = root,
             };
             ConditionalList.Add(conditional);
 

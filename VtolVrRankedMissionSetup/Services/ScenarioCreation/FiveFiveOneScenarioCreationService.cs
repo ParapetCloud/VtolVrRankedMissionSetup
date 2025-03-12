@@ -28,8 +28,7 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
             AirbaseLayoutConfig airbaseAConfig = layoutService.GetConfig(baseA.Layout ?? "551", baseA.Prefab.Prefab);
             AirbaseLayoutConfig airbaseBConfig = layoutService.GetConfig(baseB.Layout ?? "551", baseB.Prefab.Prefab);
 
-            int objectiveCount = 0;
-
+            // waypoints
             scenario.Waypoints = new WaypointCollection();
 
             Waypoint bullseye = scenario.Waypoints.CreateWaypoint("Bullseye", (baseA.Prefab.GlobalPos + baseB.Prefab.GlobalPos) / 2.0f);
@@ -39,25 +38,23 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
             scenario.AlliedRTB = scenario.Waypoints.CreateWaypoint("Team A RTB", MathHelpers.BaseToWorld(airbaseAConfig.Waypoints.Rtb, baseA));
             scenario.EnemyRTB = scenario.Waypoints.CreateWaypoint("Team B RTB", MathHelpers.BaseToWorld(airbaseBConfig.Waypoints.Rtb, baseB));
 
+            // objectives
+            int objectiveCount = 0;
             scenario.AlliedObjectives = [CreateObjectiveForWin(objectiveCount++, 0, bullseye)];
             scenario.EnemyObjectives = [CreateObjectiveForWin(objectiveCount++, 0, bullseye)];
+
+            // sequences
+            scenario.Conditionals = new ConditionalCollection();
+            scenario.EventSequences = new SequenceCollection();
 
             IEnumerable<MultiplayerSpawn> spawns = scenario.Units!
                 .Select(u => (u as MultiplayerSpawn)!)
                 .Where(u => u != null);
 
-            IEnumerable<MultiplayerSpawn> teamASpawns = spawns.Where(mp => mp.MultiplayerSpawnFields.UnitGroup.StartsWith("Allied"));
-            IEnumerable<MultiplayerSpawn> teamBSpawns = spawns.Where(mp => mp.MultiplayerSpawnFields.UnitGroup.StartsWith("Enemy"));
+            IEnumerable<IUnitSpawner> teamASpawns = spawns.Where(mp => mp.MultiplayerSpawnFields.UnitGroup.StartsWith("Allied"));
 
-            scenario.Conditionals = new ConditionalCollection();
-
-            Conditional whenTeamAStartsLiving = scenario.Conditionals.CreateCondition(CreateConditionalComponentForLiving(teamASpawns));
-            Conditional whenTeamAIsDead = scenario.Conditionals.CreateCondition(CreateConditionalComponentForDead(teamASpawns));
-
-            Conditional whenTeamBStartsLiving = scenario.Conditionals.CreateCondition(CreateConditionalComponentForLiving(teamBSpawns));
-            Conditional whenTeamBIsDead = scenario.Conditionals.CreateCondition(CreateConditionalComponentForDead(teamBSpawns));
-
-            scenario.EventSequences = new SequenceCollection();
+            Conditional whenTeamAStartsLiving = scenario.Conditionals.CreateCondition(() => SCCUnitList.SCC_NumAlive(teamASpawns) > 0);
+            Conditional whenTeamAIsDead = scenario.Conditionals.CreateCondition(() => SCCUnitList.SCC_NumAlive(teamASpawns) == 0);
 
             Sequence teamADead = scenario.EventSequences.CreateSequence("Team A Dead?");
             teamADead.Events =
@@ -66,6 +63,11 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
                 new Event("Show text on death", 0, whenTeamAIsDead, [new EventTarget("Display Message", () => VT.Methods.System.DisplayMessage("Team B Victory!///nPull chutes", 10))]),
                 new Event("Reset Sequence", 240, null, [new EventTarget("Restart", () => Event_Sequences.Restart())]),
             ];
+
+            IEnumerable<IUnitSpawner> teamBSpawns = spawns.Where(mp => mp.MultiplayerSpawnFields.UnitGroup.StartsWith("Enemy"));
+
+            Conditional whenTeamBStartsLiving = scenario.Conditionals.CreateCondition(() => SCCUnitList.SCC_NumAlive(teamBSpawns) > 0);
+            Conditional whenTeamBIsDead = scenario.Conditionals.CreateCondition(() => SCCUnitList.SCC_NumAlive(teamBSpawns) == 0);
 
             Sequence teamBDead = scenario.EventSequences.CreateSequence("Team B Dead?");
             teamBDead.Events =
@@ -103,34 +105,6 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
                 AutoSetWaypoint = false,
                 StartMode = ObjectiveStartMode.Immediate,
                 ObjectiveType = ObjectiveType.Conditional,
-            };
-        }
-
-        private static IComponent CreateConditionalComponentForLiving(IEnumerable<MultiplayerSpawn> mpSpawns)
-        {
-            return new SCCUnitListComponent()
-            { 
-                MethodName = "SCC_NumAlive",
-                IsNot = false,
-                UnitList = mpSpawns.ToArray(),
-                MethodParameters = [
-                    new MethodParameter("Greater_Than"),
-                    new MethodParameter("0"),
-                ]
-            };
-        }
-
-        private static IComponent CreateConditionalComponentForDead(IEnumerable<MultiplayerSpawn> mpSpawns)
-        {
-            return new SCCUnitListComponent()
-            {
-                MethodName = "SCC_NumAlive",
-                IsNot = false,
-                UnitList = mpSpawns.ToArray(),
-                MethodParameters = [
-                    new MethodParameter("Equals"),
-                    new MethodParameter("0"),
-                ]
             };
         }
     }
