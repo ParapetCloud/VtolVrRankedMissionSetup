@@ -12,7 +12,7 @@
     <Grid
         x:Name="MainGrid"
         Grid.Column="1"
-        Background="AliceBlue">
+        Background="#4F0010FF">
 
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup>
@@ -20,7 +20,7 @@
 
                 <VisualState x:Name="Enemy">
                     <VisualState.Setters>
-                        <Setter Target="MainGrid.Background" Value="Pink" />
+                        <Setter Target="MainGrid.Background" Value="#4FFF0000" />
                         <Setter Target="Label.Text" Value="Enemy" />
                     </VisualState.Setters>
                 </VisualState>
