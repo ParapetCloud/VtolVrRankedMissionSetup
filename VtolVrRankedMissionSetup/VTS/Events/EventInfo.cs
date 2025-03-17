@@ -1,6 +1,6 @@
 ﻿using VtolVrRankedMissionSetup.VT;
 
-namespace VtolVrRankedMissionSetup.VTS
+namespace VtolVrRankedMissionSetup.VTS.Events
 {
     public class EventInfo
     {

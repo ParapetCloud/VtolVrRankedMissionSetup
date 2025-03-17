@@ -6,13 +6,14 @@ using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using VtolVrRankedMissionSetup.VT;
+using VtolVrRankedMissionSetup.VT.Methods;
 using VtolVrRankedMissionSetup.VTS.Components;
 using VtolVrRankedMissionSetup.VTS.UnitSpawners;
 
 namespace VtolVrRankedMissionSetup.VTS
 {
     [VTName("COMP")]
-    public class SCCUnitListComponent : IComponent
+    public class SCCUnitGroupComponent : IComponent
     {
         [Id]
         public int Id { get; set; }
@@ -21,8 +22,7 @@ namespace VtolVrRankedMissionSetup.VTS
 
         public Vector3 UiPos { get; set; }
 
-        [IdLink("unitList")]
-        public IUnitSpawner[] UnitList { get; set; }
+        public string UnitGroup { get; set; }
 
         public string MethodName { get; set; }
         public bool IsNot { get; set; }
@@ -30,12 +30,12 @@ namespace VtolVrRankedMissionSetup.VTS
         [VTInlineArray]
         public MethodParameter[] MethodParameters { get; set; }
 
-        public SCCUnitListComponent()
+        public SCCUnitGroupComponent()
         {
             Type = "SCCUnitList";
         }
 
-        public SCCUnitListComponent(BinaryExpression binaryExpression)
+        public SCCUnitGroupComponent(BinaryExpression binaryExpression)
         {
             Type = "SCCUnitList";
 
@@ -43,9 +43,9 @@ namespace VtolVrRankedMissionSetup.VTS
 
             MethodName = mce.Method.Name!;
 
-            if (MethodName == "SCC_NumAlive")
+            if (MethodName == nameof(SCCUnitGroup.NumAirborne))
             {
-                UnitList = ((IEnumerable<IUnitSpawner>)LinqExpressionHelpers.GetValue(mce.Arguments[0])!).ToArray();
+                UnitGroup = (string)LinqExpressionHelpers.GetValue(mce.Arguments[0])!;
 
                 MethodParameters = [
                     binaryExpression.NodeType switch
@@ -57,24 +57,6 @@ namespace VtolVrRankedMissionSetup.VTS
                     },
                     new MethodParameter(((ConstantExpression)binaryExpression.Right).Value!.ToString()!)
                 ];
-            }
-            else if (MethodName == "SCC_NumNearWP")
-            {
-                UnitList = ((IEnumerable<IUnitSpawner>)LinqExpressionHelpers.GetValue(mce.Arguments[0])!).ToArray();
-
-                MethodParameters = [
-                    new MethodParameter(((Waypoint)LinqExpressionHelpers.GetValue(mce.Arguments[1])!).Id.ToString()),
-                    new MethodParameter(LinqExpressionHelpers.GetValue(mce.Arguments[2])!.ToString()!),
-                    binaryExpression.NodeType switch
-                    {
-                        ExpressionType.GreaterThan => new MethodParameter("Greater_Than"),
-                        ExpressionType.LessThan => new MethodParameter("Less_Than"),
-                        ExpressionType.Equal => new MethodParameter("Equals"),
-                        _ => throw new NotSupportedException($"{binaryExpression.NodeType} is not supported"),
-                    },
-                    new MethodParameter(((ConstantExpression)binaryExpression.Right).Value!.ToString()!)
-                ];
-
             }
             else
             {

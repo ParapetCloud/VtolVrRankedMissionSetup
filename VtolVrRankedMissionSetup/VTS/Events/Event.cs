@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using VtolVrRankedMissionSetup.VT;
 
-namespace VtolVrRankedMissionSetup.VTS
+namespace VtolVrRankedMissionSetup.VTS.Events
 {
     [VTName("EVENT")]
     public class Event
@@ -13,17 +9,15 @@ namespace VtolVrRankedMissionSetup.VTS
         [VTIgnore(Condition = VTIgnoreCondition.WhenWritingNull)]
         [IdLink("conditional")]
         public Conditional? Conditional { get; set; }
-        public int Delay { get; set; }
+        public TimeSpan Delay { get; set; }
         public string NodeName { get; set; }
         public EventInfo EventInfo { get; set; }
 
-        public Event(string name, int delay = 0, Conditional? entryCondition = null, EventTarget[]? eventTargets = null)
+        public Event(string name, TimeSpan delay, Conditional? entryCondition = null, EventTarget[]? eventTargets = null)
         {
             NodeName = name;
             Delay = delay;
             Conditional = entryCondition;
-
-
 
             EventInfo = new EventInfo()
             {

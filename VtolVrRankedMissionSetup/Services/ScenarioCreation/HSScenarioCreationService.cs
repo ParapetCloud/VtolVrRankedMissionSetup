@@ -3,6 +3,7 @@ using System.Numerics;
 using VtolVrRankedMissionSetup.VTS;
 using VtolVrRankedMissionSetup.Configs.AirbaseLayout;
 using Microsoft.Extensions.DependencyInjection;
+using VtolVrRankedMissionSetup.VTS.Events;
 
 namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
 {

@@ -84,7 +84,9 @@ namespace VtolVrRankedMissionSetup.VTS
 
                         if (methodContainer == typeof(SCCUnitList))
                             return new SCCUnitListComponent(binaryExpression);
-                        
+                        if (methodContainer == typeof(SCCUnitGroup))
+                            return new SCCUnitGroupComponent(binaryExpression);
+
                         throw new NotSupportedException($"{methodContainer} is not supported");
                     }
             }

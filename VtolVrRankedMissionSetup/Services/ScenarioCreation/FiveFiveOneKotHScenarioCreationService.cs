@@ -1,21 +1,20 @@
 ﻿using System.Collections.Generic;
-using System.Numerics;
 using VtolVrRankedMissionSetup.VTS;
 using VtolVrRankedMissionSetup.Configs.AirbaseLayout;
 using Microsoft.Extensions.DependencyInjection;
 using VtolVrRankedMissionSetup.VTS.UnitSpawners;
-using VtolVrRankedMissionSetup.VTS.Components;
 using System.Linq;
 using VtolVrRankedMissionSetup.VT.Methods;
 using System;
 using VtolVrRankedMissionSetup.VTS.Events;
+using Microsoft.UI.Composition.Scenes;
 
 namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
 {
     [Service(ServiceLifetime.Singleton)]
-    public class FiveFiveOneScenarioCreationService : ScenarioCreationService
+    public class FiveFiveOneKotHScenarioCreationService : ScenarioCreationService
     {
-        public FiveFiveOneScenarioCreationService(ScenarioModeService scenarioMode, AirbaseLayoutService layoutService) : base(scenarioMode, layoutService) { }
+        public FiveFiveOneKotHScenarioCreationService(ScenarioModeService scenarioMode, AirbaseLayoutService layoutService) : base(scenarioMode, layoutService) { }
 
         public override void SetUpScenario(CustomScenario scenario, BaseInfo[] teamABases, BaseInfo[] teamBBases)
         {
@@ -23,6 +22,7 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
 
             scenario.CampaignID = "551";
             scenario.ScenarioDescription = "Ringtail's 5-5-1";
+            scenario.Conditionals = new ConditionalCollection();
 
             BaseInfo baseA = teamABases[0];
             BaseInfo baseB = teamBBases[0];
@@ -30,7 +30,25 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
             AirbaseLayoutConfig airbaseAConfig = layoutService.GetConfig(baseA.Layout ?? "551", baseA.Prefab.Prefab);
             AirbaseLayoutConfig airbaseBConfig = layoutService.GetConfig(baseB.Layout ?? "551", baseB.Prefab.Prefab);
 
-            // waypoints
+            IEnumerable<MultiplayerSpawn> spawns = scenario.Units!
+                .Select(u => (u as MultiplayerSpawn)!)
+                .Where(u => u != null);
+
+            IEnumerable<IUnitSpawner> teamASpawns = spawns.Where(mp => mp.MultiplayerSpawnFields.UnitGroup.StartsWith("Allied"));
+            IEnumerable<IUnitSpawner> teamBSpawns = spawns.Where(mp => mp.MultiplayerSpawnFields.UnitGroup.StartsWith("Enemy"));
+
+            //////////////////////////////////////////////////////////////
+            // Global Values
+            //////////////////////////////////////////////////////////////
+            scenario.GlobalValues = new();
+
+            GlobalValue teamATime = scenario.GlobalValues.CreateGlobalValue("teamATime");
+            GlobalValue teamBTime = scenario.GlobalValues.CreateGlobalValue("teamBTime");
+            GlobalValue targetTime = scenario.GlobalValues.CreateGlobalValue("targetTime", 300);
+
+            //////////////////////////////////////////////////////////////
+            // Waypoints
+            //////////////////////////////////////////////////////////////
             scenario.Waypoints = new WaypointCollection();
 
             Waypoint bullseye = scenario.Waypoints.CreateWaypoint("Bullseye", (baseA.Prefab.GlobalPos + baseB.Prefab.GlobalPos) / 2.0f);
@@ -40,20 +58,31 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
             scenario.AlliedRTB = scenario.Waypoints.CreateWaypoint("Team A RTB", MathHelpers.BaseToWorld(airbaseAConfig.Waypoints.Rtb, baseA));
             scenario.EnemyRTB = scenario.Waypoints.CreateWaypoint("Team B RTB", MathHelpers.BaseToWorld(airbaseBConfig.Waypoints.Rtb, baseB));
 
-            // objectives
+            //////////////////////////////////////////////////////////////
+            // Objectives
+            //////////////////////////////////////////////////////////////
             int objectiveCount = 0;
             scenario.AlliedObjectives = [CreateObjectiveForWin(objectiveCount++, 0, bullseye)];
             scenario.EnemyObjectives = [CreateObjectiveForWin(objectiveCount++, 0, bullseye)];
 
-            // sequences
-            scenario.Conditionals = new ConditionalCollection();
+            //////////////////////////////////////////////////////////////
+            // Conditional Actions
+            //////////////////////////////////////////////////////////////
+
+            scenario.ConditionalActions = new();
+            ConditionalAction KothPoints = scenario.ConditionalActions.CreateConditionalAction(
+                "KotH Points",
+                () => SCCUnitList.SCC_NumNearWP(teamASpawns, bullseye, 5000) > 0 && SCCUnitList.SCC_NumNearWP(teamBSpawns, bullseye, 5000) > 0,
+                [/* doNothing */],
+                [() => SCCUnitList.SCC_NumNearWP(teamASpawns, bullseye, 5000) > 0, /*      */ () => SCCUnitList.SCC_NumNearWP(teamBSpawns, bullseye, 5000) > 0],
+                [[new EventTarget("", () => VT.Methods.System.IncrementValue(teamATime, 1))], [new EventTarget("", () => VT.Methods.System.IncrementValue(teamBTime, 1))]],
+                [/* doNothing */]);
+
+            //////////////////////////////////////////////////////////////
+            // Sequences
+            //////////////////////////////////////////////////////////////
             scenario.EventSequences = new SequenceCollection();
 
-            IEnumerable<MultiplayerSpawn> spawns = scenario.Units!
-                .Select(u => (u as MultiplayerSpawn)!)
-                .Where(u => u != null);
-
-            IEnumerable<IUnitSpawner> teamASpawns = spawns.Where(mp => mp.MultiplayerSpawnFields.UnitGroup.StartsWith("Allied"));
 
             Conditional whenTeamAStartsLiving = scenario.Conditionals.CreateCondition(() => SCCUnitList.SCC_NumAlive(teamASpawns) > 0);
             Conditional whenTeamAIsDead = scenario.Conditionals.CreateCondition(() => SCCUnitList.SCC_NumAlive(teamASpawns) == 0);
@@ -66,8 +95,6 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
                 new Event("Reset Sequence", TimeSpan.FromMinutes(4), null, [new EventTarget("Restart", () => teamADead.Restart())]),
             ];
 
-            IEnumerable<IUnitSpawner> teamBSpawns = spawns.Where(mp => mp.MultiplayerSpawnFields.UnitGroup.StartsWith("Enemy"));
-
             Conditional whenTeamBStartsLiving = scenario.Conditionals.CreateCondition(() => SCCUnitList.SCC_NumAlive(teamBSpawns) > 0);
             Conditional whenTeamBIsDead = scenario.Conditionals.CreateCondition(() => SCCUnitList.SCC_NumAlive(teamBSpawns) == 0);
 
@@ -78,6 +105,25 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
                 new Event("Show text on death", TimeSpan.Zero, whenTeamBIsDead, [new EventTarget("Display Message", () => VT.Methods.System.DisplayMessage("Team A Victory!///nPull chutes", 10))]),
                 new Event("Reset Sequence", TimeSpan.FromMinutes(4), null, [new EventTarget("Restart", () => teamBDead.Restart())]),
             ];
+
+            Event_Sequences kothCheck = scenario.EventSequences.CreateSequence("KotH check", false);
+            kothCheck.Events =
+            [
+                new Event("Check", TimeSpan.FromSeconds(0), null, [new EventTarget("Check control", () => VT.Methods.System.FireConditionalAction(KothPoints))]),
+                new Event("Reset", TimeSpan.FromSeconds(1), null, [new EventTarget("Restart", () => kothCheck.Restart())]),
+            ];
+
+            //////////////////////////////////////////////////////////////
+            // Trigger Events
+            //////////////////////////////////////////////////////////////
+            scenario.TriggerEvents = new();
+            scenario.TriggerEvents.CreateConditionalTriggerEvent(
+                "Someone takes off",
+                true,
+                scenario.Conditionals.CreateCondition(() => SCCUnitGroup.NumAirborne("Allied:Foxtrot") > 0),
+                [new EventTarget("enable KotH", () => kothCheck.Begin())]
+                );
+
         }
 
         protected override void PopulateAirbase(BaseInfo baseInfo, List<IUnitSpawner> spawners, Team team)

@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using VtolVrRankedMissionSetup.VT;
+using VtolVrRankedMissionSetup.VTS.Events;
 
 namespace VtolVrRankedMissionSetup.VTS
 {
     [VTName("SEQUENCE")]
-    public class Sequence
+    public class Event_Sequences
     {
         [Id]
         public int Id { get; set; }
@@ -18,5 +15,9 @@ namespace VtolVrRankedMissionSetup.VTS
 
         [VTInlineArray()]
         public Event[] Events { get; set; }
+
+        public void Begin() => throw new NotSupportedException("You can't actually call this");
+        public void Stop() => throw new NotSupportedException("You can't actually call this");
+        public void Restart() => throw new NotSupportedException("You can't actually call this");
     }
 }

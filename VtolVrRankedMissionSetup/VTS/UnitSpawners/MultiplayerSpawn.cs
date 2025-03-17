@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Numerics;
 using VtolVrRankedMissionSetup.VT;
 using VtolVrRankedMissionSetup.VTS.UnitFields;
 
@@ -18,10 +13,10 @@ namespace VtolVrRankedMissionSetup.VTS.UnitSpawners
         public int UnitInstanceID { get; set; }
         public string UnitID { get; } = "MultiplayerSpawn";
         public Vector3 Rotation { get; set; }
-        public double SpawnChance { get; set; } = 100;
         public Vector3 LastValidPlacement { get => GlobalPosition; }
         public string EditorPlacementMode { get; set; } = "Ground";
-        public string SpawnFlags { get; set; } = string.Empty;
+        public bool OnCarrier { get; set; }
+        public bool mpSelectEnabled { get; set; } = true;
 
         public IUnitFields? UnitFields { get => MultiplayerSpawnFields; }
 

@@ -1,18 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using VtolVrRankedMissionSetup.VT;
 using VtolVrRankedMissionSetup.VTM;
+using VtolVrRankedMissionSetup.VTS.Events;
 using VtolVrRankedMissionSetup.VTS.UnitSpawners;
 
 namespace VtolVrRankedMissionSetup.VTS
 {
     public class CustomScenario
     {
-        public string GameVersion { get; set; } = "1.10.1f1";
+        public string GameVersion { get; set; } = "1.11.4f1";
         public string CampaignID { get; set; } = string.Empty;
         public uint CampaignOrderIdx { get; set; } = 0;
         public string ScenarioName { get; set; } = string.Empty;
@@ -67,43 +65,15 @@ namespace VtolVrRankedMissionSetup.VTS
 
         [VTName("WEATHER_PRESETS")]
         public object? WeatherPresets { get; set; }
+
         [VTName("UNITS")]
         public IUnitSpawner[]? Units { get; set; }
+
         [VTName("PATHS")]
         public object? Paths { get; set; }
+
         [VTName("WAYPOINTS")]
         public WaypointCollection? Waypoints { get; set; }
-        public object? TimedEventGroups { get; set; }
-        [VTName("TRIGGER_EVENTS")]
-        public object? TriggerEvents { get; set; }
-        [VTName("OBJECTIVES")]
-        public Objective[]? AlliedObjectives { get; set; }
-        [VTName("OBJECTIVES_OPFOR")]
-        public Objective[]? EnemyObjectives { get; set; }
-        public object? StaticObjects { get; set; }
-        public ConditionalCollection? Conditionals { get; set; }
-        public object? ConditionalActions { get; set; }
-        public SequenceCollection? EventSequences { get; set; }
-        [VTName("BASES")]
-        public BaseInfo[] Bases { get; set; }
-        public object? GlobalValues { get; set; }
-        public object? Briefing { get; set; }
-        public object? Briefing_B { get; set; }
-
-        public CustomScenario(VTMapCustom map)
-        {
-            MapID = map.MapID;
-
-            List<BaseInfo> infos = [];
-            foreach (StaticPrefab prefab in map.StaticPrefabs)
-            {
-                if (!prefab.Prefab.StartsWith("airbase"))
-                    continue;
-
-                infos.Add(new BaseInfo(prefab));
-            }
-            Bases = infos.ToArray();
-        }
 
         [VTName("UNITGROUPS")]
         public UnitGroups? UnitGroups
@@ -145,6 +115,49 @@ namespace VtolVrRankedMissionSetup.VTS
 
                 return groups;
             }
+        }
+
+        public TimedEventGroupCollection? TimedEventGroups { get; set; }
+
+        [VTName("TRIGGER_EVENTS")]
+        public TriggerEventCollection? TriggerEvents { get; set; }
+
+        [VTName("OBJECTIVES")]
+        public Objective[]? AlliedObjectives { get; set; }
+
+        [VTName("OBJECTIVES_OPFOR")]
+        public Objective[]? EnemyObjectives { get; set; }
+
+        public object? StaticObjects { get; set; }
+
+        public ConditionalCollection? Conditionals { get; set; }
+
+        public ConditionalActionsCollection? ConditionalActions { get; set; }
+
+        public object? RandomEvents { get; set; }
+
+        public SequenceCollection? EventSequences { get; set; }
+
+        [VTName("BASES")]
+        public BaseInfo[] Bases { get; set; }
+
+        public GlobalValueCollection? GlobalValues { get; set; }
+        public BriefingNote[]? Briefing { get; set; }
+        public BriefingNote[]? Briefing_B { get; set; }
+
+        public CustomScenario(VTMapCustom map)
+        {
+            MapID = map.MapID;
+
+            List<BaseInfo> infos = [];
+            foreach (StaticPrefab prefab in map.StaticPrefabs)
+            {
+                if (!prefab.Prefab.StartsWith("airbase"))
+                    continue;
+
+                infos.Add(new BaseInfo(prefab));
+            }
+            Bases = infos.ToArray();
         }
     }
 }

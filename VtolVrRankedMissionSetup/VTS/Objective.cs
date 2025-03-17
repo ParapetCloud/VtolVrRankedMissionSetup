@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using VtolVrRankedMissionSetup.VT;
+using VtolVrRankedMissionSetup.VTS.Events;
 
 namespace VtolVrRankedMissionSetup.VTS
 {
@@ -29,5 +30,11 @@ namespace VtolVrRankedMissionSetup.VTS
         public ObjectiveEvent CompleteEvent { get; set; } = new("Completed Event");
         [VTName("fields")]
         public ObjectiveFields Fields { get; set; } = new();
+
+        public void BeginObjective() => throw new NotSupportedException("You can't actually call this");
+        public void CompleteObjective() => throw new NotSupportedException("You can't actually call this");
+        public void FailObjective() => throw new NotSupportedException("You can't actually call this");
+        public void CancelObjective() => throw new NotSupportedException("You can't actually call this");
+        public void ResetObjective() => throw new NotSupportedException("You can't actually call this");
     }
 }

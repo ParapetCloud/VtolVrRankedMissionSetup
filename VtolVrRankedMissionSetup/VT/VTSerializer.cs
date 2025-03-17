@@ -287,6 +287,7 @@ namespace VtolVrRankedMissionSetup.VT
                 prop.PropertyType != typeof(uint) &&
                 prop.PropertyType != typeof(Vector3) &&
                 prop.PropertyType != typeof(Vector2) &&
+                prop.PropertyType != typeof(TimeSpan) &&
                 !prop.PropertyType.IsEnum)
             {
                 return false;
@@ -308,6 +309,11 @@ namespace VtolVrRankedMissionSetup.VT
             {
                 Vector2 v = (Vector2)value!;
                 propValue = $"({v.X}, {v.Y})";
+            }
+            else if (prop.PropertyType == typeof(TimeSpan))
+            {
+                TimeSpan ts = (TimeSpan)value!;
+                propValue = ts.TotalSeconds.ToString();
             }
             else if (prop.PropertyType.IsEnum)
             {
