@@ -78,6 +78,7 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
                 AutoSetWaypoint = true,
                 StartMode = ObjectiveStartMode.Immediate,
                 ObjectiveType = ObjectiveType.Conditional,
+                Fields = new ConditionalObjectiveFields(),
             };
         }
 
@@ -92,7 +93,8 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
                 Required = false,
                 AutoSetWaypoint = false,
                 StartMode = ObjectiveStartMode.Triggered,
-                ObjectiveType = ObjectiveType.Conditional
+                ObjectiveType = ObjectiveType.Conditional,
+                Fields = new ConditionalObjectiveFields(),
             };
 
             objective.StartEvent = new ObjectiveEvent("Start Event", [new EventTarget(() => VT.Methods.GameSystem.DisplayMessage("Approaching spawncamp protection zone", 1))]);

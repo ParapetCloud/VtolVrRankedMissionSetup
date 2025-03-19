@@ -29,7 +29,7 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
             base.SetUpScenario(scenario, teamABases, teamBBases);
 
             scenario.CampaignID = "551";
-            scenario.ScenarioDescription = $"Ringtail's 5-5-1 with King of the Hill Stalemate resolution\nControl point radius is {ControlRadius / Units.NauticalMiles} nm ({ControlRadius/Units.Kilometers:0.##} km) and will activate after {ControlPointDelay.TotalMinutes:0} minutes";
+            scenario.ScenarioDescription = $"Ringtail's 5-5-1 with King of the Hill Stalemate resolution.\nControl point radius is {ControlRadius / Units.NauticalMiles} NM ({ControlRadius/Units.Kilometers:0.##} km) and will activate after {ControlPointDelay.TotalMinutes:0} minutes";
 
             scenario.Briefing =
             [

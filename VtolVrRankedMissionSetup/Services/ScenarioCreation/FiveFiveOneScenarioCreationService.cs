@@ -108,6 +108,7 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
                 AutoSetWaypoint = false,
                 StartMode = ObjectiveStartMode.Immediate,
                 ObjectiveType = ObjectiveType.Conditional,
+                Fields = new ConditionalObjectiveFields(),
             };
         }
     }
