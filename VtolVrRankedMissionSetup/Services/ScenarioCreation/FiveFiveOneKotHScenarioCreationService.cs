@@ -155,7 +155,7 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
             AlliedObjectives.Add(teamAKillObjective);
 
             Objective teamBKillObjective = CreateObjectiveForKill(objectiveCount++, EnemyObjectives.Count, bullseye, whenTeamAIsDead);
-            teamAKillObjective.CompleteEvent.EventInfo.EventTargets = [new EventTarget(() => teamBTieCheck.Restart())];
+            teamBKillObjective.CompleteEvent.EventInfo.EventTargets = [new EventTarget(() => teamBTieCheck.Restart())];
             EnemyObjectives.Add(teamBKillObjective);
 
             //////////////////////////////////////////////////////////////
@@ -200,6 +200,28 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
                     !SCCUnitList.SCC_AnyNearWaypoint(teamASpawns, scenario.AlliedRTB, StartDist) ||
                     !SCCUnitList.SCC_AnyNearWaypoint(teamBSpawns, scenario.EnemyRTB, StartDist)
                 ));
+
+            teamAKillObjective.CompleteEvent.EventInfo.EventTargets =
+            [
+                ..teamAKillObjective.CompleteEvent.EventInfo.EventTargets,
+                new EventTarget(() => teamAKotH.CancelObjective()),
+            ];
+            teamAKotH.CompleteEvent.EventInfo.EventTargets =
+            [
+                ..teamAKotH.CompleteEvent.EventInfo.EventTargets,
+                new EventTarget(() => teamAKillObjective.CancelObjective()),
+            ];
+
+            teamBKillObjective.CompleteEvent.EventInfo.EventTargets =
+            [
+                ..teamBKillObjective.CompleteEvent.EventInfo.EventTargets,
+                new EventTarget(() => teamBKotH.CancelObjective()),
+            ];
+            teamBKotH.CompleteEvent.EventInfo.EventTargets =
+            [
+                ..teamBKotH.CompleteEvent.EventInfo.EventTargets,
+                new EventTarget(() => teamBKillObjective.CancelObjective()),
+            ];
 
             EventSequence startMatch = scenario.EventSequences.CreateSequence("Start Match", false);
             startMatch.Events =
