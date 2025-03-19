@@ -14,10 +14,10 @@ namespace VtolVrRankedMissionSetup.VTS.Events
         [VTInlineArray]
         public TimedEventInfo[] EventInfos { get; set; }
 
-        [TargetType("Timed_Events")]
+        [EventTarget("Begin", "Timed_Events")]
         public void Begin() => throw new NotSupportedException("You can't actually call this");
 
-        [TargetType("Timed_Events")]
-        public void End() => throw new NotSupportedException("You can't actually call this");
+        [EventTarget("End", "Timed_Events")]
+        public void EndEvent() => throw new NotSupportedException("You can't actually call this");
     }
 }

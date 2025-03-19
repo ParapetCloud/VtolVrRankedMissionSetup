@@ -19,18 +19,22 @@ namespace VtolVrRankedMissionSetup.VTS.Events
         [VTInlineArray]
         public ParamInfo[] Params { get; set; }
 
-        public EventTarget(string name, Expression<Action> method)
+        public EventTarget(Expression<Action> method)
         {
             if (method.Body is not MethodCallExpression callExpression)
             {
                 throw new ArgumentException($"{nameof(method)} must be a method call expression");
             }
 
-            EventName = name;
             AltTargetIdx = -1;
 
             MethodName = callExpression.Method.Name;
-            TargetType = null!;
+
+            EventTargetAttribute ttAttr = callExpression.Method.GetCustomAttribute<EventTargetAttribute>() ?? throw new NullReferenceException("Event Target Attribute not set");
+
+            EventName = ttAttr.EventName;
+            TargetType = ttAttr.TargetTypeName;
+            TargetID = ttAttr.TargetId;
 
             if (!callExpression.Method.IsStatic)
             {
@@ -42,11 +46,6 @@ namespace VtolVrRankedMissionSetup.VTS.Events
                     TargetID = (int)idProperty.GetValue(self)!;
                 }
             }
-
-            TargetTypeAttribute? ttAttr = callExpression.Method.GetCustomAttribute<TargetTypeAttribute>();
-            TargetType = ttAttr == null ?
-                callExpression.Method.DeclaringType!.Name :
-                ttAttr.TargetTypeName;
 
             List<ParamInfo> parms = [];
 

@@ -6,12 +6,16 @@ using System.Threading.Tasks;
 
 namespace VtolVrRankedMissionSetup.VT
 {
-    public class TargetTypeAttribute : Attribute
+    public class EventTargetAttribute : Attribute
     {
+        public string EventName { get; set; }
         public string TargetTypeName { get; set; }
 
-        public TargetTypeAttribute(string typeName)
+        public int TargetId { get; set; }
+
+        public EventTargetAttribute(string eventName, string typeName)
         {
+            EventName = eventName;
             TargetTypeName = typeName;
         }
     }

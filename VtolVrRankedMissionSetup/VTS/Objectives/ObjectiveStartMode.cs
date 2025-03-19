@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VtolVrRankedMissionSetup.VTS
+namespace VtolVrRankedMissionSetup.VTS.Objectives
 {
     public enum ObjectiveStartMode
     {

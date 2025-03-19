@@ -17,15 +17,6 @@ namespace VtolVrRankedMissionSetup.VTS.Events
         public EventInfo(EventTarget[]? eventTargets)
         {
             EventName = string.Empty;
-
-            if (eventTargets != null)
-            {
-                for (int i = 0; i < eventTargets.Length; ++i)
-                {
-                    eventTargets[i].TargetID = i;
-                }
-            }
-
             EventTargets = eventTargets;
         }
     }

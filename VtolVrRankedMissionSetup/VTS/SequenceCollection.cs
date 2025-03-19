@@ -10,19 +10,19 @@ namespace VtolVrRankedMissionSetup.VTS
     public class SequenceCollection
     {
         [VTInlineArray]
-        public Event_Sequences[] Sequences => SequenceList.ToArray();
+        public EventSequence[] Sequences => SequenceList.ToArray();
 
         [VTIgnore]
-        private List<Event_Sequences> SequenceList { get; }
+        private List<EventSequence> SequenceList { get; }
 
         public SequenceCollection()
         {
             SequenceList = [];
         }
 
-        public Event_Sequences CreateSequence(string name, bool startsImmediately = true)
+        public EventSequence CreateSequence(string name, bool startsImmediately = true)
         {
-            Event_Sequences sequence = new()
+            EventSequence sequence = new()
             {
                 Id = SequenceList.Count,
                 SequenceName = name,

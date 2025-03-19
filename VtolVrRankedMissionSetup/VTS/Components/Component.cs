@@ -50,6 +50,8 @@ namespace VtolVrRankedMissionSetup.VTS
             return exp switch
             {
                 BinaryExpression binaryExpression => CreateBinaryComponent(binaryExpression),
+                MethodCallExpression mce => CreateMethodCall(mce),
+                UnaryExpression unaryExpression => CreateUnaryComponent(unaryExpression),
                 _ => throw new NotSupportedException($"{exp} is not supported"),
             };
         }
@@ -74,6 +76,26 @@ namespace VtolVrRankedMissionSetup.VTS
             return comp;
         }
 
+        private static IComponent CreateUnaryComponent(UnaryExpression unaryExpression)
+        {
+            if (unaryExpression.NodeType == ExpressionType.Not && unaryExpression.Operand is MethodCallExpression mce)
+            {
+                Type methodContainer = mce.Method.DeclaringType!;
+
+                if (methodContainer == typeof(SCCUnitList))
+                {
+                    return new SCCUnitListComponent(mce)
+                    {
+                        IsNot = true,
+                    };
+                }
+
+                throw new NotSupportedException($"{methodContainer} is not supported");
+            }
+
+            throw new NotSupportedException($"{unaryExpression} is not supported");
+        }
+
         private static IComponent CreateComparisonComponent(BinaryExpression binaryExpression)
         {
             switch (binaryExpression.Left)
@@ -86,12 +108,28 @@ namespace VtolVrRankedMissionSetup.VTS
                             return new SCCUnitListComponent(binaryExpression);
                         if (methodContainer == typeof(SCCUnitGroup))
                             return new SCCUnitGroupComponent(binaryExpression);
-
-                        throw new NotSupportedException($"{methodContainer} is not supported");
                     }
+                    break;
+                case MemberExpression memberExpression:
+                    {
+                        object? value = LinqExpressionHelpers.GetValue(memberExpression);
+                        if (value is GlobalValue gv)
+                            return new SCCGlobalValueComponent(gv, binaryExpression);
+                    }
+                    break;
             }
 
             throw new NotSupportedException($"{binaryExpression} is not supported");
+        }
+
+        private static IComponent CreateMethodCall(MethodCallExpression mce)
+        {
+            Type methodContainer = mce.Method.DeclaringType!;
+
+            if (methodContainer == typeof(SCCUnitList))
+                return new SCCUnitListComponent(mce);
+
+            throw new NotSupportedException($"{mce} is not supported");
         }
     }
 }

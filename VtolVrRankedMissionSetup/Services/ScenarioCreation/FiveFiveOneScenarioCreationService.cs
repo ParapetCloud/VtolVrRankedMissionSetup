@@ -9,6 +9,7 @@ using System.Linq;
 using VtolVrRankedMissionSetup.VT.Methods;
 using System;
 using VtolVrRankedMissionSetup.VTS.Events;
+using VtolVrRankedMissionSetup.VTS.Objectives;
 
 namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
 {
@@ -58,12 +59,12 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
             Conditional whenTeamAStartsLiving = scenario.Conditionals.CreateCondition(() => SCCUnitList.SCC_NumAlive(teamASpawns) > 0);
             Conditional whenTeamAIsDead = scenario.Conditionals.CreateCondition(() => SCCUnitList.SCC_NumAlive(teamASpawns) == 0);
 
-            Event_Sequences teamADead = scenario.EventSequences.CreateSequence("Team A Dead?");
+            EventSequence teamADead = scenario.EventSequences.CreateSequence("Team A Dead?");
             teamADead.Events =
             [
                 new Event("Wait for spawn", TimeSpan.FromSeconds(5), whenTeamAStartsLiving),
-                new Event("Show text on death", TimeSpan.Zero, whenTeamAIsDead, [new EventTarget("Display Message", () => VT.Methods.System.DisplayMessage("Team B Victory!///nPull chutes", 10))]),
-                new Event("Reset Sequence", TimeSpan.FromMinutes(4), null, [new EventTarget("Restart", () => teamADead.Restart())]),
+                new Event("Show text on death", TimeSpan.Zero, whenTeamAIsDead, [new EventTarget(() => GameSystem.DisplayMessage("Team B Victory!///nPull chutes", 10))]),
+                new Event("Reset Sequence", TimeSpan.FromMinutes(4), null, [new EventTarget(() => teamADead.Restart())]),
             ];
 
             IEnumerable<IUnitSpawner> teamBSpawns = spawns.Where(mp => mp.MultiplayerSpawnFields.UnitGroup.StartsWith("Enemy"));
@@ -71,12 +72,12 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
             Conditional whenTeamBStartsLiving = scenario.Conditionals.CreateCondition(() => SCCUnitList.SCC_NumAlive(teamBSpawns) > 0);
             Conditional whenTeamBIsDead = scenario.Conditionals.CreateCondition(() => SCCUnitList.SCC_NumAlive(teamBSpawns) == 0);
 
-            Event_Sequences teamBDead = scenario.EventSequences.CreateSequence("Team B Dead?");
+            EventSequence teamBDead = scenario.EventSequences.CreateSequence("Team B Dead?");
             teamBDead.Events =
             [
                 new Event("Wait for spawn", TimeSpan.FromSeconds(5), whenTeamBStartsLiving),
-                new Event("Show text on death", TimeSpan.Zero, whenTeamBIsDead, [new EventTarget("Display Message", () => VT.Methods.System.DisplayMessage("Team A Victory!///nPull chutes", 10))]),
-                new Event("Reset Sequence", TimeSpan.FromMinutes(4), null, [new EventTarget("Restart", () => teamBDead.Restart())]),
+                new Event("Show text on death", TimeSpan.Zero, whenTeamBIsDead, [new EventTarget(() => GameSystem.DisplayMessage("Team A Victory!///nPull chutes", 10))]),
+                new Event("Reset Sequence", TimeSpan.FromMinutes(4), null, [new EventTarget(() => teamBDead.Restart())]),
             ];
         }
 

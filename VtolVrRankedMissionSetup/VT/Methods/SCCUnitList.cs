@@ -10,5 +10,7 @@ namespace VtolVrRankedMissionSetup.VT.Methods
         public static int SCC_NumAlive(IEnumerable<IUnitSpawner> unitList) => throw new InvalidOperationException("You can't actually call this method");
 
         public static int SCC_NumNearWP(IEnumerable<IUnitSpawner> unitList, Waypoint waypoint, double radius) => throw new InvalidOperationException("You can't actually call this method");
+
+        public static bool SCC_AnyNearWaypoint(IEnumerable<IUnitSpawner> unitList, Waypoint waypoint, double radius) => throw new InvalidOperationException("You can't actually call this method");
     }
 }

@@ -4,19 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VtolVrRankedMissionSetup.VTS
+namespace VtolVrRankedMissionSetup.VTS.Objectives
 {
     public enum ObjectiveType
     {
         Destroy,
-        Pick_Up,
-        Drop_Off,
-        Fly_To,
+        Pick__Up,
+        Drop__Off,
+        Fly__To,
         Join,
         Land,
         Refuel,
         Protect,
         Conditional,
-        GlobalValue
+        Global__Value,
     }
 }

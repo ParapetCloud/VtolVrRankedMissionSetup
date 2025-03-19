@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using VtolVrRankedMissionSetup.VT;
 using VtolVrRankedMissionSetup.VTS.Events;
 
-namespace VtolVrRankedMissionSetup.VTS
+namespace VtolVrRankedMissionSetup.VTS.Objectives
 {
     public class Objective
     {
@@ -29,12 +29,18 @@ namespace VtolVrRankedMissionSetup.VTS
         [VTName("completeEvent")]
         public ObjectiveEvent CompleteEvent { get; set; } = new("Completed Event");
         [VTName("fields")]
-        public ObjectiveFields Fields { get; set; } = new();
+        [VTIgnore(Condition = VTIgnoreCondition.WhenWritingNull)]
+        public IObjectiveFields? Fields { get; set; }
 
+        [EventTarget("Begin Objective", "Objective")]
         public void BeginObjective() => throw new NotSupportedException("You can't actually call this");
+        [EventTarget("Complete Objective", "Objective")]
         public void CompleteObjective() => throw new NotSupportedException("You can't actually call this");
+        [EventTarget("Fail Objective", "Objective")]
         public void FailObjective() => throw new NotSupportedException("You can't actually call this");
+        [EventTarget("Cancel Objective", "Objective")]
         public void CancelObjective() => throw new NotSupportedException("You can't actually call this");
+        [EventTarget("Reset Objective", "Objective")]
         public void ResetObjective() => throw new NotSupportedException("You can't actually call this");
     }
 }

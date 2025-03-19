@@ -317,11 +317,11 @@ namespace VtolVrRankedMissionSetup.VT
             }
             else if (prop.PropertyType.IsEnum)
             {
-                propValue = value?.ToString()?.Replace('_', ' ') ?? "null";
+                propValue = value?.ToString()?.Replace("__", "-")?.Replace('_', ' ')?.Replace('-', '_') ?? "null";
             }
             else
             {
-                propValue = value?.ToString() ?? "null";
+                propValue = value?.ToString()?.Replace("\n", "///n") ?? "null";
             }
 
             string indentation = new('\t', indents);

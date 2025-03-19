@@ -4,6 +4,7 @@ using VtolVrRankedMissionSetup.VTS;
 using VtolVrRankedMissionSetup.Configs.AirbaseLayout;
 using Microsoft.Extensions.DependencyInjection;
 using VtolVrRankedMissionSetup.VTS.Events;
+using VtolVrRankedMissionSetup.VTS.Objectives;
 
 namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
 {
@@ -94,7 +95,7 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
                 ObjectiveType = ObjectiveType.Conditional
             };
 
-            objective.StartEvent = new ObjectiveEvent("Start Event", [new EventTarget("Display spawncamp warning", () => VT.Methods.System.DisplayMessage("Approaching spawncamp protection zone", 1))]);
+            objective.StartEvent = new ObjectiveEvent("Start Event", [new EventTarget(() => VT.Methods.GameSystem.DisplayMessage("Approaching spawncamp protection zone", 1))]);
 
             return objective;
         }

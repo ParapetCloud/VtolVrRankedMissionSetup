@@ -6,6 +6,7 @@ using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using VtolVrRankedMissionSetup.VT;
+using VtolVrRankedMissionSetup.VT.Methods;
 using VtolVrRankedMissionSetup.VTS.Components;
 using VtolVrRankedMissionSetup.VTS.UnitSpawners;
 
@@ -58,7 +59,7 @@ namespace VtolVrRankedMissionSetup.VTS
                     new MethodParameter(((ConstantExpression)binaryExpression.Right).Value!.ToString()!)
                 ];
             }
-            else if (MethodName == "SCC_NumNearWP")
+            else if (MethodName == nameof(SCCUnitList.SCC_NumNearWP))
             {
                 UnitList = ((IEnumerable<IUnitSpawner>)LinqExpressionHelpers.GetValue(mce.Arguments[0])!).ToArray();
 
@@ -74,11 +75,40 @@ namespace VtolVrRankedMissionSetup.VTS
                     },
                     new MethodParameter(((ConstantExpression)binaryExpression.Right).Value!.ToString()!)
                 ];
+            }
+            else if (MethodName == nameof(SCCUnitList.SCC_AnyNearWaypoint))
+            {
+                UnitList = ((IEnumerable<IUnitSpawner>)LinqExpressionHelpers.GetValue(mce.Arguments[0])!).ToArray();
 
+                MethodParameters = [
+                    new MethodParameter(((Waypoint)LinqExpressionHelpers.GetValue(mce.Arguments[1])!).Id.ToString()),
+                    new MethodParameter(LinqExpressionHelpers.GetValue(mce.Arguments[2])!.ToString()!),
+                ];
             }
             else
             {
                 throw new NotSupportedException($"{binaryExpression} is not supported");
+            }
+        }
+
+        public SCCUnitListComponent(MethodCallExpression mce)
+        {
+            Type = "SCCUnitList";
+
+            MethodName = mce.Method.Name!;
+
+            if (MethodName == nameof(SCCUnitList.SCC_AnyNearWaypoint))
+            {
+                UnitList = ((IEnumerable<IUnitSpawner>)LinqExpressionHelpers.GetValue(mce.Arguments[0])!).ToArray();
+
+                MethodParameters = [
+                    new MethodParameter(((Waypoint)LinqExpressionHelpers.GetValue(mce.Arguments[1])!).Id.ToString()),
+                    new MethodParameter(LinqExpressionHelpers.GetValue(mce.Arguments[2])!.ToString()!),
+                ];
+            }
+            else
+            {
+                throw new NotSupportedException($"{mce} is not supported");
             }
         }
     }

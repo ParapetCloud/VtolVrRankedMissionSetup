@@ -4,6 +4,7 @@ using System.Reflection;
 using VtolVrRankedMissionSetup.VT;
 using VtolVrRankedMissionSetup.VTM;
 using VtolVrRankedMissionSetup.VTS.Events;
+using VtolVrRankedMissionSetup.VTS.Objectives;
 using VtolVrRankedMissionSetup.VTS.UnitSpawners;
 
 namespace VtolVrRankedMissionSetup.VTS

@@ -5,7 +5,7 @@ using VtolVrRankedMissionSetup.VTS.Events;
 namespace VtolVrRankedMissionSetup.VTS
 {
     [VTName("SEQUENCE")]
-    public class Event_Sequences
+    public class EventSequence
     {
         [Id]
         public int Id { get; set; }
@@ -16,8 +16,13 @@ namespace VtolVrRankedMissionSetup.VTS
         [VTInlineArray()]
         public Event[] Events { get; set; }
 
-        public void Begin() => throw new NotSupportedException("You can't actually call this");
+        [EventTarget("Begin", "Event_Sequences")]
+        public void BeginEvent() => throw new NotSupportedException("You can't actually call this");
+
+        [EventTarget("Stop", "Event_Sequences")]
         public void Stop() => throw new NotSupportedException("You can't actually call this");
+
+        [EventTarget("Restart", "Event_Sequences")]
         public void Restart() => throw new NotSupportedException("You can't actually call this");
     }
 }

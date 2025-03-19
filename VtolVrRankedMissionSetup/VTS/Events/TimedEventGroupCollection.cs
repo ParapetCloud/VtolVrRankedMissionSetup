@@ -10,7 +10,7 @@ namespace VtolVrRankedMissionSetup.VTS.Events
         public TimedEventGroup[] TimedEventGroups => TimedEventGroupList.ToArray();
 
         [VTIgnore]
-        private List<TimedEventGroup> TimedEventGroupList { get; }
+        internal List<TimedEventGroup> TimedEventGroupList { get; }
 
         public TimedEventGroupCollection()
         {

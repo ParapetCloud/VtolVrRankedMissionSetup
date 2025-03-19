@@ -32,12 +32,12 @@ namespace VtolVrRankedMissionSetup.VTS
 
         public SCCUnitGroupComponent()
         {
-            Type = "SCCUnitList";
+            Type = "SCCUnitGroup";
         }
 
         public SCCUnitGroupComponent(BinaryExpression binaryExpression)
         {
-            Type = "SCCUnitList";
+            Type = "SCCUnitGroup";
 
             MethodCallExpression mce = (MethodCallExpression)binaryExpression.Left;
 

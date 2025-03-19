@@ -24,5 +24,13 @@ namespace VtolVrRankedMissionSetup.VTS
 
         [VTIgnore]
         public double InitialValue { get; set; }
+
+        public override string ToString() => $"%gv-{Id}%";
+
+        public static bool operator <(GlobalValue gv, double n) => throw new InvalidOperationException("You can't actually call this method");
+        public static bool operator >(GlobalValue gv, double n) => throw new InvalidOperationException("You can't actually call this method");
+
+        public static bool operator ==(GlobalValue gv, double n) => throw new InvalidOperationException("You can't actually call this method");
+        public static bool operator !=(GlobalValue gv, double n) => throw new InvalidOperationException("You can't actually call this method");
     }
 }

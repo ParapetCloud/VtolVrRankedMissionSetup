@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Linq.Expressions;
 
 namespace VtolVrRankedMissionSetup
@@ -19,7 +20,12 @@ namespace VtolVrRankedMissionSetup
                         !.GetValue(cstExpr.Value!);
                 }
                 else if (me.Expression is MemberExpression mmbr)
-                    return GetValue(mmbr);
+                {
+                    object obj = GetValue(mmbr)!;
+
+                    return obj.GetType()!.GetField(me.Member.Name)?.GetValue(obj) ??
+                        obj.GetType()!.GetProperty(me.Member.Name)!.GetValue(obj);
+                }
                 else
                 {
                     throw new NotSupportedException($"{expr} is not supported");
