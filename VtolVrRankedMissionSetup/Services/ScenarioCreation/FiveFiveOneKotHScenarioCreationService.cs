@@ -193,13 +193,13 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
             //////////////////////////////////////////////////////////////
             
             // At least one person alive on each team, and at least one team has no one at the runway
-            Conditional shouldStartMatch = scenario.Conditionals.CreateCondition(() =>
+            Conditional atLeast1OnEachSideSpawned = scenario.Conditionals.CreateCondition(() =>
                 SCCUnitList.SCC_NumAlive(teamASpawns) > 0 &&
-                SCCUnitList.SCC_NumAlive(teamBSpawns) > 0 &&
-                (
-                    !SCCUnitList.SCC_AnyNearWaypoint(teamASpawns, scenario.AlliedRTB, StartDist) ||
-                    !SCCUnitList.SCC_AnyNearWaypoint(teamBSpawns, scenario.EnemyRTB, StartDist)
-                ));
+                SCCUnitList.SCC_NumAlive(teamBSpawns) > 0);
+
+            Conditional oneTeamTakeoff = scenario.Conditionals.CreateCondition(() =>
+                !SCCUnitList.SCC_AnyNearWaypoint(teamASpawns, scenario.AlliedRTB, StartDist) ||
+                !SCCUnitList.SCC_AnyNearWaypoint(teamBSpawns, scenario.EnemyRTB, StartDist));
 
             teamAKillObjective.CompleteEvent.EventInfo.EventTargets =
             [
@@ -227,9 +227,15 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
             startMatch.Events =
             [
                 new Event(
+                    "spawned",
+                    TimeSpan.FromSeconds(1),
+                    atLeast1OnEachSideSpawned,
+                    [
+                    ]),
+                new Event(
                     "start",
                     TimeSpan.FromSeconds(1),
-                    shouldStartMatch,
+                    oneTeamTakeoff,
                     [
                         new EventTarget(() => teamAKillObjective.BeginObjective()),
                         new EventTarget(() => teamBKillObjective.BeginObjective()),
