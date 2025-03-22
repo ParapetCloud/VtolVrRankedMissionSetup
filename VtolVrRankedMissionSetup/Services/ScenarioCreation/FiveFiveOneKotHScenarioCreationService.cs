@@ -18,8 +18,8 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
         private const double StartDist = 1500;
         private const int FirstToWins = 3;
 
-        private static TimeSpan ControlPointDelay = TimeSpan.FromMinutes(1);
-        private static TimeSpan ControlTimespan = TimeSpan.FromMinutes(1);
+        private static TimeSpan ControlPointActivationDelay = TimeSpan.FromMinutes(10);
+        private static TimeSpan ControlPointRequiredHoldTime = TimeSpan.FromMinutes(2);
         private const double ControlRadius = 5 * Units.NauticalMiles;
 
         public FiveFiveOneKotHScenarioCreationService(ScenarioModeService scenarioMode, AirbaseLayoutService layoutService) : base(scenarioMode, layoutService) { }
@@ -29,7 +29,7 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
             base.SetUpScenario(scenario, teamABases, teamBBases);
 
             scenario.CampaignID = "551";
-            scenario.ScenarioDescription = $"Ringtail's 5-5-1 with King of the Hill Stalemate resolution.\nControl point radius is {ControlRadius / Units.NauticalMiles} NM ({ControlRadius/Units.Kilometers:0.##} km) and will activate after {ControlPointDelay.TotalMinutes:0} minutes";
+            scenario.ScenarioDescription = $"Ringtail's 5-5-1 with King of the Hill Stalemate resolution.\nControl point radius is {ControlRadius / Units.NauticalMiles:0.#} NM ({ControlRadius/Units.Kilometers:0.##} km) and will activate after {ControlPointActivationDelay.TotalMinutes:0} minutes";
 
             scenario.Briefing =
             [
@@ -39,7 +39,7 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
                 },
                 new BriefingNote()
                 {
-                    Text = $"Some people (who won't be named) have been taking too long to find the other team. So as an insentive: a control point will activate after {ControlPointDelay.TotalMinutes:0} minutes.\nThe control point will only tick up if your team is the only one on it.",
+                    Text = $"Some people (who won't be named) have been taking too long to find the other team. So as an insentive: a control point will activate after {ControlPointActivationDelay.TotalMinutes:0} minutes.\nThe control point will only tick up if your team is the only one on it.",
                 },
                 new BriefingNote()
                 {
@@ -163,7 +163,7 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
             //////////////////////////////////////////////////////////////
             GlobalValue teamAKotHTime = scenario.GlobalValues.CreateGlobalValue("teamAKotHTime");
             GlobalValue teamBKotHTime = scenario.GlobalValues.CreateGlobalValue("teamBKotHTime");
-            GlobalValue targetKotHTime = scenario.GlobalValues.CreateGlobalValue("targetKotHTime", (int)Math.Round(ControlTimespan.TotalSeconds));
+            GlobalValue targetKotHTime = scenario.GlobalValues.CreateGlobalValue("targetKotHTime", (int)Math.Round(ControlPointRequiredHoldTime.TotalSeconds));
 
             Objective teamAKotH = CreateForKotH(objectiveCount++, AlliedObjectives.Count, bullseye, teamAKotHTime, targetKotHTime);
             teamAKotH.CompleteEvent.EventInfo.EventTargets = [new EventTarget(() => teamATieCheck.Restart())];
@@ -242,7 +242,7 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
                     ]),
                 new Event(
                     "koth",
-                    ControlPointDelay,
+                    ControlPointActivationDelay,
                     null,
                     [
                         new EventTarget(() => teamAKotH.BeginObjective()),
@@ -361,7 +361,7 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
             return new Objective()
             {
                 ObjectiveName = "King of the Hill",
-                ObjectiveInfo = $"Control the bullseye for {ControlTimespan.TotalMinutes:0} minutes\nTime will only tick up if your team is the only one on the point\nControl point radius is {ControlRadius / Units.NauticalMiles:0.##} NM ({ControlRadius / Units.Kilometers:0.##} km)",
+                ObjectiveInfo = $"Control the bullseye for {ControlPointRequiredHoldTime.TotalMinutes:0} minutes\nTime will only tick up if your team is the only one on the point\nControl point radius is {ControlRadius / Units.NauticalMiles:0.##} NM ({ControlRadius / Units.Kilometers:0.##} km)",
                 ObjectiveID = objectiveId,
                 OrderID = orderId,
                 Required = false,
