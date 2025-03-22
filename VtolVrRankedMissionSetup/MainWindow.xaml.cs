@@ -80,12 +80,7 @@ namespace VtolVrRankedMissionSetup
                 return;
             }
 
-            Scenario = new CustomScenario(Map)
-            {
-                ScenarioName = $"BVR {Map.MapID}",
-                ScenarioID = $"BVR {Map.MapID}",
-                CampaignOrderIdx = 0,
-            };
+            Scenario = new CustomScenario(Map);
 
             TeamABases.Bases.Clear();
             TeamBBases.Bases.Clear();
@@ -216,6 +211,32 @@ namespace VtolVrRankedMissionSetup
             string newKey = (string)e.AddedItems[0];
 
             scenarioMode.ActiveMode = scenarioMode.Configs[newKey];
+
+            if (Map == null)
+                return;
+
+            BaseInfo[] oldABases = TeamABases.Bases.ToArray();
+            BaseInfo[] oldBBases = TeamBBases.Bases.ToArray();
+
+            TeamABases.Bases.Clear();
+            TeamBBases.Bases.Clear();
+
+            Scenario = new CustomScenario(Map);
+
+            foreach (BaseInfo a in oldABases)
+            {
+                TeamABases.Bases.Add(Scenario.Bases.Single(sb => sb.Prefab.Id == a.Prefab.Id));
+            }
+
+            foreach (BaseInfo b in oldBBases)
+            {
+                TeamBBases.Bases.Add(Scenario.Bases.Single(sb => sb.Prefab.Id == b.Prefab.Id));
+            }
+
+            foreach (BaseInfo b in TeamBBases.Bases)
+            {
+                b.BaseTeam = Team.Enemy;
+            }
         }
     }
 }
