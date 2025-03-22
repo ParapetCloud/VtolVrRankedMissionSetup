@@ -12,6 +12,7 @@ namespace VtolVrRankedMissionSetup.VT
         public string TargetTypeName { get; set; }
 
         public int TargetId { get; set; }
+        public int AltTargetIdx { get; set; } = -1;
 
         public EventTargetAttribute(string eventName, string typeName)
         {

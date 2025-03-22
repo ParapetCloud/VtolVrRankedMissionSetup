@@ -26,8 +26,6 @@ namespace VtolVrRankedMissionSetup.VTS.Events
                 throw new ArgumentException($"{nameof(method)} must be a method call expression");
             }
 
-            AltTargetIdx = -1;
-
             MethodName = callExpression.Method.Name;
 
             EventTargetAttribute ttAttr = callExpression.Method.GetCustomAttribute<EventTargetAttribute>() ?? throw new NullReferenceException("Event Target Attribute not set");
@@ -35,6 +33,8 @@ namespace VtolVrRankedMissionSetup.VTS.Events
             EventName = ttAttr.EventName;
             TargetType = ttAttr.TargetTypeName;
             TargetID = ttAttr.TargetId;
+            AltTargetIdx = ttAttr.AltTargetIdx;
+
 
             if (!callExpression.Method.IsStatic)
             {

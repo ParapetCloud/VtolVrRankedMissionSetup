@@ -8,6 +8,7 @@ using VtolVrRankedMissionSetup.VT.Methods;
 using System;
 using VtolVrRankedMissionSetup.VTS.Events;
 using VtolVrRankedMissionSetup.VTS.Objectives;
+using VtolVrRankedMissionSetup.VTS.UnitFields;
 
 namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
 {
@@ -78,6 +79,9 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
 
             IEnumerable<IUnitSpawner> teamASpawns = spawns.Where(mp => mp.MultiplayerSpawnFields.UnitGroup.StartsWith("Allied"));
             IEnumerable<IUnitSpawner> teamBSpawns = spawns.Where(mp => mp.MultiplayerSpawnFields.UnitGroup.StartsWith("Enemy"));
+
+            foreach (MultiplayerSpawn spawn in spawns)
+                ((MultiplayerSpawnFields)spawn.UnitFields!).LimitedLives = true;
 
             //////////////////////////////////////////////////////////////
             // Points
@@ -223,6 +227,14 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
                 new EventTarget(() => teamBKillObjective.CancelObjective()),
             ];
 
+            List<EventTarget> setLives100 = [];
+            foreach(MultiplayerSpawn spawn in spawns)
+                setLives100.Add(new EventTarget(() => spawn.SetLives(100)));
+
+            List<EventTarget> setLives0 = [];
+            foreach (MultiplayerSpawn spawn in spawns)
+                setLives0.Add(new EventTarget(() => spawn.SetLives(0)));
+
             EventSequence startMatch = scenario.EventSequences.CreateSequence("Start Match", false);
             startMatch.Events =
             [
@@ -239,6 +251,7 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
                     [
                         new EventTarget(() => teamAKillObjective.BeginObjective()),
                         new EventTarget(() => teamBKillObjective.BeginObjective()),
+                        ..setLives0,
                     ]),
                 new Event(
                     "koth",
@@ -267,7 +280,8 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
                         new EventTarget(() => teamBKotH.ResetObjective()),
                         new EventTarget(() => kothCheck.Stop()),
                         new EventTarget(() => startMatch.Restart()),
-                        new EventTarget(() => GameSystem.DisplayMessage("Reset", 5)),
+                        //new EventTarget(() => GameSystem.DisplayMessage("Reset", 5)),
+                        ..setLives100,
                     ]),
             ];
 

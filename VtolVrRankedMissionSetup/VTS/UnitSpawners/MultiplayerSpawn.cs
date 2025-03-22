@@ -1,5 +1,7 @@
-﻿using System.Numerics;
+﻿using System;
+using System.Numerics;
 using VtolVrRankedMissionSetup.VT;
+using VtolVrRankedMissionSetup.VT.Methods;
 using VtolVrRankedMissionSetup.VTS.UnitFields;
 
 namespace VtolVrRankedMissionSetup.VTS.UnitSpawners
@@ -31,5 +33,8 @@ namespace VtolVrRankedMissionSetup.VTS.UnitSpawners
             if (team == Team.Enemy)
                 UnitID += "Enemy";
         }
+
+        [EventTarget("Set Lives", "Unit", AltTargetIdx = -2)]
+        public void SetLives([ParamAttrInfo("MinMax", "(0,100)")][ParamAttrInfo("UnitSpawnAttributeRange+RangeTypes", "Int")] float Lives) => throw new NotSupportedException("You can't actually call this");
     }
 }
