@@ -224,6 +224,7 @@ namespace VtolVrRankedMissionSetup
                     return;
 
                 e.Handled = true;
+                e.DragUIOverride.Caption = "Load Map";
                 e.AcceptedOperation = DataPackageOperation.Link;
             }
             finally
