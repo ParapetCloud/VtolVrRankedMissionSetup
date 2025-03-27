@@ -30,11 +30,11 @@
         <Grid.Resources>
             <DataTemplate x:Key="BaseDisplay" x:DataType="vts:BaseInfo">
                 <Border 
-            BorderBrush="Black"
-            BorderThickness="1"
-            Margin="4"
-            Padding="8"
-            CornerRadius="8">
+                    BorderBrush="Black"
+                    BorderThickness="1"
+                    Margin="4"
+                    Padding="8"
+                    CornerRadius="8">
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Text="{x:Bind Prefab.Id}" Padding="0 0 8 0"/>
                         <TextBlock Text="{x:Bind Prefab.BaseName}"/>

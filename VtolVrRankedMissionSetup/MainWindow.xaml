@@ -11,7 +11,12 @@
     mc:Ignorable="d"
     Title="VtolVrRankedMissionSetup">
 
-    <Grid x:Name="MainGrid">
+    <Grid
+        x:Name="MainGrid"
+        AllowDrop="True"
+        DragEnter="OnMainGridDragEntered"
+        Drop="OnMainGridDropped"
+        Background="Transparent">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
@@ -36,7 +41,7 @@
 
         <ComboBox Grid.Row="1" x:Name="ScenarioModeComboBox" Header="Scenario Mode" Margin="8" SelectionChanged="ScenarioModeComboBox_SelectionChanged"/>
 
-        <ScrollView Grid.Row="2" HorizontalScrollMode="Auto" VerticalScrollMode="Disabled">
+        <ScrollView Grid.Row="2" HorizontalScrollMode="Auto" VerticalScrollMode="Disabled" Padding="8">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="400" />
@@ -46,13 +51,13 @@
                 <controls:TeamBaseList
                     x:Name="TeamABases"
                     Grid.Column="0"
-                    Drop="TeamADragDrop"
+                    Drop="OnTeamADragDropped"
                     Side="Allied" />
 
                 <controls:TeamBaseList
                     x:Name="TeamBBases"
                     Grid.Column="1"
-                    Drop="TeamBDragDrop"
+                    Drop="OnTeamBDragDropped"
                     Side="Enemy" />
             </Grid>
         </ScrollView>

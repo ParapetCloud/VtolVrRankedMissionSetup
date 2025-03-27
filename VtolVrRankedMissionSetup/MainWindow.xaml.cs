@@ -2,15 +2,17 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System;
-using System.Collections.ObjectModel;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using VtolVrRankedMissionSetup.Services;
 using VtolVrRankedMissionSetup.VT;
 using VtolVrRankedMissionSetup.VTM;
 using VtolVrRankedMissionSetup.VTS;
+using Windows.ApplicationModel.DataTransfer;
 using Windows.Storage;
 using Windows.Storage.Pickers;
 
@@ -59,36 +61,7 @@ namespace VtolVrRankedMissionSetup
             fileOpen.FileTypeFilter.Add(".vtm");
 
             StorageFile file = await fileOpen.PickSingleFileAsync();
-
-            if (file == null)
-            {
-                ShowDialog("Can't load map", "You didn't pick one");
-                return;
-            }
-
-            Map = VTSerializer.DeserializeFromFile<VTMapCustom>(file.Path);
-
-            if (Map.StaticPrefabs == null)
-            {
-                ShowDialog("Can't load map", $"Map '{Map.MapID}' does not have any bases");
-                return;
-            }
-
-            if (Map.StaticPrefabs.Count(prefab => prefab.Prefab.StartsWith("airbase")) < 2)
-            {
-                ShowDialog("Can't load map", $"Map '{Map.MapID}' does not have enough bases");
-                return;
-            }
-
-            Scenario = new CustomScenario(Map);
-
-            TeamABases.Bases.Clear();
-            TeamBBases.Bases.Clear();
-
-            foreach (BaseInfo baseInfo in Scenario.Bases)
-            {
-                TeamABases.Bases.Add(baseInfo);
-            }
+            LoadMap(file);
         }
 
         private async void OnSaveClicked(object sender, RoutedEventArgs e)
@@ -182,7 +155,7 @@ namespace VtolVrRankedMissionSetup
             return true;
         }
 
-        private async void TeamADragDrop(object sender, DragEventArgs e)
+        private async void OnTeamADragDropped(object sender, DragEventArgs e)
         {
             uint id = (uint)await e.DataView.GetDataAsync("vtbase");
 
@@ -194,7 +167,7 @@ namespace VtolVrRankedMissionSetup
             TeamABases.Bases.Add(baseInfo);
         }
 
-        private async void TeamBDragDrop(object sender, DragEventArgs e)
+        private async void OnTeamBDragDropped(object sender, DragEventArgs e)
         {
             uint id = (uint)await e.DataView.GetDataAsync("vtbase");
 
@@ -236,6 +209,83 @@ namespace VtolVrRankedMissionSetup
             foreach (BaseInfo b in TeamBBases.Bases)
             {
                 b.BaseTeam = Team.Enemy;
+            }
+        }
+
+        private async void OnMainGridDragEntered(object sender, DragEventArgs e)
+        {
+            DragOperationDeferral deferral = e.GetDeferral();
+
+            try
+            {
+                StorageFile? file = await GetStorageFileAsync(e);
+
+                if (file == null)
+                    return;
+
+                e.Handled = true;
+                e.AcceptedOperation = DataPackageOperation.Link;
+            }
+            finally
+            {
+                deferral.Complete();
+            }
+        }
+
+        private async void OnMainGridDropped(object sender, DragEventArgs e)
+        {
+            StorageFile? file = await GetStorageFileAsync(e);
+
+            if (file == null)
+                return;
+
+            LoadMap(file);
+        }
+
+        private static async Task<StorageFile?> GetStorageFileAsync(DragEventArgs e)
+        {
+            if (!e.AllowedOperations.HasFlag(DataPackageOperation.Link) || !e.DataView.Contains(StandardDataFormats.StorageItems))
+                return null;
+
+            e.Handled = true;
+
+            IReadOnlyList<IStorageItem> storageItems = (IReadOnlyList<IStorageItem>)await e.DataView.GetDataAsync(StandardDataFormats.StorageItems);
+
+            if (storageItems.Count != 1)
+                return null;
+
+            StorageFile? file = storageItems[0] as StorageFile;
+
+            if (file == null || file.FileType != ".vtm")
+                return null;
+
+            return file;
+        }
+
+        private void LoadMap(StorageFile file)
+        {
+            Map = VTSerializer.DeserializeFromFile<VTMapCustom>(file.Path);
+
+            if (Map.StaticPrefabs == null)
+            {
+                ShowDialog("Can't load map", $"Map '{Map.MapID}' does not have any bases");
+                return;
+            }
+
+            if (Map.StaticPrefabs.Count(prefab => prefab.Prefab.StartsWith("airbase")) < 2)
+            {
+                ShowDialog("Can't load map", $"Map '{Map.MapID}' does not have enough bases");
+                return;
+            }
+
+            Scenario = new CustomScenario(Map);
+
+            TeamABases.Bases.Clear();
+            TeamBBases.Bases.Clear();
+
+            foreach (BaseInfo baseInfo in Scenario.Bases)
+            {
+                TeamABases.Bases.Add(baseInfo);
             }
         }
     }

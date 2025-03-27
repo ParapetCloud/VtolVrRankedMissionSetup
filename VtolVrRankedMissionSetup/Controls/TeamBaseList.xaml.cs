@@ -3,6 +3,7 @@ using Microsoft.UI.Xaml.Controls;
 using System;
 using System.Collections.ObjectModel;
 using VtolVrRankedMissionSetup.VTS;
+using Windows.ApplicationModel.DataTransfer;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -41,19 +42,24 @@ namespace VtolVrRankedMissionSetup.Controls
 
         private void TeamListDrop(object sender, DragEventArgs e)
         {
+            if (!e.DataView.Contains("vtbase"))
+                return;
+
             Drop?.Invoke(this, e);
         }
 
         private void TeamListDragEnter(object sender, DragEventArgs e)
         {
-            e.AcceptedOperation = e.DataView.Contains("vtbase") ?
-                Windows.ApplicationModel.DataTransfer.DataPackageOperation.Move :
-                Windows.ApplicationModel.DataTransfer.DataPackageOperation.None;
+            if (!e.DataView.Contains("vtbase"))
+                return;
+
+            e.AcceptedOperation = DataPackageOperation.Move;
+            e.Handled = true;
         }
 
         private void BaseInfoDragStarting(object sender, DragItemsStartingEventArgs e)
         {
-            e.Data.RequestedOperation = Windows.ApplicationModel.DataTransfer.DataPackageOperation.Move;
+            e.Data.RequestedOperation = DataPackageOperation.Move;
             e.Data.SetData("vtbase", ((BaseInfo)e.Items[0]).Prefab.Id);
         }
     }
