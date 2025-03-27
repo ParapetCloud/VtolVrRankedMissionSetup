@@ -59,6 +59,7 @@
             Drop="TeamListDrop"
             ItemsSource="{x:Bind Bases, Mode=TwoWay}"
             ItemTemplate="{StaticResource BaseDisplay}"
-            Padding="0 8"/>
+            Padding="0 8"
+            DragItemsCompleted="OnListViewDragItemsCompleted"/>
     </Grid>
 </UserControl>

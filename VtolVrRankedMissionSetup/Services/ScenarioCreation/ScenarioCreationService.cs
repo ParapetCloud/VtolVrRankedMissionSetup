@@ -1,7 +1,11 @@
-﻿using System;
+﻿using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Shapes;
+using System;
 using System.Collections.Generic;
 using System.Numerics;
 using VtolVrRankedMissionSetup.Configs.AirbaseLayout;
+using VtolVrRankedMissionSetup.VTM;
 using VtolVrRankedMissionSetup.VTS;
 using VtolVrRankedMissionSetup.VTS.UnitSpawners;
 
@@ -33,6 +37,62 @@ namespace VtolVrRankedMissionSetup.Services
             }
 
             scenario.Units = spawners.ToArray();
+        }
+
+        public virtual void GeneratePreview(Canvas canvas, VTMapCustom map, CustomScenario scenario, BaseInfo[] teamABases, BaseInfo[] teamBBases)
+        {
+            for (int i = 0; i < teamABases.Length; ++i)
+            {
+                BaseInfo bs = teamABases[i];
+                PreviewBase(canvas, bs, map, Team.Allied, i == 0);
+            }
+
+            for (int i = 0; i < teamBBases.Length; ++i)
+            {
+                BaseInfo bs = teamBBases[i];
+                PreviewBase(canvas, bs, map, Team.Enemy, i == 0);
+            }
+        }
+
+        protected virtual void PreviewBase(Canvas canvas, BaseInfo bs, VTMapCustom map, Team team, bool primary)
+        {
+
+            byte primaryColor = (byte)(primary ? 160 : 127);
+            byte secondaryColor = (byte)(primary ? 80 : 0);
+
+            SolidColorBrush teamColor = team == Team.Allied ? new SolidColorBrush(Windows.UI.Color.FromArgb(255, secondaryColor, secondaryColor, primaryColor)) : new SolidColorBrush(Windows.UI.Color.FromArgb(255, primaryColor, secondaryColor, secondaryColor));
+
+            Rectangle baseRepresentation = new()
+            {
+                Width = 18,
+                Height = 18,
+                Fill = teamColor,
+            };
+
+            Vector2 baseMapLocation = worldToPreview(bs.Prefab.GlobalPos, map);
+            Canvas.SetLeft(baseRepresentation, baseMapLocation.X - 9);
+            Canvas.SetTop(baseRepresentation, baseMapLocation.Y - 9);
+
+            canvas.Children.Add(baseRepresentation);
+
+            TextBlock textBlock = new()
+            {
+                FontSize = 14,
+                LineHeight = 18,
+                Width = 18,
+                Height = 18,
+                TextAlignment = Microsoft.UI.Xaml.TextAlignment.Center,
+                HorizontalTextAlignment = Microsoft.UI.Xaml.TextAlignment.Center,
+                VerticalAlignment = Microsoft.UI.Xaml.VerticalAlignment.Center,
+                HorizontalAlignment = Microsoft.UI.Xaml.HorizontalAlignment.Center,
+                Text = $"{bs.Prefab.Id}",
+                Foreground = new SolidColorBrush(Windows.UI.Color.FromArgb(200, 255, 255, 255)),
+            };
+
+            Canvas.SetLeft(textBlock, baseMapLocation.X - 9);
+            Canvas.SetTop(textBlock, baseMapLocation.Y - 9);
+
+            canvas.Children.Add(textBlock);
         }
 
         protected virtual void PopulateAirbase(BaseInfo baseInfo, List<IUnitSpawner> spawners, Team team)
@@ -85,5 +145,23 @@ namespace VtolVrRankedMissionSetup.Services
                 spawners.Add(spawn);
             }
         }
+
+        protected Vector2 worldToPreview(Vector3 world, VTMapCustom map)
+        {
+            float mapSize = (float)(map.MapSize * 3.0625 * Units.Kilometers);
+
+            return new Vector2(
+                (world.X / mapSize) * 640,
+                640 - (world.Z / mapSize) * 640
+                );
+        }
+
+        protected double worldToPreview(double world, VTMapCustom map)
+        {
+            double mapSize = (map.MapSize * 3.0625) * Units.Kilometers;
+
+            return (world / mapSize) * 640;
+        }
+
     }
 }

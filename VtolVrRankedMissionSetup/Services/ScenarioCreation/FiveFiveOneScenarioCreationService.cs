@@ -10,6 +10,12 @@ using VtolVrRankedMissionSetup.VT.Methods;
 using System;
 using VtolVrRankedMissionSetup.VTS.Events;
 using VtolVrRankedMissionSetup.VTS.Objectives;
+using Microsoft.UI.Xaml.Controls;
+using VtolVrRankedMissionSetup.VTM;
+using Microsoft.UI.Xaml.Shapes;
+using Microsoft.UI.Xaml.Media;
+using System.Drawing;
+using Microsoft.UI;
 
 namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
 {
@@ -79,6 +85,41 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
                 new Event("Show text on death", TimeSpan.Zero, whenTeamBIsDead, [new EventTarget(() => GameSystem.DisplayMessage("Team A Victory!///nPull chutes", 10))]),
                 new Event("Reset Sequence", TimeSpan.FromMinutes(4), null, [new EventTarget(() => teamBDead.Restart())]),
             ];
+        }
+
+        public override void GeneratePreview(Canvas canvas, VTMapCustom map, CustomScenario scenario, BaseInfo[] teamABases, BaseInfo[] teamBBases)
+        {
+            base.GeneratePreview(canvas, map, scenario, teamABases, teamBBases);
+
+            BaseInfo baseA = teamABases.Length > 0 ? teamABases[0] : teamBBases[0];
+            BaseInfo baseB = teamBBases.Length > 0 ? teamBBases[0] : teamABases[0];
+
+            Vector3 bullseye = (baseA.Prefab.GlobalPos + baseB.Prefab.GlobalPos) / 2.0f;
+
+            Ellipse outer = new()
+            {
+                Stroke = new SolidColorBrush(Colors.Green),
+                Height = 20,
+                Width = 20,
+                StrokeThickness = 3,
+            };
+
+            Vector2 bullseyeMapLocation = worldToPreview(bullseye, map);
+            Canvas.SetLeft(outer, bullseyeMapLocation.X - 10);
+            Canvas.SetTop(outer, bullseyeMapLocation.Y - 10);
+
+            Ellipse inner = new()
+            {
+                Fill = new SolidColorBrush(Colors.Green),
+                Height = 5,
+                Width = 5,
+            };
+
+            Canvas.SetLeft(inner, bullseyeMapLocation.X - 2.5);
+            Canvas.SetTop(inner, bullseyeMapLocation.Y - 2.5);
+
+            canvas.Children.Add(outer);
+            canvas.Children.Add(inner);
         }
 
         protected override void PopulateAirbase(BaseInfo baseInfo, List<IUnitSpawner> spawners, Team team)

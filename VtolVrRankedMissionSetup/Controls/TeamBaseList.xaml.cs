@@ -29,6 +29,7 @@ namespace VtolVrRankedMissionSetup.Controls
         }
 
         public new event EventHandler<DragEventArgs>? Drop;
+        public new event EventHandler<DragItemsCompletedEventArgs>? Reordered;
 
         public ObservableCollection<BaseInfo> Bases { get; set; }
 
@@ -37,7 +38,6 @@ namespace VtolVrRankedMissionSetup.Controls
             Bases = new();
 
             InitializeComponent();
-
         }
 
         private void TeamListDrop(object sender, DragEventArgs e)
@@ -61,6 +61,11 @@ namespace VtolVrRankedMissionSetup.Controls
         {
             e.Data.RequestedOperation = DataPackageOperation.Move;
             e.Data.SetData("vtbase", ((BaseInfo)e.Items[0]).Prefab.Id);
+        }
+
+        private void OnListViewDragItemsCompleted(ListViewBase sender, DragItemsCompletedEventArgs args)
+        {
+            Reordered?.Invoke(this, args);
         }
     }
 }

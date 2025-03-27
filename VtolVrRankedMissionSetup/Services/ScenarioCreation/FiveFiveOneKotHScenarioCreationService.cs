@@ -9,6 +9,12 @@ using System;
 using VtolVrRankedMissionSetup.VTS.Events;
 using VtolVrRankedMissionSetup.VTS.Objectives;
 using VtolVrRankedMissionSetup.VTS.UnitFields;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Shapes;
+using Microsoft.UI;
+using VtolVrRankedMissionSetup.VTM;
+using System.Numerics;
 
 namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
 {
@@ -313,6 +319,54 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
 
             scenario.AlliedObjectives = AlliedObjectives.ToArray();
             scenario.EnemyObjectives = EnemyObjectives.ToArray();
+        }
+
+        public override void GeneratePreview(Canvas canvas, VTMapCustom map, CustomScenario scenario, BaseInfo[] teamABases, BaseInfo[] teamBBases)
+        {
+            base.GeneratePreview(canvas, map, scenario, teamABases, teamBBases);
+
+            BaseInfo baseA = teamABases.Length > 0 ? teamABases[0] : teamBBases[0];
+            BaseInfo baseB = teamBBases.Length > 0 ? teamBBases[0] : teamABases[0];
+
+            Vector3 bullseye = (baseA.Prefab.GlobalPos + baseB.Prefab.GlobalPos) / 2.0f;
+
+            Ellipse outer = new()
+            {
+                Stroke = new SolidColorBrush(Colors.Green),
+                Height = 20,
+                Width = 20,
+                StrokeThickness = 3,
+            };
+
+            Vector2 bullseyeMapLocation = worldToPreview(bullseye, map);
+            Canvas.SetLeft(outer, bullseyeMapLocation.X - 10);
+            Canvas.SetTop(outer, bullseyeMapLocation.Y - 10);
+
+            Ellipse inner = new()
+            {
+                Fill = new SolidColorBrush(Colors.Green),
+                Height = 5,
+                Width = 5,
+            };
+
+            Canvas.SetLeft(inner, bullseyeMapLocation.X - 2.5);
+            Canvas.SetTop(inner, bullseyeMapLocation.Y - 2.5);
+
+            double size = worldToPreview(ControlRadius, map);
+            Ellipse control = new()
+            {
+                Stroke = new SolidColorBrush(Colors.Cyan),
+                Height = size,
+                Width = size,
+                StrokeThickness = 1,
+            };
+
+            Canvas.SetLeft(control, bullseyeMapLocation.X - (size / 2));
+            Canvas.SetTop(control, bullseyeMapLocation.Y - (size / 2));
+
+            canvas.Children.Add(outer);
+            canvas.Children.Add(inner);
+            canvas.Children.Add(control);
         }
 
         protected override void PopulateAirbase(BaseInfo baseInfo, List<IUnitSpawner> spawners, Team team)

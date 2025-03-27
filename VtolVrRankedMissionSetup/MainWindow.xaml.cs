@@ -1,6 +1,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media.Imaging;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -61,7 +62,7 @@ namespace VtolVrRankedMissionSetup
             fileOpen.FileTypeFilter.Add(".vtm");
 
             StorageFile file = await fileOpen.PickSingleFileAsync();
-            LoadMap(file);
+            await LoadMapAsync(file);
         }
 
         private async void OnSaveClicked(object sender, RoutedEventArgs e)
@@ -165,6 +166,8 @@ namespace VtolVrRankedMissionSetup
 
             TeamBBases.Bases.Remove(baseInfo);
             TeamABases.Bases.Add(baseInfo);
+
+            RegeneratePreview();
         }
 
         private async void OnTeamBDragDropped(object sender, DragEventArgs e)
@@ -177,6 +180,8 @@ namespace VtolVrRankedMissionSetup
 
             TeamABases.Bases.Remove(baseInfo);
             TeamBBases.Bases.Add(baseInfo);
+
+            RegeneratePreview();
         }
 
         private void ScenarioModeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -210,6 +215,8 @@ namespace VtolVrRankedMissionSetup
             {
                 b.BaseTeam = Team.Enemy;
             }
+
+            RegeneratePreview();
         }
 
         private async void OnMainGridDragEntered(object sender, DragEventArgs e)
@@ -240,7 +247,12 @@ namespace VtolVrRankedMissionSetup
             if (file == null)
                 return;
 
-            LoadMap(file);
+            await LoadMapAsync(file);
+        }
+
+        private void OnBasesReordered(object sender, DragItemsCompletedEventArgs e)
+        {
+            RegeneratePreview();
         }
 
         private static async Task<StorageFile?> GetStorageFileAsync(DragEventArgs e)
@@ -263,7 +275,7 @@ namespace VtolVrRankedMissionSetup
             return file;
         }
 
-        private void LoadMap(StorageFile file)
+        private async Task LoadMapAsync(StorageFile file)
         {
             Map = VTSerializer.DeserializeFromFile<VTMapCustom>(file.Path);
 
@@ -288,6 +300,47 @@ namespace VtolVrRankedMissionSetup
             {
                 TeamABases.Bases.Add(baseInfo);
             }
+
+            try
+            {
+                StorageFolder mapFolder = await file.GetParentAsync();
+
+                StorageFile mapPreview = await mapFolder.GetFileAsync("preview.jpg");
+
+                BitmapImage image = new BitmapImage(new Uri(mapPreview.Path));
+                MapPreviewImage.Source = image;
+            }
+            catch
+            {
+                MapPreviewImage.Source = null;
+            }
+
+            RegeneratePreview();
+        }
+
+        private void RegeneratePreview()
+        {
+            if (Map == null || Scenario == null)
+                return;
+
+            Type? scenarioCreationServiceType = Type.GetType(scenarioMode.ActiveMode.ScenarioCreationService);
+            if (scenarioCreationServiceType == null)
+                return;
+
+            ScenarioCreationService? scenarioCreationService = App.Services.GetService(scenarioCreationServiceType) as ScenarioCreationService;
+            if (scenarioCreationService == null)
+                return;
+
+            UIElement[] children = MapPreviewCanvas.Children.ToArray();
+            foreach(UIElement child in children)
+            {
+                if (child == MapPreviewImage)
+                    continue;
+
+                MapPreviewCanvas.Children.Remove(child);
+            }
+
+            scenarioCreationService.GeneratePreview(MapPreviewCanvas, Map, Scenario, TeamABases.Bases.ToArray(), TeamBBases.Bases.ToArray());
         }
     }
 }

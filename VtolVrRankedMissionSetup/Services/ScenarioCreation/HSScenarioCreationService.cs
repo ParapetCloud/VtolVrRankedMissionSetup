@@ -5,6 +5,12 @@ using VtolVrRankedMissionSetup.Configs.AirbaseLayout;
 using Microsoft.Extensions.DependencyInjection;
 using VtolVrRankedMissionSetup.VTS.Events;
 using VtolVrRankedMissionSetup.VTS.Objectives;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Shapes;
+using Microsoft.UI;
+using VtolVrRankedMissionSetup.VTM;
+using Windows.UI.StartScreen;
 
 namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
 {
@@ -63,6 +69,99 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
             objectivesb.Add(CreateObjectiveForKill(objectiveCount++, objectivesb.Count, teamABase));
             objectivesb.Add(CreateObjectiveForSpawnProt(objectiveCount++, objectivesb.Count));
             scenario.EnemyObjectives = objectivesb.ToArray();
+        }
+
+        public override void GeneratePreview(Canvas canvas, VTMapCustom map, CustomScenario scenario, BaseInfo[] teamABases, BaseInfo[] teamBBases)
+        {
+            base.GeneratePreview(canvas, map, scenario, teamABases, teamBBases);
+
+            BaseInfo baseA = teamABases.Length > 0 ? teamABases[0] : teamBBases[0];
+            BaseInfo baseB = teamBBases.Length > 0 ? teamBBases[0] : teamABases[0];
+
+            Vector3 bullseye = (baseA.Prefab.GlobalPos + baseB.Prefab.GlobalPos) / 2.0f;
+
+            Ellipse outer = new()
+            {
+                Stroke = new SolidColorBrush(Colors.Green),
+                Height = 20,
+                Width = 20,
+                StrokeThickness = 3,
+            };
+
+            Vector2 bullseyeMapLocation = worldToPreview(bullseye, map);
+            Canvas.SetLeft(outer, bullseyeMapLocation.X - 10);
+            Canvas.SetTop(outer, bullseyeMapLocation.Y - 10);
+
+            Ellipse inner = new()
+            {
+                Fill = new SolidColorBrush(Colors.Green),
+                Height = 5,
+                Width = 5,
+            };
+
+            Canvas.SetLeft(inner, bullseyeMapLocation.X - 2.5);
+            Canvas.SetTop(inner, bullseyeMapLocation.Y - 2.5);
+
+            canvas.Children.Add(outer);
+            canvas.Children.Add(inner);
+
+            double warnsize = worldToPreview(15 * Units.NauticalMiles, map);
+            double killsize = worldToPreview(13 * Units.NauticalMiles, map);
+            Vector2 baseAMapLocation = worldToPreview(baseA.Prefab.GlobalPos, map);
+
+            Ellipse warnA = new()
+            {
+                Stroke = new SolidColorBrush(Colors.Yellow),
+                Height = warnsize,
+                Width = warnsize,
+                StrokeThickness = 1,
+            };
+
+            Canvas.SetLeft(warnA, baseAMapLocation.X - (warnsize / 2));
+            Canvas.SetTop(warnA, baseAMapLocation.Y - (warnsize / 2));
+
+            canvas.Children.Add(warnA);
+
+            Ellipse killA = new()
+            {
+                Stroke = new SolidColorBrush(Colors.Red),
+                Height = killsize,
+                Width = killsize,
+                StrokeThickness = 1,
+            };
+
+            Canvas.SetLeft(killA, baseAMapLocation.X - (killsize / 2));
+            Canvas.SetTop(killA, baseAMapLocation.Y - (killsize / 2));
+
+            canvas.Children.Add(killA);
+
+            Vector2 baseBMapLocation = worldToPreview(baseB.Prefab.GlobalPos, map);
+
+            Ellipse warnB = new()
+            {
+                Stroke = new SolidColorBrush(Colors.Yellow),
+                Height = warnsize,
+                Width = warnsize,
+                StrokeThickness = 1,
+            };
+
+            Canvas.SetLeft(warnB, baseBMapLocation.X - (warnsize / 2));
+            Canvas.SetTop(warnB, baseBMapLocation.Y - (warnsize / 2));
+
+            canvas.Children.Add(warnB);
+
+            Ellipse killB = new()
+            {
+                Stroke = new SolidColorBrush(Colors.Red),
+                Height = killsize,
+                Width = killsize,
+                StrokeThickness = 1,
+            };
+
+            Canvas.SetLeft(killB, baseBMapLocation.X - (killsize / 2));
+            Canvas.SetTop(killB, baseBMapLocation.Y - (killsize / 2));
+
+            canvas.Children.Add(killB);
         }
 
         static Objective CreateObjectiveForKill(int objectiveId, int orderId, Waypoint waypoint)

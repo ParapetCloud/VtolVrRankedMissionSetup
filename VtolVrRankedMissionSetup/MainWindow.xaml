@@ -23,8 +23,12 @@
             <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
 
-        <MenuBar Grid.Row="0" Background="#1f000000" >
+        <MenuBar Grid.Row="0" Grid.ColumnSpan="99999" Background="#1f000000" >
             <MenuBarItem Title="File">
                 <MenuFlyoutItem Text="Open Map" Click="OnOpenClicked">
                     <MenuFlyoutItem.KeyboardAccelerators>
@@ -41,25 +45,47 @@
 
         <ComboBox Grid.Row="1" x:Name="ScenarioModeComboBox" Header="Scenario Mode" Margin="8" SelectionChanged="ScenarioModeComboBox_SelectionChanged"/>
 
-        <ScrollView Grid.Row="2" HorizontalScrollMode="Auto" VerticalScrollMode="Disabled" Padding="8">
+        <ScrollView Grid.Row="2" HorizontalScrollMode="Disabled" VerticalScrollMode="Auto" Padding="8">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="400" />
                     <ColumnDefinition Width="400" />
+                    <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
                 <controls:TeamBaseList
                     x:Name="TeamABases"
                     Grid.Column="0"
                     Drop="OnTeamADragDropped"
+                    Reordered="OnBasesReordered"
                     Side="Allied" />
 
                 <controls:TeamBaseList
                     x:Name="TeamBBases"
                     Grid.Column="1"
                     Drop="OnTeamBDragDropped"
+                    Reordered="OnBasesReordered"
                     Side="Enemy" />
+
             </Grid>
         </ScrollView>
+
+        <Viewbox
+            Grid.Row="2"
+            Grid.Column="1"
+            Margin="0 8 8 8"
+            Stretch="Uniform"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch">
+            <Canvas 
+                x:Name="MapPreviewCanvas"
+                Width="640"
+                Height="640">
+                <Image
+                    x:Name="MapPreviewImage"
+                    Width="640"
+                    Height="640" />
+            </Canvas>
+        </Viewbox>
     </Grid>
 </Window>
