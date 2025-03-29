@@ -45,7 +45,7 @@ jobs:
       run: dotnet restore --runtime win-arm64
 
     - name: Build arm64
-      run: dotnet publish -c Release -p:Platform=ARM64
+      run: dotnet publish -c Release -p:Platform=ARM64 -r win-arm64
       continue-on-error: false
 
     - name: Package arm64 Artifact
