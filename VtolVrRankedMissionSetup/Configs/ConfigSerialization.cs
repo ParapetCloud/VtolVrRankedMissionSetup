@@ -1,27 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json;
-using System.Threading.Tasks;
+﻿using System.Text.Json.Serialization;
+using VtolVrRankedMissionSetup.Configs.AirbaseLayout;
+using VtolVrRankedMissionSetup.Configs.ScenarioMode;
 
 namespace VtolVrRankedMissionSetup.Configs
 {
-    public static class ConfigSerialization
+    [JsonSourceGenerationOptions(WriteIndented = true, PropertyNamingPolicy = JsonKnownNamingPolicy.CamelCase)]
+    [JsonSerializable(typeof(AirbaseLayoutConfig))]
+    [JsonSerializable(typeof(ScenarioModeConfig))]
+    public partial class ConfigSerialization : JsonSerializerContext
     {
-        private static JsonSerializerOptions? _serializerOptions;
-        public static JsonSerializerOptions SerializerOptions
-        {
-            get
-            {
-                if (_serializerOptions == null)
-                {
-                    _serializerOptions = new JsonSerializerOptions(JsonSerializerDefaults.Web);
-                    _serializerOptions.Converters.Add(new Vector3JsonConverter());
-                }
-
-                return _serializerOptions;
-            }
-        }
     }
 }

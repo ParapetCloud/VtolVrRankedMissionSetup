@@ -4,21 +4,14 @@
 		<TargetFramework>net9.0-windows10.0.22621.0</TargetFramework>
 		<TargetPlatformMinVersion>10.0.19041.0</TargetPlatformMinVersion>
 		<RootNamespace>VtolVrRankedMissionSetup</RootNamespace>
-		<Platforms>x64;ARM64</Platforms>
+		<Platforms>X64;ARM64</Platforms>
+		<RuntimeIdentifiers>win-x64;win-arm64</RuntimeIdentifiers>
 		<EnableWindowsTargeting>true</EnableWindowsTargeting>
 		<EnableMsixTooling>true</EnableMsixTooling>
 		<UseWinUI>true</UseWinUI>
 		<Nullable>enable</Nullable>
 	</PropertyGroup>
-	
-	<PropertyGroup Condition="'$(Platform)' == 'x64'">
-		<PlatformTarget>x64</PlatformTarget>
-		<RuntimeIdentifiers>win-x64</RuntimeIdentifiers>
-	</PropertyGroup>
-	<PropertyGroup Condition="'$(Platform)' == 'arm64'">
-		<PlatformTarget>arm64</PlatformTarget>
-		<RuntimeIdentifiers>win-arm64</RuntimeIdentifiers>
-	</PropertyGroup>
+
 
 	<ItemGroup>
 		<Content Include="Configs\**\*.json">
@@ -48,9 +41,6 @@
 			<Generator>MSBuild:Compile</Generator>
 		</Page>
 	</ItemGroup>
-	<PropertyGroup Label="Globals">
-		<WebView2EnableCsWinRTProjection>False</WebView2EnableCsWinRTProjection>
-	</PropertyGroup>
 
 	<!--
     Defining the "HasPackageAndPublishMenuAddedByProject" property here allows the Solution
@@ -63,10 +53,7 @@
 
 	<!-- Publish Properties -->
 	<PropertyGroup>
-		<PublishReadyToRun Condition="'$(Configuration)' == 'Debug'">False</PublishReadyToRun>
-		<PublishReadyToRun Condition="'$(Configuration)' != 'Debug'">True</PublishReadyToRun>
-		<PublishTrimmed Condition="'$(Configuration)' == 'Debug'">False</PublishTrimmed>
-		<PublishTrimmed Condition="'$(Configuration)' != 'Debug'">True</PublishTrimmed>
+		<PublishReadyToRun>true</PublishReadyToRun>
 		<SupportedOSPlatformVersion>10.0.19041.0</SupportedOSPlatformVersion>
 		<StartupObject>VtolVrRankedMissionSetup.Program</StartupObject>
 		<WindowsPackageType>None</WindowsPackageType>
@@ -74,5 +61,6 @@
 	<PropertyGroup>
 		<DefineConstants>$(DefineConstants);</DefineConstants>
 		<ApplicationManifest>app.manifest</ApplicationManifest>
+		<PublishAot>False</PublishAot>
 	</PropertyGroup>
 </Project>

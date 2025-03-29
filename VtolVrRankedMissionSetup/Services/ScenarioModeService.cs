@@ -35,7 +35,7 @@ namespace VtolVrRankedMissionSetup.Services
                 {
                     // This really should have some logging...
 
-                    ScenarioModeConfig? config = JsonSerializer.Deserialize<ScenarioModeConfig>(File.ReadAllText(file.FullName), ConfigSerialization.SerializerOptions)!;
+                    ScenarioModeConfig? config = JsonSerializer.Deserialize(File.ReadAllText(file.FullName), ConfigSerialization.Default.ScenarioModeConfig)!;
 
                     if (config == null)
                         continue;

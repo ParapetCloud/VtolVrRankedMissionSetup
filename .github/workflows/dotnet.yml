@@ -29,7 +29,7 @@ jobs:
       run: dotnet restore --runtime win-x64
 
     - name: Build x64
-      run: dotnet publish -c Release -r win-x64 --self-contained true /p:PublishAot=true
+      run: dotnet publish -c Release -p:Platform=x64
       continue-on-error: false
 
     - name: Package x64 Artifact
@@ -45,7 +45,7 @@ jobs:
       run: dotnet restore --runtime win-arm64
 
     - name: Build arm64
-      run: dotnet publish -c Release -r win-arm64 --self-contained true /p:PublishAot=true
+      run: dotnet publish -c Release -p:Platform=ARM64
       continue-on-error: false
 
     - name: Package arm64 Artifact
