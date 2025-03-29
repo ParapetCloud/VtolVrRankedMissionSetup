@@ -10,9 +10,9 @@ namespace VtolVrRankedMissionSetup.VTS
         public int Id { get; set; }
         public Vector3 OutputNodePos { get; set; }
         [IdLink("root")]
-        public IComponent rootComponent { get; set; }
+        public required IComponent rootComponent { get; set; }
 
         [VTInlineArray]
-        public IComponent[] Components { get; set; }
+        public IComponent[] Components { get; set; } = [];
     }
 }

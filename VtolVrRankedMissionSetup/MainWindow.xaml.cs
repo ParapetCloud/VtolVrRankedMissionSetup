@@ -146,7 +146,7 @@ namespace VtolVrRankedMissionSetup
             _ = d.ShowAsync();
         }
 
-        private bool SetProperty<T>(ref T storage, T value, [CallerMemberName] string propertyName = null, bool forceUpdate = false)
+        private bool SetProperty<T>(ref T storage, T value, [CallerMemberName] string? propertyName = null, bool forceUpdate = false)
         {
             if (!forceUpdate && Equals(storage, value))
                 return false;

@@ -8,10 +8,10 @@ namespace VtolVrRankedMissionSetup.Configs.ScenarioMode
 {
     public class ScenarioModeConfig
     {
-        public string ScenarioCreationService { get; set; }
-        public string PrimaryDefaultLayout { get; set; }
+        public string ScenarioCreationService { get; set; } = string.Empty;
+        public string PrimaryDefaultLayout { get; set; } = string.Empty;
         public string? SecondaryDefaultLayout { get; set; }
-        public Dictionary<string, string> DefaultEquipment { get; set; }
+        public Dictionary<string, string> DefaultEquipment { get; set; } = [];
         public Dictionary<string, string>? ForcedEquipment { get; set; }
     }
 }

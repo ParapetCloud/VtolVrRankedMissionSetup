@@ -63,4 +63,10 @@
 		<ApplicationManifest>app.manifest</ApplicationManifest>
 		<PublishAot>False</PublishAot>
 	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)'=='Debug'">
+	  <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)'=='Release'">
+	  <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+	</PropertyGroup>
 </Project>

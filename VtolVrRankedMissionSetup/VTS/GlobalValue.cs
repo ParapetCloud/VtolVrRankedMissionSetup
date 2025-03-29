@@ -32,5 +32,12 @@ namespace VtolVrRankedMissionSetup.VTS
 
         public static bool operator ==(GlobalValue gv, double n) => throw new InvalidOperationException("You can't actually call this method");
         public static bool operator !=(GlobalValue gv, double n) => throw new InvalidOperationException("You can't actually call this method");
+
+        public override bool Equals(object? obj)
+        {
+            throw new InvalidOperationException("You can't actually call this method");
+        }
+
+        public override int GetHashCode() => base.GetHashCode();
     }
 }

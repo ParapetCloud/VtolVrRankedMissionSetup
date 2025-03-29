@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using VtolVrRankedMissionSetup.VT;
 using VtolVrRankedMissionSetup.VTS.Events;
 
@@ -10,7 +6,7 @@ namespace VtolVrRankedMissionSetup.VTS.Objectives
 {
     public class Objective
     {
-        public string ObjectiveName { get; set; }
+        public string ObjectiveName { get; set; } = "New Objective";
         public string? ObjectiveInfo { get; set; }
         [Id]
         public int ObjectiveID { get; set; }

@@ -9,11 +9,11 @@ namespace VtolVrRankedMissionSetup.VTS
 {
     public class ParamInfo
     {
-        public string Type { get; set; }
-        public string Value { get; set; }
-        public string Name { get; set; }
+        public required string Type { get; set; }
+        public required string Value { get; set; }
+        public required string Name { get; set; }
 
         [VTInlineArray]
-        public ParamAttrInfo[] Attrs { get; set; }
+        public ParamAttrInfo[] Attrs { get; set; } = [];
     }
 }

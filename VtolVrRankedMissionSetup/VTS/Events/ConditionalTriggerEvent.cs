@@ -18,9 +18,9 @@ namespace VtolVrRankedMissionSetup.VTS.Events
         public string TriggerType { get; } = "Conditional";
 
         [IdLink("conditional")]
-        public Conditional Conditional { get; set; }
+        public required Conditional Conditional { get; set; }
 
-        public string EventName { get; set; }
+        public string EventName { get; set; } = "New Trigger Event";
 
         public EventInfo? EventInfo { get; set; }
     }

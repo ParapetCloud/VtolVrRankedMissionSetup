@@ -9,6 +9,6 @@ namespace VtolVrRankedMissionSetup.VTS.Events
         public TimeSpan Time { get; set; }
 
         [VTInlineArray]
-        public EventTarget[] Targets { get; set; }
+        public EventTarget[] Targets { get; set; } = [];
     }
 }

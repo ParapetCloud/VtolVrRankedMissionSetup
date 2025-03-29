@@ -29,7 +29,7 @@ namespace VtolVrRankedMissionSetup.Controls
         }
 
         public new event EventHandler<DragEventArgs>? Drop;
-        public new event EventHandler<DragItemsCompletedEventArgs>? Reordered;
+        public event EventHandler<DragItemsCompletedEventArgs>? Reordered;
 
         public ObservableCollection<BaseInfo> Bases { get; set; }
 

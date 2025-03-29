@@ -10,8 +10,8 @@ namespace VtolVrRankedMissionSetup.VTS
     [VTName("BRIEFING_NOTE")]
     public class BriefingNote
     {
-        public string Text { get; set; }
-        public string ImagePath { get; set; }
-        public string AudioClipPath { get; set; }
+        public string Text { get; set; } = string.Empty;
+        public string ImagePath { get; set; } = string.Empty;
+        public string AudioClipPath { get; set; } = string.Empty;
     }
 }

@@ -28,7 +28,7 @@ namespace VtolVrRankedMissionSetup.VTS.Events
         public string TriggerType { get; } = "Proximity";
 
         [IdLink("waypoint")]
-        public Waypoint Waypoint { get; set; }
+        public required Waypoint Waypoint { get; set; }
 
         public double Radius { get; set; }
 
@@ -38,7 +38,7 @@ namespace VtolVrRankedMissionSetup.VTS.Events
 
         public ProxyMode ProxyMode { get; set; }
 
-        public string EventName { get; set; }
+        public string EventName { get; set; } = "New Trigger Event";
 
         public EventInfo? EventInfo { get; set; }
     }

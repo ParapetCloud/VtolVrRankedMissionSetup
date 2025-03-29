@@ -7,9 +7,9 @@ namespace VtolVrRankedMissionSetup.VTS
         [Id]
         public int Id { get; set; }
 
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
 
         [VTName("BASE_BLOCK")]
-        public Block BaseBlock { get; set; }
+        public required Block BaseBlock { get; set; }
     }
 }

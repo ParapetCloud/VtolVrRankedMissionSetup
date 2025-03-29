@@ -17,10 +17,10 @@ namespace VtolVrRankedMissionSetup.VTS
         public int BlockId { get; set; }
 
         [VTName("CONDITIONAL")]
-        public Conditional Conditional { get; set; }
+        public required Conditional Conditional { get; set; }
 
         [VTName("ACTIONS")]
-        public EventInfo Actions { get; set; }
+        public required EventInfo Actions { get; set; }
 
         [VTInlineArray]
         public Block[]? ElseIfs { get; set; }

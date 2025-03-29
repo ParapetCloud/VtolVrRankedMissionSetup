@@ -12,6 +12,6 @@ namespace VtolVrRankedMissionSetup.Configs.AirbaseLayout
         public Vector3 Rtb { get; set; }
         public Vector3 Protection { get; set; }
 
-        public Vector3[] Perimeter { get; set; }
+        public Vector3[] Perimeter { get; set; } = [];
     }
 }

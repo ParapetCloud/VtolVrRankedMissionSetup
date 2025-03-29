@@ -23,11 +23,6 @@ namespace VtolVrRankedMissionSetup.VTS
         [VTName("c_value")]
         public string To { get; set; }
 
-        public SCCGlobalValueComponent()
-        {
-            Type = "SCCGlobalValue";
-        }
-
         public SCCGlobalValueComponent(GlobalValue value, BinaryExpression binaryExpression)
         {
             Type = "SCCGlobalValue";

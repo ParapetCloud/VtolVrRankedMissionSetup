@@ -9,12 +9,12 @@ namespace VtolVrRankedMissionSetup.VTS
     {
         [Id]
         public int Id { get; set; }
-        public string SequenceName { get; set; }
+        public string SequenceName { get; set; } = "new sequence";
         public bool StartImmediately { get; set; }
         public bool WhileLoop { get; set; }
 
         [VTInlineArray()]
-        public Event[] Events { get; set; }
+        public Event[] Events { get; set; } = [];
 
         [EventTarget("Begin", "Event_Sequences")]
         public void BeginEvent() => throw new NotSupportedException("You can't actually call this");
