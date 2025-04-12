@@ -15,6 +15,7 @@ using Microsoft.UI.Xaml.Shapes;
 using Microsoft.UI;
 using VtolVrRankedMissionSetup.VTM;
 using System.Numerics;
+using System.Buffers.Text;
 
 namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
 {
@@ -385,6 +386,40 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
             canvas.Children.Add(outer);
             canvas.Children.Add(inner);
             canvas.Children.Add(control);
+        }
+
+        protected override void PreviewBase(Canvas canvas, BaseInfo bs, VTMapCustom map, Team team, bool primary)
+        {
+            base.PreviewBase(canvas, bs, map, team, primary);
+
+            if (!primary)
+                return;
+
+            AirbaseLayoutConfig airbaseConfig = layoutService.GetConfig(bs.Layout ?? "551", bs.Prefab.Prefab);
+
+            if (airbaseConfig == null)
+                return;
+
+            Vector2 baseLocation = worldToPreview(bs.Prefab.GlobalPos, map);
+
+            float rotation = airbaseConfig.F26![0].Rotation.Y + bs.Prefab.Rotation.Y;
+            Matrix3x2 rotationMatrix = Matrix3x2.CreateRotation(MathHelpers.DegToRad(rotation));
+            Vector2 lineEnd = baseLocation + Vector2.Transform(new Vector2(0, -30), rotationMatrix);
+
+            SolidColorBrush teamColor = GetTeamColor(team, primary);
+
+            Line spawnDirectionLine = new()
+            {
+                Stroke = teamColor,
+                X1 = baseLocation.X,
+                Y1 = baseLocation.Y,
+                X2 = lineEnd.X,
+                Y2 = lineEnd.Y,
+            };
+
+            Canvas.SetZIndex(spawnDirectionLine, -1);
+
+            canvas.Children.Add(spawnDirectionLine);
         }
 
         protected override void PopulateAirbase(BaseInfo baseInfo, List<IUnitSpawner> spawners, Team team)

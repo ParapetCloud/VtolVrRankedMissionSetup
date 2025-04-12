@@ -8,7 +8,7 @@
     xmlns:vts="using:VtolVrRankedMissionSetup.VTS"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-    
+
     <Grid
         x:Name="MainGrid"
         Grid.Column="1"
@@ -34,10 +34,18 @@
                     BorderThickness="1"
                     Margin="4"
                     Padding="8"
-                    CornerRadius="8">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{x:Bind Prefab.Id}" Padding="0 0 8 0"/>
-                        <TextBlock Text="{x:Bind Prefab.BaseName}"/>
+                    CornerRadius="8"
+                    DataContext="{x:Bind}">
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{x:Bind Prefab.Id}" Padding="0 0 8 0"/>
+                            <TextBlock Text="{x:Bind Prefab.BaseName}"/>
+                        </StackPanel>
+                        <ComboBox SelectedValuePath="Content" SelectedValue="{x:Bind Layout, Mode=TwoWay}" SelectionChanged="ComboBox_SelectionChanged">
+                            <ComboBoxItem>551</ComboBoxItem>
+                            <ComboBoxItem>551 Reversed</ComboBoxItem>
+                            <ComboBoxItem>HS</ComboBoxItem>
+                        </ComboBox>
                     </StackPanel>
                 </Border>
             </DataTemplate>

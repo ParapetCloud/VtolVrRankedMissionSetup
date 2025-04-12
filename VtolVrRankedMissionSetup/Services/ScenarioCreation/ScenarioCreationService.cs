@@ -56,11 +56,7 @@ namespace VtolVrRankedMissionSetup.Services
 
         protected virtual void PreviewBase(Canvas canvas, BaseInfo bs, VTMapCustom map, Team team, bool primary)
         {
-
-            byte primaryColor = (byte)(primary ? 160 : 127);
-            byte secondaryColor = (byte)(primary ? 80 : 0);
-
-            SolidColorBrush teamColor = team == Team.Allied ? new SolidColorBrush(Windows.UI.Color.FromArgb(255, secondaryColor, secondaryColor, primaryColor)) : new SolidColorBrush(Windows.UI.Color.FromArgb(255, primaryColor, secondaryColor, secondaryColor));
+            SolidColorBrush teamColor = GetTeamColor(team, primary);
 
             Rectangle baseRepresentation = new()
             {
@@ -163,5 +159,12 @@ namespace VtolVrRankedMissionSetup.Services
             return (world / mapSize) * 640;
         }
 
+        protected virtual SolidColorBrush GetTeamColor(Team team, bool primary)
+        {
+            byte primaryColor = (byte)(primary ? 160 : 127);
+            byte secondaryColor = (byte)(primary ? 80 : 0);
+
+            return team == Team.Allied ? new SolidColorBrush(Windows.UI.Color.FromArgb(255, secondaryColor, secondaryColor, primaryColor)) : new SolidColorBrush(Windows.UI.Color.FromArgb(255, primaryColor, secondaryColor, secondaryColor));
+        }
     }
 }

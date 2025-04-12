@@ -85,16 +85,16 @@ namespace VtolVrRankedMissionSetup
                 return;
             }
 
-            TeamABases.Bases[0].Layout = scenarioMode.ActiveMode.PrimaryDefaultLayout;
+            TeamABases.Bases[0].Layout ??= scenarioMode.ActiveMode.PrimaryDefaultLayout;
             for (int i = 1; i < TeamABases.Bases.Count; ++i)
             {
-                TeamABases.Bases[i].Layout = scenarioMode.ActiveMode.SecondaryDefaultLayout;
+                TeamABases.Bases[i].Layout ??= scenarioMode.ActiveMode.SecondaryDefaultLayout;
             }
 
-            TeamBBases.Bases[0].Layout = scenarioMode.ActiveMode.PrimaryDefaultLayout;
+            TeamBBases.Bases[0].Layout ??= scenarioMode.ActiveMode.PrimaryDefaultLayout;
             for (int i = 1; i < TeamBBases.Bases.Count; ++i)
             {
-                TeamBBases.Bases[i].Layout = scenarioMode.ActiveMode.SecondaryDefaultLayout;
+                TeamBBases.Bases[i].Layout ??= scenarioMode.ActiveMode.SecondaryDefaultLayout;
             }
 
             FileSavePicker fileSave = new();

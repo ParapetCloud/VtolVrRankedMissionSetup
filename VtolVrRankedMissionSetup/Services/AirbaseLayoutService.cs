@@ -18,8 +18,19 @@ namespace VtolVrRankedMissionSetup.Services
 
             if (!configs.TryGetValue(airbasePath, out AirbaseLayoutConfig? config))
             {
-                config = JsonSerializer.Deserialize(File.ReadAllText($"Configs/AirbaseLayout/{airbasePath}.json"), ConfigSerialization.Default.AirbaseLayoutConfig)!;
-                configs.Add(airbasePath, config);
+                try
+                {
+                    config = JsonSerializer.Deserialize(File.ReadAllText($"Configs/AirbaseLayout/{airbasePath}.json"), ConfigSerialization.Default.AirbaseLayoutConfig)!;
+                    configs.Add(airbasePath, config);
+                }
+                catch (JsonException)
+                {
+                    return null!;
+                }
+                catch (IOException)
+                {
+                    return null!;
+                }
             }
 
             return config;

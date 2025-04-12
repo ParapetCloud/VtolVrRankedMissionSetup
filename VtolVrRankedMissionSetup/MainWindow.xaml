@@ -84,7 +84,8 @@
                 <Image
                     x:Name="MapPreviewImage"
                     Width="640"
-                    Height="640" />
+                    Height="640"
+                    Canvas.ZIndex="-100000000"/>
             </Canvas>
         </Viewbox>
     </Grid>
