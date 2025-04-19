@@ -1,9 +1,10 @@
-﻿using VtolVrRankedMissionSetup.VT;
+﻿using System.ComponentModel;
+using VtolVrRankedMissionSetup.VT;
 using VtolVrRankedMissionSetup.VTM;
 
 namespace VtolVrRankedMissionSetup.VTS
 {
-    public class BaseInfo
+    public class BaseInfo : INotifyPropertyChanged
     {
         [IdLink("id")]
         public StaticPrefab Prefab { get; set; }
@@ -14,11 +15,28 @@ namespace VtolVrRankedMissionSetup.VTS
         public Empty? CustomData { get; set; }
 
         [VTIgnore]
-        public string? Layout { get; set; }
+        private string _layout;
+        [VTIgnore]
+        public string Layout
+        {
+            get => _layout;
+            set
+            {
+                if (_layout == value)
+                    return;
+
+                _layout = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Layout)));
+            }
+        }
 
         public BaseInfo(StaticPrefab prefab)
         {
             Prefab = prefab;
+            Layout = "";
         }
+
+        [VTIgnore]
+        public event PropertyChangedEventHandler? PropertyChanged;
     }
 }

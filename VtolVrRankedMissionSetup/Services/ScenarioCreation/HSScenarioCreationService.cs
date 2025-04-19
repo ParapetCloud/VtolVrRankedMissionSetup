@@ -29,8 +29,8 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
             BaseInfo baseA = teamABases[0];
             BaseInfo baseB = teamBBases[0];
 
-            AirbaseLayoutConfig airbaseAConfig = layoutService.GetConfig(baseA.Layout ?? "HS", baseA.Prefab.Prefab);
-            AirbaseLayoutConfig airbaseBConfig = layoutService.GetConfig(baseB.Layout ?? "HS", baseB.Prefab.Prefab);
+            AirbaseLayoutConfig airbaseAConfig = layoutService.GetConfig(GetLayout(baseA, true), baseA.Prefab.Prefab);
+            AirbaseLayoutConfig airbaseBConfig = layoutService.GetConfig(GetLayout(baseB, true), baseB.Prefab.Prefab);
 
             int objectiveCount = 0;
 

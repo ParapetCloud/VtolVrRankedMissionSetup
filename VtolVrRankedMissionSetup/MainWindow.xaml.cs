@@ -89,18 +89,6 @@ namespace VtolVrRankedMissionSetup
                 return;
             }
 
-            TeamABases.Bases[0].Layout ??= scenarioMode.ActiveMode.PrimaryDefaultLayout;
-            for (int i = 1; i < TeamABases.Bases.Count; ++i)
-            {
-                TeamABases.Bases[i].Layout ??= scenarioMode.ActiveMode.SecondaryDefaultLayout;
-            }
-
-            TeamBBases.Bases[0].Layout ??= scenarioMode.ActiveMode.PrimaryDefaultLayout;
-            for (int i = 1; i < TeamBBases.Bases.Count; ++i)
-            {
-                TeamBBases.Bases[i].Layout ??= scenarioMode.ActiveMode.SecondaryDefaultLayout;
-            }
-
             FileSavePicker fileSave = new();
 
             WinRT.Interop.InitializeWithWindow.Initialize(fileSave, Hwnd);
@@ -220,6 +208,8 @@ namespace VtolVrRankedMissionSetup
                 b.BaseTeam = Team.Enemy;
             }
 
+            ResetBaseDefaults();
+
             RegeneratePreview();
         }
 
@@ -319,6 +309,7 @@ namespace VtolVrRankedMissionSetup
                 MapPreviewImage.Source = null;
             }
 
+            ResetBaseDefaults();
             RegeneratePreview();
         }
 
@@ -345,6 +336,19 @@ namespace VtolVrRankedMissionSetup
             }
 
             scenarioCreationService.GeneratePreview(MapPreviewCanvas, Map, Scenario, TeamABases.Bases.ToArray(), TeamBBases.Bases.ToArray());
+        }
+
+        private void ResetBaseDefaults()
+        {
+            for (int i = 1; i < TeamABases.Bases.Count; ++i)
+            {
+                TeamABases.Bases[i].Layout = "";
+            }
+
+            for (int i = 1; i < TeamBBases.Bases.Count; ++i)
+            {
+                TeamBBases.Bases[i].Layout = "";
+            }
         }
     }
 }

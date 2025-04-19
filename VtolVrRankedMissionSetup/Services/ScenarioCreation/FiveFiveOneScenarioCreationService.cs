@@ -88,8 +88,8 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
             BaseInfo baseA = teamABases[0];
             BaseInfo baseB = teamBBases[0];
 
-            AirbaseLayoutConfig airbaseAConfig = layoutService.GetConfig(baseA.Layout ?? "551", baseA.Prefab.Prefab);
-            AirbaseLayoutConfig airbaseBConfig = layoutService.GetConfig(baseB.Layout ?? "551", baseB.Prefab.Prefab);
+            AirbaseLayoutConfig airbaseAConfig = layoutService.GetConfig(GetLayout(baseA, true), baseA.Prefab.Prefab);
+            AirbaseLayoutConfig airbaseBConfig = layoutService.GetConfig(GetLayout(baseB, true), baseB.Prefab.Prefab);
 
             Waypoint bullseye = scenario.Waypoints.CreateWaypoint("Bullseye", (baseA.Prefab.GlobalPos + baseB.Prefab.GlobalPos) / 2.0f);
             scenario.Waypoints.Bullseye = bullseye;
@@ -392,10 +392,11 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
         {
             base.PreviewBase(canvas, bs, map, team, primary);
 
-            if (!primary)
+            string layout = GetLayout(bs, primary);
+            if (string.IsNullOrWhiteSpace(layout))
                 return;
 
-            AirbaseLayoutConfig airbaseConfig = layoutService.GetConfig(bs.Layout ?? "551", bs.Prefab.Prefab);
+            AirbaseLayoutConfig airbaseConfig = layoutService.GetConfig(layout, bs.Prefab.Prefab);
 
             if (airbaseConfig == null)
                 return;
@@ -411,6 +412,7 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
             Line spawnDirectionLine = new()
             {
                 Stroke = teamColor,
+                StrokeThickness = 3,
                 X1 = baseLocation.X,
                 Y1 = baseLocation.Y,
                 X2 = lineEnd.X,
@@ -422,12 +424,13 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
             canvas.Children.Add(spawnDirectionLine);
         }
 
-        protected override void PopulateAirbase(BaseInfo baseInfo, List<IUnitSpawner> spawners, Team team)
+        protected override void PopulateAirbase(BaseInfo baseInfo, List<IUnitSpawner> spawners, Team team, bool primary)
         {
-            if (baseInfo.Layout == null)
+            string layout = GetLayout(baseInfo, primary);
+            if (string.IsNullOrWhiteSpace(layout))
                 return;
 
-            AirbaseLayoutConfig layoutConfig = layoutService.GetConfig(baseInfo.Layout, baseInfo.Prefab.Prefab);
+            AirbaseLayoutConfig layoutConfig = layoutService.GetConfig(layout, baseInfo.Prefab.Prefab);
 
             AddAircraftToBase(baseInfo, layoutConfig.F26, "F/A-26B", spawners, $"{team}:Foxtrot");
             AddAircraftToBase(baseInfo, layoutConfig.F45, "F-45A", spawners, $"{team}:Golf");

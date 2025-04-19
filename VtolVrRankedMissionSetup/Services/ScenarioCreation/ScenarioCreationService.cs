@@ -26,14 +26,16 @@ namespace VtolVrRankedMissionSetup.Services
         {
             List<IUnitSpawner> spawners = [];
 
-            foreach (BaseInfo baseInfo in teamABases)
+            for (int i = 0; i < teamABases.Length; ++i)
             {
-                PopulateAirbase(baseInfo, spawners, Team.Allied);
+                BaseInfo bs = teamABases[i];
+                PopulateAirbase(bs, spawners, Team.Allied, i == 0);
             }
 
-            foreach (BaseInfo baseInfo in teamBBases)
+            for (int i = 0; i < teamBBases.Length; ++i)
             {
-                PopulateAirbase(baseInfo, spawners, Team.Enemy);
+                BaseInfo bs = teamABases[i];
+                PopulateAirbase(bs, spawners, Team.Enemy, i == 0);
             }
 
             scenario.Units = spawners.ToArray();
@@ -91,12 +93,13 @@ namespace VtolVrRankedMissionSetup.Services
             canvas.Children.Add(textBlock);
         }
 
-        protected virtual void PopulateAirbase(BaseInfo baseInfo, List<IUnitSpawner> spawners, Team team)
+        protected virtual void PopulateAirbase(BaseInfo baseInfo, List<IUnitSpawner> spawners, Team team, bool primary)
         {
-            if (baseInfo.Layout == null)
+            string layout = GetLayout(baseInfo, primary);
+            if (string.IsNullOrWhiteSpace(layout))
                 return;
 
-            AirbaseLayoutConfig layoutConfig = layoutService.GetConfig(baseInfo.Layout, baseInfo.Prefab.Prefab);
+            AirbaseLayoutConfig layoutConfig = layoutService.GetConfig(layout, baseInfo.Prefab.Prefab);
 
             AddAircraftToBase(baseInfo, layoutConfig.F26, "F/A-26B", spawners, team == Team.Allied ? "Allied:Alpha" : "Enemy:Zulu");
             AddAircraftToBase(baseInfo, layoutConfig.F45, "F-45A", spawners, team == Team.Allied ? "Allied:Bravo" : "Enemy:Yankee");
@@ -161,10 +164,12 @@ namespace VtolVrRankedMissionSetup.Services
 
         protected virtual SolidColorBrush GetTeamColor(Team team, bool primary)
         {
-            byte primaryColor = (byte)(primary ? 160 : 127);
+            byte primaryColor = (byte)(primary ? 255 : 127);
             byte secondaryColor = (byte)(primary ? 80 : 0);
 
             return team == Team.Allied ? new SolidColorBrush(Windows.UI.Color.FromArgb(255, secondaryColor, secondaryColor, primaryColor)) : new SolidColorBrush(Windows.UI.Color.FromArgb(255, primaryColor, secondaryColor, secondaryColor));
         }
+
+        protected string GetLayout(BaseInfo baseInfo, bool primary) => baseInfo.Layout.ValueOrDefault(primary ? scenarioMode.ActiveMode.PrimaryDefaultLayout : scenarioMode.ActiveMode.SecondaryDefaultLayout!);
     }
 }

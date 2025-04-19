@@ -70,7 +70,7 @@ namespace VtolVrRankedMissionSetup.Controls
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ((BaseInfo)((ComboBox)sender).DataContext).Layout = ((ComboBoxItem)e.AddedItems[0]).Content.ToString();
+            //((BaseInfo)((ComboBox)sender).DataContext).Layout = ((ComboBoxItem)e.AddedItems[0]).Content.ToString();
             Reordered?.Invoke(this, null!);
         }
     }
