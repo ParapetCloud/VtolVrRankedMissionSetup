@@ -62,6 +62,10 @@ namespace VtolVrRankedMissionSetup
             fileOpen.FileTypeFilter.Add(".vtm");
 
             StorageFile file = await fileOpen.PickSingleFileAsync();
+
+            if (file == null)
+                return;
+
             await LoadMapAsync(file);
         }
 
