@@ -34,7 +34,7 @@ namespace VtolVrRankedMissionSetup.Services
 
             for (int i = 0; i < teamBBases.Length; ++i)
             {
-                BaseInfo bs = teamABases[i];
+                BaseInfo bs = teamBBases[i];
                 PopulateAirbase(bs, spawners, Team.Enemy, i == 0);
             }
 
