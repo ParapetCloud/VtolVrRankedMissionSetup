@@ -15,7 +15,7 @@ namespace VtolVrRankedMissionSetup.VTS
         public Empty? CustomData { get; set; }
 
         [VTIgnore]
-        private string _layout;
+        private string _layout = "";
         [VTIgnore]
         public string Layout
         {
