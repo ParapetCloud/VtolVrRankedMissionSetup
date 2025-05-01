@@ -30,6 +30,8 @@ namespace VtolVrRankedMissionSetup.Services
 
         public virtual void SetUpScenario(CustomScenario scenario, BaseInfo[] teamABases, BaseInfo[] teamBBases)
         {
+            alliedGroupCounts.Clear();
+            enemyGroupCounts.Clear();
             List<IUnitSpawner> spawners = [];
 
             for (int i = 0; i < teamABases.Length; ++i)
