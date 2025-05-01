@@ -30,7 +30,7 @@ namespace VtolVrRankedMissionSetup.Services
 
             foreach (FileInfo file in files)
             {
-                string name = file.Name[0..(file.Name.Length - 5)];
+                string name = file.Name[0..^5];
                 try
                 {
                     // This really should have some logging...

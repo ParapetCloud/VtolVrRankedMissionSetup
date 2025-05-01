@@ -11,6 +11,7 @@ using Microsoft.UI.Xaml.Shapes;
 using Microsoft.UI;
 using VtolVrRankedMissionSetup.VTM;
 using Windows.UI.StartScreen;
+using VtolVrRankedMissionSetup.VT;
 
 namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
 {
@@ -199,6 +200,18 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
             objective.StartEvent = new ObjectiveEvent("Start Event", [new EventTarget(() => VT.Methods.GameSystem.DisplayMessage("Approaching spawncamp protection zone", 1))]);
 
             return objective;
+        }
+
+        protected override string GetAircraftGroup(Team team, AircraftConfig aircraft)
+        {
+            if (team == Team.Allied)
+            {
+                return ((AircraftGroup)((int)AircraftGroup.Alpha + (int)aircraft.Spawns[0].Type)).ToString();
+            }
+            else
+            {
+                return ((AircraftGroup)((int)AircraftGroup.Zulu - (int)aircraft.Spawns[0].Type)).ToString();
+            }
         }
     }
 }

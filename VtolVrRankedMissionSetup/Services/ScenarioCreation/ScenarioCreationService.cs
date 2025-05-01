@@ -5,21 +5,27 @@ using System;
 using System.Collections.Generic;
 using System.Numerics;
 using VtolVrRankedMissionSetup.Configs.AirbaseLayout;
+using VtolVrRankedMissionSetup.VT;
 using VtolVrRankedMissionSetup.VTM;
 using VtolVrRankedMissionSetup.VTS;
 using VtolVrRankedMissionSetup.VTS.UnitSpawners;
 
 namespace VtolVrRankedMissionSetup.Services
 {
-    public class ScenarioCreationService
+    public abstract class ScenarioCreationService
     {
         protected readonly ScenarioModeService scenarioMode;
         protected readonly AirbaseLayoutService layoutService;
+        private readonly Dictionary<string, int> alliedGroupCounts;
+        private readonly Dictionary<string, int> enemyGroupCounts;
 
         public ScenarioCreationService(ScenarioModeService scenarioMode, AirbaseLayoutService layoutService)
         {
             this.scenarioMode = scenarioMode;
             this.layoutService = layoutService;
+
+            alliedGroupCounts = new();
+            enemyGroupCounts = new();
         }
 
         public virtual void SetUpScenario(CustomScenario scenario, BaseInfo[] teamABases, BaseInfo[] teamBBases)
@@ -101,18 +107,13 @@ namespace VtolVrRankedMissionSetup.Services
 
             AirbaseLayoutConfig layoutConfig = layoutService.GetConfig(layout, baseInfo.Prefab.Prefab);
 
-            AddAircraftToBase(baseInfo, layoutConfig.F26, "F/A-26B", spawners, team == Team.Allied ? "Allied:Alpha" : "Enemy:Zulu");
-            AddAircraftToBase(baseInfo, layoutConfig.F45, "F-45A", spawners, team == Team.Allied ? "Allied:Bravo" : "Enemy:Yankee");
-            AddAircraftToBase(baseInfo, layoutConfig.F24, "EF-24G", spawners, team == Team.Allied ? "Allied:Charlie" : "Enemy:Xray", 2);
-            AddAircraftToBase(baseInfo, layoutConfig.T55, "T-55", spawners, team == Team.Allied ? "Allied:Delta" : "Enemy:Whiskey", 2);
+            AddAircraftToBase(baseInfo, layoutConfig.Aircraft, spawners, team);
         }
 
-        protected virtual void AddAircraftToBase(BaseInfo baseInfo, AircraftConfig[]? aircrafts, string vehicle, List<IUnitSpawner> spawners, string unitGroup, int slots = 0)
+        protected virtual void AddAircraftToBase(BaseInfo baseInfo, AircraftConfig[]? aircrafts, List<IUnitSpawner> spawners, Team team)
         {
             if (aircrafts == null)
                 return;
-
-            string[] unitParts = unitGroup.Split(':');
 
             for (int i = 0; i < aircrafts.Length; ++i)
             {
@@ -122,19 +123,21 @@ namespace VtolVrRankedMissionSetup.Services
                 Vector3 rotation = baseInfo.Prefab.Rotation + aircraft.Rotation;
                 MathHelpers.ClampRotation(ref rotation);
 
-                MultiplayerSpawn spawn = new(Enum.Parse<Team>(unitParts[0]), $"{unitParts[1]} 1-{i + 1}")
+                string group = GetAircraftGroup(team, aircraft);
+
+                MultiplayerSpawn spawn = new(team, $"{group} 1-{GetAndIncrement(team, group) + 1}")
                 {
                     UnitInstanceID = spawners.Count,
                     GlobalPosition = location,
                     Rotation = rotation,
                 };
 
-                spawn.MultiplayerSpawnFields.UnitGroup = unitGroup;
-                spawn.MultiplayerSpawnFields.Vehicle = vehicle;
-                spawn.MultiplayerSpawnFields.Equipment = scenarioMode.ActiveMode.DefaultEquipment[vehicle];
-                spawn.MultiplayerSpawnFields.Slots = slots;
+                spawn.MultiplayerSpawnFields.UnitGroup = $"{team}:{group}";
+                spawn.MultiplayerSpawnFields.Vehicle = aircraft.Spawns[0].Type;
+                spawn.MultiplayerSpawnFields.Equipment = scenarioMode.ActiveMode.DefaultEquipment[aircraft.Spawns[0].Type];
+                spawn.MultiplayerSpawnFields.Slots = aircraft.Spawns[0].Slots ?? 0;
 
-                string? forceEquipment = scenarioMode.ActiveMode.ForcedEquipment?[vehicle];
+                string? forceEquipment = scenarioMode.ActiveMode.ForcedEquipment?[aircraft.Spawns[0].Type];
 
                 if (!string.IsNullOrWhiteSpace(forceEquipment))
                 {
@@ -171,5 +174,20 @@ namespace VtolVrRankedMissionSetup.Services
         }
 
         protected string GetLayout(BaseInfo baseInfo, bool primary) => baseInfo.Layout.ValueOrDefault(primary ? scenarioMode.ActiveMode.PrimaryDefaultLayout : scenarioMode.ActiveMode.SecondaryDefaultLayout!);
+
+        protected abstract string GetAircraftGroup(Team team, AircraftConfig aircraft);
+
+        private int GetAndIncrement(Team team, string group)
+        {
+            var counts = team == Team.Allied ? alliedGroupCounts : enemyGroupCounts;
+
+            if (!counts.ContainsKey(group))
+            {
+                counts.Add(group, 1);
+                return 0;
+            }
+
+            return counts[group]++;
+        }
     }
 }

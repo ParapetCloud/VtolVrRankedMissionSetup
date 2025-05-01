@@ -16,6 +16,7 @@ using Microsoft.UI;
 using VtolVrRankedMissionSetup.VTM;
 using System.Numerics;
 using System.Buffers.Text;
+using VtolVrRankedMissionSetup.VT;
 
 namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
 {
@@ -403,7 +404,7 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
 
             Vector2 baseLocation = worldToPreview(bs.Prefab.GlobalPos, map);
 
-            float rotation = airbaseConfig.F26![0].Rotation.Y + bs.Prefab.Rotation.Y;
+            float rotation = airbaseConfig.Aircraft[0].Rotation.Y + bs.Prefab.Rotation.Y;
             Matrix3x2 rotationMatrix = Matrix3x2.CreateRotation(MathHelpers.DegToRad(rotation));
             Vector2 lineEnd = baseLocation + Vector2.Transform(new Vector2(0, -30), rotationMatrix);
 
@@ -422,21 +423,6 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
             Canvas.SetZIndex(spawnDirectionLine, -1);
 
             canvas.Children.Add(spawnDirectionLine);
-        }
-
-        protected override void PopulateAirbase(BaseInfo baseInfo, List<IUnitSpawner> spawners, Team team, bool primary)
-        {
-            string layout = GetLayout(baseInfo, primary);
-            if (string.IsNullOrWhiteSpace(layout))
-                return;
-
-            AirbaseLayoutConfig layoutConfig = layoutService.GetConfig(layout, baseInfo.Prefab.Prefab);
-
-            AddAircraftToBase(baseInfo, layoutConfig.F26, "F/A-26B", spawners, $"{team}:Foxtrot");
-            AddAircraftToBase(baseInfo, layoutConfig.F45, "F-45A", spawners, $"{team}:Golf");
-            AddAircraftToBase(baseInfo, layoutConfig.F24, "EF-24G", spawners, $"{team}:Echo", 2);
-            AddAircraftToBase(baseInfo, layoutConfig.T55, "T-55", spawners, $"{team}:Foxtrot", 1);
-            AddAircraftToBase(baseInfo, layoutConfig.F16, "F-16", spawners, $"{team}:Foxtrot", 1);
         }
 
         private static Objective CreateObjectiveForWin(int objectiveId, int orderId, Waypoint waypoint, GlobalValue current, GlobalValue target, GlobalValue enemyScore, GlobalValue ties)
@@ -498,6 +484,19 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
                     CurrentValue = current,
                     TargetValue = target,
                 }
+            };
+        }
+
+        protected override string GetAircraftGroup(Team team, AircraftConfig aircraft)
+        {
+            return aircraft.Spawns[0].Type switch
+            {
+                AircraftType.F26 => "Foxtrot",
+                AircraftType.F16 => "Foxtrot",
+                AircraftType.T55 => "Foxtrot",
+                AircraftType.F45 => "Golf",
+                AircraftType.F24 => "Echo",
+                _ => "Xray",
             };
         }
     }

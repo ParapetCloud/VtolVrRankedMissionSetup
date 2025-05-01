@@ -9,7 +9,7 @@ namespace VtolVrRankedMissionSetup.VTS.UnitFields
 {
     public class MultiplayerSpawnFields : IUnitFields
     {
-        public string Vehicle {get; set; } = "F/A-26B";
+        public AircraftType Vehicle {get; set; } = AircraftType.F26;
 		public string SlotLabel {get; set; } = string.Empty;
 		public string UnitGroup {get; set; } = string.Empty;
 		public StartMode StartMode { get; set; } = StartMode.FlightReady;

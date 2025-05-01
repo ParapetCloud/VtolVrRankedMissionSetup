@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Numerics;
 
 namespace VtolVrRankedMissionSetup.Configs.AirbaseLayout
 {
     public class AircraftConfig
     {
+        public AltSpawnConfig[] Spawns { get; set; } = null!;
         public Vector3 Location { get; set; }
         public Vector3 Rotation { get; set; }
     }
