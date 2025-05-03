@@ -317,9 +317,9 @@ namespace VtolVrRankedMissionSetup.VT
             }
             else if (prop.PropertyType.IsEnum)
             {
-                JsonStringEnumMemberNameAttribute? memberName = prop.PropertyType.GetCustomAttribute<JsonStringEnumMemberNameAttribute>();
+                JsonStringEnumMemberNameAttribute? memberName = value!.GetType().GetField(value.ToString()!)?.GetCustomAttribute<JsonStringEnumMemberNameAttribute>();
                 if (memberName == null)
-                    propValue = value?.ToString()?.Replace("__", "-")?.Replace('_', ' ')?.Replace('-', '_') ?? "null";
+                    propValue = value.ToString()?.Replace("__", "-")?.Replace('_', ' ')?.Replace('-', '_') ?? "null";
                 else
                     propValue = memberName.Name;
             }
