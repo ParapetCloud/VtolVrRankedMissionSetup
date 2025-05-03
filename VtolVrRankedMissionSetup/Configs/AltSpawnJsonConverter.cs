@@ -2,7 +2,6 @@
 using System.Text.Json.Serialization;
 using System.Text.Json;
 using VtolVrRankedMissionSetup.Configs.AirbaseLayout;
-using VtolVrRankedMissionSetup.VT;
 
 namespace VtolVrRankedMissionSetup.Configs
 {
@@ -29,6 +28,9 @@ namespace VtolVrRankedMissionSetup.Configs
             if (jsonDocument.RootElement.TryGetProperty("slots", out JsonElement slotElement))
                 config.Slots = slotElement.GetInt32();
 
+            if (jsonDocument.RootElement.TryGetProperty("rotation", out JsonElement rotationElement))
+                config.Rotation = rotationElement.GetDouble();
+
             if (jsonDocument.RootElement.TryGetProperty("altPosition", out JsonElement altPositionElement))
                 config.AltPosition = JsonSerializer.Deserialize(slotElement.GetRawText(), ConfigSerialization.Default.Vector3);
 
@@ -46,6 +48,9 @@ namespace VtolVrRankedMissionSetup.Configs
 
                 if (value.Slots != null)
                     writer.WriteNumber("slots", value.Slots.Value);
+
+                if (value.Rotation != null)
+                    writer.WriteNumber("rotation", value.Rotation.Value);
 
                 if (value.AltPosition != null)
                 {

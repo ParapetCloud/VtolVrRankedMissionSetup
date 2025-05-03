@@ -134,6 +134,7 @@ namespace VtolVrRankedMissionSetup.Services
                     Rotation = rotation,
                 };
 
+                spawn.MultiplayerSpawnFields.SelectableAltSpawn = aircraft.Spawns.Length > 1;
                 spawn.MultiplayerSpawnFields.UnitGroup = $"{team}:{group}";
                 spawn.MultiplayerSpawnFields.Vehicle = aircraft.Spawns[0].Type;
                 spawn.MultiplayerSpawnFields.Equipment = scenarioMode.ActiveMode.DefaultEquipment[aircraft.Spawns[0].Type];
@@ -145,6 +146,35 @@ namespace VtolVrRankedMissionSetup.Services
                 {
                     spawn.MultiplayerSpawnFields.ForcedEquipsList = forceEquipment;
                 }
+
+                List<AltSpawn> altSpawns = [];
+                for (int sp = 1; sp < aircraft.Spawns.Length; ++sp)
+                {
+                    AltSpawnConfig alt = aircraft.Spawns[sp];
+
+                    AltSpawn altSpawn = new()
+                    {
+                        GlobalPosition = alt.AltPosition ?? location,
+                        Rotation = alt.Rotation == null ? rotation : new Vector3(0, (float)alt.Rotation, 0),
+                    };
+
+                    altSpawn.MultiplayerSpawnFields.UnitGroup = spawn.MultiplayerSpawnFields.UnitGroup;
+
+                    altSpawn.MultiplayerSpawnFields.Vehicle = alt.Type;
+                    altSpawn.MultiplayerSpawnFields.Equipment = scenarioMode.ActiveMode.DefaultEquipment[alt.Type];
+                    altSpawn.MultiplayerSpawnFields.Slots = alt.Slots ?? 0;
+
+                    forceEquipment = scenarioMode.ActiveMode.ForcedEquipment?[alt.Type];
+
+                    if (!string.IsNullOrWhiteSpace(forceEquipment))
+                    {
+                        altSpawn.MultiplayerSpawnFields.ForcedEquipsList = forceEquipment;
+                    }
+
+                    altSpawns.Add(altSpawn);
+                }
+
+                spawn.AltSpawns = altSpawns.ToArray();
 
                 spawners.Add(spawn);
             }
