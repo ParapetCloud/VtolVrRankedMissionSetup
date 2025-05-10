@@ -31,6 +31,13 @@ namespace VtolVrRankedMissionSetup
                     throw new NotSupportedException($"{expr} is not supported");
                 }
             }
+            else if (expr is BinaryExpression bin && bin.NodeType == ExpressionType.ArrayIndex)
+            {
+                Array obj = (Array)GetValue(bin.Left)!;
+                long ind = (long)Convert.ChangeType(GetValue(bin.Right)!, typeof(long));
+
+                return obj.GetValue(ind);
+            }
             else
                 throw new NotSupportedException($"{expr} is not supported");
         }

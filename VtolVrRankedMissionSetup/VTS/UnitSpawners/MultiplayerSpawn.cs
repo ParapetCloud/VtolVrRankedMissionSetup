@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Numerics;
 using VtolVrRankedMissionSetup.VT;
 using VtolVrRankedMissionSetup.VT.Methods;
@@ -39,6 +38,13 @@ namespace VtolVrRankedMissionSetup.VTS.UnitSpawners
         }
 
         [EventTarget("Set Lives", "Unit", AltTargetIdx = -2)]
-        public void SetLives([ParamAttrInfo("MinMax", "(0,100)")][ParamAttrInfo("UnitSpawnAttributeRange+RangeTypes", "Int")] float Lives) => throw new NotSupportedException("You can't actually call this");
+        public void SetLives([ParamAttrInfo("MinMax", "(0,100)")][ParamAttrInfo("UnitSpawnAttributeRange+RangeTypes", "Int")] float Lives) => throw new InvalidOperationException("You can't actually call this method");
+
+        [EventTarget("Destroy Vehicle", "Unit", AltTargetIdx = -2)]
+        public void DestroyVehicle() => throw new InvalidOperationException("You can't actually call this method");
+
+        public bool SCC_NearWaypoint(Waypoint waypoint, double distance) => throw new InvalidOperationException("You can't actually call this method");
+        public bool SCC_NearWaypoint(IUnitSpawner unit, double distance) => throw new InvalidOperationException("You can't actually call this method");
+        public bool SCC_IsUsingAltNumber(int altIndex) => throw new InvalidOperationException("You can't actually call this method");
     }
 }

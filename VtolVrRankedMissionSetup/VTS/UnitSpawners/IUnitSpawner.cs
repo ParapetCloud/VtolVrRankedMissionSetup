@@ -1,4 +1,5 @@
-﻿using System.Numerics;
+﻿using System;
+using System.Numerics;
 using VtolVrRankedMissionSetup.VT;
 using VtolVrRankedMissionSetup.VT.Methods;
 using VtolVrRankedMissionSetup.VTS.UnitFields;
@@ -9,8 +10,8 @@ namespace VtolVrRankedMissionSetup.VTS.UnitSpawners
     {
         public string UnitName { get; }
         public Vector3 GlobalPosition { get; }
-        public int UnitInstanceID { get; }
         [Id]
+        public int UnitInstanceID { get; }
         public string UnitID { get; }
         public Vector3 Rotation { get; }
         public Vector3 LastValidPlacement { get; }
@@ -18,7 +19,22 @@ namespace VtolVrRankedMissionSetup.VTS.UnitSpawners
 
         public IUnitFields? UnitFields { get; }
 
-        [EventTarget("Set Lives", "Unit")]
+        /////////////////////////
+        // Event Targets
+        /////////////////////////
+        
+        [EventTarget("Set Lives", "Unit", AltTargetIdx = -2)]
         public void SetLives([ParamAttrInfo("MinMax", "(0,100)")][ParamAttrInfo("UnitSpawnAttributeRange+RangeTypes", "Int")]float lives);
+
+        [EventTarget("Destroy Vehicle", "Unit", AltTargetIdx = -2)]
+        public void DestroyVehicle();
+
+        /////////////////////////
+        // Conditionals
+        /////////////////////////
+
+        public bool SCC_NearWaypoint(Waypoint waypoint, double distance);
+        public bool SCC_NearWaypoint(IUnitSpawner unit, double distance);
+        public bool SCC_IsUsingAltNumber(int altIndex);
     }
 }

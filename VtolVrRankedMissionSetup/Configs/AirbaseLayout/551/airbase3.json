@@ -75,13 +75,16 @@
     },
     {
       "spawns": [
-        "EF-24G",
-          "F/A-26B",
-          {
-            "type": "T-55",
-            "slots": 1
-          },
-          "F-16"
+        {
+          "type": "EF-24G",
+          "slots": 2
+        },
+        "F/A-26B",
+        {
+          "type": "T-55",
+          "slots": 1
+        },
+        "F-16"
       ],
       "location": {
         "x": -395.4,

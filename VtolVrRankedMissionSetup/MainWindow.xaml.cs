@@ -5,6 +5,7 @@ using Microsoft.UI.Xaml.Media.Imaging;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -14,8 +15,10 @@ using VtolVrRankedMissionSetup.VT;
 using VtolVrRankedMissionSetup.VTM;
 using VtolVrRankedMissionSetup.VTS;
 using Windows.ApplicationModel.DataTransfer;
+using Windows.Graphics.Imaging;
 using Windows.Storage;
 using Windows.Storage.Pickers;
+using Windows.Storage.Streams;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -123,6 +126,20 @@ namespace VtolVrRankedMissionSetup
             Scenario.ScenarioID = name;
 
             VTSerializer.SerializeToFile(Scenario, file.Path);
+
+            string path = $"{(await file.GetParentAsync()).Path}\\image.jpg";
+
+            RenderTargetBitmap rtBitmap = new();
+            await rtBitmap.RenderAsync(MapPreviewCanvas, 1024, 1024);
+            SoftwareBitmap render = new(BitmapPixelFormat.Bgra8, rtBitmap.PixelWidth, rtBitmap.PixelHeight);
+            render.CopyFromBuffer(await rtBitmap.GetPixelsAsync());
+
+            using IRandomAccessStream previewImageStream = await FileRandomAccessStream.OpenAsync(path, FileAccessMode.ReadWrite, StorageOpenOptions.AllowReadersAndWriters, FileOpenDisposition.CreateAlways);
+
+            BitmapEncoder pngEncoder = await BitmapEncoder.CreateAsync(BitmapEncoder.JpegEncoderId, previewImageStream);
+            pngEncoder.SetSoftwareBitmap(render);
+            await pngEncoder.FlushAsync();
+            await previewImageStream.FlushAsync();
         }
 
         private void ShowDialog(string title, string content)

@@ -56,7 +56,7 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
             base.SetUpScenario(scenario, teamABases, teamBBases);
 
             scenario.CampaignID = "551";
-            scenario.ScenarioDescription = $"Ringtail's 5-5-1 with King of the Hill Stalemate resolution.\nControl point radius is {ControlRadius / Units.NauticalMiles:0.#} NM ({ControlRadius/Units.Kilometers:0.##} km) and will activate after {ControlPointActivationDelay.TotalMinutes:0} minutes";
+            scenario.ScenarioDescription = $"Ringtail's 5-5-1 with King of the Hill Stalemate resolution.\nControl point radius is {ControlRadius / Units.NauticalMiles:0.#} NM ({ControlRadius / Units.Kilometers:0.##} km) and will activate after {ControlPointActivationDelay.TotalMinutes:0} minutes";
 
             scenario.Briefing =
             [
@@ -99,12 +99,13 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
             scenario.AlliedRTB = scenario.Waypoints.CreateWaypoint("Team A RTB", MathHelpers.BaseToWorld(airbaseAConfig.Waypoints.Rtb, baseA));
             scenario.EnemyRTB = scenario.Waypoints.CreateWaypoint("Team B RTB", MathHelpers.BaseToWorld(airbaseBConfig.Waypoints.Rtb, baseB));
 
-            IEnumerable<MultiplayerSpawn> spawns = scenario.Units!
+            MultiplayerSpawn[] spawns = scenario.Units!
                 .Select(u => (u as MultiplayerSpawn)!)
-                .Where(u => u != null);
+                .Where(u => u != null)
+                .ToArray();
 
-            IEnumerable<IUnitSpawner> teamASpawns = spawns.Where(mp => mp.MultiplayerSpawnFields.UnitGroup.StartsWith("Allied"));
-            IEnumerable<IUnitSpawner> teamBSpawns = spawns.Where(mp => mp.MultiplayerSpawnFields.UnitGroup.StartsWith("Enemy"));
+            IUnitSpawner[] teamASpawns = spawns.Where(mp => mp.MultiplayerSpawnFields.UnitGroup.StartsWith("Allied")).ToArray();
+            IUnitSpawner[] teamBSpawns = spawns.Where(mp => mp.MultiplayerSpawnFields.UnitGroup.StartsWith("Enemy")).ToArray();
 
             foreach (MultiplayerSpawn spawn in spawns)
                 ((MultiplayerSpawnFields)spawn.UnitFields!).LimitedLives = true;
@@ -219,6 +220,16 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
             ];
 
             //////////////////////////////////////////////////////////////
+            // Collision
+            //////////////////////////////////////////////////////////////
+
+            for (int i = 0; i < spawns.Length - 1; ++i)
+            {
+                IUnitSpawner unit = spawns[i];
+                CreateCollisionForAircaraft(scenario, unit, spawns[(i + 1)..]);
+            }
+
+            //////////////////////////////////////////////////////////////
             // Start/Cleanup
             //////////////////////////////////////////////////////////////
 
@@ -254,7 +265,7 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
             ];
 
             List<EventTarget> setLives100 = [];
-            foreach(MultiplayerSpawn spawn in spawns)
+            foreach (MultiplayerSpawn spawn in spawns)
                 setLives100.Add(new EventTarget(() => spawn.SetLives(100)));
 
             List<EventTarget> setLives0 = [];
@@ -295,7 +306,7 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
             [
                 new Event(
                     "reset",
-                    TimeSpan.FromSeconds(1), 
+                    TimeSpan.FromSeconds(1),
                     null,
                     [
                         new EventTarget(() => GameSystem.ResetValue(teamBKotHTime)),
@@ -425,6 +436,19 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
             canvas.Children.Add(spawnDirectionLine);
         }
 
+        protected override string GetAircraftGroup(Team team, AircraftConfig aircraft)
+        {
+            return aircraft.Spawns[0].Type switch
+            {
+                AircraftType.F26 => "Foxtrot",
+                AircraftType.F16 => "Foxtrot",
+                AircraftType.T55 => "Foxtrot",
+                AircraftType.F45 => "Golf",
+                AircraftType.F24 => "Echo",
+                _ => "Xray",
+            };
+        }
+
         private static Objective CreateObjectiveForWin(int objectiveId, int orderId, Waypoint waypoint, GlobalValue current, GlobalValue target, GlobalValue enemyScore, GlobalValue ties)
         {
             return new Objective()
@@ -459,7 +483,7 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
                 AutoSetWaypoint = false,
                 StartMode = ObjectiveStartMode.Triggered,
                 ObjectiveType = ObjectiveType.Conditional,
-                Fields = new ConditionalObjectiveFields() 
+                Fields = new ConditionalObjectiveFields()
                 {
                     SuccessConditional = success,
                 },
@@ -487,17 +511,19 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
             };
         }
 
-        protected override string GetAircraftGroup(Team team, AircraftConfig aircraft)
+        private void CreateCollisionForAircaraft(CustomScenario scenario, IUnitSpawner unit, IUnitSpawner[] spawners)
         {
-            return aircraft.Spawns[0].Type switch
+            foreach (IUnitSpawner otherUnit in spawners)
             {
-                AircraftType.F26 => "Foxtrot",
-                AircraftType.F16 => "Foxtrot",
-                AircraftType.T55 => "Foxtrot",
-                AircraftType.F45 => "Golf",
-                AircraftType.F24 => "Echo",
-                _ => "Xray",
-            };
+                EventSequence collisionEvents = scenario.EventSequences!.CreateSequence($"[{unit.UnitInstanceID}] vs [{otherUnit.UnitInstanceID}]", true);
+
+                Conditional collidesWith = scenario.Conditionals!.CreateCondition(() => unit.SCC_NearWaypoint(otherUnit, 8) && (otherUnit.SCC_IsUsingAltNumber(0) || otherUnit.SCC_IsUsingAltNumber(1) || otherUnit.SCC_IsUsingAltNumber(2) || otherUnit.SCC_IsUsingAltNumber(3)));
+
+                collisionEvents.Events =
+                [
+                    new Event("Kill", TimeSpan.Zero, collidesWith, [new EventTarget(() => unit.DestroyVehicle()), new EventTarget(() => otherUnit.DestroyVehicle())]),
+                ];
+            }
         }
     }
 }

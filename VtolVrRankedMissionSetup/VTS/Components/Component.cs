@@ -1,15 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
 using System.Numerics;
-using System.Reflection;
-using System.Reflection.Metadata.Ecma335;
-using System.Text;
-using System.Threading.Tasks;
 using VtolVrRankedMissionSetup.VT;
 using VtolVrRankedMissionSetup.VT.Methods;
 using VtolVrRankedMissionSetup.VTS.Components;
+using VtolVrRankedMissionSetup.VTS.UnitSpawners;
 
 namespace VtolVrRankedMissionSetup.VTS
 {
@@ -128,6 +124,8 @@ namespace VtolVrRankedMissionSetup.VTS
 
             if (methodContainer == typeof(SCCUnitList))
                 return new SCCUnitListComponent(mce);
+            else if (methodContainer.IsAssignableTo(typeof(IUnitSpawner)))
+                return new SCCUnitComponent(mce);
 
             throw new NotSupportedException($"{mce} is not supported");
         }

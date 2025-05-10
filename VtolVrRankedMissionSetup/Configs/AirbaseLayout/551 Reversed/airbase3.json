@@ -75,7 +75,10 @@
     },
     {
       "spawns": [
-        "EF-24G",
+        {
+          "type": "EF-24G",
+          "slots": 2
+        },
         "F/A-26B",
         {
           "type": "T-55",
