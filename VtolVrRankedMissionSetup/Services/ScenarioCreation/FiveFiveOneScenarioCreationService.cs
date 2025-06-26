@@ -350,6 +350,8 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
 
             scenario.AlliedObjectives = AlliedObjectives.ToArray();
             scenario.EnemyObjectives = EnemyObjectives.ToArray();
+
+            AddSpectatorSeats(scenario);
         }
 
         public override void GeneratePreview(Canvas canvas, VTMapCustom map, CustomScenario scenario, BaseInfo[] teamABases, BaseInfo[] teamBBases)
@@ -449,6 +451,58 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
             };
         }
 
+        private void AddSpectatorSeats(CustomScenario scenario)
+        {
+            List<IUnitSpawner> units = scenario.Units!.ToList();
+            MultiplayerSpawn specA1 = AddSpectator("spectator A1", Team.Allied, units);
+            MultiplayerSpawn specA2 = AddSpectator("spectator A2", Team.Allied, units);
+            MultiplayerSpawn specB1 = AddSpectator("spectator B3", Team.Enemy, units);
+            MultiplayerSpawn specB2 = AddSpectator("spectator B4", Team.Enemy, units);
+            MultiplayerSpawn[] specs = [specA1, specA2, specB1, specB2];
+
+
+            EventSequence kill = scenario.EventSequences!.CreateSequence("Kill spectators");
+
+            Conditional anySpectatorSPawned = scenario.Conditionals!.CreateCondition(() => SCCUnitList.SCC_NumAlive(specs) > 0);
+
+            kill.Events = [
+                new Event("Kill", TimeSpan.Zero, anySpectatorSPawned,
+                [
+                    new EventTarget(() => specA1.DestroyVehicle()),
+                    new EventTarget(() => specA2.DestroyVehicle()),
+                    new EventTarget(() => specB1.DestroyVehicle()),
+                    new EventTarget(() => specB2.DestroyVehicle()),
+                ]),
+                new Event("Restart", TimeSpan.Zero, anySpectatorSPawned,
+                [
+                    new EventTarget(() => kill.Restart()),
+                ]),
+            ];
+
+            scenario.Units = units.ToArray();
+        }
+
+        private MultiplayerSpawn AddSpectator(string name, Team team, List<IUnitSpawner> spectatorSeats)
+        {
+            MultiplayerSpawn spawn = new(team, name)
+            {
+                UnitInstanceID = spectatorSeats.Count,
+                GlobalPosition = Vector3.Zero,
+                Rotation = Vector3.Zero,
+            };
+
+            spawn.MultiplayerSpawnFields.SelectableAltSpawn = false;
+            spawn.MultiplayerSpawnFields.UnitGroup = $"{team}:Sierra";
+            spawn.MultiplayerSpawnFields.Vehicle = AircraftType.AV42;
+            spawn.MultiplayerSpawnFields.Equipment = "";
+            spawn.MultiplayerSpawnFields.Slots = 0;
+            spawn.MultiplayerSpawnFields.LimitedLives = false;
+            spawn.MultiplayerSpawnFields.SlotLabel = "I'll kill you if you use this";
+
+            spectatorSeats.Add(spawn);
+            return spawn;
+        }
+
         private static Objective CreateObjectiveForWin(int objectiveId, int orderId, Waypoint waypoint, GlobalValue current, GlobalValue target, GlobalValue enemyScore, GlobalValue ties)
         {
             return new Objective()
@@ -517,11 +571,27 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
             {
                 EventSequence collisionEvents = scenario.EventSequences!.CreateSequence($"[{unit.UnitInstanceID}] vs [{otherUnit.UnitInstanceID}]", true);
 
-                Conditional collidesWith = scenario.Conditionals!.CreateCondition(() => unit.SCC_NearWaypoint(otherUnit, 8) && (otherUnit.SCC_IsUsingAltNumber(0) || otherUnit.SCC_IsUsingAltNumber(1) || otherUnit.SCC_IsUsingAltNumber(2) || otherUnit.SCC_IsUsingAltNumber(3)));
+                Conditional collidesWith = scenario.Conditionals!.CreateCondition(() => 
+                    unit.SCC_NearWaypoint(otherUnit, 8) && 
+                    (
+                        otherUnit.SCC_IsUsingAltNumber(0) ||
+                        otherUnit.SCC_IsUsingAltNumber(1) ||
+                        otherUnit.SCC_IsUsingAltNumber(2) ||
+                        otherUnit.SCC_IsUsingAltNumber(3)
+                    )
+                );
 
                 collisionEvents.Events =
                 [
-                    new Event("Kill", TimeSpan.Zero, collidesWith, [new EventTarget(() => unit.DestroyVehicle()), new EventTarget(() => otherUnit.DestroyVehicle())]),
+                    new Event(
+                        "Kill",
+                        TimeSpan.Zero,
+                        collidesWith,
+                        [
+                            new EventTarget(() => unit.DestroyVehicle()),
+                            new EventTarget(() => otherUnit.DestroyVehicle())
+                        ]
+                    ),
                 ];
             }
         }

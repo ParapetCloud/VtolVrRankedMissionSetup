@@ -10,6 +10,7 @@ namespace VtolVrRankedMissionSetup.VTS.UnitFields
     public class MultiplayerSpawnFields : IUnitFields
     {
         public AircraftType Vehicle { get; set; } = AircraftType.F26;
+        public bool SelectableAltSpawn { get; set; } = false;
         public string SlotLabel { get; set; } = string.Empty;
         public string UnitGroup { get; set; } = string.Empty;
         public StartMode StartMode { get; set; } = StartMode.FlightReady;
@@ -21,7 +22,6 @@ namespace VtolVrRankedMissionSetup.VTS.UnitFields
         public double CostToSpawn { get; set; } = 0;
         public string LiveryRef { get; set; } = "0;";
         public bool ReceiveFriendlyDamage { get; set; } = true;
-        public bool SelectableAltSpawn { get; set; } = false;
 
         [VTIgnore(Condition = VTIgnoreCondition.WhenWritingDefault)]
         public int Slots { get; set; }
