@@ -1,0 +1,8926 @@
+CustomScenario
+{
+	gameVersion = 1.12.4f3
+	campaignID = 551
+	campaignOrderIdx = 0
+	scenarioName = FiveFiveOneBaseline
+	scenarioID = FiveFiveOneBaseline
+	scenarioDescription = Ringtail's 5-5-1 with King of the Hill Stalemate resolution.///nControl point radius is 10 NM (18.52 km) and will activate after 10 minutes
+	mapID = afMtnsHills
+	vehicle = F-45A
+	multiplayer = True
+	allowedEquips = f45_gun;f45_sidewinderx2;f45_aim9x1;f45_amraamInternal;f45_amraamRail;f45_mk82x1;f45_mk82Internal;f45_mk82x4Internal;f45_gbu12x2Internal;f45_gbu12x1;f45-gbu39;f45_agm161;f45_agm161Internal;f45_droptank;f45_gbu38x1;f45_gbu38x2Internal;f45_gbu38x4Internal;f45_mk83x1;f45_mk83x1Internal;f45-agm145I;f45-agm145ISide;f45-agm145x3;f45-gbu53;
+	forceEquips = False
+	normForcedFuel = 1
+	equipsConfigurable = True
+	baseBudget = 100000
+	isTraining = False
+	rtbWptID = wpt:1
+	refuelWptID = 
+	mpPlayerCount = 16
+	autoPlayerCount = False
+	overrideAlliedPlayerCount = 8
+	overrideEnemyPlayerCount = 8
+	scorePerDeath_A = 0
+	scorePerDeath_B = 0
+	scorePerKill_A = 0
+	scorePerKill_B = 0
+	mpBudgetMode = Life
+	rtbWptID_B = wpt:2
+	refuelWptID_B = 
+	separateBriefings = False
+	baseBudgetB = 100000
+	infiniteAmmo = False
+	infAmmoReloadDelay = 5
+	fuelDrainMult = 1
+	envName = day
+	selectableEnv = True
+	windDir = 0
+	windSpeed = 0
+	windVariation = 0
+	windGusts = 0
+	defaultWeather = 0
+	customTimeOfDay = 11
+	overrideLocation = True
+	overrideLatitude = 0
+	overrideLongitude = 0
+	month = 1
+	day = 1
+	year = 2024
+	timeOfDaySpeed = 1
+	qsMode = Anywhere
+	qsLimit = -1
+	WEATHER_PRESETS
+	{
+	}
+	UNITS
+	{
+		UnitSpawner
+		{
+			unitName = Foxtrot 1-1
+			globalPosition = (37215.414, 112.74512, 66720.664)
+			unitInstanceID = 0
+			unitID = MultiplayerSpawn
+			rotation = (0, 10.60602, 0)
+			lastValidPlacement = (37215.414, 112.74512, 66720.664)
+			editorPlacementMode = Ground
+			onCarrier = False
+			mpSelectEnabled = True
+			UnitFields
+			{
+				vehicle = F/A-26B
+				selectableAltSpawn = True
+				slotLabel = 
+				unitGroup = Allied:Foxtrot
+				startMode = FlightReady
+				equipment = fa26_iris-t-x1;fa26_iris-t-x2;fa26_iris-t-x3;af_mk82;fa26_mk82x2;fa26_mk82x3;fa26_mk82HDx1;fa26_mk82HDx2;fa26_mk82HDx3;fa26_mk83x1;fa26_cbu97x1;h70-x7ld;h70-x7ld-under;h70-x14ld;h70-x14ld-under;fa26_cagm-6;fa26_gbu38x1;fa26_gbu38x2;fa26_gbu38x3;fa26_gbu39x4uFront;fa26_gbu39x4uRear;fa26_maverickx1;fa26_maverickx3;fa26_agm89x1;af_amraamRailx2;fa26_gbu12x1;fa26_gbu12x2;fa26_gbu12x3;fa26_agm161;
+				initialSpeed = 0
+				rtbIsSpawn = False
+				limitedLives = True
+				lifeCount = 1
+				costToSpawn = 0
+				liveryRef = 0;
+				receiveFriendlyDamage = True
+				forcedEquipsList = free;free;free;free;free;af_amraam;af_amraam;free;free;free;free;free;free;free;free;free;|
+				b_eqAssignmentMode = True
+			}
+			altSpawn
+			{
+				globalPos = (37215.414, 112.74512, 66720.664)
+				rotation = (0, 10.60602, 0)
+				weight = 100
+				placementMode = Ground
+				onCarrier = False
+				mpSelectEnabled = True
+				unitFields
+				{
+					vehicle = T-55
+					selectableAltSpawn = False
+					slotLabel = 
+					unitGroup = Allied:Foxtrot
+					startMode = FlightReady
+					equipment = t55_iris-t-x1;t55_iris-t-x2;t55_mk82;t55_mk82x2;t55_mk82x3;t55_mk82HDx1;t55_mk82HDx2;t55_mk82HDx3;t55_mk83x1;t55_cbu97x1;t55_gbu12x1;t55_gbu12x2;t55_gbu12x3;t55_gbu38x1;t55_gbu38x2;t55_gbu38x3;t55_gbu39x4u;t55_maverickx1;t55_maverickx3;t55_cagm-6;t55_h70-x7ld;t55_h70-x14ld;t55_apkws-x7;t55_agm161;t55_agm89x1;
+					initialSpeed = 0
+					rtbIsSpawn = False
+					limitedLives = False
+					lifeCount = 1
+					costToSpawn = 0
+					liveryRef = 0;
+					receiveFriendlyDamage = True
+					slots = 1
+					forcedEquipsList = free;free;free;t55_amraamRailx2;free;free;free;free;free;|
+					b_eqAssignmentMode = True
+				}
+			}
+			altSpawn
+			{
+				globalPos = (37215.414, 112.74512, 66720.664)
+				rotation = (0, 10.60602, 0)
+				weight = 100
+				placementMode = Ground
+				onCarrier = False
+				mpSelectEnabled = True
+				unitFields
+				{
+					vehicle = F-16
+					selectableAltSpawn = False
+					slotLabel = 
+					unitGroup = Allied:Foxtrot
+					startMode = FlightReady
+					equipment = ViperHTS;viper_maverickx1;viper_maverickx3;viper_apkws-x7;viper_apkws-x19;viper_gbu31;viper_gbu38x2;viper_gbu39x4uFront;viper_gbu10;viper_gbu12x1;viper_gbu12x2;viper_gbu12x3;viper_mk82;viper_mk82x2;viper_mk82x3;viper_mk82x6;viper_mk82HDx1;viper_mk82HDx2;viper_mk82HDx3;viper_mk82HDx6;viper_mk84x1;viper_cbu97x1;viper_agm161;viper_agm89x1;
+					initialSpeed = 0
+					rtbIsSpawn = False
+					limitedLives = False
+					lifeCount = 1
+					costToSpawn = 0
+					liveryRef = 0;
+					receiveFriendlyDamage = True
+					forcedEquipsList = free;viper_amraamRail;free;free;free;free;free;free;free;free;free;viper_amraamRail;|
+					b_eqAssignmentMode = True
+				}
+			}
+		}
+		UnitSpawner
+		{
+			unitName = Foxtrot 1-2
+			globalPosition = (37193.92, 112.74512, 66698.234)
+			unitInstanceID = 1
+			unitID = MultiplayerSpawn
+			rotation = (0, 10.60602, 0)
+			lastValidPlacement = (37193.92, 112.74512, 66698.234)
+			editorPlacementMode = Ground
+			onCarrier = False
+			mpSelectEnabled = True
+			UnitFields
+			{
+				vehicle = F/A-26B
+				selectableAltSpawn = True
+				slotLabel = 
+				unitGroup = Allied:Foxtrot
+				startMode = FlightReady
+				equipment = fa26_iris-t-x1;fa26_iris-t-x2;fa26_iris-t-x3;af_mk82;fa26_mk82x2;fa26_mk82x3;fa26_mk82HDx1;fa26_mk82HDx2;fa26_mk82HDx3;fa26_mk83x1;fa26_cbu97x1;h70-x7ld;h70-x7ld-under;h70-x14ld;h70-x14ld-under;fa26_cagm-6;fa26_gbu38x1;fa26_gbu38x2;fa26_gbu38x3;fa26_gbu39x4uFront;fa26_gbu39x4uRear;fa26_maverickx1;fa26_maverickx3;fa26_agm89x1;af_amraamRailx2;fa26_gbu12x1;fa26_gbu12x2;fa26_gbu12x3;fa26_agm161;
+				initialSpeed = 0
+				rtbIsSpawn = False
+				limitedLives = True
+				lifeCount = 1
+				costToSpawn = 0
+				liveryRef = 0;
+				receiveFriendlyDamage = True
+				forcedEquipsList = free;free;free;free;free;af_amraam;af_amraam;free;free;free;free;free;free;free;free;free;|
+				b_eqAssignmentMode = True
+			}
+			altSpawn
+			{
+				globalPos = (37193.92, 112.74512, 66698.234)
+				rotation = (0, 10.60602, 0)
+				weight = 100
+				placementMode = Ground
+				onCarrier = False
+				mpSelectEnabled = True
+				unitFields
+				{
+					vehicle = T-55
+					selectableAltSpawn = False
+					slotLabel = 
+					unitGroup = Allied:Foxtrot
+					startMode = FlightReady
+					equipment = t55_iris-t-x1;t55_iris-t-x2;t55_mk82;t55_mk82x2;t55_mk82x3;t55_mk82HDx1;t55_mk82HDx2;t55_mk82HDx3;t55_mk83x1;t55_cbu97x1;t55_gbu12x1;t55_gbu12x2;t55_gbu12x3;t55_gbu38x1;t55_gbu38x2;t55_gbu38x3;t55_gbu39x4u;t55_maverickx1;t55_maverickx3;t55_cagm-6;t55_h70-x7ld;t55_h70-x14ld;t55_apkws-x7;t55_agm161;t55_agm89x1;
+					initialSpeed = 0
+					rtbIsSpawn = False
+					limitedLives = False
+					lifeCount = 1
+					costToSpawn = 0
+					liveryRef = 0;
+					receiveFriendlyDamage = True
+					slots = 1
+					forcedEquipsList = free;free;free;t55_amraamRailx2;free;free;free;free;free;|
+					b_eqAssignmentMode = True
+				}
+			}
+			altSpawn
+			{
+				globalPos = (37193.92, 112.74512, 66698.234)
+				rotation = (0, 10.60602, 0)
+				weight = 100
+				placementMode = Ground
+				onCarrier = False
+				mpSelectEnabled = True
+				unitFields
+				{
+					vehicle = F-16
+					selectableAltSpawn = False
+					slotLabel = 
+					unitGroup = Allied:Foxtrot
+					startMode = FlightReady
+					equipment = ViperHTS;viper_maverickx1;viper_maverickx3;viper_apkws-x7;viper_apkws-x19;viper_gbu31;viper_gbu38x2;viper_gbu39x4uFront;viper_gbu10;viper_gbu12x1;viper_gbu12x2;viper_gbu12x3;viper_mk82;viper_mk82x2;viper_mk82x3;viper_mk82x6;viper_mk82HDx1;viper_mk82HDx2;viper_mk82HDx3;viper_mk82HDx6;viper_mk84x1;viper_cbu97x1;viper_agm161;viper_agm89x1;
+					initialSpeed = 0
+					rtbIsSpawn = False
+					limitedLives = False
+					lifeCount = 1
+					costToSpawn = 0
+					liveryRef = 0;
+					receiveFriendlyDamage = True
+					forcedEquipsList = free;viper_amraamRail;free;free;free;free;free;free;free;free;free;viper_amraamRail;|
+					b_eqAssignmentMode = True
+				}
+			}
+		}
+		UnitSpawner
+		{
+			unitName = Foxtrot 1-3
+			globalPosition = (37226.355, 112.74512, 66692.164)
+			unitInstanceID = 2
+			unitID = MultiplayerSpawn
+			rotation = (0, 10.60602, 0)
+			lastValidPlacement = (37226.355, 112.74512, 66692.164)
+			editorPlacementMode = Ground
+			onCarrier = False
+			mpSelectEnabled = True
+			UnitFields
+			{
+				vehicle = F/A-26B
+				selectableAltSpawn = True
+				slotLabel = 
+				unitGroup = Allied:Foxtrot
+				startMode = FlightReady
+				equipment = fa26_iris-t-x1;fa26_iris-t-x2;fa26_iris-t-x3;af_mk82;fa26_mk82x2;fa26_mk82x3;fa26_mk82HDx1;fa26_mk82HDx2;fa26_mk82HDx3;fa26_mk83x1;fa26_cbu97x1;h70-x7ld;h70-x7ld-under;h70-x14ld;h70-x14ld-under;fa26_cagm-6;fa26_gbu38x1;fa26_gbu38x2;fa26_gbu38x3;fa26_gbu39x4uFront;fa26_gbu39x4uRear;fa26_maverickx1;fa26_maverickx3;fa26_agm89x1;af_amraamRailx2;fa26_gbu12x1;fa26_gbu12x2;fa26_gbu12x3;fa26_agm161;
+				initialSpeed = 0
+				rtbIsSpawn = False
+				limitedLives = True
+				lifeCount = 1
+				costToSpawn = 0
+				liveryRef = 0;
+				receiveFriendlyDamage = True
+				forcedEquipsList = free;free;free;free;free;af_amraam;af_amraam;free;free;free;free;free;free;free;free;free;|
+				b_eqAssignmentMode = True
+			}
+			altSpawn
+			{
+				globalPos = (37226.355, 112.74512, 66692.164)
+				rotation = (0, 10.60602, 0)
+				weight = 100
+				placementMode = Ground
+				onCarrier = False
+				mpSelectEnabled = True
+				unitFields
+				{
+					vehicle = T-55
+					selectableAltSpawn = False
+					slotLabel = 
+					unitGroup = Allied:Foxtrot
+					startMode = FlightReady
+					equipment = t55_iris-t-x1;t55_iris-t-x2;t55_mk82;t55_mk82x2;t55_mk82x3;t55_mk82HDx1;t55_mk82HDx2;t55_mk82HDx3;t55_mk83x1;t55_cbu97x1;t55_gbu12x1;t55_gbu12x2;t55_gbu12x3;t55_gbu38x1;t55_gbu38x2;t55_gbu38x3;t55_gbu39x4u;t55_maverickx1;t55_maverickx3;t55_cagm-6;t55_h70-x7ld;t55_h70-x14ld;t55_apkws-x7;t55_agm161;t55_agm89x1;
+					initialSpeed = 0
+					rtbIsSpawn = False
+					limitedLives = False
+					lifeCount = 1
+					costToSpawn = 0
+					liveryRef = 0;
+					receiveFriendlyDamage = True
+					slots = 1
+					forcedEquipsList = free;free;free;t55_amraamRailx2;free;free;free;free;free;|
+					b_eqAssignmentMode = True
+				}
+			}
+			altSpawn
+			{
+				globalPos = (37226.355, 112.74512, 66692.164)
+				rotation = (0, 10.60602, 0)
+				weight = 100
+				placementMode = Ground
+				onCarrier = False
+				mpSelectEnabled = True
+				unitFields
+				{
+					vehicle = F-16
+					selectableAltSpawn = False
+					slotLabel = 
+					unitGroup = Allied:Foxtrot
+					startMode = FlightReady
+					equipment = ViperHTS;viper_maverickx1;viper_maverickx3;viper_apkws-x7;viper_apkws-x19;viper_gbu31;viper_gbu38x2;viper_gbu39x4uFront;viper_gbu10;viper_gbu12x1;viper_gbu12x2;viper_gbu12x3;viper_mk82;viper_mk82x2;viper_mk82x3;viper_mk82x6;viper_mk82HDx1;viper_mk82HDx2;viper_mk82HDx3;viper_mk82HDx6;viper_mk84x1;viper_cbu97x1;viper_agm161;viper_agm89x1;
+					initialSpeed = 0
+					rtbIsSpawn = False
+					limitedLives = False
+					lifeCount = 1
+					costToSpawn = 0
+					liveryRef = 0;
+					receiveFriendlyDamage = True
+					forcedEquipsList = free;viper_amraamRail;free;free;free;free;free;free;free;free;free;viper_amraamRail;|
+					b_eqAssignmentMode = True
+				}
+			}
+		}
+		UnitSpawner
+		{
+			unitName = Golf 1-1
+			globalPosition = (37206.027, 112.74512, 66670.54)
+			unitInstanceID = 3
+			unitID = MultiplayerSpawn
+			rotation = (0, 10.60602, 0)
+			lastValidPlacement = (37206.027, 112.74512, 66670.54)
+			editorPlacementMode = Ground
+			onCarrier = False
+			mpSelectEnabled = True
+			UnitFields
+			{
+				vehicle = F-45A
+				selectableAltSpawn = True
+				slotLabel = 
+				unitGroup = Allied:Golf
+				startMode = FlightReady
+				equipment = f45_amraamInternal;f45_amraamRail;f45_mk82x1;f45_mk82Internal;f45_mk82x4Internal;f45_gbu12x2Internal;f45_gbu12x1;f45-gbu39;f45_agm161;f45_agm161Internal;f45_gbu38x1;f45_gbu38x2Internal;f45_gbu38x4Internal;f45_mk83x1;f45_mk83x1Internal;f45-agm145I;f45-agm145ISide;f45-agm145x3;f45-gbu53;
+				initialSpeed = 0
+				rtbIsSpawn = False
+				limitedLives = True
+				lifeCount = 1
+				costToSpawn = 0
+				liveryRef = 0;
+				receiveFriendlyDamage = True
+				forcedEquipsList = f45_gun;f45_sidewinderx2;f45_harmSDx2;f45_amraamInternal;f45_sidewinderx2;;;;;;;|9;8;10;7;6;5;3;1;0;4;
+				b_eqAssignmentMode = True
+			}
+			altSpawn
+			{
+				globalPos = (37206.027, 112.74512, 66670.54)
+				rotation = (0, 10.60602, 0)
+				weight = 100
+				placementMode = Ground
+				onCarrier = False
+				mpSelectEnabled = True
+				unitFields
+				{
+					vehicle = F/A-26B
+					selectableAltSpawn = False
+					slotLabel = 
+					unitGroup = Allied:Golf
+					startMode = FlightReady
+					equipment = fa26_iris-t-x1;fa26_iris-t-x2;fa26_iris-t-x3;af_mk82;fa26_mk82x2;fa26_mk82x3;fa26_mk82HDx1;fa26_mk82HDx2;fa26_mk82HDx3;fa26_mk83x1;fa26_cbu97x1;h70-x7ld;h70-x7ld-under;h70-x14ld;h70-x14ld-under;fa26_cagm-6;fa26_gbu38x1;fa26_gbu38x2;fa26_gbu38x3;fa26_gbu39x4uFront;fa26_gbu39x4uRear;fa26_maverickx1;fa26_maverickx3;fa26_agm89x1;af_amraamRailx2;fa26_gbu12x1;fa26_gbu12x2;fa26_gbu12x3;fa26_agm161;
+					initialSpeed = 0
+					rtbIsSpawn = False
+					limitedLives = False
+					lifeCount = 1
+					costToSpawn = 0
+					liveryRef = 0;
+					receiveFriendlyDamage = True
+					forcedEquipsList = free;free;free;free;free;af_amraam;af_amraam;free;free;free;free;free;free;free;free;free;|
+					b_eqAssignmentMode = True
+				}
+			}
+			altSpawn
+			{
+				globalPos = (37206.027, 112.74512, 66670.54)
+				rotation = (0, 10.60602, 0)
+				weight = 100
+				placementMode = Ground
+				onCarrier = False
+				mpSelectEnabled = True
+				unitFields
+				{
+					vehicle = T-55
+					selectableAltSpawn = False
+					slotLabel = 
+					unitGroup = Allied:Golf
+					startMode = FlightReady
+					equipment = t55_iris-t-x1;t55_iris-t-x2;t55_mk82;t55_mk82x2;t55_mk82x3;t55_mk82HDx1;t55_mk82HDx2;t55_mk82HDx3;t55_mk83x1;t55_cbu97x1;t55_gbu12x1;t55_gbu12x2;t55_gbu12x3;t55_gbu38x1;t55_gbu38x2;t55_gbu38x3;t55_gbu39x4u;t55_maverickx1;t55_maverickx3;t55_cagm-6;t55_h70-x7ld;t55_h70-x14ld;t55_apkws-x7;t55_agm161;t55_agm89x1;
+					initialSpeed = 0
+					rtbIsSpawn = False
+					limitedLives = False
+					lifeCount = 1
+					costToSpawn = 0
+					liveryRef = 0;
+					receiveFriendlyDamage = True
+					slots = 1
+					forcedEquipsList = free;free;free;t55_amraamRailx2;free;free;free;free;free;|
+					b_eqAssignmentMode = True
+				}
+			}
+			altSpawn
+			{
+				globalPos = (37206.027, 112.74512, 66670.54)
+				rotation = (0, 10.60602, 0)
+				weight = 100
+				placementMode = Ground
+				onCarrier = False
+				mpSelectEnabled = True
+				unitFields
+				{
+					vehicle = F-16
+					selectableAltSpawn = False
+					slotLabel = 
+					unitGroup = Allied:Golf
+					startMode = FlightReady
+					equipment = ViperHTS;viper_maverickx1;viper_maverickx3;viper_apkws-x7;viper_apkws-x19;viper_gbu31;viper_gbu38x2;viper_gbu39x4uFront;viper_gbu10;viper_gbu12x1;viper_gbu12x2;viper_gbu12x3;viper_mk82;viper_mk82x2;viper_mk82x3;viper_mk82x6;viper_mk82HDx1;viper_mk82HDx2;viper_mk82HDx3;viper_mk82HDx6;viper_mk84x1;viper_cbu97x1;viper_agm161;viper_agm89x1;
+					initialSpeed = 0
+					rtbIsSpawn = False
+					limitedLives = False
+					lifeCount = 1
+					costToSpawn = 0
+					liveryRef = 0;
+					receiveFriendlyDamage = True
+					forcedEquipsList = free;viper_amraamRail;free;free;free;free;free;free;free;free;free;viper_amraamRail;|
+					b_eqAssignmentMode = True
+				}
+			}
+		}
+		UnitSpawner
+		{
+			unitName = Echo 1-1
+			globalPosition = (37199.957, 112.74512, 66638.1)
+			unitInstanceID = 4
+			unitID = MultiplayerSpawn
+			rotation = (0, 10.60602, 0)
+			lastValidPlacement = (37199.957, 112.74512, 66638.1)
+			editorPlacementMode = Ground
+			onCarrier = False
+			mpSelectEnabled = True
+			UnitFields
+			{
+				vehicle = EF-24G
+				selectableAltSpawn = True
+				slotLabel = 
+				unitGroup = Allied:Echo
+				startMode = FlightReady
+				equipment = ef24_airst-x1;ef24_harmx1;ef24_harmSDx1;ef24_marmx1;ef24_sidearmx1;ef24_gbu12x1;ef24_gbu12x2;ef24_gbu12x3;ef24_gbu38x1;ef24_gbu38x2;ef24_gbu38x3;ef24_gbu39x4;ef24_mk82x1;ef24_mk82x2;ef24_mk82x3;ef24_mk82x4;ef24_mk82HDx1;ef24_mk82HDx2;ef24_mk82HDx3;ef24_mk82HDx4;ef24_mk83x1;ef24_mk83x2;ef24_agm161;ef24_agm89x1;
+				initialSpeed = 0
+				rtbIsSpawn = False
+				limitedLives = True
+				lifeCount = 1
+				costToSpawn = 0
+				liveryRef = 0;
+				receiveFriendlyDamage = True
+				slots = 2
+				forcedEquipsList = ef24_gun;free;free;free;free;free;free;free;free;free;free;free;free;ef24_tgp;|
+				b_eqAssignmentMode = True
+			}
+			altSpawn
+			{
+				globalPos = (37199.957, 112.74512, 66638.1)
+				rotation = (0, 10.60602, 0)
+				weight = 100
+				placementMode = Ground
+				onCarrier = False
+				mpSelectEnabled = True
+				unitFields
+				{
+					vehicle = F/A-26B
+					selectableAltSpawn = False
+					slotLabel = 
+					unitGroup = Allied:Echo
+					startMode = FlightReady
+					equipment = fa26_iris-t-x1;fa26_iris-t-x2;fa26_iris-t-x3;af_mk82;fa26_mk82x2;fa26_mk82x3;fa26_mk82HDx1;fa26_mk82HDx2;fa26_mk82HDx3;fa26_mk83x1;fa26_cbu97x1;h70-x7ld;h70-x7ld-under;h70-x14ld;h70-x14ld-under;fa26_cagm-6;fa26_gbu38x1;fa26_gbu38x2;fa26_gbu38x3;fa26_gbu39x4uFront;fa26_gbu39x4uRear;fa26_maverickx1;fa26_maverickx3;fa26_agm89x1;af_amraamRailx2;fa26_gbu12x1;fa26_gbu12x2;fa26_gbu12x3;fa26_agm161;
+					initialSpeed = 0
+					rtbIsSpawn = False
+					limitedLives = False
+					lifeCount = 1
+					costToSpawn = 0
+					liveryRef = 0;
+					receiveFriendlyDamage = True
+					forcedEquipsList = free;free;free;free;free;af_amraam;af_amraam;free;free;free;free;free;free;free;free;free;|
+					b_eqAssignmentMode = True
+				}
+			}
+			altSpawn
+			{
+				globalPos = (37199.957, 112.74512, 66638.1)
+				rotation = (0, 10.60602, 0)
+				weight = 100
+				placementMode = Ground
+				onCarrier = False
+				mpSelectEnabled = True
+				unitFields
+				{
+					vehicle = T-55
+					selectableAltSpawn = False
+					slotLabel = 
+					unitGroup = Allied:Echo
+					startMode = FlightReady
+					equipment = t55_iris-t-x1;t55_iris-t-x2;t55_mk82;t55_mk82x2;t55_mk82x3;t55_mk82HDx1;t55_mk82HDx2;t55_mk82HDx3;t55_mk83x1;t55_cbu97x1;t55_gbu12x1;t55_gbu12x2;t55_gbu12x3;t55_gbu38x1;t55_gbu38x2;t55_gbu38x3;t55_gbu39x4u;t55_maverickx1;t55_maverickx3;t55_cagm-6;t55_h70-x7ld;t55_h70-x14ld;t55_apkws-x7;t55_agm161;t55_agm89x1;
+					initialSpeed = 0
+					rtbIsSpawn = False
+					limitedLives = False
+					lifeCount = 1
+					costToSpawn = 0
+					liveryRef = 0;
+					receiveFriendlyDamage = True
+					slots = 1
+					forcedEquipsList = free;free;free;t55_amraamRailx2;free;free;free;free;free;|
+					b_eqAssignmentMode = True
+				}
+			}
+			altSpawn
+			{
+				globalPos = (37199.957, 112.74512, 66638.1)
+				rotation = (0, 10.60602, 0)
+				weight = 100
+				placementMode = Ground
+				onCarrier = False
+				mpSelectEnabled = True
+				unitFields
+				{
+					vehicle = F-16
+					selectableAltSpawn = False
+					slotLabel = 
+					unitGroup = Allied:Echo
+					startMode = FlightReady
+					equipment = ViperHTS;viper_maverickx1;viper_maverickx3;viper_apkws-x7;viper_apkws-x19;viper_gbu31;viper_gbu38x2;viper_gbu39x4uFront;viper_gbu10;viper_gbu12x1;viper_gbu12x2;viper_gbu12x3;viper_mk82;viper_mk82x2;viper_mk82x3;viper_mk82x6;viper_mk82HDx1;viper_mk82HDx2;viper_mk82HDx3;viper_mk82HDx6;viper_mk84x1;viper_cbu97x1;viper_agm161;viper_agm89x1;
+					initialSpeed = 0
+					rtbIsSpawn = False
+					limitedLives = False
+					lifeCount = 1
+					costToSpawn = 0
+					liveryRef = 0;
+					receiveFriendlyDamage = True
+					forcedEquipsList = free;viper_amraamRail;free;free;free;free;free;free;free;free;free;viper_amraamRail;|
+					b_eqAssignmentMode = True
+				}
+			}
+		}
+		UnitSpawner
+		{
+			unitName = Foxtrot 1-1
+			globalPosition = (119086.69, 566.79663, 179953.3)
+			unitInstanceID = 5
+			unitID = MultiplayerSpawnEnemy
+			rotation = (0, 161.5459, 0)
+			lastValidPlacement = (119086.69, 566.79663, 179953.3)
+			editorPlacementMode = Ground
+			onCarrier = False
+			mpSelectEnabled = True
+			UnitFields
+			{
+				vehicle = F/A-26B
+				selectableAltSpawn = True
+				slotLabel = 
+				unitGroup = Enemy:Foxtrot
+				startMode = FlightReady
+				equipment = fa26_iris-t-x1;fa26_iris-t-x2;fa26_iris-t-x3;af_mk82;fa26_mk82x2;fa26_mk82x3;fa26_mk82HDx1;fa26_mk82HDx2;fa26_mk82HDx3;fa26_mk83x1;fa26_cbu97x1;h70-x7ld;h70-x7ld-under;h70-x14ld;h70-x14ld-under;fa26_cagm-6;fa26_gbu38x1;fa26_gbu38x2;fa26_gbu38x3;fa26_gbu39x4uFront;fa26_gbu39x4uRear;fa26_maverickx1;fa26_maverickx3;fa26_agm89x1;af_amraamRailx2;fa26_gbu12x1;fa26_gbu12x2;fa26_gbu12x3;fa26_agm161;
+				initialSpeed = 0
+				rtbIsSpawn = False
+				limitedLives = True
+				lifeCount = 1
+				costToSpawn = 0
+				liveryRef = 0;
+				receiveFriendlyDamage = True
+				forcedEquipsList = free;free;free;free;free;af_amraam;af_amraam;free;free;free;free;free;free;free;free;free;|
+				b_eqAssignmentMode = True
+			}
+			altSpawn
+			{
+				globalPos = (119086.69, 566.79663, 179953.3)
+				rotation = (0, 161.5459, 0)
+				weight = 100
+				placementMode = Ground
+				onCarrier = False
+				mpSelectEnabled = True
+				unitFields
+				{
+					vehicle = T-55
+					selectableAltSpawn = False
+					slotLabel = 
+					unitGroup = Enemy:Foxtrot
+					startMode = FlightReady
+					equipment = t55_iris-t-x1;t55_iris-t-x2;t55_mk82;t55_mk82x2;t55_mk82x3;t55_mk82HDx1;t55_mk82HDx2;t55_mk82HDx3;t55_mk83x1;t55_cbu97x1;t55_gbu12x1;t55_gbu12x2;t55_gbu12x3;t55_gbu38x1;t55_gbu38x2;t55_gbu38x3;t55_gbu39x4u;t55_maverickx1;t55_maverickx3;t55_cagm-6;t55_h70-x7ld;t55_h70-x14ld;t55_apkws-x7;t55_agm161;t55_agm89x1;
+					initialSpeed = 0
+					rtbIsSpawn = False
+					limitedLives = False
+					lifeCount = 1
+					costToSpawn = 0
+					liveryRef = 0;
+					receiveFriendlyDamage = True
+					slots = 1
+					forcedEquipsList = free;free;free;t55_amraamRailx2;free;free;free;free;free;|
+					b_eqAssignmentMode = True
+				}
+			}
+			altSpawn
+			{
+				globalPos = (119086.69, 566.79663, 179953.3)
+				rotation = (0, 161.5459, 0)
+				weight = 100
+				placementMode = Ground
+				onCarrier = False
+				mpSelectEnabled = True
+				unitFields
+				{
+					vehicle = F-16
+					selectableAltSpawn = False
+					slotLabel = 
+					unitGroup = Enemy:Foxtrot
+					startMode = FlightReady
+					equipment = ViperHTS;viper_maverickx1;viper_maverickx3;viper_apkws-x7;viper_apkws-x19;viper_gbu31;viper_gbu38x2;viper_gbu39x4uFront;viper_gbu10;viper_gbu12x1;viper_gbu12x2;viper_gbu12x3;viper_mk82;viper_mk82x2;viper_mk82x3;viper_mk82x6;viper_mk82HDx1;viper_mk82HDx2;viper_mk82HDx3;viper_mk82HDx6;viper_mk84x1;viper_cbu97x1;viper_agm161;viper_agm89x1;
+					initialSpeed = 0
+					rtbIsSpawn = False
+					limitedLives = False
+					lifeCount = 1
+					costToSpawn = 0
+					liveryRef = 0;
+					receiveFriendlyDamage = True
+					forcedEquipsList = free;viper_amraamRail;free;free;free;free;free;free;free;free;free;viper_amraamRail;|
+					b_eqAssignmentMode = True
+				}
+			}
+		}
+		UnitSpawner
+		{
+			unitName = Foxtrot 1-2
+			globalPosition = (119062.336, 566.79663, 179972.58)
+			unitInstanceID = 6
+			unitID = MultiplayerSpawnEnemy
+			rotation = (0, 161.5459, 0)
+			lastValidPlacement = (119062.336, 566.79663, 179972.58)
+			editorPlacementMode = Ground
+			onCarrier = False
+			mpSelectEnabled = True
+			UnitFields
+			{
+				vehicle = F/A-26B
+				selectableAltSpawn = True
+				slotLabel = 
+				unitGroup = Enemy:Foxtrot
+				startMode = FlightReady
+				equipment = fa26_iris-t-x1;fa26_iris-t-x2;fa26_iris-t-x3;af_mk82;fa26_mk82x2;fa26_mk82x3;fa26_mk82HDx1;fa26_mk82HDx2;fa26_mk82HDx3;fa26_mk83x1;fa26_cbu97x1;h70-x7ld;h70-x7ld-under;h70-x14ld;h70-x14ld-under;fa26_cagm-6;fa26_gbu38x1;fa26_gbu38x2;fa26_gbu38x3;fa26_gbu39x4uFront;fa26_gbu39x4uRear;fa26_maverickx1;fa26_maverickx3;fa26_agm89x1;af_amraamRailx2;fa26_gbu12x1;fa26_gbu12x2;fa26_gbu12x3;fa26_agm161;
+				initialSpeed = 0
+				rtbIsSpawn = False
+				limitedLives = True
+				lifeCount = 1
+				costToSpawn = 0
+				liveryRef = 0;
+				receiveFriendlyDamage = True
+				forcedEquipsList = free;free;free;free;free;af_amraam;af_amraam;free;free;free;free;free;free;free;free;free;|
+				b_eqAssignmentMode = True
+			}
+			altSpawn
+			{
+				globalPos = (119062.336, 566.79663, 179972.58)
+				rotation = (0, 161.5459, 0)
+				weight = 100
+				placementMode = Ground
+				onCarrier = False
+				mpSelectEnabled = True
+				unitFields
+				{
+					vehicle = T-55
+					selectableAltSpawn = False
+					slotLabel = 
+					unitGroup = Enemy:Foxtrot
+					startMode = FlightReady
+					equipment = t55_iris-t-x1;t55_iris-t-x2;t55_mk82;t55_mk82x2;t55_mk82x3;t55_mk82HDx1;t55_mk82HDx2;t55_mk82HDx3;t55_mk83x1;t55_cbu97x1;t55_gbu12x1;t55_gbu12x2;t55_gbu12x3;t55_gbu38x1;t55_gbu38x2;t55_gbu38x3;t55_gbu39x4u;t55_maverickx1;t55_maverickx3;t55_cagm-6;t55_h70-x7ld;t55_h70-x14ld;t55_apkws-x7;t55_agm161;t55_agm89x1;
+					initialSpeed = 0
+					rtbIsSpawn = False
+					limitedLives = False
+					lifeCount = 1
+					costToSpawn = 0
+					liveryRef = 0;
+					receiveFriendlyDamage = True
+					slots = 1
+					forcedEquipsList = free;free;free;t55_amraamRailx2;free;free;free;free;free;|
+					b_eqAssignmentMode = True
+				}
+			}
+			altSpawn
+			{
+				globalPos = (119062.336, 566.79663, 179972.58)
+				rotation = (0, 161.5459, 0)
+				weight = 100
+				placementMode = Ground
+				onCarrier = False
+				mpSelectEnabled = True
+				unitFields
+				{
+					vehicle = F-16
+					selectableAltSpawn = False
+					slotLabel = 
+					unitGroup = Enemy:Foxtrot
+					startMode = FlightReady
+					equipment = ViperHTS;viper_maverickx1;viper_maverickx3;viper_apkws-x7;viper_apkws-x19;viper_gbu31;viper_gbu38x2;viper_gbu39x4uFront;viper_gbu10;viper_gbu12x1;viper_gbu12x2;viper_gbu12x3;viper_mk82;viper_mk82x2;viper_mk82x3;viper_mk82x6;viper_mk82HDx1;viper_mk82HDx2;viper_mk82HDx3;viper_mk82HDx6;viper_mk84x1;viper_cbu97x1;viper_agm161;viper_agm89x1;
+					initialSpeed = 0
+					rtbIsSpawn = False
+					limitedLives = False
+					lifeCount = 1
+					costToSpawn = 0
+					liveryRef = 0;
+					receiveFriendlyDamage = True
+					forcedEquipsList = free;viper_amraamRail;free;free;free;free;free;free;free;free;free;viper_amraamRail;|
+					b_eqAssignmentMode = True
+				}
+			}
+		}
+		UnitSpawner
+		{
+			unitName = Foxtrot 1-3
+			globalPosition = (119093.63, 566.79663, 179983.02)
+			unitInstanceID = 7
+			unitID = MultiplayerSpawnEnemy
+			rotation = (0, 161.5459, 0)
+			lastValidPlacement = (119093.63, 566.79663, 179983.02)
+			editorPlacementMode = Ground
+			onCarrier = False
+			mpSelectEnabled = True
+			UnitFields
+			{
+				vehicle = F/A-26B
+				selectableAltSpawn = True
+				slotLabel = 
+				unitGroup = Enemy:Foxtrot
+				startMode = FlightReady
+				equipment = fa26_iris-t-x1;fa26_iris-t-x2;fa26_iris-t-x3;af_mk82;fa26_mk82x2;fa26_mk82x3;fa26_mk82HDx1;fa26_mk82HDx2;fa26_mk82HDx3;fa26_mk83x1;fa26_cbu97x1;h70-x7ld;h70-x7ld-under;h70-x14ld;h70-x14ld-under;fa26_cagm-6;fa26_gbu38x1;fa26_gbu38x2;fa26_gbu38x3;fa26_gbu39x4uFront;fa26_gbu39x4uRear;fa26_maverickx1;fa26_maverickx3;fa26_agm89x1;af_amraamRailx2;fa26_gbu12x1;fa26_gbu12x2;fa26_gbu12x3;fa26_agm161;
+				initialSpeed = 0
+				rtbIsSpawn = False
+				limitedLives = True
+				lifeCount = 1
+				costToSpawn = 0
+				liveryRef = 0;
+				receiveFriendlyDamage = True
+				forcedEquipsList = free;free;free;free;free;af_amraam;af_amraam;free;free;free;free;free;free;free;free;free;|
+				b_eqAssignmentMode = True
+			}
+			altSpawn
+			{
+				globalPos = (119093.63, 566.79663, 179983.02)
+				rotation = (0, 161.5459, 0)
+				weight = 100
+				placementMode = Ground
+				onCarrier = False
+				mpSelectEnabled = True
+				unitFields
+				{
+					vehicle = T-55
+					selectableAltSpawn = False
+					slotLabel = 
+					unitGroup = Enemy:Foxtrot
+					startMode = FlightReady
+					equipment = t55_iris-t-x1;t55_iris-t-x2;t55_mk82;t55_mk82x2;t55_mk82x3;t55_mk82HDx1;t55_mk82HDx2;t55_mk82HDx3;t55_mk83x1;t55_cbu97x1;t55_gbu12x1;t55_gbu12x2;t55_gbu12x3;t55_gbu38x1;t55_gbu38x2;t55_gbu38x3;t55_gbu39x4u;t55_maverickx1;t55_maverickx3;t55_cagm-6;t55_h70-x7ld;t55_h70-x14ld;t55_apkws-x7;t55_agm161;t55_agm89x1;
+					initialSpeed = 0
+					rtbIsSpawn = False
+					limitedLives = False
+					lifeCount = 1
+					costToSpawn = 0
+					liveryRef = 0;
+					receiveFriendlyDamage = True
+					slots = 1
+					forcedEquipsList = free;free;free;t55_amraamRailx2;free;free;free;free;free;|
+					b_eqAssignmentMode = True
+				}
+			}
+			altSpawn
+			{
+				globalPos = (119093.63, 566.79663, 179983.02)
+				rotation = (0, 161.5459, 0)
+				weight = 100
+				placementMode = Ground
+				onCarrier = False
+				mpSelectEnabled = True
+				unitFields
+				{
+					vehicle = F-16
+					selectableAltSpawn = False
+					slotLabel = 
+					unitGroup = Enemy:Foxtrot
+					startMode = FlightReady
+					equipment = ViperHTS;viper_maverickx1;viper_maverickx3;viper_apkws-x7;viper_apkws-x19;viper_gbu31;viper_gbu38x2;viper_gbu39x4uFront;viper_gbu10;viper_gbu12x1;viper_gbu12x2;viper_gbu12x3;viper_mk82;viper_mk82x2;viper_mk82x3;viper_mk82x6;viper_mk82HDx1;viper_mk82HDx2;viper_mk82HDx3;viper_mk82HDx6;viper_mk84x1;viper_cbu97x1;viper_agm161;viper_agm89x1;
+					initialSpeed = 0
+					rtbIsSpawn = False
+					limitedLives = False
+					lifeCount = 1
+					costToSpawn = 0
+					liveryRef = 0;
+					receiveFriendlyDamage = True
+					forcedEquipsList = free;viper_amraamRail;free;free;free;free;free;free;free;free;free;viper_amraamRail;|
+					b_eqAssignmentMode = True
+				}
+			}
+		}
+		UnitSpawner
+		{
+			unitName = Golf 1-1
+			globalPosition = (119070.55, 566.79663, 180001.67)
+			unitInstanceID = 8
+			unitID = MultiplayerSpawnEnemy
+			rotation = (0, 161.5459, 0)
+			lastValidPlacement = (119070.55, 566.79663, 180001.67)
+			editorPlacementMode = Ground
+			onCarrier = False
+			mpSelectEnabled = True
+			UnitFields
+			{
+				vehicle = F-45A
+				selectableAltSpawn = True
+				slotLabel = 
+				unitGroup = Enemy:Golf
+				startMode = FlightReady
+				equipment = f45_amraamInternal;f45_amraamRail;f45_mk82x1;f45_mk82Internal;f45_mk82x4Internal;f45_gbu12x2Internal;f45_gbu12x1;f45-gbu39;f45_agm161;f45_agm161Internal;f45_gbu38x1;f45_gbu38x2Internal;f45_gbu38x4Internal;f45_mk83x1;f45_mk83x1Internal;f45-agm145I;f45-agm145ISide;f45-agm145x3;f45-gbu53;
+				initialSpeed = 0
+				rtbIsSpawn = False
+				limitedLives = True
+				lifeCount = 1
+				costToSpawn = 0
+				liveryRef = 0;
+				receiveFriendlyDamage = True
+				forcedEquipsList = f45_gun;f45_sidewinderx2;f45_harmSDx2;f45_amraamInternal;f45_sidewinderx2;;;;;;;|9;8;10;7;6;5;3;1;0;4;
+				b_eqAssignmentMode = True
+			}
+			altSpawn
+			{
+				globalPos = (119070.55, 566.79663, 180001.67)
+				rotation = (0, 161.5459, 0)
+				weight = 100
+				placementMode = Ground
+				onCarrier = False
+				mpSelectEnabled = True
+				unitFields
+				{
+					vehicle = F/A-26B
+					selectableAltSpawn = False
+					slotLabel = 
+					unitGroup = Enemy:Golf
+					startMode = FlightReady
+					equipment = fa26_iris-t-x1;fa26_iris-t-x2;fa26_iris-t-x3;af_mk82;fa26_mk82x2;fa26_mk82x3;fa26_mk82HDx1;fa26_mk82HDx2;fa26_mk82HDx3;fa26_mk83x1;fa26_cbu97x1;h70-x7ld;h70-x7ld-under;h70-x14ld;h70-x14ld-under;fa26_cagm-6;fa26_gbu38x1;fa26_gbu38x2;fa26_gbu38x3;fa26_gbu39x4uFront;fa26_gbu39x4uRear;fa26_maverickx1;fa26_maverickx3;fa26_agm89x1;af_amraamRailx2;fa26_gbu12x1;fa26_gbu12x2;fa26_gbu12x3;fa26_agm161;
+					initialSpeed = 0
+					rtbIsSpawn = False
+					limitedLives = False
+					lifeCount = 1
+					costToSpawn = 0
+					liveryRef = 0;
+					receiveFriendlyDamage = True
+					forcedEquipsList = free;free;free;free;free;af_amraam;af_amraam;free;free;free;free;free;free;free;free;free;|
+					b_eqAssignmentMode = True
+				}
+			}
+			altSpawn
+			{
+				globalPos = (119070.55, 566.79663, 180001.67)
+				rotation = (0, 161.5459, 0)
+				weight = 100
+				placementMode = Ground
+				onCarrier = False
+				mpSelectEnabled = True
+				unitFields
+				{
+					vehicle = T-55
+					selectableAltSpawn = False
+					slotLabel = 
+					unitGroup = Enemy:Golf
+					startMode = FlightReady
+					equipment = t55_iris-t-x1;t55_iris-t-x2;t55_mk82;t55_mk82x2;t55_mk82x3;t55_mk82HDx1;t55_mk82HDx2;t55_mk82HDx3;t55_mk83x1;t55_cbu97x1;t55_gbu12x1;t55_gbu12x2;t55_gbu12x3;t55_gbu38x1;t55_gbu38x2;t55_gbu38x3;t55_gbu39x4u;t55_maverickx1;t55_maverickx3;t55_cagm-6;t55_h70-x7ld;t55_h70-x14ld;t55_apkws-x7;t55_agm161;t55_agm89x1;
+					initialSpeed = 0
+					rtbIsSpawn = False
+					limitedLives = False
+					lifeCount = 1
+					costToSpawn = 0
+					liveryRef = 0;
+					receiveFriendlyDamage = True
+					slots = 1
+					forcedEquipsList = free;free;free;t55_amraamRailx2;free;free;free;free;free;|
+					b_eqAssignmentMode = True
+				}
+			}
+			altSpawn
+			{
+				globalPos = (119070.55, 566.79663, 180001.67)
+				rotation = (0, 161.5459, 0)
+				weight = 100
+				placementMode = Ground
+				onCarrier = False
+				mpSelectEnabled = True
+				unitFields
+				{
+					vehicle = F-16
+					selectableAltSpawn = False
+					slotLabel = 
+					unitGroup = Enemy:Golf
+					startMode = FlightReady
+					equipment = ViperHTS;viper_maverickx1;viper_maverickx3;viper_apkws-x7;viper_apkws-x19;viper_gbu31;viper_gbu38x2;viper_gbu39x4uFront;viper_gbu10;viper_gbu12x1;viper_gbu12x2;viper_gbu12x3;viper_mk82;viper_mk82x2;viper_mk82x3;viper_mk82x6;viper_mk82HDx1;viper_mk82HDx2;viper_mk82HDx3;viper_mk82HDx6;viper_mk84x1;viper_cbu97x1;viper_agm161;viper_agm89x1;
+					initialSpeed = 0
+					rtbIsSpawn = False
+					limitedLives = False
+					lifeCount = 1
+					costToSpawn = 0
+					liveryRef = 0;
+					receiveFriendlyDamage = True
+					forcedEquipsList = free;viper_amraamRail;free;free;free;free;free;free;free;free;free;viper_amraamRail;|
+					b_eqAssignmentMode = True
+				}
+			}
+		}
+		UnitSpawner
+		{
+			unitName = Echo 1-1
+			globalPosition = (119060.1, 566.79663, 180032.97)
+			unitInstanceID = 9
+			unitID = MultiplayerSpawnEnemy
+			rotation = (0, 161.5459, 0)
+			lastValidPlacement = (119060.1, 566.79663, 180032.97)
+			editorPlacementMode = Ground
+			onCarrier = False
+			mpSelectEnabled = True
+			UnitFields
+			{
+				vehicle = EF-24G
+				selectableAltSpawn = True
+				slotLabel = 
+				unitGroup = Enemy:Echo
+				startMode = FlightReady
+				equipment = ef24_airst-x1;ef24_harmx1;ef24_harmSDx1;ef24_marmx1;ef24_sidearmx1;ef24_gbu12x1;ef24_gbu12x2;ef24_gbu12x3;ef24_gbu38x1;ef24_gbu38x2;ef24_gbu38x3;ef24_gbu39x4;ef24_mk82x1;ef24_mk82x2;ef24_mk82x3;ef24_mk82x4;ef24_mk82HDx1;ef24_mk82HDx2;ef24_mk82HDx3;ef24_mk82HDx4;ef24_mk83x1;ef24_mk83x2;ef24_agm161;ef24_agm89x1;
+				initialSpeed = 0
+				rtbIsSpawn = False
+				limitedLives = True
+				lifeCount = 1
+				costToSpawn = 0
+				liveryRef = 0;
+				receiveFriendlyDamage = True
+				slots = 2
+				forcedEquipsList = ef24_gun;free;free;free;free;free;free;free;free;free;free;free;free;ef24_tgp;|
+				b_eqAssignmentMode = True
+			}
+			altSpawn
+			{
+				globalPos = (119060.1, 566.79663, 180032.97)
+				rotation = (0, 161.5459, 0)
+				weight = 100
+				placementMode = Ground
+				onCarrier = False
+				mpSelectEnabled = True
+				unitFields
+				{
+					vehicle = F/A-26B
+					selectableAltSpawn = False
+					slotLabel = 
+					unitGroup = Enemy:Echo
+					startMode = FlightReady
+					equipment = fa26_iris-t-x1;fa26_iris-t-x2;fa26_iris-t-x3;af_mk82;fa26_mk82x2;fa26_mk82x3;fa26_mk82HDx1;fa26_mk82HDx2;fa26_mk82HDx3;fa26_mk83x1;fa26_cbu97x1;h70-x7ld;h70-x7ld-under;h70-x14ld;h70-x14ld-under;fa26_cagm-6;fa26_gbu38x1;fa26_gbu38x2;fa26_gbu38x3;fa26_gbu39x4uFront;fa26_gbu39x4uRear;fa26_maverickx1;fa26_maverickx3;fa26_agm89x1;af_amraamRailx2;fa26_gbu12x1;fa26_gbu12x2;fa26_gbu12x3;fa26_agm161;
+					initialSpeed = 0
+					rtbIsSpawn = False
+					limitedLives = False
+					lifeCount = 1
+					costToSpawn = 0
+					liveryRef = 0;
+					receiveFriendlyDamage = True
+					forcedEquipsList = free;free;free;free;free;af_amraam;af_amraam;free;free;free;free;free;free;free;free;free;|
+					b_eqAssignmentMode = True
+				}
+			}
+			altSpawn
+			{
+				globalPos = (119060.1, 566.79663, 180032.97)
+				rotation = (0, 161.5459, 0)
+				weight = 100
+				placementMode = Ground
+				onCarrier = False
+				mpSelectEnabled = True
+				unitFields
+				{
+					vehicle = T-55
+					selectableAltSpawn = False
+					slotLabel = 
+					unitGroup = Enemy:Echo
+					startMode = FlightReady
+					equipment = t55_iris-t-x1;t55_iris-t-x2;t55_mk82;t55_mk82x2;t55_mk82x3;t55_mk82HDx1;t55_mk82HDx2;t55_mk82HDx3;t55_mk83x1;t55_cbu97x1;t55_gbu12x1;t55_gbu12x2;t55_gbu12x3;t55_gbu38x1;t55_gbu38x2;t55_gbu38x3;t55_gbu39x4u;t55_maverickx1;t55_maverickx3;t55_cagm-6;t55_h70-x7ld;t55_h70-x14ld;t55_apkws-x7;t55_agm161;t55_agm89x1;
+					initialSpeed = 0
+					rtbIsSpawn = False
+					limitedLives = False
+					lifeCount = 1
+					costToSpawn = 0
+					liveryRef = 0;
+					receiveFriendlyDamage = True
+					slots = 1
+					forcedEquipsList = free;free;free;t55_amraamRailx2;free;free;free;free;free;|
+					b_eqAssignmentMode = True
+				}
+			}
+			altSpawn
+			{
+				globalPos = (119060.1, 566.79663, 180032.97)
+				rotation = (0, 161.5459, 0)
+				weight = 100
+				placementMode = Ground
+				onCarrier = False
+				mpSelectEnabled = True
+				unitFields
+				{
+					vehicle = F-16
+					selectableAltSpawn = False
+					slotLabel = 
+					unitGroup = Enemy:Echo
+					startMode = FlightReady
+					equipment = ViperHTS;viper_maverickx1;viper_maverickx3;viper_apkws-x7;viper_apkws-x19;viper_gbu31;viper_gbu38x2;viper_gbu39x4uFront;viper_gbu10;viper_gbu12x1;viper_gbu12x2;viper_gbu12x3;viper_mk82;viper_mk82x2;viper_mk82x3;viper_mk82x6;viper_mk82HDx1;viper_mk82HDx2;viper_mk82HDx3;viper_mk82HDx6;viper_mk84x1;viper_cbu97x1;viper_agm161;viper_agm89x1;
+					initialSpeed = 0
+					rtbIsSpawn = False
+					limitedLives = False
+					lifeCount = 1
+					costToSpawn = 0
+					liveryRef = 0;
+					receiveFriendlyDamage = True
+					forcedEquipsList = free;viper_amraamRail;free;free;free;free;free;free;free;free;free;viper_amraamRail;|
+					b_eqAssignmentMode = True
+				}
+			}
+		}
+		UnitSpawner
+		{
+			unitName = spectator A1
+			globalPosition = (0, 0, 0)
+			unitInstanceID = 10
+			unitID = MultiplayerSpawn
+			rotation = (0, 0, 0)
+			lastValidPlacement = (0, 0, 0)
+			editorPlacementMode = Ground
+			onCarrier = False
+			mpSelectEnabled = True
+			UnitFields
+			{
+				vehicle = AV-42C
+				selectableAltSpawn = False
+				slotLabel = I'll kill you if you use this
+				unitGroup = Allied:Sierra
+				startMode = FlightReady
+				equipment = 
+				initialSpeed = 0
+				rtbIsSpawn = False
+				limitedLives = False
+				lifeCount = 1
+				costToSpawn = 0
+				liveryRef = 0;
+				receiveFriendlyDamage = True
+				b_eqAssignmentMode = False
+			}
+		}
+		UnitSpawner
+		{
+			unitName = spectator A2
+			globalPosition = (0, 0, 0)
+			unitInstanceID = 11
+			unitID = MultiplayerSpawn
+			rotation = (0, 0, 0)
+			lastValidPlacement = (0, 0, 0)
+			editorPlacementMode = Ground
+			onCarrier = False
+			mpSelectEnabled = True
+			UnitFields
+			{
+				vehicle = AV-42C
+				selectableAltSpawn = False
+				slotLabel = I'll kill you if you use this
+				unitGroup = Allied:Sierra
+				startMode = FlightReady
+				equipment = 
+				initialSpeed = 0
+				rtbIsSpawn = False
+				limitedLives = False
+				lifeCount = 1
+				costToSpawn = 0
+				liveryRef = 0;
+				receiveFriendlyDamage = True
+				b_eqAssignmentMode = False
+			}
+		}
+		UnitSpawner
+		{
+			unitName = spectator B3
+			globalPosition = (0, 0, 0)
+			unitInstanceID = 12
+			unitID = MultiplayerSpawnEnemy
+			rotation = (0, 0, 0)
+			lastValidPlacement = (0, 0, 0)
+			editorPlacementMode = Ground
+			onCarrier = False
+			mpSelectEnabled = True
+			UnitFields
+			{
+				vehicle = AV-42C
+				selectableAltSpawn = False
+				slotLabel = I'll kill you if you use this
+				unitGroup = Enemy:Sierra
+				startMode = FlightReady
+				equipment = 
+				initialSpeed = 0
+				rtbIsSpawn = False
+				limitedLives = False
+				lifeCount = 1
+				costToSpawn = 0
+				liveryRef = 0;
+				receiveFriendlyDamage = True
+				b_eqAssignmentMode = False
+			}
+		}
+		UnitSpawner
+		{
+			unitName = spectator B4
+			globalPosition = (0, 0, 0)
+			unitInstanceID = 13
+			unitID = MultiplayerSpawnEnemy
+			rotation = (0, 0, 0)
+			lastValidPlacement = (0, 0, 0)
+			editorPlacementMode = Ground
+			onCarrier = False
+			mpSelectEnabled = True
+			UnitFields
+			{
+				vehicle = AV-42C
+				selectableAltSpawn = False
+				slotLabel = I'll kill you if you use this
+				unitGroup = Enemy:Sierra
+				startMode = FlightReady
+				equipment = 
+				initialSpeed = 0
+				rtbIsSpawn = False
+				limitedLives = False
+				lifeCount = 1
+				costToSpawn = 0
+				liveryRef = 0;
+				receiveFriendlyDamage = True
+				b_eqAssignmentMode = False
+			}
+		}
+	}
+	PATHS
+	{
+	}
+	WAYPOINTS
+	{
+		bullseyeID = 0
+		bullseyeID_B = 0
+		WAYPOINT
+		{
+			id = 0
+			name = Bullseye
+			globalPoint = (77976.3, 337.77087, 123324.99)
+		}
+		WAYPOINT
+		{
+			id = 1
+			name = Team A RTB
+			globalPoint = (37332.29, 112.74512, 67344.81)
+		}
+		WAYPOINT
+		{
+			id = 2
+			name = Team B RTB
+			globalPoint = (119371.9, 566.79663, 179098.62)
+		}
+	}
+	UNITGROUPS
+	{
+		ALLIED
+		{
+			Echo = 2;4;
+			Foxtrot = 2;0;1;2;
+			Golf = 2;3;
+			Sierra = 2;10;11;
+			Echo_SETTINGS
+			{
+				syncAltSpawns = False
+			}
+			Foxtrot_SETTINGS
+			{
+				syncAltSpawns = False
+			}
+			Golf_SETTINGS
+			{
+				syncAltSpawns = False
+			}
+			Sierra_SETTINGS
+			{
+				syncAltSpawns = False
+			}
+		}
+		ENEMY
+		{
+			Echo = 2;9;
+			Foxtrot = 2;5;6;7;
+			Golf = 2;8;
+			Sierra = 2;12;13;
+			Echo_SETTINGS
+			{
+				syncAltSpawns = False
+			}
+			Foxtrot_SETTINGS
+			{
+				syncAltSpawns = False
+			}
+			Golf_SETTINGS
+			{
+				syncAltSpawns = False
+			}
+			Sierra_SETTINGS
+			{
+				syncAltSpawns = False
+			}
+		}
+	}
+	TimedEventGroups
+	{
+	}
+	TRIGGER_EVENTS
+	{
+	}
+	OBJECTIVES
+	{
+		Objective
+		{
+			objectiveName = Win
+			objectiveInfo = You %gv-0% - %gv-1% Them///nTies: %gv-2%///nWin 3 rounds.///nTies will grant you a point unless you already have 2
+			objectiveID = 0
+			orderID = 0
+			required = True
+			completionReward = 0
+			waypoint = 0
+			autoSetWaypoint = False
+			startMode = Immediate
+			objectiveType = Global_Value
+			startEvent
+			{
+				EventInfo
+				{
+					eventName = Start Event
+				}
+			}
+			failEvent
+			{
+				EventInfo
+				{
+					eventName = Failed Event
+				}
+			}
+			completeEvent
+			{
+				EventInfo
+				{
+					eventName = Completed Event
+				}
+			}
+			fields
+			{
+				currentValue = 0
+				targetValue = 3
+			}
+		}
+		Objective
+		{
+			objectiveName = Happy Hunting
+			objectiveInfo = Kill all enemies///n(hint: there are 5 of them)
+			objectiveID = 2
+			orderID = 1
+			required = False
+			completionReward = 0
+			waypoint = 0
+			autoSetWaypoint = False
+			startMode = Triggered
+			objectiveType = Conditional
+			startEvent
+			{
+				EventInfo
+				{
+					eventName = Start Event
+				}
+			}
+			failEvent
+			{
+				EventInfo
+				{
+					eventName = Failed Event
+				}
+			}
+			completeEvent
+			{
+				EventInfo
+				{
+					eventName = Completed Event
+					EventTarget
+					{
+						targetType = Event_Sequences
+						targetID = 0
+						eventName = Restart
+						methodName = Restart
+						altTargetIdx = -1
+					}
+					EventTarget
+					{
+						targetType = Objective
+						targetID = 4
+						eventName = Cancel Objective
+						methodName = CancelObjective
+						altTargetIdx = -1
+					}
+				}
+			}
+			fields
+			{
+				successConditional = 1
+				failConditional = null
+			}
+		}
+		Objective
+		{
+			objectiveName = King of the Hill
+			objectiveInfo = Control the bullseye for 2 minutes///nTime will only tick up if your team is the only one on the point///nControl point radius is 10 NM (18.52 km)
+			objectiveID = 4
+			orderID = 2
+			required = False
+			completionReward = 0
+			waypoint = 0
+			autoSetWaypoint = True
+			startMode = Triggered
+			objectiveType = Global_Value
+			startEvent
+			{
+				EventInfo
+				{
+					eventName = Start Event
+				}
+			}
+			failEvent
+			{
+				EventInfo
+				{
+					eventName = Failed Event
+				}
+			}
+			completeEvent
+			{
+				EventInfo
+				{
+					eventName = Completed Event
+					EventTarget
+					{
+						targetType = Event_Sequences
+						targetID = 0
+						eventName = Restart
+						methodName = Restart
+						altTargetIdx = -1
+					}
+					EventTarget
+					{
+						targetType = Objective
+						targetID = 2
+						eventName = Cancel Objective
+						methodName = CancelObjective
+						altTargetIdx = -1
+					}
+				}
+			}
+			fields
+			{
+				currentValue = 4
+				targetValue = 6
+			}
+		}
+	}
+	OBJECTIVES_OPFOR
+	{
+		Objective
+		{
+			objectiveName = Win
+			objectiveInfo = You %gv-1% - %gv-0% Them///nTies: %gv-2%///nWin 3 rounds.///nTies will grant you a point unless you already have 2
+			objectiveID = 1
+			orderID = 0
+			required = True
+			completionReward = 0
+			waypoint = 0
+			autoSetWaypoint = False
+			startMode = Immediate
+			objectiveType = Global_Value
+			startEvent
+			{
+				EventInfo
+				{
+					eventName = Start Event
+				}
+			}
+			failEvent
+			{
+				EventInfo
+				{
+					eventName = Failed Event
+				}
+			}
+			completeEvent
+			{
+				EventInfo
+				{
+					eventName = Completed Event
+				}
+			}
+			fields
+			{
+				currentValue = 1
+				targetValue = 3
+			}
+		}
+		Objective
+		{
+			objectiveName = Happy Hunting
+			objectiveInfo = Kill all enemies///n(hint: there are 5 of them)
+			objectiveID = 3
+			orderID = 1
+			required = False
+			completionReward = 0
+			waypoint = 0
+			autoSetWaypoint = False
+			startMode = Triggered
+			objectiveType = Conditional
+			startEvent
+			{
+				EventInfo
+				{
+					eventName = Start Event
+				}
+			}
+			failEvent
+			{
+				EventInfo
+				{
+					eventName = Failed Event
+				}
+			}
+			completeEvent
+			{
+				EventInfo
+				{
+					eventName = Completed Event
+					EventTarget
+					{
+						targetType = Event_Sequences
+						targetID = 1
+						eventName = Restart
+						methodName = Restart
+						altTargetIdx = -1
+					}
+					EventTarget
+					{
+						targetType = Objective
+						targetID = 5
+						eventName = Cancel Objective
+						methodName = CancelObjective
+						altTargetIdx = -1
+					}
+				}
+			}
+			fields
+			{
+				successConditional = 0
+				failConditional = null
+			}
+		}
+		Objective
+		{
+			objectiveName = King of the Hill
+			objectiveInfo = Control the bullseye for 2 minutes///nTime will only tick up if your team is the only one on the point///nControl point radius is 10 NM (18.52 km)
+			objectiveID = 5
+			orderID = 2
+			required = False
+			completionReward = 0
+			waypoint = 0
+			autoSetWaypoint = True
+			startMode = Triggered
+			objectiveType = Global_Value
+			startEvent
+			{
+				EventInfo
+				{
+					eventName = Start Event
+				}
+			}
+			failEvent
+			{
+				EventInfo
+				{
+					eventName = Failed Event
+				}
+			}
+			completeEvent
+			{
+				EventInfo
+				{
+					eventName = Completed Event
+					EventTarget
+					{
+						targetType = Event_Sequences
+						targetID = 1
+						eventName = Restart
+						methodName = Restart
+						altTargetIdx = -1
+					}
+					EventTarget
+					{
+						targetType = Objective
+						targetID = 3
+						eventName = Cancel Objective
+						methodName = CancelObjective
+						altTargetIdx = -1
+					}
+				}
+			}
+			fields
+			{
+				currentValue = 5
+				targetValue = 6
+			}
+		}
+	}
+	StaticObjects
+	{
+	}
+	Conditionals
+	{
+		CONDITIONAL
+		{
+			id = 0
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCUnitList
+				uiPos = (0, 0, 0)
+				unitList = 0;1;2;3;4;
+				methodName = SCC_NumAlive
+				isNot = False
+				methodParameters
+				{
+					value = Equals
+				}
+				methodParameters
+				{
+					value = 0
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 1
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCUnitList
+				uiPos = (0, 0, 0)
+				unitList = 5;6;7;8;9;
+				methodName = SCC_NumAlive
+				isNot = False
+				methodParameters
+				{
+					value = Equals
+				}
+				methodParameters
+				{
+					value = 0
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 2
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 0
+				methodName = SCC_NearWaypoint
+				isNot = False
+				methodParameters
+				{
+					value = unit:1
+				}
+				methodParameters
+				{
+					value = 8
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 3;4;5;6;
+			}
+			COMP
+			{
+				id = 3
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 1
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 1
+				}
+			}
+			COMP
+			{
+				id = 4
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 1
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 2
+				}
+			}
+			COMP
+			{
+				id = 5
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 1
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 3
+				}
+			}
+			COMP
+			{
+				id = 6
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 1
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 4
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 3
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 0
+				methodName = SCC_NearWaypoint
+				isNot = False
+				methodParameters
+				{
+					value = unit:2
+				}
+				methodParameters
+				{
+					value = 8
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 3;4;5;6;
+			}
+			COMP
+			{
+				id = 3
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 2
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 1
+				}
+			}
+			COMP
+			{
+				id = 4
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 2
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 2
+				}
+			}
+			COMP
+			{
+				id = 5
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 2
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 3
+				}
+			}
+			COMP
+			{
+				id = 6
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 2
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 4
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 4
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 0
+				methodName = SCC_NearWaypoint
+				isNot = False
+				methodParameters
+				{
+					value = unit:3
+				}
+				methodParameters
+				{
+					value = 8
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 3;4;5;6;
+			}
+			COMP
+			{
+				id = 3
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 3
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 1
+				}
+			}
+			COMP
+			{
+				id = 4
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 3
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 2
+				}
+			}
+			COMP
+			{
+				id = 5
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 3
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 3
+				}
+			}
+			COMP
+			{
+				id = 6
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 3
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 4
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 5
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 0
+				methodName = SCC_NearWaypoint
+				isNot = False
+				methodParameters
+				{
+					value = unit:4
+				}
+				methodParameters
+				{
+					value = 8
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 3;4;5;6;
+			}
+			COMP
+			{
+				id = 3
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 4
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 1
+				}
+			}
+			COMP
+			{
+				id = 4
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 4
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 2
+				}
+			}
+			COMP
+			{
+				id = 5
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 4
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 3
+				}
+			}
+			COMP
+			{
+				id = 6
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 4
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 4
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 6
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 0
+				methodName = SCC_NearWaypoint
+				isNot = False
+				methodParameters
+				{
+					value = unit:5
+				}
+				methodParameters
+				{
+					value = 8
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 3;4;5;6;
+			}
+			COMP
+			{
+				id = 3
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 5
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 1
+				}
+			}
+			COMP
+			{
+				id = 4
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 5
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 2
+				}
+			}
+			COMP
+			{
+				id = 5
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 5
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 3
+				}
+			}
+			COMP
+			{
+				id = 6
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 5
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 4
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 7
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 0
+				methodName = SCC_NearWaypoint
+				isNot = False
+				methodParameters
+				{
+					value = unit:6
+				}
+				methodParameters
+				{
+					value = 8
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 3;4;5;6;
+			}
+			COMP
+			{
+				id = 3
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 6
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 1
+				}
+			}
+			COMP
+			{
+				id = 4
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 6
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 2
+				}
+			}
+			COMP
+			{
+				id = 5
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 6
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 3
+				}
+			}
+			COMP
+			{
+				id = 6
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 6
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 4
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 8
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 0
+				methodName = SCC_NearWaypoint
+				isNot = False
+				methodParameters
+				{
+					value = unit:7
+				}
+				methodParameters
+				{
+					value = 8
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 3;4;5;6;
+			}
+			COMP
+			{
+				id = 3
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 7
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 1
+				}
+			}
+			COMP
+			{
+				id = 4
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 7
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 2
+				}
+			}
+			COMP
+			{
+				id = 5
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 7
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 3
+				}
+			}
+			COMP
+			{
+				id = 6
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 7
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 4
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 9
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 0
+				methodName = SCC_NearWaypoint
+				isNot = False
+				methodParameters
+				{
+					value = unit:8
+				}
+				methodParameters
+				{
+					value = 8
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 3;4;5;6;
+			}
+			COMP
+			{
+				id = 3
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 8
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 1
+				}
+			}
+			COMP
+			{
+				id = 4
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 8
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 2
+				}
+			}
+			COMP
+			{
+				id = 5
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 8
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 3
+				}
+			}
+			COMP
+			{
+				id = 6
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 8
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 4
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 10
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 0
+				methodName = SCC_NearWaypoint
+				isNot = False
+				methodParameters
+				{
+					value = unit:9
+				}
+				methodParameters
+				{
+					value = 8
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 3;4;5;6;
+			}
+			COMP
+			{
+				id = 3
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 9
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 1
+				}
+			}
+			COMP
+			{
+				id = 4
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 9
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 2
+				}
+			}
+			COMP
+			{
+				id = 5
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 9
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 3
+				}
+			}
+			COMP
+			{
+				id = 6
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 9
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 4
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 11
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 1
+				methodName = SCC_NearWaypoint
+				isNot = False
+				methodParameters
+				{
+					value = unit:2
+				}
+				methodParameters
+				{
+					value = 8
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 3;4;5;6;
+			}
+			COMP
+			{
+				id = 3
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 2
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 1
+				}
+			}
+			COMP
+			{
+				id = 4
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 2
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 2
+				}
+			}
+			COMP
+			{
+				id = 5
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 2
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 3
+				}
+			}
+			COMP
+			{
+				id = 6
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 2
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 4
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 12
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 1
+				methodName = SCC_NearWaypoint
+				isNot = False
+				methodParameters
+				{
+					value = unit:3
+				}
+				methodParameters
+				{
+					value = 8
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 3;4;5;6;
+			}
+			COMP
+			{
+				id = 3
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 3
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 1
+				}
+			}
+			COMP
+			{
+				id = 4
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 3
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 2
+				}
+			}
+			COMP
+			{
+				id = 5
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 3
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 3
+				}
+			}
+			COMP
+			{
+				id = 6
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 3
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 4
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 13
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 1
+				methodName = SCC_NearWaypoint
+				isNot = False
+				methodParameters
+				{
+					value = unit:4
+				}
+				methodParameters
+				{
+					value = 8
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 3;4;5;6;
+			}
+			COMP
+			{
+				id = 3
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 4
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 1
+				}
+			}
+			COMP
+			{
+				id = 4
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 4
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 2
+				}
+			}
+			COMP
+			{
+				id = 5
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 4
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 3
+				}
+			}
+			COMP
+			{
+				id = 6
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 4
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 4
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 14
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 1
+				methodName = SCC_NearWaypoint
+				isNot = False
+				methodParameters
+				{
+					value = unit:5
+				}
+				methodParameters
+				{
+					value = 8
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 3;4;5;6;
+			}
+			COMP
+			{
+				id = 3
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 5
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 1
+				}
+			}
+			COMP
+			{
+				id = 4
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 5
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 2
+				}
+			}
+			COMP
+			{
+				id = 5
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 5
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 3
+				}
+			}
+			COMP
+			{
+				id = 6
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 5
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 4
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 15
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 1
+				methodName = SCC_NearWaypoint
+				isNot = False
+				methodParameters
+				{
+					value = unit:6
+				}
+				methodParameters
+				{
+					value = 8
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 3;4;5;6;
+			}
+			COMP
+			{
+				id = 3
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 6
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 1
+				}
+			}
+			COMP
+			{
+				id = 4
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 6
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 2
+				}
+			}
+			COMP
+			{
+				id = 5
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 6
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 3
+				}
+			}
+			COMP
+			{
+				id = 6
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 6
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 4
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 16
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 1
+				methodName = SCC_NearWaypoint
+				isNot = False
+				methodParameters
+				{
+					value = unit:7
+				}
+				methodParameters
+				{
+					value = 8
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 3;4;5;6;
+			}
+			COMP
+			{
+				id = 3
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 7
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 1
+				}
+			}
+			COMP
+			{
+				id = 4
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 7
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 2
+				}
+			}
+			COMP
+			{
+				id = 5
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 7
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 3
+				}
+			}
+			COMP
+			{
+				id = 6
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 7
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 4
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 17
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 1
+				methodName = SCC_NearWaypoint
+				isNot = False
+				methodParameters
+				{
+					value = unit:8
+				}
+				methodParameters
+				{
+					value = 8
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 3;4;5;6;
+			}
+			COMP
+			{
+				id = 3
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 8
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 1
+				}
+			}
+			COMP
+			{
+				id = 4
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 8
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 2
+				}
+			}
+			COMP
+			{
+				id = 5
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 8
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 3
+				}
+			}
+			COMP
+			{
+				id = 6
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 8
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 4
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 18
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 1
+				methodName = SCC_NearWaypoint
+				isNot = False
+				methodParameters
+				{
+					value = unit:9
+				}
+				methodParameters
+				{
+					value = 8
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 3;4;5;6;
+			}
+			COMP
+			{
+				id = 3
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 9
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 1
+				}
+			}
+			COMP
+			{
+				id = 4
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 9
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 2
+				}
+			}
+			COMP
+			{
+				id = 5
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 9
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 3
+				}
+			}
+			COMP
+			{
+				id = 6
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 9
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 4
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 19
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 2
+				methodName = SCC_NearWaypoint
+				isNot = False
+				methodParameters
+				{
+					value = unit:3
+				}
+				methodParameters
+				{
+					value = 8
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 3;4;5;6;
+			}
+			COMP
+			{
+				id = 3
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 3
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 1
+				}
+			}
+			COMP
+			{
+				id = 4
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 3
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 2
+				}
+			}
+			COMP
+			{
+				id = 5
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 3
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 3
+				}
+			}
+			COMP
+			{
+				id = 6
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 3
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 4
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 20
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 2
+				methodName = SCC_NearWaypoint
+				isNot = False
+				methodParameters
+				{
+					value = unit:4
+				}
+				methodParameters
+				{
+					value = 8
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 3;4;5;6;
+			}
+			COMP
+			{
+				id = 3
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 4
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 1
+				}
+			}
+			COMP
+			{
+				id = 4
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 4
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 2
+				}
+			}
+			COMP
+			{
+				id = 5
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 4
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 3
+				}
+			}
+			COMP
+			{
+				id = 6
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 4
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 4
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 21
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 2
+				methodName = SCC_NearWaypoint
+				isNot = False
+				methodParameters
+				{
+					value = unit:5
+				}
+				methodParameters
+				{
+					value = 8
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 3;4;5;6;
+			}
+			COMP
+			{
+				id = 3
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 5
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 1
+				}
+			}
+			COMP
+			{
+				id = 4
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 5
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 2
+				}
+			}
+			COMP
+			{
+				id = 5
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 5
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 3
+				}
+			}
+			COMP
+			{
+				id = 6
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 5
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 4
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 22
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 2
+				methodName = SCC_NearWaypoint
+				isNot = False
+				methodParameters
+				{
+					value = unit:6
+				}
+				methodParameters
+				{
+					value = 8
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 3;4;5;6;
+			}
+			COMP
+			{
+				id = 3
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 6
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 1
+				}
+			}
+			COMP
+			{
+				id = 4
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 6
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 2
+				}
+			}
+			COMP
+			{
+				id = 5
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 6
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 3
+				}
+			}
+			COMP
+			{
+				id = 6
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 6
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 4
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 23
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 2
+				methodName = SCC_NearWaypoint
+				isNot = False
+				methodParameters
+				{
+					value = unit:7
+				}
+				methodParameters
+				{
+					value = 8
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 3;4;5;6;
+			}
+			COMP
+			{
+				id = 3
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 7
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 1
+				}
+			}
+			COMP
+			{
+				id = 4
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 7
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 2
+				}
+			}
+			COMP
+			{
+				id = 5
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 7
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 3
+				}
+			}
+			COMP
+			{
+				id = 6
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 7
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 4
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 24
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 2
+				methodName = SCC_NearWaypoint
+				isNot = False
+				methodParameters
+				{
+					value = unit:8
+				}
+				methodParameters
+				{
+					value = 8
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 3;4;5;6;
+			}
+			COMP
+			{
+				id = 3
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 8
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 1
+				}
+			}
+			COMP
+			{
+				id = 4
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 8
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 2
+				}
+			}
+			COMP
+			{
+				id = 5
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 8
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 3
+				}
+			}
+			COMP
+			{
+				id = 6
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 8
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 4
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 25
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 2
+				methodName = SCC_NearWaypoint
+				isNot = False
+				methodParameters
+				{
+					value = unit:9
+				}
+				methodParameters
+				{
+					value = 8
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 3;4;5;6;
+			}
+			COMP
+			{
+				id = 3
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 9
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 1
+				}
+			}
+			COMP
+			{
+				id = 4
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 9
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 2
+				}
+			}
+			COMP
+			{
+				id = 5
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 9
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 3
+				}
+			}
+			COMP
+			{
+				id = 6
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 9
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 4
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 26
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 3
+				methodName = SCC_NearWaypoint
+				isNot = False
+				methodParameters
+				{
+					value = unit:4
+				}
+				methodParameters
+				{
+					value = 8
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 3;4;5;6;
+			}
+			COMP
+			{
+				id = 3
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 4
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 1
+				}
+			}
+			COMP
+			{
+				id = 4
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 4
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 2
+				}
+			}
+			COMP
+			{
+				id = 5
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 4
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 3
+				}
+			}
+			COMP
+			{
+				id = 6
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 4
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 4
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 27
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 3
+				methodName = SCC_NearWaypoint
+				isNot = False
+				methodParameters
+				{
+					value = unit:5
+				}
+				methodParameters
+				{
+					value = 8
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 3;4;5;6;
+			}
+			COMP
+			{
+				id = 3
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 5
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 1
+				}
+			}
+			COMP
+			{
+				id = 4
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 5
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 2
+				}
+			}
+			COMP
+			{
+				id = 5
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 5
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 3
+				}
+			}
+			COMP
+			{
+				id = 6
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 5
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 4
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 28
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 3
+				methodName = SCC_NearWaypoint
+				isNot = False
+				methodParameters
+				{
+					value = unit:6
+				}
+				methodParameters
+				{
+					value = 8
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 3;4;5;6;
+			}
+			COMP
+			{
+				id = 3
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 6
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 1
+				}
+			}
+			COMP
+			{
+				id = 4
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 6
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 2
+				}
+			}
+			COMP
+			{
+				id = 5
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 6
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 3
+				}
+			}
+			COMP
+			{
+				id = 6
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 6
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 4
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 29
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 3
+				methodName = SCC_NearWaypoint
+				isNot = False
+				methodParameters
+				{
+					value = unit:7
+				}
+				methodParameters
+				{
+					value = 8
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 3;4;5;6;
+			}
+			COMP
+			{
+				id = 3
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 7
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 1
+				}
+			}
+			COMP
+			{
+				id = 4
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 7
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 2
+				}
+			}
+			COMP
+			{
+				id = 5
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 7
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 3
+				}
+			}
+			COMP
+			{
+				id = 6
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 7
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 4
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 30
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 3
+				methodName = SCC_NearWaypoint
+				isNot = False
+				methodParameters
+				{
+					value = unit:8
+				}
+				methodParameters
+				{
+					value = 8
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 3;4;5;6;
+			}
+			COMP
+			{
+				id = 3
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 8
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 1
+				}
+			}
+			COMP
+			{
+				id = 4
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 8
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 2
+				}
+			}
+			COMP
+			{
+				id = 5
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 8
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 3
+				}
+			}
+			COMP
+			{
+				id = 6
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 8
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 4
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 31
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 3
+				methodName = SCC_NearWaypoint
+				isNot = False
+				methodParameters
+				{
+					value = unit:9
+				}
+				methodParameters
+				{
+					value = 8
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 3;4;5;6;
+			}
+			COMP
+			{
+				id = 3
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 9
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 1
+				}
+			}
+			COMP
+			{
+				id = 4
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 9
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 2
+				}
+			}
+			COMP
+			{
+				id = 5
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 9
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 3
+				}
+			}
+			COMP
+			{
+				id = 6
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 9
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 4
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 32
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 4
+				methodName = SCC_NearWaypoint
+				isNot = False
+				methodParameters
+				{
+					value = unit:5
+				}
+				methodParameters
+				{
+					value = 8
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 3;4;5;6;
+			}
+			COMP
+			{
+				id = 3
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 5
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 1
+				}
+			}
+			COMP
+			{
+				id = 4
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 5
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 2
+				}
+			}
+			COMP
+			{
+				id = 5
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 5
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 3
+				}
+			}
+			COMP
+			{
+				id = 6
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 5
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 4
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 33
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 4
+				methodName = SCC_NearWaypoint
+				isNot = False
+				methodParameters
+				{
+					value = unit:6
+				}
+				methodParameters
+				{
+					value = 8
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 3;4;5;6;
+			}
+			COMP
+			{
+				id = 3
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 6
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 1
+				}
+			}
+			COMP
+			{
+				id = 4
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 6
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 2
+				}
+			}
+			COMP
+			{
+				id = 5
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 6
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 3
+				}
+			}
+			COMP
+			{
+				id = 6
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 6
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 4
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 34
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 4
+				methodName = SCC_NearWaypoint
+				isNot = False
+				methodParameters
+				{
+					value = unit:7
+				}
+				methodParameters
+				{
+					value = 8
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 3;4;5;6;
+			}
+			COMP
+			{
+				id = 3
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 7
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 1
+				}
+			}
+			COMP
+			{
+				id = 4
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 7
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 2
+				}
+			}
+			COMP
+			{
+				id = 5
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 7
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 3
+				}
+			}
+			COMP
+			{
+				id = 6
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 7
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 4
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 35
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 4
+				methodName = SCC_NearWaypoint
+				isNot = False
+				methodParameters
+				{
+					value = unit:8
+				}
+				methodParameters
+				{
+					value = 8
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 3;4;5;6;
+			}
+			COMP
+			{
+				id = 3
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 8
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 1
+				}
+			}
+			COMP
+			{
+				id = 4
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 8
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 2
+				}
+			}
+			COMP
+			{
+				id = 5
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 8
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 3
+				}
+			}
+			COMP
+			{
+				id = 6
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 8
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 4
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 36
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 4
+				methodName = SCC_NearWaypoint
+				isNot = False
+				methodParameters
+				{
+					value = unit:9
+				}
+				methodParameters
+				{
+					value = 8
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 3;4;5;6;
+			}
+			COMP
+			{
+				id = 3
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 9
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 1
+				}
+			}
+			COMP
+			{
+				id = 4
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 9
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 2
+				}
+			}
+			COMP
+			{
+				id = 5
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 9
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 3
+				}
+			}
+			COMP
+			{
+				id = 6
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 9
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 4
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 37
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 5
+				methodName = SCC_NearWaypoint
+				isNot = False
+				methodParameters
+				{
+					value = unit:6
+				}
+				methodParameters
+				{
+					value = 8
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 3;4;5;6;
+			}
+			COMP
+			{
+				id = 3
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 6
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 1
+				}
+			}
+			COMP
+			{
+				id = 4
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 6
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 2
+				}
+			}
+			COMP
+			{
+				id = 5
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 6
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 3
+				}
+			}
+			COMP
+			{
+				id = 6
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 6
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 4
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 38
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 5
+				methodName = SCC_NearWaypoint
+				isNot = False
+				methodParameters
+				{
+					value = unit:7
+				}
+				methodParameters
+				{
+					value = 8
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 3;4;5;6;
+			}
+			COMP
+			{
+				id = 3
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 7
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 1
+				}
+			}
+			COMP
+			{
+				id = 4
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 7
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 2
+				}
+			}
+			COMP
+			{
+				id = 5
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 7
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 3
+				}
+			}
+			COMP
+			{
+				id = 6
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 7
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 4
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 39
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 5
+				methodName = SCC_NearWaypoint
+				isNot = False
+				methodParameters
+				{
+					value = unit:8
+				}
+				methodParameters
+				{
+					value = 8
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 3;4;5;6;
+			}
+			COMP
+			{
+				id = 3
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 8
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 1
+				}
+			}
+			COMP
+			{
+				id = 4
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 8
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 2
+				}
+			}
+			COMP
+			{
+				id = 5
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 8
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 3
+				}
+			}
+			COMP
+			{
+				id = 6
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 8
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 4
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 40
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 5
+				methodName = SCC_NearWaypoint
+				isNot = False
+				methodParameters
+				{
+					value = unit:9
+				}
+				methodParameters
+				{
+					value = 8
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 3;4;5;6;
+			}
+			COMP
+			{
+				id = 3
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 9
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 1
+				}
+			}
+			COMP
+			{
+				id = 4
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 9
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 2
+				}
+			}
+			COMP
+			{
+				id = 5
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 9
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 3
+				}
+			}
+			COMP
+			{
+				id = 6
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 9
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 4
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 41
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 6
+				methodName = SCC_NearWaypoint
+				isNot = False
+				methodParameters
+				{
+					value = unit:7
+				}
+				methodParameters
+				{
+					value = 8
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 3;4;5;6;
+			}
+			COMP
+			{
+				id = 3
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 7
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 1
+				}
+			}
+			COMP
+			{
+				id = 4
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 7
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 2
+				}
+			}
+			COMP
+			{
+				id = 5
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 7
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 3
+				}
+			}
+			COMP
+			{
+				id = 6
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 7
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 4
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 42
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 6
+				methodName = SCC_NearWaypoint
+				isNot = False
+				methodParameters
+				{
+					value = unit:8
+				}
+				methodParameters
+				{
+					value = 8
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 3;4;5;6;
+			}
+			COMP
+			{
+				id = 3
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 8
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 1
+				}
+			}
+			COMP
+			{
+				id = 4
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 8
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 2
+				}
+			}
+			COMP
+			{
+				id = 5
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 8
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 3
+				}
+			}
+			COMP
+			{
+				id = 6
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 8
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 4
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 43
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 6
+				methodName = SCC_NearWaypoint
+				isNot = False
+				methodParameters
+				{
+					value = unit:9
+				}
+				methodParameters
+				{
+					value = 8
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 3;4;5;6;
+			}
+			COMP
+			{
+				id = 3
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 9
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 1
+				}
+			}
+			COMP
+			{
+				id = 4
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 9
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 2
+				}
+			}
+			COMP
+			{
+				id = 5
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 9
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 3
+				}
+			}
+			COMP
+			{
+				id = 6
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 9
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 4
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 44
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 7
+				methodName = SCC_NearWaypoint
+				isNot = False
+				methodParameters
+				{
+					value = unit:8
+				}
+				methodParameters
+				{
+					value = 8
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 3;4;5;6;
+			}
+			COMP
+			{
+				id = 3
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 8
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 1
+				}
+			}
+			COMP
+			{
+				id = 4
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 8
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 2
+				}
+			}
+			COMP
+			{
+				id = 5
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 8
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 3
+				}
+			}
+			COMP
+			{
+				id = 6
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 8
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 4
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 45
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 7
+				methodName = SCC_NearWaypoint
+				isNot = False
+				methodParameters
+				{
+					value = unit:9
+				}
+				methodParameters
+				{
+					value = 8
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 3;4;5;6;
+			}
+			COMP
+			{
+				id = 3
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 9
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 1
+				}
+			}
+			COMP
+			{
+				id = 4
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 9
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 2
+				}
+			}
+			COMP
+			{
+				id = 5
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 9
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 3
+				}
+			}
+			COMP
+			{
+				id = 6
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 9
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 4
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 46
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 8
+				methodName = SCC_NearWaypoint
+				isNot = False
+				methodParameters
+				{
+					value = unit:9
+				}
+				methodParameters
+				{
+					value = 8
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 3;4;5;6;
+			}
+			COMP
+			{
+				id = 3
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 9
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 1
+				}
+			}
+			COMP
+			{
+				id = 4
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 9
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 2
+				}
+			}
+			COMP
+			{
+				id = 5
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 9
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 3
+				}
+			}
+			COMP
+			{
+				id = 6
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 9
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 4
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 47
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnitList
+				uiPos = (0, 0, 0)
+				unitList = 0;1;2;3;4;
+				methodName = SCC_NumAlive
+				isNot = False
+				methodParameters
+				{
+					value = Greater_Than
+				}
+				methodParameters
+				{
+					value = 0
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCUnitList
+				uiPos = (0, 0, 0)
+				unitList = 5;6;7;8;9;
+				methodName = SCC_NumAlive
+				isNot = False
+				methodParameters
+				{
+					value = Greater_Than
+				}
+				methodParameters
+				{
+					value = 0
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 48
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnitList
+				uiPos = (0, 0, 0)
+				unitList = 0;1;2;3;4;
+				methodName = SCC_AnyNearWaypoint
+				isNot = True
+				methodParameters
+				{
+					value = 1
+				}
+				methodParameters
+				{
+					value = 1500
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCUnitList
+				uiPos = (0, 0, 0)
+				unitList = 5;6;7;8;9;
+				methodName = SCC_AnyNearWaypoint
+				isNot = True
+				methodParameters
+				{
+					value = 2
+				}
+				methodParameters
+				{
+					value = 1500
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 49
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCUnitList
+				uiPos = (0, 0, 0)
+				unitList = 0;1;2;3;4;5;6;7;8;9;
+				methodName = SCC_NumAlive
+				isNot = False
+				methodParameters
+				{
+					value = Equals
+				}
+				methodParameters
+				{
+					value = 0
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 50
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCUnitList
+				uiPos = (0, 0, 0)
+				unitList = 10;11;12;13;
+				methodName = SCC_NumAlive
+				isNot = False
+				methodParameters
+				{
+					value = Greater_Than
+				}
+				methodParameters
+				{
+					value = 0
+				}
+			}
+		}
+	}
+	ConditionalActions
+	{
+		ConditionalAction
+		{
+			id = 0
+			name = Give tie points to A
+			BASE_BLOCK
+			{
+				blockName = 
+				blockId = 1
+				CONDITIONAL
+				{
+					id = 0
+					outputNodePos = (0, 0, 0)
+					root = 0
+					COMP
+					{
+						id = 0
+						type = SCCGlobalValue
+						uiPos = (0, 0, 0)
+						gv = 0
+						comparison = Less_Than
+						c_value = 2
+					}
+				}
+				ACTIONS
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = System
+						targetID = 2
+						eventName = Increment Value
+						methodName = IncrementValue
+						altTargetIdx = -1
+						ParamInfo
+						{
+							type = GlobalValue
+							value = 0
+							name = Global Value
+						}
+						ParamInfo
+						{
+							type = System.Single
+							value = 1
+							name = Add
+							ParamAttrInfo
+							{
+								type = UnitSpawnAttributeRange+RangeTypes
+								data = Int
+							}
+							ParamAttrInfo
+							{
+								type = MinMax
+								data = (0,99999)
+							}
+						}
+					}
+				}
+				ELSE_ACTIONS
+				{
+					eventName = 
+				}
+			}
+		}
+		ConditionalAction
+		{
+			id = 1
+			name = Give tie points to B
+			BASE_BLOCK
+			{
+				blockName = 
+				blockId = 2
+				CONDITIONAL
+				{
+					id = 0
+					outputNodePos = (0, 0, 0)
+					root = 0
+					COMP
+					{
+						id = 0
+						type = SCCGlobalValue
+						uiPos = (0, 0, 0)
+						gv = 1
+						comparison = Less_Than
+						c_value = 2
+					}
+				}
+				ACTIONS
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = System
+						targetID = 2
+						eventName = Increment Value
+						methodName = IncrementValue
+						altTargetIdx = -1
+						ParamInfo
+						{
+							type = GlobalValue
+							value = 1
+							name = Global Value
+						}
+						ParamInfo
+						{
+							type = System.Single
+							value = 1
+							name = Add
+							ParamAttrInfo
+							{
+								type = UnitSpawnAttributeRange+RangeTypes
+								data = Int
+							}
+							ParamAttrInfo
+							{
+								type = MinMax
+								data = (0,99999)
+							}
+						}
+					}
+				}
+				ELSE_ACTIONS
+				{
+					eventName = 
+				}
+			}
+		}
+		ConditionalAction
+		{
+			id = 2
+			name = Give Points to A or tie
+			BASE_BLOCK
+			{
+				blockName = 
+				blockId = 3
+				CONDITIONAL
+				{
+					id = 0
+					outputNodePos = (0, 0, 0)
+					root = 0
+					COMP
+					{
+						id = 0
+						type = SCCUnitList
+						uiPos = (0, 0, 0)
+						unitList = 0;1;2;3;4;
+						methodName = SCC_NumAlive
+						isNot = False
+						methodParameters
+						{
+							value = Greater_Than
+						}
+						methodParameters
+						{
+							value = 0
+						}
+					}
+				}
+				ACTIONS
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = System
+						targetID = 2
+						eventName = Increment Value
+						methodName = IncrementValue
+						altTargetIdx = -1
+						ParamInfo
+						{
+							type = GlobalValue
+							value = 0
+							name = Global Value
+						}
+						ParamInfo
+						{
+							type = System.Single
+							value = 1
+							name = Add
+							ParamAttrInfo
+							{
+								type = UnitSpawnAttributeRange+RangeTypes
+								data = Int
+							}
+							ParamAttrInfo
+							{
+								type = MinMax
+								data = (0,99999)
+							}
+						}
+					}
+					EventTarget
+					{
+						targetType = System
+						targetID = 1
+						eventName = Display Message
+						methodName = DisplayMessage
+						altTargetIdx = -1
+						ParamInfo
+						{
+							type = System.String
+							value = Team A Victory!///nPull chutes
+							name = Text
+							ParamAttrInfo
+							{
+								type = TextInputModes
+								data = MultiLine
+							}
+							ParamAttrInfo
+							{
+								type = System.Int32
+								data = 140
+							}
+						}
+						ParamInfo
+						{
+							type = System.Single
+							value = 10
+							name = Duration
+							ParamAttrInfo
+							{
+								type = MinMax
+								data = (1,9999)
+							}
+						}
+					}
+				}
+				ELSE_ACTIONS
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = System
+						targetID = 0
+						eventName = Fire Conditional Action
+						methodName = FireConditionalAction
+						altTargetIdx = -1
+						ParamInfo
+						{
+							type = ConditionalActionReference
+							value = 0
+							name = Action
+						}
+					}
+					EventTarget
+					{
+						targetType = System
+						targetID = 0
+						eventName = Fire Conditional Action
+						methodName = FireConditionalAction
+						altTargetIdx = -1
+						ParamInfo
+						{
+							type = ConditionalActionReference
+							value = 1
+							name = Action
+						}
+					}
+					EventTarget
+					{
+						targetType = System
+						targetID = 2
+						eventName = Increment Value
+						methodName = IncrementValue
+						altTargetIdx = -1
+						ParamInfo
+						{
+							type = GlobalValue
+							value = 2
+							name = Global Value
+						}
+						ParamInfo
+						{
+							type = System.Single
+							value = 1
+							name = Add
+							ParamAttrInfo
+							{
+								type = UnitSpawnAttributeRange+RangeTypes
+								data = Int
+							}
+							ParamAttrInfo
+							{
+								type = MinMax
+								data = (0,99999)
+							}
+						}
+					}
+				}
+			}
+		}
+		ConditionalAction
+		{
+			id = 3
+			name = Give Points to B or tie
+			BASE_BLOCK
+			{
+				blockName = 
+				blockId = 4
+				CONDITIONAL
+				{
+					id = 0
+					outputNodePos = (0, 0, 0)
+					root = 0
+					COMP
+					{
+						id = 0
+						type = SCCUnitList
+						uiPos = (0, 0, 0)
+						unitList = 5;6;7;8;9;
+						methodName = SCC_NumAlive
+						isNot = False
+						methodParameters
+						{
+							value = Greater_Than
+						}
+						methodParameters
+						{
+							value = 0
+						}
+					}
+				}
+				ACTIONS
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = System
+						targetID = 2
+						eventName = Increment Value
+						methodName = IncrementValue
+						altTargetIdx = -1
+						ParamInfo
+						{
+							type = GlobalValue
+							value = 1
+							name = Global Value
+						}
+						ParamInfo
+						{
+							type = System.Single
+							value = 1
+							name = Add
+							ParamAttrInfo
+							{
+								type = UnitSpawnAttributeRange+RangeTypes
+								data = Int
+							}
+							ParamAttrInfo
+							{
+								type = MinMax
+								data = (0,99999)
+							}
+						}
+					}
+					EventTarget
+					{
+						targetType = System
+						targetID = 1
+						eventName = Display Message
+						methodName = DisplayMessage
+						altTargetIdx = -1
+						ParamInfo
+						{
+							type = System.String
+							value = Team B Victory!///nPull chutes
+							name = Text
+							ParamAttrInfo
+							{
+								type = TextInputModes
+								data = MultiLine
+							}
+							ParamAttrInfo
+							{
+								type = System.Int32
+								data = 140
+							}
+						}
+						ParamInfo
+						{
+							type = System.Single
+							value = 10
+							name = Duration
+							ParamAttrInfo
+							{
+								type = MinMax
+								data = (1,9999)
+							}
+						}
+					}
+				}
+				ELSE_ACTIONS
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = System
+						targetID = 0
+						eventName = Fire Conditional Action
+						methodName = FireConditionalAction
+						altTargetIdx = -1
+						ParamInfo
+						{
+							type = ConditionalActionReference
+							value = 0
+							name = Action
+						}
+					}
+					EventTarget
+					{
+						targetType = System
+						targetID = 0
+						eventName = Fire Conditional Action
+						methodName = FireConditionalAction
+						altTargetIdx = -1
+						ParamInfo
+						{
+							type = ConditionalActionReference
+							value = 1
+							name = Action
+						}
+					}
+					EventTarget
+					{
+						targetType = System
+						targetID = 2
+						eventName = Increment Value
+						methodName = IncrementValue
+						altTargetIdx = -1
+						ParamInfo
+						{
+							type = GlobalValue
+							value = 2
+							name = Global Value
+						}
+						ParamInfo
+						{
+							type = System.Single
+							value = 1
+							name = Add
+							ParamAttrInfo
+							{
+								type = UnitSpawnAttributeRange+RangeTypes
+								data = Int
+							}
+							ParamAttrInfo
+							{
+								type = MinMax
+								data = (0,99999)
+							}
+						}
+					}
+				}
+			}
+		}
+		ConditionalAction
+		{
+			id = 4
+			name = KotH Points
+			BASE_BLOCK
+			{
+				blockName = 
+				blockId = 5
+				CONDITIONAL
+				{
+					id = 0
+					outputNodePos = (0, 0, 0)
+					root = 0
+					COMP
+					{
+						id = 0
+						type = SCCAnd
+						uiPos = (0, 0, 0)
+						factors = 1;2;
+					}
+					COMP
+					{
+						id = 1
+						type = SCCUnitList
+						uiPos = (0, 0, 0)
+						unitList = 0;1;2;3;4;
+						methodName = SCC_AnyNearWaypoint
+						isNot = False
+						methodParameters
+						{
+							value = 0
+						}
+						methodParameters
+						{
+							value = 18520
+						}
+					}
+					COMP
+					{
+						id = 2
+						type = SCCUnitList
+						uiPos = (0, 0, 0)
+						unitList = 5;6;7;8;9;
+						methodName = SCC_AnyNearWaypoint
+						isNot = False
+						methodParameters
+						{
+							value = 0
+						}
+						methodParameters
+						{
+							value = 18520
+						}
+					}
+				}
+				ACTIONS
+				{
+					eventName = 
+				}
+				ELSE_IF
+				{
+					blockName = 
+					blockId = 6
+					CONDITIONAL
+					{
+						id = 0
+						outputNodePos = (0, 0, 0)
+						root = 0
+						COMP
+						{
+							id = 0
+							type = SCCUnitList
+							uiPos = (0, 0, 0)
+							unitList = 0;1;2;3;4;
+							methodName = SCC_AnyNearWaypoint
+							isNot = False
+							methodParameters
+							{
+								value = 0
+							}
+							methodParameters
+							{
+								value = 18520
+							}
+						}
+					}
+					ACTIONS
+					{
+						eventName = 
+						EventTarget
+						{
+							targetType = System
+							targetID = 2
+							eventName = Increment Value
+							methodName = IncrementValue
+							altTargetIdx = -1
+							ParamInfo
+							{
+								type = GlobalValue
+								value = 4
+								name = Global Value
+							}
+							ParamInfo
+							{
+								type = System.Single
+								value = 1
+								name = Add
+								ParamAttrInfo
+								{
+									type = UnitSpawnAttributeRange+RangeTypes
+									data = Int
+								}
+								ParamAttrInfo
+								{
+									type = MinMax
+									data = (0,99999)
+								}
+							}
+						}
+					}
+				}
+				ELSE_IF
+				{
+					blockName = 
+					blockId = 7
+					CONDITIONAL
+					{
+						id = 0
+						outputNodePos = (0, 0, 0)
+						root = 0
+						COMP
+						{
+							id = 0
+							type = SCCUnitList
+							uiPos = (0, 0, 0)
+							unitList = 5;6;7;8;9;
+							methodName = SCC_AnyNearWaypoint
+							isNot = False
+							methodParameters
+							{
+								value = 0
+							}
+							methodParameters
+							{
+								value = 18520
+							}
+						}
+					}
+					ACTIONS
+					{
+						eventName = 
+						EventTarget
+						{
+							targetType = System
+							targetID = 2
+							eventName = Increment Value
+							methodName = IncrementValue
+							altTargetIdx = -1
+							ParamInfo
+							{
+								type = GlobalValue
+								value = 5
+								name = Global Value
+							}
+							ParamInfo
+							{
+								type = System.Single
+								value = 1
+								name = Add
+								ParamAttrInfo
+								{
+									type = UnitSpawnAttributeRange+RangeTypes
+									data = Int
+								}
+								ParamAttrInfo
+								{
+									type = MinMax
+									data = (0,99999)
+								}
+							}
+						}
+					}
+				}
+				ELSE_ACTIONS
+				{
+					eventName = 
+				}
+			}
+		}
+	}
+	RandomEvents
+	{
+	}
+	EventSequences
+	{
+		SEQUENCE
+		{
+			id = 0
+			sequenceName = Team A Victory?
+			startImmediately = False
+			whileLoop = False
+			EVENT
+			{
+				delay = 0
+				nodeName = delay
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = System
+						targetID = 1
+						eventName = Display Message
+						methodName = DisplayMessage
+						altTargetIdx = -1
+						ParamInfo
+						{
+							type = System.String
+							value = It's not over yet, keep flying
+							name = Text
+							ParamAttrInfo
+							{
+								type = TextInputModes
+								data = MultiLine
+							}
+							ParamAttrInfo
+							{
+								type = System.Int32
+								data = 140
+							}
+						}
+						ParamInfo
+						{
+							type = System.Single
+							value = 5
+							name = Duration
+							ParamAttrInfo
+							{
+								type = MinMax
+								data = (1,9999)
+							}
+						}
+					}
+					EventTarget
+					{
+						targetType = Objective
+						targetID = 5
+						eventName = Fail Objective
+						methodName = FailObjective
+						altTargetIdx = -1
+					}
+					EventTarget
+					{
+						targetType = Objective
+						targetID = 3
+						eventName = Fail Objective
+						methodName = FailObjective
+						altTargetIdx = -1
+					}
+				}
+			}
+			EVENT
+			{
+				delay = 15
+				nodeName = Still alive?
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = System
+						targetID = 0
+						eventName = Fire Conditional Action
+						methodName = FireConditionalAction
+						altTargetIdx = -1
+						ParamInfo
+						{
+							type = ConditionalActionReference
+							value = 2
+							name = Action
+						}
+					}
+				}
+			}
+			EVENT
+			{
+				conditional = 49
+				delay = 0
+				nodeName = reset match
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Event_Sequences
+						targetID = 49
+						eventName = Restart
+						methodName = Restart
+						altTargetIdx = -1
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 1
+			sequenceName = Team B Victory?
+			startImmediately = False
+			whileLoop = False
+			EVENT
+			{
+				delay = 0
+				nodeName = delay
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = System
+						targetID = 1
+						eventName = Display Message
+						methodName = DisplayMessage
+						altTargetIdx = -1
+						ParamInfo
+						{
+							type = System.String
+							value = It's not over yet, keep flying
+							name = Text
+							ParamAttrInfo
+							{
+								type = TextInputModes
+								data = MultiLine
+							}
+							ParamAttrInfo
+							{
+								type = System.Int32
+								data = 140
+							}
+						}
+						ParamInfo
+						{
+							type = System.Single
+							value = 5
+							name = Duration
+							ParamAttrInfo
+							{
+								type = MinMax
+								data = (1,9999)
+							}
+						}
+					}
+					EventTarget
+					{
+						targetType = Objective
+						targetID = 4
+						eventName = Fail Objective
+						methodName = FailObjective
+						altTargetIdx = -1
+					}
+					EventTarget
+					{
+						targetType = Objective
+						targetID = 2
+						eventName = Fail Objective
+						methodName = FailObjective
+						altTargetIdx = -1
+					}
+				}
+			}
+			EVENT
+			{
+				delay = 15
+				nodeName = Reset Sequence
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = System
+						targetID = 0
+						eventName = Fire Conditional Action
+						methodName = FireConditionalAction
+						altTargetIdx = -1
+						ParamInfo
+						{
+							type = ConditionalActionReference
+							value = 3
+							name = Action
+						}
+					}
+				}
+			}
+			EVENT
+			{
+				conditional = 49
+				delay = 0
+				nodeName = reset match
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Event_Sequences
+						targetID = 49
+						eventName = Restart
+						methodName = Restart
+						altTargetIdx = -1
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 2
+			sequenceName = KotH check
+			startImmediately = False
+			whileLoop = False
+			EVENT
+			{
+				delay = 0
+				nodeName = Check
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = System
+						targetID = 0
+						eventName = Fire Conditional Action
+						methodName = FireConditionalAction
+						altTargetIdx = -1
+						ParamInfo
+						{
+							type = ConditionalActionReference
+							value = 4
+							name = Action
+						}
+					}
+				}
+			}
+			EVENT
+			{
+				delay = 1
+				nodeName = Reset
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Event_Sequences
+						targetID = 2
+						eventName = Restart
+						methodName = Restart
+						altTargetIdx = -1
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 3
+			sequenceName = [0] vs [1]
+			startImmediately = True
+			whileLoop = False
+			EVENT
+			{
+				conditional = 2
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 0
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 1
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 4
+			sequenceName = [0] vs [2]
+			startImmediately = True
+			whileLoop = False
+			EVENT
+			{
+				conditional = 3
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 0
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 2
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 5
+			sequenceName = [0] vs [3]
+			startImmediately = True
+			whileLoop = False
+			EVENT
+			{
+				conditional = 4
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 0
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 3
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 6
+			sequenceName = [0] vs [4]
+			startImmediately = True
+			whileLoop = False
+			EVENT
+			{
+				conditional = 5
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 0
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 4
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 7
+			sequenceName = [0] vs [5]
+			startImmediately = True
+			whileLoop = False
+			EVENT
+			{
+				conditional = 6
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 0
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 5
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 8
+			sequenceName = [0] vs [6]
+			startImmediately = True
+			whileLoop = False
+			EVENT
+			{
+				conditional = 7
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 0
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 6
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 9
+			sequenceName = [0] vs [7]
+			startImmediately = True
+			whileLoop = False
+			EVENT
+			{
+				conditional = 8
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 0
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 7
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 10
+			sequenceName = [0] vs [8]
+			startImmediately = True
+			whileLoop = False
+			EVENT
+			{
+				conditional = 9
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 0
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 8
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 11
+			sequenceName = [0] vs [9]
+			startImmediately = True
+			whileLoop = False
+			EVENT
+			{
+				conditional = 10
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 0
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 9
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 12
+			sequenceName = [1] vs [2]
+			startImmediately = True
+			whileLoop = False
+			EVENT
+			{
+				conditional = 11
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 1
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 2
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 13
+			sequenceName = [1] vs [3]
+			startImmediately = True
+			whileLoop = False
+			EVENT
+			{
+				conditional = 12
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 1
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 3
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 14
+			sequenceName = [1] vs [4]
+			startImmediately = True
+			whileLoop = False
+			EVENT
+			{
+				conditional = 13
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 1
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 4
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 15
+			sequenceName = [1] vs [5]
+			startImmediately = True
+			whileLoop = False
+			EVENT
+			{
+				conditional = 14
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 1
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 5
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 16
+			sequenceName = [1] vs [6]
+			startImmediately = True
+			whileLoop = False
+			EVENT
+			{
+				conditional = 15
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 1
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 6
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 17
+			sequenceName = [1] vs [7]
+			startImmediately = True
+			whileLoop = False
+			EVENT
+			{
+				conditional = 16
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 1
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 7
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 18
+			sequenceName = [1] vs [8]
+			startImmediately = True
+			whileLoop = False
+			EVENT
+			{
+				conditional = 17
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 1
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 8
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 19
+			sequenceName = [1] vs [9]
+			startImmediately = True
+			whileLoop = False
+			EVENT
+			{
+				conditional = 18
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 1
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 9
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 20
+			sequenceName = [2] vs [3]
+			startImmediately = True
+			whileLoop = False
+			EVENT
+			{
+				conditional = 19
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 2
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 3
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 21
+			sequenceName = [2] vs [4]
+			startImmediately = True
+			whileLoop = False
+			EVENT
+			{
+				conditional = 20
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 2
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 4
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 22
+			sequenceName = [2] vs [5]
+			startImmediately = True
+			whileLoop = False
+			EVENT
+			{
+				conditional = 21
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 2
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 5
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 23
+			sequenceName = [2] vs [6]
+			startImmediately = True
+			whileLoop = False
+			EVENT
+			{
+				conditional = 22
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 2
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 6
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 24
+			sequenceName = [2] vs [7]
+			startImmediately = True
+			whileLoop = False
+			EVENT
+			{
+				conditional = 23
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 2
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 7
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 25
+			sequenceName = [2] vs [8]
+			startImmediately = True
+			whileLoop = False
+			EVENT
+			{
+				conditional = 24
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 2
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 8
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 26
+			sequenceName = [2] vs [9]
+			startImmediately = True
+			whileLoop = False
+			EVENT
+			{
+				conditional = 25
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 2
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 9
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 27
+			sequenceName = [3] vs [4]
+			startImmediately = True
+			whileLoop = False
+			EVENT
+			{
+				conditional = 26
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 3
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 4
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 28
+			sequenceName = [3] vs [5]
+			startImmediately = True
+			whileLoop = False
+			EVENT
+			{
+				conditional = 27
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 3
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 5
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 29
+			sequenceName = [3] vs [6]
+			startImmediately = True
+			whileLoop = False
+			EVENT
+			{
+				conditional = 28
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 3
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 6
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 30
+			sequenceName = [3] vs [7]
+			startImmediately = True
+			whileLoop = False
+			EVENT
+			{
+				conditional = 29
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 3
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 7
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 31
+			sequenceName = [3] vs [8]
+			startImmediately = True
+			whileLoop = False
+			EVENT
+			{
+				conditional = 30
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 3
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 8
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 32
+			sequenceName = [3] vs [9]
+			startImmediately = True
+			whileLoop = False
+			EVENT
+			{
+				conditional = 31
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 3
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 9
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 33
+			sequenceName = [4] vs [5]
+			startImmediately = True
+			whileLoop = False
+			EVENT
+			{
+				conditional = 32
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 4
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 5
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 34
+			sequenceName = [4] vs [6]
+			startImmediately = True
+			whileLoop = False
+			EVENT
+			{
+				conditional = 33
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 4
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 6
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 35
+			sequenceName = [4] vs [7]
+			startImmediately = True
+			whileLoop = False
+			EVENT
+			{
+				conditional = 34
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 4
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 7
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 36
+			sequenceName = [4] vs [8]
+			startImmediately = True
+			whileLoop = False
+			EVENT
+			{
+				conditional = 35
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 4
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 8
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 37
+			sequenceName = [4] vs [9]
+			startImmediately = True
+			whileLoop = False
+			EVENT
+			{
+				conditional = 36
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 4
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 9
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 38
+			sequenceName = [5] vs [6]
+			startImmediately = True
+			whileLoop = False
+			EVENT
+			{
+				conditional = 37
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 5
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 6
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 39
+			sequenceName = [5] vs [7]
+			startImmediately = True
+			whileLoop = False
+			EVENT
+			{
+				conditional = 38
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 5
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 7
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 40
+			sequenceName = [5] vs [8]
+			startImmediately = True
+			whileLoop = False
+			EVENT
+			{
+				conditional = 39
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 5
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 8
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 41
+			sequenceName = [5] vs [9]
+			startImmediately = True
+			whileLoop = False
+			EVENT
+			{
+				conditional = 40
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 5
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 9
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 42
+			sequenceName = [6] vs [7]
+			startImmediately = True
+			whileLoop = False
+			EVENT
+			{
+				conditional = 41
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 6
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 7
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 43
+			sequenceName = [6] vs [8]
+			startImmediately = True
+			whileLoop = False
+			EVENT
+			{
+				conditional = 42
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 6
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 8
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 44
+			sequenceName = [6] vs [9]
+			startImmediately = True
+			whileLoop = False
+			EVENT
+			{
+				conditional = 43
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 6
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 9
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 45
+			sequenceName = [7] vs [8]
+			startImmediately = True
+			whileLoop = False
+			EVENT
+			{
+				conditional = 44
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 7
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 8
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 46
+			sequenceName = [7] vs [9]
+			startImmediately = True
+			whileLoop = False
+			EVENT
+			{
+				conditional = 45
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 7
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 9
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 47
+			sequenceName = [8] vs [9]
+			startImmediately = True
+			whileLoop = False
+			EVENT
+			{
+				conditional = 46
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 8
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 9
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 48
+			sequenceName = Start Match
+			startImmediately = False
+			whileLoop = False
+			EVENT
+			{
+				conditional = 47
+				delay = 1
+				nodeName = spawned
+				EventInfo
+				{
+					eventName = 
+				}
+			}
+			EVENT
+			{
+				conditional = 48
+				delay = 1
+				nodeName = start
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Objective
+						targetID = 2
+						eventName = Begin Objective
+						methodName = BeginObjective
+						altTargetIdx = -1
+					}
+					EventTarget
+					{
+						targetType = Objective
+						targetID = 3
+						eventName = Begin Objective
+						methodName = BeginObjective
+						altTargetIdx = -1
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 0
+						eventName = Set Lives
+						methodName = SetLives
+						altTargetIdx = -2
+						ParamInfo
+						{
+							type = System.Single
+							value = 0
+							name = Lives
+							ParamAttrInfo
+							{
+								type = MinMax
+								data = (0,100)
+							}
+							ParamAttrInfo
+							{
+								type = UnitSpawnAttributeRange+RangeTypes
+								data = Int
+							}
+						}
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 1
+						eventName = Set Lives
+						methodName = SetLives
+						altTargetIdx = -2
+						ParamInfo
+						{
+							type = System.Single
+							value = 0
+							name = Lives
+							ParamAttrInfo
+							{
+								type = MinMax
+								data = (0,100)
+							}
+							ParamAttrInfo
+							{
+								type = UnitSpawnAttributeRange+RangeTypes
+								data = Int
+							}
+						}
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 2
+						eventName = Set Lives
+						methodName = SetLives
+						altTargetIdx = -2
+						ParamInfo
+						{
+							type = System.Single
+							value = 0
+							name = Lives
+							ParamAttrInfo
+							{
+								type = MinMax
+								data = (0,100)
+							}
+							ParamAttrInfo
+							{
+								type = UnitSpawnAttributeRange+RangeTypes
+								data = Int
+							}
+						}
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 3
+						eventName = Set Lives
+						methodName = SetLives
+						altTargetIdx = -2
+						ParamInfo
+						{
+							type = System.Single
+							value = 0
+							name = Lives
+							ParamAttrInfo
+							{
+								type = MinMax
+								data = (0,100)
+							}
+							ParamAttrInfo
+							{
+								type = UnitSpawnAttributeRange+RangeTypes
+								data = Int
+							}
+						}
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 4
+						eventName = Set Lives
+						methodName = SetLives
+						altTargetIdx = -2
+						ParamInfo
+						{
+							type = System.Single
+							value = 0
+							name = Lives
+							ParamAttrInfo
+							{
+								type = MinMax
+								data = (0,100)
+							}
+							ParamAttrInfo
+							{
+								type = UnitSpawnAttributeRange+RangeTypes
+								data = Int
+							}
+						}
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 5
+						eventName = Set Lives
+						methodName = SetLives
+						altTargetIdx = -2
+						ParamInfo
+						{
+							type = System.Single
+							value = 0
+							name = Lives
+							ParamAttrInfo
+							{
+								type = MinMax
+								data = (0,100)
+							}
+							ParamAttrInfo
+							{
+								type = UnitSpawnAttributeRange+RangeTypes
+								data = Int
+							}
+						}
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 6
+						eventName = Set Lives
+						methodName = SetLives
+						altTargetIdx = -2
+						ParamInfo
+						{
+							type = System.Single
+							value = 0
+							name = Lives
+							ParamAttrInfo
+							{
+								type = MinMax
+								data = (0,100)
+							}
+							ParamAttrInfo
+							{
+								type = UnitSpawnAttributeRange+RangeTypes
+								data = Int
+							}
+						}
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 7
+						eventName = Set Lives
+						methodName = SetLives
+						altTargetIdx = -2
+						ParamInfo
+						{
+							type = System.Single
+							value = 0
+							name = Lives
+							ParamAttrInfo
+							{
+								type = MinMax
+								data = (0,100)
+							}
+							ParamAttrInfo
+							{
+								type = UnitSpawnAttributeRange+RangeTypes
+								data = Int
+							}
+						}
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 8
+						eventName = Set Lives
+						methodName = SetLives
+						altTargetIdx = -2
+						ParamInfo
+						{
+							type = System.Single
+							value = 0
+							name = Lives
+							ParamAttrInfo
+							{
+								type = MinMax
+								data = (0,100)
+							}
+							ParamAttrInfo
+							{
+								type = UnitSpawnAttributeRange+RangeTypes
+								data = Int
+							}
+						}
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 9
+						eventName = Set Lives
+						methodName = SetLives
+						altTargetIdx = -2
+						ParamInfo
+						{
+							type = System.Single
+							value = 0
+							name = Lives
+							ParamAttrInfo
+							{
+								type = MinMax
+								data = (0,100)
+							}
+							ParamAttrInfo
+							{
+								type = UnitSpawnAttributeRange+RangeTypes
+								data = Int
+							}
+						}
+					}
+				}
+			}
+			EVENT
+			{
+				delay = 600
+				nodeName = koth
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Objective
+						targetID = 4
+						eventName = Begin Objective
+						methodName = BeginObjective
+						altTargetIdx = -1
+					}
+					EventTarget
+					{
+						targetType = Objective
+						targetID = 5
+						eventName = Begin Objective
+						methodName = BeginObjective
+						altTargetIdx = -1
+					}
+					EventTarget
+					{
+						targetType = Event_Sequences
+						targetID = 2
+						eventName = Restart
+						methodName = Restart
+						altTargetIdx = -1
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 49
+			sequenceName = Reset 551
+			startImmediately = True
+			whileLoop = False
+			EVENT
+			{
+				delay = 1
+				nodeName = reset
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = System
+						targetID = 2
+						eventName = Reset Value
+						methodName = ResetValue
+						altTargetIdx = -1
+						ParamInfo
+						{
+							type = GlobalValue
+							value = 5
+							name = Global Value
+						}
+					}
+					EventTarget
+					{
+						targetType = System
+						targetID = 2
+						eventName = Reset Value
+						methodName = ResetValue
+						altTargetIdx = -1
+						ParamInfo
+						{
+							type = GlobalValue
+							value = 4
+							name = Global Value
+						}
+					}
+					EventTarget
+					{
+						targetType = Objective
+						targetID = 2
+						eventName = Reset Objective
+						methodName = ResetObjective
+						altTargetIdx = -1
+					}
+					EventTarget
+					{
+						targetType = Objective
+						targetID = 3
+						eventName = Reset Objective
+						methodName = ResetObjective
+						altTargetIdx = -1
+					}
+					EventTarget
+					{
+						targetType = Objective
+						targetID = 4
+						eventName = Reset Objective
+						methodName = ResetObjective
+						altTargetIdx = -1
+					}
+					EventTarget
+					{
+						targetType = Objective
+						targetID = 5
+						eventName = Reset Objective
+						methodName = ResetObjective
+						altTargetIdx = -1
+					}
+					EventTarget
+					{
+						targetType = Event_Sequences
+						targetID = 2
+						eventName = Stop
+						methodName = Stop
+						altTargetIdx = -1
+					}
+					EventTarget
+					{
+						targetType = Event_Sequences
+						targetID = 48
+						eventName = Restart
+						methodName = Restart
+						altTargetIdx = -1
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 0
+						eventName = Set Lives
+						methodName = SetLives
+						altTargetIdx = -2
+						ParamInfo
+						{
+							type = System.Single
+							value = 100
+							name = Lives
+							ParamAttrInfo
+							{
+								type = MinMax
+								data = (0,100)
+							}
+							ParamAttrInfo
+							{
+								type = UnitSpawnAttributeRange+RangeTypes
+								data = Int
+							}
+						}
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 1
+						eventName = Set Lives
+						methodName = SetLives
+						altTargetIdx = -2
+						ParamInfo
+						{
+							type = System.Single
+							value = 100
+							name = Lives
+							ParamAttrInfo
+							{
+								type = MinMax
+								data = (0,100)
+							}
+							ParamAttrInfo
+							{
+								type = UnitSpawnAttributeRange+RangeTypes
+								data = Int
+							}
+						}
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 2
+						eventName = Set Lives
+						methodName = SetLives
+						altTargetIdx = -2
+						ParamInfo
+						{
+							type = System.Single
+							value = 100
+							name = Lives
+							ParamAttrInfo
+							{
+								type = MinMax
+								data = (0,100)
+							}
+							ParamAttrInfo
+							{
+								type = UnitSpawnAttributeRange+RangeTypes
+								data = Int
+							}
+						}
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 3
+						eventName = Set Lives
+						methodName = SetLives
+						altTargetIdx = -2
+						ParamInfo
+						{
+							type = System.Single
+							value = 100
+							name = Lives
+							ParamAttrInfo
+							{
+								type = MinMax
+								data = (0,100)
+							}
+							ParamAttrInfo
+							{
+								type = UnitSpawnAttributeRange+RangeTypes
+								data = Int
+							}
+						}
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 4
+						eventName = Set Lives
+						methodName = SetLives
+						altTargetIdx = -2
+						ParamInfo
+						{
+							type = System.Single
+							value = 100
+							name = Lives
+							ParamAttrInfo
+							{
+								type = MinMax
+								data = (0,100)
+							}
+							ParamAttrInfo
+							{
+								type = UnitSpawnAttributeRange+RangeTypes
+								data = Int
+							}
+						}
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 5
+						eventName = Set Lives
+						methodName = SetLives
+						altTargetIdx = -2
+						ParamInfo
+						{
+							type = System.Single
+							value = 100
+							name = Lives
+							ParamAttrInfo
+							{
+								type = MinMax
+								data = (0,100)
+							}
+							ParamAttrInfo
+							{
+								type = UnitSpawnAttributeRange+RangeTypes
+								data = Int
+							}
+						}
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 6
+						eventName = Set Lives
+						methodName = SetLives
+						altTargetIdx = -2
+						ParamInfo
+						{
+							type = System.Single
+							value = 100
+							name = Lives
+							ParamAttrInfo
+							{
+								type = MinMax
+								data = (0,100)
+							}
+							ParamAttrInfo
+							{
+								type = UnitSpawnAttributeRange+RangeTypes
+								data = Int
+							}
+						}
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 7
+						eventName = Set Lives
+						methodName = SetLives
+						altTargetIdx = -2
+						ParamInfo
+						{
+							type = System.Single
+							value = 100
+							name = Lives
+							ParamAttrInfo
+							{
+								type = MinMax
+								data = (0,100)
+							}
+							ParamAttrInfo
+							{
+								type = UnitSpawnAttributeRange+RangeTypes
+								data = Int
+							}
+						}
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 8
+						eventName = Set Lives
+						methodName = SetLives
+						altTargetIdx = -2
+						ParamInfo
+						{
+							type = System.Single
+							value = 100
+							name = Lives
+							ParamAttrInfo
+							{
+								type = MinMax
+								data = (0,100)
+							}
+							ParamAttrInfo
+							{
+								type = UnitSpawnAttributeRange+RangeTypes
+								data = Int
+							}
+						}
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 9
+						eventName = Set Lives
+						methodName = SetLives
+						altTargetIdx = -2
+						ParamInfo
+						{
+							type = System.Single
+							value = 100
+							name = Lives
+							ParamAttrInfo
+							{
+								type = MinMax
+								data = (0,100)
+							}
+							ParamAttrInfo
+							{
+								type = UnitSpawnAttributeRange+RangeTypes
+								data = Int
+							}
+						}
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 50
+			sequenceName = Kill spectators
+			startImmediately = True
+			whileLoop = False
+			EVENT
+			{
+				conditional = 50
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 10
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 11
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 12
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 13
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+			EVENT
+			{
+				conditional = 50
+				delay = 0
+				nodeName = Restart
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Event_Sequences
+						targetID = 50
+						eventName = Restart
+						methodName = Restart
+						altTargetIdx = -1
+					}
+				}
+			}
+		}
+	}
+	BASES
+	{
+		BaseInfo
+		{
+			id = 0
+			overrideBaseName = 
+			baseTeam = Allied
+			CUSTOM_DATA
+			{
+			}
+		}
+		BaseInfo
+		{
+			id = 1
+			overrideBaseName = 
+			baseTeam = Allied
+			CUSTOM_DATA
+			{
+			}
+		}
+		BaseInfo
+		{
+			id = 3
+			overrideBaseName = 
+			baseTeam = Enemy
+			CUSTOM_DATA
+			{
+			}
+		}
+		BaseInfo
+		{
+			id = 4
+			overrideBaseName = 
+			baseTeam = Enemy
+			CUSTOM_DATA
+			{
+			}
+		}
+	}
+	GlobalValues
+	{
+		gv
+		{
+			data = 0;teamAWins;;0;
+		}
+		gv
+		{
+			data = 1;teamBWins;;0;
+		}
+		gv
+		{
+			data = 2;ties;;0;
+		}
+		gv
+		{
+			data = 3;targetWins;;3;
+		}
+		gv
+		{
+			data = 4;teamAKotHTime;;0;
+		}
+		gv
+		{
+			data = 5;teamBKotHTime;;0;
+		}
+		gv
+		{
+			data = 6;targetKotHTime;;120;
+		}
+	}
+	Briefing
+	{
+		BRIEFING_NOTE
+		{
+			text = 5 vs 5, 1 life each.///nLast team with a player alive wins.///nIf said last player dies within 15 seconds of the other team, then it's a draw.///nFirst to 3 wins
+			imagePath = 
+			audioClipPath = 
+		}
+		BRIEFING_NOTE
+		{
+			text = Some people (who won't be named) have been taking too long to find the other team. So as an insentive: a control point will activate after 10 minutes.///nThe control point will only tick up if your team is the only one on it.
+			imagePath = 
+			audioClipPath = 
+		}
+		BRIEFING_NOTE
+		{
+			text = Join us at https://discord.gg/ecSSndCbVc
+			imagePath = 
+			audioClipPath = 
+		}
+	}
+	Briefing_B
+	{
+	}
+}

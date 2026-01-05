@@ -4,9 +4,9 @@ Move the bases where they need to be
 Save the scenario!
 it's that easy!
 
-You need .net 9 https://aka.ms/get-dotnet-9
+You need .net 10 https://dotnet.microsoft.com/en-us/download/dotnet/10.0
 
-![An image explaining which dotnet version to get](docs/images/dotnetInstall.png)
+![An image explaining which dotnet version to get](docs/images/dotnetInstall.jpg)
 
 # How do I change spawns?
 Check out the folders in [Configs/AirbaseLayout](/VtolVrRankedMissionSetup/Configs/AirbaseLayout) There's a json file for the different airbase types.
