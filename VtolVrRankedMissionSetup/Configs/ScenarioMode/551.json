@@ -15,5 +15,8 @@
     "EF-24G": "ef24_gun;free;free;free;free;free;free;free;free;free;free;free;free;ef24_tgp;|",
     "T-55": "free;free;free;t55_amraamRailx2;free;free;free;free;free;|",
     "F-16": "free;viper_amraamRail;free;free;free;free;free;free;free;free;free;viper_amraamRail;|"
-  }
+  },
+  "weatherPresets": [
+    "Light Fog;4000;0.65;0.33;0.63;0.32;0.11;0.22;0.6;(1, 1, 1, 1);1;3000;0.34;"
+  ]
 }

@@ -52,6 +52,11 @@ CustomScenario
 	qsLimit = -1
 	WEATHER_PRESETS
 	{
+		PRESET
+		{
+			id = 8
+			data = Light Fog;4000;0.65;0.33;0.63;0.32;0.11;0.22;0.6;(1, 1, 1, 1);1;3000;0.34;
+		}
 	}
 	UNITS
 	{

@@ -14,5 +14,6 @@ namespace VtolVrRankedMissionSetup.Configs.ScenarioMode
         public string? SecondaryDefaultLayout { get; set; }
         public Dictionary<AircraftType, string> DefaultEquipment { get; set; } = [];
         public Dictionary<AircraftType, string>? ForcedEquipment { get; set; }
+        public string[]? WeatherPresets { get; set; }
     }
 }

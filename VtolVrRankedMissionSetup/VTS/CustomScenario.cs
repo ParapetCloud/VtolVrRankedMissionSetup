@@ -65,7 +65,7 @@ namespace VtolVrRankedMissionSetup.VTS
         public int QsLimit { get; set; } = -1;
 
         [VTName("WEATHER_PRESETS")]
-        public object? WeatherPresets { get; set; }
+        public WeatherPreset[]? WeatherPresets { get; set; }
 
         [VTName("UNITS")]
         public IUnitSpawner[]? Units { get; set; }

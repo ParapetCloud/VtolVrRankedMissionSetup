@@ -47,6 +47,18 @@ namespace VtolVrRankedMissionSetup.Services
             }
 
             scenario.Units = spawners.ToArray();
+
+            if (scenarioMode.ActiveMode.WeatherPresets != null)
+            {
+                List<WeatherPreset> presets = [];
+
+                for (int i = 0; i < scenarioMode.ActiveMode.WeatherPresets.Length; ++i)
+                {
+                    presets.Add(new WeatherPreset() { Id = i + 8, Data = scenarioMode.ActiveMode.WeatherPresets[i] });
+                }
+
+                scenario.WeatherPresets = presets.ToArray();
+            }
         }
 
         public virtual void GeneratePreview(Canvas canvas, VTMapCustom map, CustomScenario scenario, BaseInfo[] teamABases, BaseInfo[] teamBBases)
