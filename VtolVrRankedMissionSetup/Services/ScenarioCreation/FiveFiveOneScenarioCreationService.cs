@@ -110,6 +110,26 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
             foreach (MultiplayerSpawn spawn in spawns)
                 ((MultiplayerSpawnFields)spawn.UnitFields!).LimitedLives = true;
 
+            List<Waypoint> teamABaseWaypoints = [];
+
+            foreach (BaseInfo b in teamABases)
+            {
+                if (string.IsNullOrWhiteSpace(b.Layout) && b != baseA)
+                    continue;
+
+                teamABaseWaypoints.Add(scenario.Waypoints.CreateWaypoint(b.DisplayName, b.Prefab.GlobalPos));
+            }
+
+            List<Waypoint> teamBBaseWaypoints = [];
+
+            foreach (BaseInfo b in teamBBases)
+            {
+                if (string.IsNullOrWhiteSpace(b.Layout) && b != baseB)
+                    continue;
+
+                teamBBaseWaypoints.Add(scenario.Waypoints.CreateWaypoint(b.DisplayName, b.Prefab.GlobalPos));
+            }
+
             //////////////////////////////////////////////////////////////
             // Points
             //////////////////////////////////////////////////////////////
@@ -223,10 +243,12 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
             // Collision
             //////////////////////////////////////////////////////////////
 
+            Folder collisionFolder = scenario.EventSequences.CreateFolder("Collisions");
+
             for (int i = 0; i < spawns.Length - 1; ++i)
             {
                 IUnitSpawner unit = spawns[i];
-                CreateCollisionForAircaraft(scenario, unit, spawns[(i + 1)..]);
+                CreateCollisionForAircaraft(scenario, unit, spawns[(i + 1)..], collisionFolder);
             }
 
             //////////////////////////////////////////////////////////////
@@ -239,8 +261,8 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
                 SCCUnitList.SCC_NumAlive(teamBSpawns) > 0);
 
             Conditional oneTeamTakeoff = scenario.Conditionals.CreateCondition(() =>
-                !SCCUnitList.SCC_AnyNearWaypoint(teamASpawns, scenario.AlliedRTB, StartDist) ||
-                !SCCUnitList.SCC_AnyNearWaypoint(teamBSpawns, scenario.EnemyRTB, StartDist));
+                teamABaseWaypoints.All(waypoint => !SCCUnitList.SCC_AnyNearWaypoint(teamASpawns, waypoint, StartDist)) ||
+                teamBBaseWaypoints.All(waypoint => !SCCUnitList.SCC_AnyNearWaypoint(teamBSpawns, waypoint, StartDist)));
 
             teamAKillObjective.CompleteEvent.EventInfo.EventTargets =
             [
@@ -286,6 +308,8 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
                     TimeSpan.FromSeconds(1),
                     oneTeamTakeoff,
                     [
+                        new EventTarget(() => teamAKillObjective.ResetObjective()),
+                        new EventTarget(() => teamBKillObjective.ResetObjective()),
                         new EventTarget(() => teamAKillObjective.BeginObjective()),
                         new EventTarget(() => teamBKillObjective.BeginObjective()),
                         ..setLives0,
@@ -311,10 +335,10 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
                     [
                         new EventTarget(() => GameSystem.ResetValue(teamBKotHTime)),
                         new EventTarget(() => GameSystem.ResetValue(teamAKotHTime)),
-                        new EventTarget(() => teamAKillObjective.ResetObjective()),
-                        new EventTarget(() => teamBKillObjective.ResetObjective()),
-                        new EventTarget(() => teamAKotH.ResetObjective()),
-                        new EventTarget(() => teamBKotH.ResetObjective()),
+                        new EventTarget(() => teamAKillObjective.CancelObjective()),
+                        new EventTarget(() => teamBKillObjective.CancelObjective()),
+                        new EventTarget(() => teamAKotH.CancelObjective()),
+                        new EventTarget(() => teamBKotH.CancelObjective()),
                         new EventTarget(() => kothCheck.Stop()),
                         new EventTarget(() => startMatch.Restart()),
                         //new EventTarget(() => GameSystem.DisplayMessage("Reset", 5)),
@@ -565,11 +589,13 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
             };
         }
 
-        private void CreateCollisionForAircaraft(CustomScenario scenario, IUnitSpawner unit, IUnitSpawner[] spawners)
+        private void CreateCollisionForAircaraft(CustomScenario scenario, IUnitSpawner unit, IUnitSpawner[] spawners, Folder folder)
         {
             foreach (IUnitSpawner otherUnit in spawners)
             {
                 EventSequence collisionEvents = scenario.EventSequences!.CreateSequence($"[{unit.UnitInstanceID}] vs [{otherUnit.UnitInstanceID}]", true);
+
+                collisionEvents.Folder = folder;
 
                 Conditional collidesWith = scenario.Conditionals!.CreateCondition(() => 
                     unit.SCC_NearWaypoint(otherUnit, 8) && 

@@ -6,7 +6,7 @@ namespace VtolVrRankedMissionSetup.VTS.Events
     [VTName("EVENT")]
     public class Event
     {
-        [VTIgnore(Condition = VTIgnoreCondition.WhenWritingNull)]
+        [VTIgnore(VTIgnoreCondition.WhenWritingNull)]
         [IdLink("conditional")]
         public Conditional? Conditional { get; set; }
         public TimeSpan Delay { get; set; }

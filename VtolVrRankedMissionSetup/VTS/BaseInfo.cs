@@ -30,6 +30,11 @@ namespace VtolVrRankedMissionSetup.VTS
             }
         }
 
+        [VTIgnore]
+        public string DisplayName => !string.IsNullOrEmpty(OverrideBaseName) ? OverrideBaseName :
+            (!string.IsNullOrEmpty(Prefab.BaseName) ? Prefab.BaseName :  $"airbase {Prefab.Id}");
+
+
         public BaseInfo(StaticPrefab prefab)
         {
             Prefab = prefab;

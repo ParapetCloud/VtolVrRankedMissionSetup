@@ -10,11 +10,11 @@ namespace VtolVrRankedMissionSetup.VTS
 {
     public class WaypointCollection
     {
-        [VTIgnore(Condition = VTIgnoreCondition.WhenWritingNull)]
+        [VTIgnore(VTIgnoreCondition.WhenWritingNull)]
         [IdLink("bullseyeID")]
         public Waypoint? Bullseye { get; set; }
 
-        [VTIgnore(Condition = VTIgnoreCondition.WhenWritingNull)]
+        [VTIgnore(VTIgnoreCondition.WhenWritingNull)]
         [IdLink("bullseyeID_B")]
         public Waypoint? BullseyeB { get; set; }
 

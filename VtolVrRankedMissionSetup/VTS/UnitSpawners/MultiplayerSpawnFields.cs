@@ -23,10 +23,10 @@ namespace VtolVrRankedMissionSetup.VTS.UnitFields
         public string LiveryRef { get; set; } = "0;";
         public bool ReceiveFriendlyDamage { get; set; } = true;
 
-        [VTIgnore(Condition = VTIgnoreCondition.WhenWritingDefault)]
+        [VTIgnore(VTIgnoreCondition.WhenWritingDefault)]
         public int Slots { get; set; }
 
-        [VTIgnore(Condition = VTIgnoreCondition.WhenWritingNull)]
+        [VTIgnore(VTIgnoreCondition.WhenWritingNull)]
         public string? ForcedEquipsList { get; set; }
 
         [VTName("b_eqAssignmentMode")]

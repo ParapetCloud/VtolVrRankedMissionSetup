@@ -29,7 +29,7 @@ namespace VtolVrRankedMissionSetup.VTS
         [VTInlineArray]
         public MethodParameter[] MethodParameters { get; set; }
 
-        public SCCUnitListComponent(BinaryExpression binaryExpression)
+        public SCCUnitListComponent(BinaryExpression binaryExpression, Dictionary<string, object>? values = null)
         {
             Type = "SCCUnitList";
 
@@ -39,7 +39,7 @@ namespace VtolVrRankedMissionSetup.VTS
 
             if (MethodName == "SCC_NumAlive")
             {
-                UnitList = ((IEnumerable<IUnitSpawner>)LinqExpressionHelpers.GetValue(mce.Arguments[0])!).ToArray();
+                UnitList = ((IEnumerable<IUnitSpawner>)LinqExpressionHelpers.GetValue(mce.Arguments[0], values)!).ToArray();
 
                 MethodParameters = [
                     binaryExpression.NodeType switch
@@ -84,7 +84,7 @@ namespace VtolVrRankedMissionSetup.VTS
             }
         }
 
-        public SCCUnitListComponent(MethodCallExpression mce)
+        public SCCUnitListComponent(MethodCallExpression mce, Dictionary<string, object>? values = null)
         {
             Type = "SCCUnitList";
 
@@ -92,11 +92,11 @@ namespace VtolVrRankedMissionSetup.VTS
 
             if (MethodName == nameof(SCCUnitList.SCC_AnyNearWaypoint))
             {
-                UnitList = ((IEnumerable<IUnitSpawner>)LinqExpressionHelpers.GetValue(mce.Arguments[0])!).ToArray();
+                UnitList = ((IEnumerable<IUnitSpawner>)LinqExpressionHelpers.GetValue(mce.Arguments[0], values)!).ToArray();
 
                 MethodParameters = [
-                    new MethodParameter(((Waypoint)LinqExpressionHelpers.GetValue(mce.Arguments[1])!).Id.ToString()),
-                    new MethodParameter(LinqExpressionHelpers.GetValue(mce.Arguments[2])!.ToString()!),
+                    new MethodParameter(((Waypoint)LinqExpressionHelpers.GetValue(mce.Arguments[1], values)!).Id.ToString()),
+                    new MethodParameter(LinqExpressionHelpers.GetValue(mce.Arguments[2], values)!.ToString()!),
                 ];
             }
             else

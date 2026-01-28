@@ -1,6 +1,6 @@
 CustomScenario
 {
-	gameVersion = 1.12.4f3
+	gameVersion = 1.12.6m1
 	campaignID = Headless Server
 	campaignOrderIdx = 0
 	scenarioName = HSBaseline

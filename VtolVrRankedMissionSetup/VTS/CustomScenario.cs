@@ -11,7 +11,7 @@ namespace VtolVrRankedMissionSetup.VTS
 {
     public class CustomScenario
     {
-        public string GameVersion { get; set; } = "1.12.4f3";
+        public string GameVersion { get; set; } = "1.12.6m1";
         public string CampaignID { get; set; } = string.Empty;
         public uint CampaignOrderIdx { get; set; } = 0;
         public string ScenarioName { get; set; } = string.Empty;

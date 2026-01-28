@@ -15,6 +15,11 @@ namespace VtolVrRankedMissionSetup.VT
 
     public class VTIgnoreAttribute : Attribute
     {
-        public VTIgnoreCondition Condition { get; set; }
+        public VTIgnoreCondition Condition { get; }
+
+        public VTIgnoreAttribute(VTIgnoreCondition condition = VTIgnoreCondition.Always)
+        {
+            Condition = condition;
+        }
     }
 }

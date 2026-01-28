@@ -10,6 +10,7 @@ namespace VtolVrRankedMissionSetup.VT
     {
         public string PropertyName { get; set; }
         public string ValuePrefix { get; set; } = string.Empty;
+        public string DefaultValue { get; set; } = "null";
 
         public IdLinkAttribute(string propertyName)
         {

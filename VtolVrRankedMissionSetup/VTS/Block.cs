@@ -26,7 +26,7 @@ namespace VtolVrRankedMissionSetup.VTS
         public Block[]? ElseIfs { get; set; }
 
         [VTName("ELSE_ACTIONS")]
-        [VTIgnore(Condition = VTIgnoreCondition.WhenWritingNull)]
+        [VTIgnore(VTIgnoreCondition.WhenWritingNull)]
         public EventInfo? ElseActions { get; set; }
     }
 }

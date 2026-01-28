@@ -25,7 +25,7 @@ namespace VtolVrRankedMissionSetup.VTS.Objectives
         [VTName("completeEvent")]
         public ObjectiveEvent CompleteEvent { get; set; } = new("Completed Event");
         [VTName("fields")]
-        [VTIgnore(Condition = VTIgnoreCondition.WhenWritingNull)]
+        [VTIgnore(VTIgnoreCondition.WhenWritingNull)]
         public IObjectiveFields? Fields { get; set; }
 
         [EventTarget("Begin Objective", "Objective")]

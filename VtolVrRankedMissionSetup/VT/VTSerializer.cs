@@ -359,7 +359,7 @@ namespace VtolVrRankedMissionSetup.VT
                 return;
             }
 
-            writer.WriteLine($"{indentation}{idLink.PropertyName} = {(id != null ? $"{idLink.ValuePrefix}{id}" : "null")}");
+            writer.WriteLine($"{indentation}{idLink.PropertyName} = {(id != null ? $"{idLink.ValuePrefix}{id}" : idLink.DefaultValue)}");
         }
 
         private static bool ShouldIgnoreValue(PropertyInfo prop, object? value, VTIgnoreAttribute vtIgnore)

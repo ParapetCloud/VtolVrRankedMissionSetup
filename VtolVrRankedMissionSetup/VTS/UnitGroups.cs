@@ -9,11 +9,11 @@ namespace VtolVrRankedMissionSetup.VTS
 {
     public class UnitGroups
     {
-        [VTIgnore(Condition = VTIgnoreCondition.WhenWritingNull)]
+        [VTIgnore(VTIgnoreCondition.WhenWritingNull)]
         [VTName("ALLIED")]
         public UnitGroup? Allied { get; set; }
 
-        [VTIgnore(Condition = VTIgnoreCondition.WhenWritingNull)]
+        [VTIgnore(VTIgnoreCondition.WhenWritingNull)]
         [VTName("ENEMY")]
         public UnitGroup? Enemy { get; set; }
     }

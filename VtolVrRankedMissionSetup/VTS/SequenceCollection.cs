@@ -12,11 +12,23 @@ namespace VtolVrRankedMissionSetup.VTS
         [VTInlineArray]
         public EventSequence[] Sequences => SequenceList.ToArray();
 
+
+        [VTName("FOLDER_DATA")]
+        [VTIgnore(VTIgnoreCondition.WhenWritingDefault)]
+        public Folder[]? Folders => FolderList.Count > 0 ? FolderList.ToArray() : null;
+
         [VTIgnore]
         private List<EventSequence> SequenceList { get; }
 
+        [VTIgnore]
+        public List<Folder> FolderList { get; set; }
+
+        [VTIgnore]
+        public int LastOrder { get; set; }
+
         public SequenceCollection()
         {
+            FolderList = [];
             SequenceList = [];
         }
 
@@ -27,10 +39,25 @@ namespace VtolVrRankedMissionSetup.VTS
                 Id = SequenceList.Count,
                 SequenceName = name,
                 StartImmediately = startsImmediately,
+                ListOrderIndex = LastOrder++ * 10,
             };
             SequenceList.Add(sequence);
 
             return sequence;
+        }
+
+        public Folder CreateFolder(string name)
+        {
+            Folder folder = new()
+            {
+                Name = name,
+                SortOrder = LastOrder++ * 10,
+                Expanded = false,
+            };
+
+            FolderList.Add(folder);
+
+            return folder;
         }
     }
 }

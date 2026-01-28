@@ -13,6 +13,12 @@ namespace VtolVrRankedMissionSetup.VTS
         public bool StartImmediately { get; set; }
         public bool WhileLoop { get; set; }
 
+        [VTName("ListOrderIndex")]
+        public int ListOrderIndex { get; set; }
+
+        [IdLink("ListFolderName", DefaultValue = "")]
+        public Folder? Folder { get; set; }
+
         [VTInlineArray()]
         public Event[] Events { get; set; } = [];
 

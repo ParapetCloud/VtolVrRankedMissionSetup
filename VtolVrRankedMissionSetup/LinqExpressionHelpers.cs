@@ -1,14 +1,18 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Reflection;
 
 namespace VtolVrRankedMissionSetup
 {
     public static class LinqExpressionHelpers
     {
-        public static object? GetValue(Expression expr)
+        public static object? GetValue(Expression expr, Dictionary<string, object>? values = null)
         {
-            if (expr is ConstantExpression constantExpression)
+            if (values != null && expr is ParameterExpression pe && values.ContainsKey(pe.Name!))
+                return values![pe.Name!];
+            else if (expr is ConstantExpression constantExpression)
                 return constantExpression.Value!;
             else if (expr is MemberExpression me)
             {

@@ -1,7 +1,11 @@
-﻿using System;
+﻿using Microsoft.UI.Composition;
+using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Numerics;
+using System.Reflection;
 using VtolVrRankedMissionSetup.VT;
 using VtolVrRankedMissionSetup.VT.Methods;
 using VtolVrRankedMissionSetup.VTS.Components;
@@ -41,13 +45,13 @@ namespace VtolVrRankedMissionSetup.VTS
             }
         }
 
-        private static IComponent CreateComponents(Expression exp)
+        private static IComponent CreateComponents(Expression exp, Dictionary<string, object>? values = null)
         {
             return exp switch
             {
                 BinaryExpression binaryExpression => CreateBinaryComponent(binaryExpression),
                 MethodCallExpression mce => CreateMethodCall(mce),
-                UnaryExpression unaryExpression => CreateUnaryComponent(unaryExpression),
+                UnaryExpression unaryExpression => CreateUnaryComponent(unaryExpression, values),
                 _ => throw new NotSupportedException($"{exp} is not supported"),
             };
         }
@@ -72,7 +76,7 @@ namespace VtolVrRankedMissionSetup.VTS
             return comp;
         }
 
-        private static IComponent CreateUnaryComponent(UnaryExpression unaryExpression)
+        private static IComponent CreateUnaryComponent(UnaryExpression unaryExpression, Dictionary<string, object>? values = null)
         {
             if (unaryExpression.NodeType == ExpressionType.Not && unaryExpression.Operand is MethodCallExpression mce)
             {
@@ -80,7 +84,7 @@ namespace VtolVrRankedMissionSetup.VTS
 
                 if (methodContainer == typeof(SCCUnitList))
                 {
-                    return new SCCUnitListComponent(mce)
+                    return new SCCUnitListComponent(mce, values)
                     {
                         IsNot = true,
                     };
@@ -126,8 +130,54 @@ namespace VtolVrRankedMissionSetup.VTS
                 return new SCCUnitListComponent(mce);
             else if (methodContainer.IsAssignableTo(typeof(IUnitSpawner)))
                 return new SCCUnitComponent(mce);
+            else if (methodContainer.IsAssignableTo(typeof(Enumerable)))
+            {
+                if (mce.Method.Name == "AnyTrue")
+                {
+                    IEnumerable<object> list = (IEnumerable<object>)LinqExpressionHelpers.GetValue(mce.Arguments[0])!;
+
+                    Expression lambda = mce.Arguments[1];
+
+                    return CreateComposite(list, lambda, "Or");
+                }
+                if (mce.Method.Name == "All")
+                {
+                    IEnumerable<object> list = (IEnumerable<object>)LinqExpressionHelpers.GetValue(mce.Arguments[0])!;
+
+                    Expression lambda = mce.Arguments[1];
+
+                    return CreateComposite(list, lambda, "And");
+                }
+            }
 
             throw new NotSupportedException($"{mce} is not supported");
+        }
+
+        private static IComponent CreateComposite(IEnumerable<object> objects, Expression lambda, string type)
+        {
+            Expression body = (Expression)lambda.GetType().GetProperty("Body")!.GetValue(lambda)!;
+
+            ParameterExpression pe = ((IEnumerable<ParameterExpression>)lambda.GetType().GetProperty("Parameters")!.GetValue(lambda)!).First();
+
+            IComponent[] comps = objects.Select(o => {
+                Dictionary<string, object> values = new()
+                        {
+                            { pe.Name ?? "__unused__", o },
+                        };
+
+                return CreateComponents(body, values);
+            }).ToArray();
+
+            if (comps.Length == 1)
+            {
+                return comps[0];
+            }
+            else if (comps.Length == 0)
+            {
+                throw new Exception("Any/All require at least 1 value");
+            }
+
+            return new CompositeComponent(type, comps);
         }
     }
 }
