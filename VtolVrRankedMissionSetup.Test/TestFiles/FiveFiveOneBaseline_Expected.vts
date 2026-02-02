@@ -1274,7 +1274,7 @@ CustomScenario
 		Objective
 		{
 			objectiveName = Happy Hunting
-			objectiveInfo = Kill all enemies///n(hint: there are 5 of them)
+			objectiveInfo = Kill all enemies///n(hint: there are 5 of them)///nSortie Abortable: %gv-4%
 			objectiveID = 2
 			orderID = 1
 			required = False
@@ -1304,11 +1304,17 @@ CustomScenario
 					eventName = Completed Event
 					EventTarget
 					{
-						targetType = Event_Sequences
+						targetType = System
 						targetID = 0
-						eventName = Restart
-						methodName = Restart
+						eventName = Fire Conditional Action
+						methodName = FireConditionalAction
 						altTargetIdx = -1
+						ParamInfo
+						{
+							type = ConditionalActionReference
+							value = 4
+							name = Action
+						}
 					}
 					EventTarget
 					{
@@ -1377,8 +1383,8 @@ CustomScenario
 			}
 			fields
 			{
-				currentValue = 4
-				targetValue = 6
+				currentValue = 5
+				targetValue = 7
 			}
 		}
 	}
@@ -1426,7 +1432,7 @@ CustomScenario
 		Objective
 		{
 			objectiveName = Happy Hunting
-			objectiveInfo = Kill all enemies///n(hint: there are 5 of them)
+			objectiveInfo = Kill all enemies///n(hint: there are 5 of them)///nSortie Abortable: %gv-4%
 			objectiveID = 3
 			orderID = 1
 			required = False
@@ -1456,11 +1462,17 @@ CustomScenario
 					eventName = Completed Event
 					EventTarget
 					{
-						targetType = Event_Sequences
-						targetID = 1
-						eventName = Restart
-						methodName = Restart
+						targetType = System
+						targetID = 0
+						eventName = Fire Conditional Action
+						methodName = FireConditionalAction
 						altTargetIdx = -1
+						ParamInfo
+						{
+							type = ConditionalActionReference
+							value = 5
+							name = Action
+						}
 					}
 					EventTarget
 					{
@@ -1529,8 +1541,8 @@ CustomScenario
 			}
 			fields
 			{
-				currentValue = 5
-				targetValue = 6
+				currentValue = 6
+				targetValue = 7
 			}
 		}
 	}
@@ -1588,6 +1600,60 @@ CustomScenario
 		CONDITIONAL
 		{
 			id = 2
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCGlobalValue
+				uiPos = (0, 0, 0)
+				gv = 4
+				comparison = Equals
+				c_value = 1
+			}
+		}
+		CONDITIONAL
+		{
+			id = 3
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnitList
+				uiPos = (0, 0, 0)
+				unitList = 0;1;2;3;4;
+				methodName = SCC_AnyGetsDamagedBy
+				isNot = False
+				methodParameters
+				{
+					value = 5;6;7;8;9;
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCUnitList
+				uiPos = (0, 0, 0)
+				unitList = 5;6;7;8;9;
+				methodName = SCC_AnyGetsDamagedBy
+				isNot = False
+				methodParameters
+				{
+					value = 0;1;2;3;4;
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 4
 			outputNodePos = (0, 0, 0)
 			root = 0
 			COMP
@@ -1676,7 +1742,7 @@ CustomScenario
 		}
 		CONDITIONAL
 		{
-			id = 3
+			id = 5
 			outputNodePos = (0, 0, 0)
 			root = 0
 			COMP
@@ -1755,184 +1821,6 @@ CustomScenario
 				type = SCCUnit
 				uiPos = (0, 0, 0)
 				unit = 2
-				methodName = SCC_IsUsingAltNumber
-				isNot = False
-				methodParameters
-				{
-					value = 4
-				}
-			}
-		}
-		CONDITIONAL
-		{
-			id = 4
-			outputNodePos = (0, 0, 0)
-			root = 0
-			COMP
-			{
-				id = 0
-				type = SCCAnd
-				uiPos = (0, 0, 0)
-				factors = 1;2;
-			}
-			COMP
-			{
-				id = 1
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 0
-				methodName = SCC_NearWaypoint
-				isNot = False
-				methodParameters
-				{
-					value = unit:3
-				}
-				methodParameters
-				{
-					value = 8
-				}
-			}
-			COMP
-			{
-				id = 2
-				type = SCCOr
-				uiPos = (0, 0, 0)
-				factors = 3;4;5;6;
-			}
-			COMP
-			{
-				id = 3
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 3
-				methodName = SCC_IsUsingAltNumber
-				isNot = False
-				methodParameters
-				{
-					value = 1
-				}
-			}
-			COMP
-			{
-				id = 4
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 3
-				methodName = SCC_IsUsingAltNumber
-				isNot = False
-				methodParameters
-				{
-					value = 2
-				}
-			}
-			COMP
-			{
-				id = 5
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 3
-				methodName = SCC_IsUsingAltNumber
-				isNot = False
-				methodParameters
-				{
-					value = 3
-				}
-			}
-			COMP
-			{
-				id = 6
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 3
-				methodName = SCC_IsUsingAltNumber
-				isNot = False
-				methodParameters
-				{
-					value = 4
-				}
-			}
-		}
-		CONDITIONAL
-		{
-			id = 5
-			outputNodePos = (0, 0, 0)
-			root = 0
-			COMP
-			{
-				id = 0
-				type = SCCAnd
-				uiPos = (0, 0, 0)
-				factors = 1;2;
-			}
-			COMP
-			{
-				id = 1
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 0
-				methodName = SCC_NearWaypoint
-				isNot = False
-				methodParameters
-				{
-					value = unit:4
-				}
-				methodParameters
-				{
-					value = 8
-				}
-			}
-			COMP
-			{
-				id = 2
-				type = SCCOr
-				uiPos = (0, 0, 0)
-				factors = 3;4;5;6;
-			}
-			COMP
-			{
-				id = 3
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 4
-				methodName = SCC_IsUsingAltNumber
-				isNot = False
-				methodParameters
-				{
-					value = 1
-				}
-			}
-			COMP
-			{
-				id = 4
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 4
-				methodName = SCC_IsUsingAltNumber
-				isNot = False
-				methodParameters
-				{
-					value = 2
-				}
-			}
-			COMP
-			{
-				id = 5
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 4
-				methodName = SCC_IsUsingAltNumber
-				isNot = False
-				methodParameters
-				{
-					value = 3
-				}
-			}
-			COMP
-			{
-				id = 6
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 4
 				methodName = SCC_IsUsingAltNumber
 				isNot = False
 				methodParameters
@@ -1963,6 +1851,184 @@ CustomScenario
 				isNot = False
 				methodParameters
 				{
+					value = unit:3
+				}
+				methodParameters
+				{
+					value = 8
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 3;4;5;6;
+			}
+			COMP
+			{
+				id = 3
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 3
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 1
+				}
+			}
+			COMP
+			{
+				id = 4
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 3
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 2
+				}
+			}
+			COMP
+			{
+				id = 5
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 3
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 3
+				}
+			}
+			COMP
+			{
+				id = 6
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 3
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 4
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 7
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 0
+				methodName = SCC_NearWaypoint
+				isNot = False
+				methodParameters
+				{
+					value = unit:4
+				}
+				methodParameters
+				{
+					value = 8
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 3;4;5;6;
+			}
+			COMP
+			{
+				id = 3
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 4
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 1
+				}
+			}
+			COMP
+			{
+				id = 4
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 4
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 2
+				}
+			}
+			COMP
+			{
+				id = 5
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 4
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 3
+				}
+			}
+			COMP
+			{
+				id = 6
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 4
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 4
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 8
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 0
+				methodName = SCC_NearWaypoint
+				isNot = False
+				methodParameters
+				{
 					value = unit:5
 				}
 				methodParameters
@@ -2032,7 +2098,7 @@ CustomScenario
 		}
 		CONDITIONAL
 		{
-			id = 7
+			id = 9
 			outputNodePos = (0, 0, 0)
 			root = 0
 			COMP
@@ -2121,7 +2187,7 @@ CustomScenario
 		}
 		CONDITIONAL
 		{
-			id = 8
+			id = 10
 			outputNodePos = (0, 0, 0)
 			root = 0
 			COMP
@@ -2210,7 +2276,7 @@ CustomScenario
 		}
 		CONDITIONAL
 		{
-			id = 9
+			id = 11
 			outputNodePos = (0, 0, 0)
 			root = 0
 			COMP
@@ -2299,7 +2365,7 @@ CustomScenario
 		}
 		CONDITIONAL
 		{
-			id = 10
+			id = 12
 			outputNodePos = (0, 0, 0)
 			root = 0
 			COMP
@@ -2388,7 +2454,7 @@ CustomScenario
 		}
 		CONDITIONAL
 		{
-			id = 11
+			id = 13
 			outputNodePos = (0, 0, 0)
 			root = 0
 			COMP
@@ -2477,7 +2543,7 @@ CustomScenario
 		}
 		CONDITIONAL
 		{
-			id = 12
+			id = 14
 			outputNodePos = (0, 0, 0)
 			root = 0
 			COMP
@@ -2556,184 +2622,6 @@ CustomScenario
 				type = SCCUnit
 				uiPos = (0, 0, 0)
 				unit = 3
-				methodName = SCC_IsUsingAltNumber
-				isNot = False
-				methodParameters
-				{
-					value = 4
-				}
-			}
-		}
-		CONDITIONAL
-		{
-			id = 13
-			outputNodePos = (0, 0, 0)
-			root = 0
-			COMP
-			{
-				id = 0
-				type = SCCAnd
-				uiPos = (0, 0, 0)
-				factors = 1;2;
-			}
-			COMP
-			{
-				id = 1
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 1
-				methodName = SCC_NearWaypoint
-				isNot = False
-				methodParameters
-				{
-					value = unit:4
-				}
-				methodParameters
-				{
-					value = 8
-				}
-			}
-			COMP
-			{
-				id = 2
-				type = SCCOr
-				uiPos = (0, 0, 0)
-				factors = 3;4;5;6;
-			}
-			COMP
-			{
-				id = 3
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 4
-				methodName = SCC_IsUsingAltNumber
-				isNot = False
-				methodParameters
-				{
-					value = 1
-				}
-			}
-			COMP
-			{
-				id = 4
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 4
-				methodName = SCC_IsUsingAltNumber
-				isNot = False
-				methodParameters
-				{
-					value = 2
-				}
-			}
-			COMP
-			{
-				id = 5
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 4
-				methodName = SCC_IsUsingAltNumber
-				isNot = False
-				methodParameters
-				{
-					value = 3
-				}
-			}
-			COMP
-			{
-				id = 6
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 4
-				methodName = SCC_IsUsingAltNumber
-				isNot = False
-				methodParameters
-				{
-					value = 4
-				}
-			}
-		}
-		CONDITIONAL
-		{
-			id = 14
-			outputNodePos = (0, 0, 0)
-			root = 0
-			COMP
-			{
-				id = 0
-				type = SCCAnd
-				uiPos = (0, 0, 0)
-				factors = 1;2;
-			}
-			COMP
-			{
-				id = 1
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 1
-				methodName = SCC_NearWaypoint
-				isNot = False
-				methodParameters
-				{
-					value = unit:5
-				}
-				methodParameters
-				{
-					value = 8
-				}
-			}
-			COMP
-			{
-				id = 2
-				type = SCCOr
-				uiPos = (0, 0, 0)
-				factors = 3;4;5;6;
-			}
-			COMP
-			{
-				id = 3
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 5
-				methodName = SCC_IsUsingAltNumber
-				isNot = False
-				methodParameters
-				{
-					value = 1
-				}
-			}
-			COMP
-			{
-				id = 4
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 5
-				methodName = SCC_IsUsingAltNumber
-				isNot = False
-				methodParameters
-				{
-					value = 2
-				}
-			}
-			COMP
-			{
-				id = 5
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 5
-				methodName = SCC_IsUsingAltNumber
-				isNot = False
-				methodParameters
-				{
-					value = 3
-				}
-			}
-			COMP
-			{
-				id = 6
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 5
 				methodName = SCC_IsUsingAltNumber
 				isNot = False
 				methodParameters
@@ -2764,6 +2652,184 @@ CustomScenario
 				isNot = False
 				methodParameters
 				{
+					value = unit:4
+				}
+				methodParameters
+				{
+					value = 8
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 3;4;5;6;
+			}
+			COMP
+			{
+				id = 3
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 4
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 1
+				}
+			}
+			COMP
+			{
+				id = 4
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 4
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 2
+				}
+			}
+			COMP
+			{
+				id = 5
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 4
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 3
+				}
+			}
+			COMP
+			{
+				id = 6
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 4
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 4
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 16
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 1
+				methodName = SCC_NearWaypoint
+				isNot = False
+				methodParameters
+				{
+					value = unit:5
+				}
+				methodParameters
+				{
+					value = 8
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 3;4;5;6;
+			}
+			COMP
+			{
+				id = 3
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 5
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 1
+				}
+			}
+			COMP
+			{
+				id = 4
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 5
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 2
+				}
+			}
+			COMP
+			{
+				id = 5
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 5
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 3
+				}
+			}
+			COMP
+			{
+				id = 6
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 5
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 4
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 17
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 1
+				methodName = SCC_NearWaypoint
+				isNot = False
+				methodParameters
+				{
 					value = unit:6
 				}
 				methodParameters
@@ -2833,7 +2899,7 @@ CustomScenario
 		}
 		CONDITIONAL
 		{
-			id = 16
+			id = 18
 			outputNodePos = (0, 0, 0)
 			root = 0
 			COMP
@@ -2922,7 +2988,7 @@ CustomScenario
 		}
 		CONDITIONAL
 		{
-			id = 17
+			id = 19
 			outputNodePos = (0, 0, 0)
 			root = 0
 			COMP
@@ -3011,7 +3077,7 @@ CustomScenario
 		}
 		CONDITIONAL
 		{
-			id = 18
+			id = 20
 			outputNodePos = (0, 0, 0)
 			root = 0
 			COMP
@@ -3100,7 +3166,7 @@ CustomScenario
 		}
 		CONDITIONAL
 		{
-			id = 19
+			id = 21
 			outputNodePos = (0, 0, 0)
 			root = 0
 			COMP
@@ -3189,7 +3255,7 @@ CustomScenario
 		}
 		CONDITIONAL
 		{
-			id = 20
+			id = 22
 			outputNodePos = (0, 0, 0)
 			root = 0
 			COMP
@@ -3268,184 +3334,6 @@ CustomScenario
 				type = SCCUnit
 				uiPos = (0, 0, 0)
 				unit = 4
-				methodName = SCC_IsUsingAltNumber
-				isNot = False
-				methodParameters
-				{
-					value = 4
-				}
-			}
-		}
-		CONDITIONAL
-		{
-			id = 21
-			outputNodePos = (0, 0, 0)
-			root = 0
-			COMP
-			{
-				id = 0
-				type = SCCAnd
-				uiPos = (0, 0, 0)
-				factors = 1;2;
-			}
-			COMP
-			{
-				id = 1
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 2
-				methodName = SCC_NearWaypoint
-				isNot = False
-				methodParameters
-				{
-					value = unit:5
-				}
-				methodParameters
-				{
-					value = 8
-				}
-			}
-			COMP
-			{
-				id = 2
-				type = SCCOr
-				uiPos = (0, 0, 0)
-				factors = 3;4;5;6;
-			}
-			COMP
-			{
-				id = 3
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 5
-				methodName = SCC_IsUsingAltNumber
-				isNot = False
-				methodParameters
-				{
-					value = 1
-				}
-			}
-			COMP
-			{
-				id = 4
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 5
-				methodName = SCC_IsUsingAltNumber
-				isNot = False
-				methodParameters
-				{
-					value = 2
-				}
-			}
-			COMP
-			{
-				id = 5
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 5
-				methodName = SCC_IsUsingAltNumber
-				isNot = False
-				methodParameters
-				{
-					value = 3
-				}
-			}
-			COMP
-			{
-				id = 6
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 5
-				methodName = SCC_IsUsingAltNumber
-				isNot = False
-				methodParameters
-				{
-					value = 4
-				}
-			}
-		}
-		CONDITIONAL
-		{
-			id = 22
-			outputNodePos = (0, 0, 0)
-			root = 0
-			COMP
-			{
-				id = 0
-				type = SCCAnd
-				uiPos = (0, 0, 0)
-				factors = 1;2;
-			}
-			COMP
-			{
-				id = 1
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 2
-				methodName = SCC_NearWaypoint
-				isNot = False
-				methodParameters
-				{
-					value = unit:6
-				}
-				methodParameters
-				{
-					value = 8
-				}
-			}
-			COMP
-			{
-				id = 2
-				type = SCCOr
-				uiPos = (0, 0, 0)
-				factors = 3;4;5;6;
-			}
-			COMP
-			{
-				id = 3
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 6
-				methodName = SCC_IsUsingAltNumber
-				isNot = False
-				methodParameters
-				{
-					value = 1
-				}
-			}
-			COMP
-			{
-				id = 4
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 6
-				methodName = SCC_IsUsingAltNumber
-				isNot = False
-				methodParameters
-				{
-					value = 2
-				}
-			}
-			COMP
-			{
-				id = 5
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 6
-				methodName = SCC_IsUsingAltNumber
-				isNot = False
-				methodParameters
-				{
-					value = 3
-				}
-			}
-			COMP
-			{
-				id = 6
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 6
 				methodName = SCC_IsUsingAltNumber
 				isNot = False
 				methodParameters
@@ -3476,6 +3364,184 @@ CustomScenario
 				isNot = False
 				methodParameters
 				{
+					value = unit:5
+				}
+				methodParameters
+				{
+					value = 8
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 3;4;5;6;
+			}
+			COMP
+			{
+				id = 3
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 5
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 1
+				}
+			}
+			COMP
+			{
+				id = 4
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 5
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 2
+				}
+			}
+			COMP
+			{
+				id = 5
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 5
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 3
+				}
+			}
+			COMP
+			{
+				id = 6
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 5
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 4
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 24
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 2
+				methodName = SCC_NearWaypoint
+				isNot = False
+				methodParameters
+				{
+					value = unit:6
+				}
+				methodParameters
+				{
+					value = 8
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 3;4;5;6;
+			}
+			COMP
+			{
+				id = 3
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 6
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 1
+				}
+			}
+			COMP
+			{
+				id = 4
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 6
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 2
+				}
+			}
+			COMP
+			{
+				id = 5
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 6
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 3
+				}
+			}
+			COMP
+			{
+				id = 6
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 6
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 4
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 25
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 2
+				methodName = SCC_NearWaypoint
+				isNot = False
+				methodParameters
+				{
 					value = unit:7
 				}
 				methodParameters
@@ -3545,7 +3611,7 @@ CustomScenario
 		}
 		CONDITIONAL
 		{
-			id = 24
+			id = 26
 			outputNodePos = (0, 0, 0)
 			root = 0
 			COMP
@@ -3634,7 +3700,7 @@ CustomScenario
 		}
 		CONDITIONAL
 		{
-			id = 25
+			id = 27
 			outputNodePos = (0, 0, 0)
 			root = 0
 			COMP
@@ -3723,7 +3789,7 @@ CustomScenario
 		}
 		CONDITIONAL
 		{
-			id = 26
+			id = 28
 			outputNodePos = (0, 0, 0)
 			root = 0
 			COMP
@@ -3812,7 +3878,7 @@ CustomScenario
 		}
 		CONDITIONAL
 		{
-			id = 27
+			id = 29
 			outputNodePos = (0, 0, 0)
 			root = 0
 			COMP
@@ -3891,184 +3957,6 @@ CustomScenario
 				type = SCCUnit
 				uiPos = (0, 0, 0)
 				unit = 5
-				methodName = SCC_IsUsingAltNumber
-				isNot = False
-				methodParameters
-				{
-					value = 4
-				}
-			}
-		}
-		CONDITIONAL
-		{
-			id = 28
-			outputNodePos = (0, 0, 0)
-			root = 0
-			COMP
-			{
-				id = 0
-				type = SCCAnd
-				uiPos = (0, 0, 0)
-				factors = 1;2;
-			}
-			COMP
-			{
-				id = 1
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 3
-				methodName = SCC_NearWaypoint
-				isNot = False
-				methodParameters
-				{
-					value = unit:6
-				}
-				methodParameters
-				{
-					value = 8
-				}
-			}
-			COMP
-			{
-				id = 2
-				type = SCCOr
-				uiPos = (0, 0, 0)
-				factors = 3;4;5;6;
-			}
-			COMP
-			{
-				id = 3
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 6
-				methodName = SCC_IsUsingAltNumber
-				isNot = False
-				methodParameters
-				{
-					value = 1
-				}
-			}
-			COMP
-			{
-				id = 4
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 6
-				methodName = SCC_IsUsingAltNumber
-				isNot = False
-				methodParameters
-				{
-					value = 2
-				}
-			}
-			COMP
-			{
-				id = 5
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 6
-				methodName = SCC_IsUsingAltNumber
-				isNot = False
-				methodParameters
-				{
-					value = 3
-				}
-			}
-			COMP
-			{
-				id = 6
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 6
-				methodName = SCC_IsUsingAltNumber
-				isNot = False
-				methodParameters
-				{
-					value = 4
-				}
-			}
-		}
-		CONDITIONAL
-		{
-			id = 29
-			outputNodePos = (0, 0, 0)
-			root = 0
-			COMP
-			{
-				id = 0
-				type = SCCAnd
-				uiPos = (0, 0, 0)
-				factors = 1;2;
-			}
-			COMP
-			{
-				id = 1
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 3
-				methodName = SCC_NearWaypoint
-				isNot = False
-				methodParameters
-				{
-					value = unit:7
-				}
-				methodParameters
-				{
-					value = 8
-				}
-			}
-			COMP
-			{
-				id = 2
-				type = SCCOr
-				uiPos = (0, 0, 0)
-				factors = 3;4;5;6;
-			}
-			COMP
-			{
-				id = 3
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 7
-				methodName = SCC_IsUsingAltNumber
-				isNot = False
-				methodParameters
-				{
-					value = 1
-				}
-			}
-			COMP
-			{
-				id = 4
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 7
-				methodName = SCC_IsUsingAltNumber
-				isNot = False
-				methodParameters
-				{
-					value = 2
-				}
-			}
-			COMP
-			{
-				id = 5
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 7
-				methodName = SCC_IsUsingAltNumber
-				isNot = False
-				methodParameters
-				{
-					value = 3
-				}
-			}
-			COMP
-			{
-				id = 6
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 7
 				methodName = SCC_IsUsingAltNumber
 				isNot = False
 				methodParameters
@@ -4099,6 +3987,184 @@ CustomScenario
 				isNot = False
 				methodParameters
 				{
+					value = unit:6
+				}
+				methodParameters
+				{
+					value = 8
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 3;4;5;6;
+			}
+			COMP
+			{
+				id = 3
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 6
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 1
+				}
+			}
+			COMP
+			{
+				id = 4
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 6
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 2
+				}
+			}
+			COMP
+			{
+				id = 5
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 6
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 3
+				}
+			}
+			COMP
+			{
+				id = 6
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 6
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 4
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 31
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 3
+				methodName = SCC_NearWaypoint
+				isNot = False
+				methodParameters
+				{
+					value = unit:7
+				}
+				methodParameters
+				{
+					value = 8
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 3;4;5;6;
+			}
+			COMP
+			{
+				id = 3
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 7
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 1
+				}
+			}
+			COMP
+			{
+				id = 4
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 7
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 2
+				}
+			}
+			COMP
+			{
+				id = 5
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 7
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 3
+				}
+			}
+			COMP
+			{
+				id = 6
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 7
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 4
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 32
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 3
+				methodName = SCC_NearWaypoint
+				isNot = False
+				methodParameters
+				{
 					value = unit:8
 				}
 				methodParameters
@@ -4168,7 +4234,7 @@ CustomScenario
 		}
 		CONDITIONAL
 		{
-			id = 31
+			id = 33
 			outputNodePos = (0, 0, 0)
 			root = 0
 			COMP
@@ -4257,7 +4323,7 @@ CustomScenario
 		}
 		CONDITIONAL
 		{
-			id = 32
+			id = 34
 			outputNodePos = (0, 0, 0)
 			root = 0
 			COMP
@@ -4346,7 +4412,7 @@ CustomScenario
 		}
 		CONDITIONAL
 		{
-			id = 33
+			id = 35
 			outputNodePos = (0, 0, 0)
 			root = 0
 			COMP
@@ -4425,184 +4491,6 @@ CustomScenario
 				type = SCCUnit
 				uiPos = (0, 0, 0)
 				unit = 6
-				methodName = SCC_IsUsingAltNumber
-				isNot = False
-				methodParameters
-				{
-					value = 4
-				}
-			}
-		}
-		CONDITIONAL
-		{
-			id = 34
-			outputNodePos = (0, 0, 0)
-			root = 0
-			COMP
-			{
-				id = 0
-				type = SCCAnd
-				uiPos = (0, 0, 0)
-				factors = 1;2;
-			}
-			COMP
-			{
-				id = 1
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 4
-				methodName = SCC_NearWaypoint
-				isNot = False
-				methodParameters
-				{
-					value = unit:7
-				}
-				methodParameters
-				{
-					value = 8
-				}
-			}
-			COMP
-			{
-				id = 2
-				type = SCCOr
-				uiPos = (0, 0, 0)
-				factors = 3;4;5;6;
-			}
-			COMP
-			{
-				id = 3
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 7
-				methodName = SCC_IsUsingAltNumber
-				isNot = False
-				methodParameters
-				{
-					value = 1
-				}
-			}
-			COMP
-			{
-				id = 4
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 7
-				methodName = SCC_IsUsingAltNumber
-				isNot = False
-				methodParameters
-				{
-					value = 2
-				}
-			}
-			COMP
-			{
-				id = 5
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 7
-				methodName = SCC_IsUsingAltNumber
-				isNot = False
-				methodParameters
-				{
-					value = 3
-				}
-			}
-			COMP
-			{
-				id = 6
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 7
-				methodName = SCC_IsUsingAltNumber
-				isNot = False
-				methodParameters
-				{
-					value = 4
-				}
-			}
-		}
-		CONDITIONAL
-		{
-			id = 35
-			outputNodePos = (0, 0, 0)
-			root = 0
-			COMP
-			{
-				id = 0
-				type = SCCAnd
-				uiPos = (0, 0, 0)
-				factors = 1;2;
-			}
-			COMP
-			{
-				id = 1
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 4
-				methodName = SCC_NearWaypoint
-				isNot = False
-				methodParameters
-				{
-					value = unit:8
-				}
-				methodParameters
-				{
-					value = 8
-				}
-			}
-			COMP
-			{
-				id = 2
-				type = SCCOr
-				uiPos = (0, 0, 0)
-				factors = 3;4;5;6;
-			}
-			COMP
-			{
-				id = 3
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 8
-				methodName = SCC_IsUsingAltNumber
-				isNot = False
-				methodParameters
-				{
-					value = 1
-				}
-			}
-			COMP
-			{
-				id = 4
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 8
-				methodName = SCC_IsUsingAltNumber
-				isNot = False
-				methodParameters
-				{
-					value = 2
-				}
-			}
-			COMP
-			{
-				id = 5
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 8
-				methodName = SCC_IsUsingAltNumber
-				isNot = False
-				methodParameters
-				{
-					value = 3
-				}
-			}
-			COMP
-			{
-				id = 6
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 8
 				methodName = SCC_IsUsingAltNumber
 				isNot = False
 				methodParameters
@@ -4633,6 +4521,184 @@ CustomScenario
 				isNot = False
 				methodParameters
 				{
+					value = unit:7
+				}
+				methodParameters
+				{
+					value = 8
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 3;4;5;6;
+			}
+			COMP
+			{
+				id = 3
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 7
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 1
+				}
+			}
+			COMP
+			{
+				id = 4
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 7
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 2
+				}
+			}
+			COMP
+			{
+				id = 5
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 7
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 3
+				}
+			}
+			COMP
+			{
+				id = 6
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 7
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 4
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 37
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 4
+				methodName = SCC_NearWaypoint
+				isNot = False
+				methodParameters
+				{
+					value = unit:8
+				}
+				methodParameters
+				{
+					value = 8
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 3;4;5;6;
+			}
+			COMP
+			{
+				id = 3
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 8
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 1
+				}
+			}
+			COMP
+			{
+				id = 4
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 8
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 2
+				}
+			}
+			COMP
+			{
+				id = 5
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 8
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 3
+				}
+			}
+			COMP
+			{
+				id = 6
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 8
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 4
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 38
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 4
+				methodName = SCC_NearWaypoint
+				isNot = False
+				methodParameters
+				{
 					value = unit:9
 				}
 				methodParameters
@@ -4702,7 +4768,7 @@ CustomScenario
 		}
 		CONDITIONAL
 		{
-			id = 37
+			id = 39
 			outputNodePos = (0, 0, 0)
 			root = 0
 			COMP
@@ -4791,7 +4857,7 @@ CustomScenario
 		}
 		CONDITIONAL
 		{
-			id = 38
+			id = 40
 			outputNodePos = (0, 0, 0)
 			root = 0
 			COMP
@@ -4880,7 +4946,7 @@ CustomScenario
 		}
 		CONDITIONAL
 		{
-			id = 39
+			id = 41
 			outputNodePos = (0, 0, 0)
 			root = 0
 			COMP
@@ -4969,7 +5035,7 @@ CustomScenario
 		}
 		CONDITIONAL
 		{
-			id = 40
+			id = 42
 			outputNodePos = (0, 0, 0)
 			root = 0
 			COMP
@@ -5048,184 +5114,6 @@ CustomScenario
 				type = SCCUnit
 				uiPos = (0, 0, 0)
 				unit = 9
-				methodName = SCC_IsUsingAltNumber
-				isNot = False
-				methodParameters
-				{
-					value = 4
-				}
-			}
-		}
-		CONDITIONAL
-		{
-			id = 41
-			outputNodePos = (0, 0, 0)
-			root = 0
-			COMP
-			{
-				id = 0
-				type = SCCAnd
-				uiPos = (0, 0, 0)
-				factors = 1;2;
-			}
-			COMP
-			{
-				id = 1
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 6
-				methodName = SCC_NearWaypoint
-				isNot = False
-				methodParameters
-				{
-					value = unit:7
-				}
-				methodParameters
-				{
-					value = 8
-				}
-			}
-			COMP
-			{
-				id = 2
-				type = SCCOr
-				uiPos = (0, 0, 0)
-				factors = 3;4;5;6;
-			}
-			COMP
-			{
-				id = 3
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 7
-				methodName = SCC_IsUsingAltNumber
-				isNot = False
-				methodParameters
-				{
-					value = 1
-				}
-			}
-			COMP
-			{
-				id = 4
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 7
-				methodName = SCC_IsUsingAltNumber
-				isNot = False
-				methodParameters
-				{
-					value = 2
-				}
-			}
-			COMP
-			{
-				id = 5
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 7
-				methodName = SCC_IsUsingAltNumber
-				isNot = False
-				methodParameters
-				{
-					value = 3
-				}
-			}
-			COMP
-			{
-				id = 6
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 7
-				methodName = SCC_IsUsingAltNumber
-				isNot = False
-				methodParameters
-				{
-					value = 4
-				}
-			}
-		}
-		CONDITIONAL
-		{
-			id = 42
-			outputNodePos = (0, 0, 0)
-			root = 0
-			COMP
-			{
-				id = 0
-				type = SCCAnd
-				uiPos = (0, 0, 0)
-				factors = 1;2;
-			}
-			COMP
-			{
-				id = 1
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 6
-				methodName = SCC_NearWaypoint
-				isNot = False
-				methodParameters
-				{
-					value = unit:8
-				}
-				methodParameters
-				{
-					value = 8
-				}
-			}
-			COMP
-			{
-				id = 2
-				type = SCCOr
-				uiPos = (0, 0, 0)
-				factors = 3;4;5;6;
-			}
-			COMP
-			{
-				id = 3
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 8
-				methodName = SCC_IsUsingAltNumber
-				isNot = False
-				methodParameters
-				{
-					value = 1
-				}
-			}
-			COMP
-			{
-				id = 4
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 8
-				methodName = SCC_IsUsingAltNumber
-				isNot = False
-				methodParameters
-				{
-					value = 2
-				}
-			}
-			COMP
-			{
-				id = 5
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 8
-				methodName = SCC_IsUsingAltNumber
-				isNot = False
-				methodParameters
-				{
-					value = 3
-				}
-			}
-			COMP
-			{
-				id = 6
-				type = SCCUnit
-				uiPos = (0, 0, 0)
-				unit = 8
 				methodName = SCC_IsUsingAltNumber
 				isNot = False
 				methodParameters
@@ -5256,7 +5144,7 @@ CustomScenario
 				isNot = False
 				methodParameters
 				{
-					value = unit:9
+					value = unit:7
 				}
 				methodParameters
 				{
@@ -5275,7 +5163,7 @@ CustomScenario
 				id = 3
 				type = SCCUnit
 				uiPos = (0, 0, 0)
-				unit = 9
+				unit = 7
 				methodName = SCC_IsUsingAltNumber
 				isNot = False
 				methodParameters
@@ -5288,7 +5176,7 @@ CustomScenario
 				id = 4
 				type = SCCUnit
 				uiPos = (0, 0, 0)
-				unit = 9
+				unit = 7
 				methodName = SCC_IsUsingAltNumber
 				isNot = False
 				methodParameters
@@ -5301,7 +5189,7 @@ CustomScenario
 				id = 5
 				type = SCCUnit
 				uiPos = (0, 0, 0)
-				unit = 9
+				unit = 7
 				methodName = SCC_IsUsingAltNumber
 				isNot = False
 				methodParameters
@@ -5314,7 +5202,7 @@ CustomScenario
 				id = 6
 				type = SCCUnit
 				uiPos = (0, 0, 0)
-				unit = 9
+				unit = 7
 				methodName = SCC_IsUsingAltNumber
 				isNot = False
 				methodParameters
@@ -5340,7 +5228,7 @@ CustomScenario
 				id = 1
 				type = SCCUnit
 				uiPos = (0, 0, 0)
-				unit = 7
+				unit = 6
 				methodName = SCC_NearWaypoint
 				isNot = False
 				methodParameters
@@ -5429,7 +5317,7 @@ CustomScenario
 				id = 1
 				type = SCCUnit
 				uiPos = (0, 0, 0)
-				unit = 7
+				unit = 6
 				methodName = SCC_NearWaypoint
 				isNot = False
 				methodParameters
@@ -5518,6 +5406,184 @@ CustomScenario
 				id = 1
 				type = SCCUnit
 				uiPos = (0, 0, 0)
+				unit = 7
+				methodName = SCC_NearWaypoint
+				isNot = False
+				methodParameters
+				{
+					value = unit:8
+				}
+				methodParameters
+				{
+					value = 8
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 3;4;5;6;
+			}
+			COMP
+			{
+				id = 3
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 8
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 1
+				}
+			}
+			COMP
+			{
+				id = 4
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 8
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 2
+				}
+			}
+			COMP
+			{
+				id = 5
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 8
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 3
+				}
+			}
+			COMP
+			{
+				id = 6
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 8
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 4
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 47
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 7
+				methodName = SCC_NearWaypoint
+				isNot = False
+				methodParameters
+				{
+					value = unit:9
+				}
+				methodParameters
+				{
+					value = 8
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 3;4;5;6;
+			}
+			COMP
+			{
+				id = 3
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 9
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 1
+				}
+			}
+			COMP
+			{
+				id = 4
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 9
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 2
+				}
+			}
+			COMP
+			{
+				id = 5
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 9
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 3
+				}
+			}
+			COMP
+			{
+				id = 6
+				type = SCCUnit
+				uiPos = (0, 0, 0)
+				unit = 9
+				methodName = SCC_IsUsingAltNumber
+				isNot = False
+				methodParameters
+				{
+					value = 4
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 48
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnit
+				uiPos = (0, 0, 0)
 				unit = 8
 				methodName = SCC_NearWaypoint
 				isNot = False
@@ -5592,7 +5658,7 @@ CustomScenario
 		}
 		CONDITIONAL
 		{
-			id = 47
+			id = 49
 			outputNodePos = (0, 0, 0)
 			root = 0
 			COMP
@@ -5639,19 +5705,26 @@ CustomScenario
 		}
 		CONDITIONAL
 		{
-			id = 48
+			id = 50
 			outputNodePos = (0, 0, 0)
 			root = 0
 			COMP
 			{
 				id = 0
-				type = SCCOr
+				type = SCCAnd
 				uiPos = (0, 0, 0)
-				factors = 1;2;
+				factors = 1;4;5;
 			}
 			COMP
 			{
 				id = 1
+				type = SCCOr
+				uiPos = (0, 0, 0)
+				factors = 2;3;
+			}
+			COMP
+			{
+				id = 2
 				type = SCCUnitList
 				uiPos = (0, 0, 0)
 				unitList = 0;1;2;3;4;
@@ -5668,7 +5741,7 @@ CustomScenario
 			}
 			COMP
 			{
-				id = 2
+				id = 3
 				type = SCCUnitList
 				uiPos = (0, 0, 0)
 				unitList = 5;6;7;8;9;
@@ -5683,10 +5756,44 @@ CustomScenario
 					value = 1500
 				}
 			}
+			COMP
+			{
+				id = 4
+				type = SCCUnitList
+				uiPos = (0, 0, 0)
+				unitList = 0;1;2;3;4;
+				methodName = SCC_NumAlive
+				isNot = False
+				methodParameters
+				{
+					value = Greater_Than
+				}
+				methodParameters
+				{
+					value = 0
+				}
+			}
+			COMP
+			{
+				id = 5
+				type = SCCUnitList
+				uiPos = (0, 0, 0)
+				unitList = 5;6;7;8;9;
+				methodName = SCC_NumAlive
+				isNot = False
+				methodParameters
+				{
+					value = Greater_Than
+				}
+				methodParameters
+				{
+					value = 0
+				}
+			}
 		}
 		CONDITIONAL
 		{
-			id = 49
+			id = 51
 			outputNodePos = (0, 0, 0)
 			root = 0
 			COMP
@@ -5709,7 +5816,54 @@ CustomScenario
 		}
 		CONDITIONAL
 		{
-			id = 50
+			id = 52
+			outputNodePos = (0, 0, 0)
+			root = 0
+			COMP
+			{
+				id = 0
+				type = SCCAnd
+				uiPos = (0, 0, 0)
+				factors = 1;2;
+			}
+			COMP
+			{
+				id = 1
+				type = SCCUnitList
+				uiPos = (0, 0, 0)
+				unitList = 0;1;2;3;4;
+				methodName = SCC_NumAlive
+				isNot = False
+				methodParameters
+				{
+					value = Equals
+				}
+				methodParameters
+				{
+					value = 0
+				}
+			}
+			COMP
+			{
+				id = 2
+				type = SCCUnitList
+				uiPos = (0, 0, 0)
+				unitList = 5;6;7;8;9;
+				methodName = SCC_NumAlive
+				isNot = False
+				methodParameters
+				{
+					value = Equals
+				}
+				methodParameters
+				{
+					value = 0
+				}
+			}
+		}
+		CONDITIONAL
+		{
+			id = 53
 			outputNodePos = (0, 0, 0)
 			root = 0
 			COMP
@@ -6190,11 +6344,109 @@ CustomScenario
 		ConditionalAction
 		{
 			id = 4
-			name = KotH Points
+			name = Team A won or Sortie Reset
 			BASE_BLOCK
 			{
 				blockName = 
 				blockId = 5
+				CONDITIONAL
+				{
+					id = 0
+					outputNodePos = (0, 0, 0)
+					root = 0
+					COMP
+					{
+						id = 0
+						type = SCCGlobalValue
+						uiPos = (0, 0, 0)
+						gv = 4
+						comparison = Equals
+						c_value = 1
+					}
+				}
+				ACTIONS
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Event_Sequences
+						targetID = 2
+						eventName = Restart
+						methodName = Restart
+						altTargetIdx = -1
+					}
+				}
+				ELSE_ACTIONS
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Event_Sequences
+						targetID = 0
+						eventName = Restart
+						methodName = Restart
+						altTargetIdx = -1
+					}
+				}
+			}
+		}
+		ConditionalAction
+		{
+			id = 5
+			name = Team B won or Sortie Reset
+			BASE_BLOCK
+			{
+				blockName = 
+				blockId = 6
+				CONDITIONAL
+				{
+					id = 0
+					outputNodePos = (0, 0, 0)
+					root = 0
+					COMP
+					{
+						id = 0
+						type = SCCGlobalValue
+						uiPos = (0, 0, 0)
+						gv = 4
+						comparison = Equals
+						c_value = 1
+					}
+				}
+				ACTIONS
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Event_Sequences
+						targetID = 2
+						eventName = Restart
+						methodName = Restart
+						altTargetIdx = -1
+					}
+				}
+				ELSE_ACTIONS
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Event_Sequences
+						targetID = 1
+						eventName = Restart
+						methodName = Restart
+						altTargetIdx = -1
+					}
+				}
+			}
+		}
+		ConditionalAction
+		{
+			id = 6
+			name = KotH Points
+			BASE_BLOCK
+			{
+				blockName = 
+				blockId = 7
 				CONDITIONAL
 				{
 					id = 0
@@ -6249,7 +6501,7 @@ CustomScenario
 				ELSE_IF
 				{
 					blockName = 
-					blockId = 6
+					blockId = 8
 					CONDITIONAL
 					{
 						id = 0
@@ -6286,7 +6538,7 @@ CustomScenario
 							ParamInfo
 							{
 								type = GlobalValue
-								value = 4
+								value = 5
 								name = Global Value
 							}
 							ParamInfo
@@ -6311,7 +6563,7 @@ CustomScenario
 				ELSE_IF
 				{
 					blockName = 
-					blockId = 7
+					blockId = 9
 					CONDITIONAL
 					{
 						id = 0
@@ -6348,7 +6600,7 @@ CustomScenario
 							ParamInfo
 							{
 								type = GlobalValue
-								value = 5
+								value = 6
 								name = Global Value
 							}
 							ParamInfo
@@ -6475,16 +6727,16 @@ CustomScenario
 			}
 			EVENT
 			{
-				conditional = 49
+				conditional = 51
 				delay = 0
-				nodeName = reset match
+				nodeName = reset for next sortie
 				EventInfo
 				{
 					eventName = 
 					EventTarget
 					{
 						targetType = Event_Sequences
-						targetID = 49
+						targetID = 51
 						eventName = Restart
 						methodName = Restart
 						altTargetIdx = -1
@@ -6563,7 +6815,7 @@ CustomScenario
 			EVENT
 			{
 				delay = 15
-				nodeName = Reset Sequence
+				nodeName = Still alive?
 				EventInfo
 				{
 					eventName = 
@@ -6585,16 +6837,16 @@ CustomScenario
 			}
 			EVENT
 			{
-				conditional = 49
+				conditional = 51
 				delay = 0
-				nodeName = reset match
+				nodeName = reset for next sortie
 				EventInfo
 				{
 					eventName = 
 					EventTarget
 					{
 						targetType = Event_Sequences
-						targetID = 49
+						targetID = 51
 						eventName = Restart
 						methodName = Restart
 						altTargetIdx = -1
@@ -6605,10 +6857,225 @@ CustomScenario
 		SEQUENCE
 		{
 			id = 2
-			sequenceName = KotH check
+			sequenceName = abort sortie
 			startImmediately = False
 			whileLoop = False
 			ListOrderIndex = 20
+			ListFolderName = 
+			EVENT
+			{
+				delay = 0
+				nodeName = Pull chutes
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = System
+						targetID = 1
+						eventName = Display Message
+						methodName = DisplayMessage
+						altTargetIdx = -1
+						ParamInfo
+						{
+							type = System.String
+							value = Pull chutes to abort the sortie!
+							name = Text
+							ParamAttrInfo
+							{
+								type = TextInputModes
+								data = MultiLine
+							}
+							ParamAttrInfo
+							{
+								type = System.Int32
+								data = 140
+							}
+						}
+						ParamInfo
+						{
+							type = System.Single
+							value = 5
+							name = Duration
+							ParamAttrInfo
+							{
+								type = MinMax
+								data = (1,9999)
+							}
+						}
+					}
+					EventTarget
+					{
+						targetType = System
+						targetID = 2
+						eventName = Reset Value
+						methodName = ResetValue
+						altTargetIdx = -1
+						ParamInfo
+						{
+							type = GlobalValue
+							value = 6
+							name = Global Value
+						}
+					}
+					EventTarget
+					{
+						targetType = System
+						targetID = 2
+						eventName = Reset Value
+						methodName = ResetValue
+						altTargetIdx = -1
+						ParamInfo
+						{
+							type = GlobalValue
+							value = 5
+							name = Global Value
+						}
+					}
+					EventTarget
+					{
+						targetType = Objective
+						targetID = 2
+						eventName = Cancel Objective
+						methodName = CancelObjective
+						altTargetIdx = -1
+					}
+					EventTarget
+					{
+						targetType = Objective
+						targetID = 3
+						eventName = Cancel Objective
+						methodName = CancelObjective
+						altTargetIdx = -1
+					}
+					EventTarget
+					{
+						targetType = Objective
+						targetID = 4
+						eventName = Cancel Objective
+						methodName = CancelObjective
+						altTargetIdx = -1
+					}
+					EventTarget
+					{
+						targetType = Objective
+						targetID = 5
+						eventName = Cancel Objective
+						methodName = CancelObjective
+						altTargetIdx = -1
+					}
+					EventTarget
+					{
+						targetType = Event_Sequences
+						targetID = 4
+						eventName = Stop
+						methodName = Stop
+						altTargetIdx = -1
+					}
+				}
+			}
+			EVENT
+			{
+				conditional = 52
+				delay = 0
+				nodeName = Wait for everyone to be dead
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Event_Sequences
+						targetID = 51
+						eventName = Restart
+						methodName = Restart
+						altTargetIdx = -1
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 3
+			sequenceName = Damage Dealt
+			startImmediately = True
+			whileLoop = True
+			ListOrderIndex = 30
+			ListFolderName = 
+			EVENT
+			{
+				conditional = 2
+				delay = 0
+				nodeName = Resetable
+				EventInfo
+				{
+					eventName = 
+				}
+			}
+			EVENT
+			{
+				conditional = 3
+				delay = 0
+				nodeName = When Damaged
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = System
+						targetID = 2
+						eventName = Set Value
+						methodName = SetValue
+						altTargetIdx = -1
+						ParamInfo
+						{
+							type = GlobalValue
+							value = 4
+							name = Global Value
+						}
+						ParamInfo
+						{
+							type = System.Single
+							value = 0
+							name = Set_to
+							ParamAttrInfo
+							{
+								type = UnitSpawnAttributeRange+RangeTypes
+								data = Int
+							}
+							ParamAttrInfo
+							{
+								type = MinMax
+								data = (-99999,99999)
+							}
+						}
+					}
+				}
+			}
+			EVENT
+			{
+				delay = 1
+				nodeName = Reset
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Event_Sequences
+						targetID = 3
+						eventName = Restart
+						methodName = Restart
+						altTargetIdx = -1
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 4
+			sequenceName = KotH check
+			startImmediately = False
+			whileLoop = False
+			ListOrderIndex = 40
 			ListFolderName = 
 			EVENT
 			{
@@ -6627,7 +7094,7 @@ CustomScenario
 						ParamInfo
 						{
 							type = ConditionalActionReference
-							value = 4
+							value = 6
 							name = Action
 						}
 					}
@@ -6643,7 +7110,7 @@ CustomScenario
 					EventTarget
 					{
 						targetType = Event_Sequences
-						targetID = 2
+						targetID = 4
 						eventName = Restart
 						methodName = Restart
 						altTargetIdx = -1
@@ -6653,78 +7120,8 @@ CustomScenario
 		}
 		SEQUENCE
 		{
-			id = 3
-			sequenceName = [0] vs [1]
-			startImmediately = True
-			whileLoop = False
-			ListOrderIndex = 40
-			ListFolderName = Collisions
-			EVENT
-			{
-				conditional = 2
-				delay = 0
-				nodeName = Kill
-				EventInfo
-				{
-					eventName = 
-					EventTarget
-					{
-						targetType = Unit
-						targetID = 0
-						eventName = Destroy Vehicle
-						methodName = DestroyVehicle
-						altTargetIdx = -2
-					}
-					EventTarget
-					{
-						targetType = Unit
-						targetID = 1
-						eventName = Destroy Vehicle
-						methodName = DestroyVehicle
-						altTargetIdx = -2
-					}
-				}
-			}
-		}
-		SEQUENCE
-		{
-			id = 4
-			sequenceName = [0] vs [2]
-			startImmediately = True
-			whileLoop = False
-			ListOrderIndex = 50
-			ListFolderName = Collisions
-			EVENT
-			{
-				conditional = 3
-				delay = 0
-				nodeName = Kill
-				EventInfo
-				{
-					eventName = 
-					EventTarget
-					{
-						targetType = Unit
-						targetID = 0
-						eventName = Destroy Vehicle
-						methodName = DestroyVehicle
-						altTargetIdx = -2
-					}
-					EventTarget
-					{
-						targetType = Unit
-						targetID = 2
-						eventName = Destroy Vehicle
-						methodName = DestroyVehicle
-						altTargetIdx = -2
-					}
-				}
-			}
-		}
-		SEQUENCE
-		{
 			id = 5
-			sequenceName = [0] vs [3]
+			sequenceName = [0] vs [1]
 			startImmediately = True
 			whileLoop = False
 			ListOrderIndex = 60
@@ -6748,7 +7145,7 @@ CustomScenario
 					EventTarget
 					{
 						targetType = Unit
-						targetID = 3
+						targetID = 1
 						eventName = Destroy Vehicle
 						methodName = DestroyVehicle
 						altTargetIdx = -2
@@ -6759,7 +7156,7 @@ CustomScenario
 		SEQUENCE
 		{
 			id = 6
-			sequenceName = [0] vs [4]
+			sequenceName = [0] vs [2]
 			startImmediately = True
 			whileLoop = False
 			ListOrderIndex = 70
@@ -6783,7 +7180,7 @@ CustomScenario
 					EventTarget
 					{
 						targetType = Unit
-						targetID = 4
+						targetID = 2
 						eventName = Destroy Vehicle
 						methodName = DestroyVehicle
 						altTargetIdx = -2
@@ -6794,7 +7191,7 @@ CustomScenario
 		SEQUENCE
 		{
 			id = 7
-			sequenceName = [0] vs [5]
+			sequenceName = [0] vs [3]
 			startImmediately = True
 			whileLoop = False
 			ListOrderIndex = 80
@@ -6818,7 +7215,7 @@ CustomScenario
 					EventTarget
 					{
 						targetType = Unit
-						targetID = 5
+						targetID = 3
 						eventName = Destroy Vehicle
 						methodName = DestroyVehicle
 						altTargetIdx = -2
@@ -6829,7 +7226,7 @@ CustomScenario
 		SEQUENCE
 		{
 			id = 8
-			sequenceName = [0] vs [6]
+			sequenceName = [0] vs [4]
 			startImmediately = True
 			whileLoop = False
 			ListOrderIndex = 90
@@ -6853,7 +7250,7 @@ CustomScenario
 					EventTarget
 					{
 						targetType = Unit
-						targetID = 6
+						targetID = 4
 						eventName = Destroy Vehicle
 						methodName = DestroyVehicle
 						altTargetIdx = -2
@@ -6864,7 +7261,7 @@ CustomScenario
 		SEQUENCE
 		{
 			id = 9
-			sequenceName = [0] vs [7]
+			sequenceName = [0] vs [5]
 			startImmediately = True
 			whileLoop = False
 			ListOrderIndex = 100
@@ -6888,7 +7285,7 @@ CustomScenario
 					EventTarget
 					{
 						targetType = Unit
-						targetID = 7
+						targetID = 5
 						eventName = Destroy Vehicle
 						methodName = DestroyVehicle
 						altTargetIdx = -2
@@ -6899,7 +7296,7 @@ CustomScenario
 		SEQUENCE
 		{
 			id = 10
-			sequenceName = [0] vs [8]
+			sequenceName = [0] vs [6]
 			startImmediately = True
 			whileLoop = False
 			ListOrderIndex = 110
@@ -6923,7 +7320,7 @@ CustomScenario
 					EventTarget
 					{
 						targetType = Unit
-						targetID = 8
+						targetID = 6
 						eventName = Destroy Vehicle
 						methodName = DestroyVehicle
 						altTargetIdx = -2
@@ -6934,7 +7331,7 @@ CustomScenario
 		SEQUENCE
 		{
 			id = 11
-			sequenceName = [0] vs [9]
+			sequenceName = [0] vs [7]
 			startImmediately = True
 			whileLoop = False
 			ListOrderIndex = 120
@@ -6942,6 +7339,76 @@ CustomScenario
 			EVENT
 			{
 				conditional = 10
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 0
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 7
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 12
+			sequenceName = [0] vs [8]
+			startImmediately = True
+			whileLoop = False
+			ListOrderIndex = 130
+			ListFolderName = Collisions
+			EVENT
+			{
+				conditional = 11
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 0
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 8
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 13
+			sequenceName = [0] vs [9]
+			startImmediately = True
+			whileLoop = False
+			ListOrderIndex = 140
+			ListFolderName = Collisions
+			EVENT
+			{
+				conditional = 12
 				delay = 0
 				nodeName = Kill
 				EventInfo
@@ -6968,78 +7435,8 @@ CustomScenario
 		}
 		SEQUENCE
 		{
-			id = 12
-			sequenceName = [1] vs [2]
-			startImmediately = True
-			whileLoop = False
-			ListOrderIndex = 130
-			ListFolderName = Collisions
-			EVENT
-			{
-				conditional = 11
-				delay = 0
-				nodeName = Kill
-				EventInfo
-				{
-					eventName = 
-					EventTarget
-					{
-						targetType = Unit
-						targetID = 1
-						eventName = Destroy Vehicle
-						methodName = DestroyVehicle
-						altTargetIdx = -2
-					}
-					EventTarget
-					{
-						targetType = Unit
-						targetID = 2
-						eventName = Destroy Vehicle
-						methodName = DestroyVehicle
-						altTargetIdx = -2
-					}
-				}
-			}
-		}
-		SEQUENCE
-		{
-			id = 13
-			sequenceName = [1] vs [3]
-			startImmediately = True
-			whileLoop = False
-			ListOrderIndex = 140
-			ListFolderName = Collisions
-			EVENT
-			{
-				conditional = 12
-				delay = 0
-				nodeName = Kill
-				EventInfo
-				{
-					eventName = 
-					EventTarget
-					{
-						targetType = Unit
-						targetID = 1
-						eventName = Destroy Vehicle
-						methodName = DestroyVehicle
-						altTargetIdx = -2
-					}
-					EventTarget
-					{
-						targetType = Unit
-						targetID = 3
-						eventName = Destroy Vehicle
-						methodName = DestroyVehicle
-						altTargetIdx = -2
-					}
-				}
-			}
-		}
-		SEQUENCE
-		{
 			id = 14
-			sequenceName = [1] vs [4]
+			sequenceName = [1] vs [2]
 			startImmediately = True
 			whileLoop = False
 			ListOrderIndex = 150
@@ -7063,7 +7460,7 @@ CustomScenario
 					EventTarget
 					{
 						targetType = Unit
-						targetID = 4
+						targetID = 2
 						eventName = Destroy Vehicle
 						methodName = DestroyVehicle
 						altTargetIdx = -2
@@ -7074,7 +7471,7 @@ CustomScenario
 		SEQUENCE
 		{
 			id = 15
-			sequenceName = [1] vs [5]
+			sequenceName = [1] vs [3]
 			startImmediately = True
 			whileLoop = False
 			ListOrderIndex = 160
@@ -7098,7 +7495,7 @@ CustomScenario
 					EventTarget
 					{
 						targetType = Unit
-						targetID = 5
+						targetID = 3
 						eventName = Destroy Vehicle
 						methodName = DestroyVehicle
 						altTargetIdx = -2
@@ -7109,7 +7506,7 @@ CustomScenario
 		SEQUENCE
 		{
 			id = 16
-			sequenceName = [1] vs [6]
+			sequenceName = [1] vs [4]
 			startImmediately = True
 			whileLoop = False
 			ListOrderIndex = 170
@@ -7133,7 +7530,7 @@ CustomScenario
 					EventTarget
 					{
 						targetType = Unit
-						targetID = 6
+						targetID = 4
 						eventName = Destroy Vehicle
 						methodName = DestroyVehicle
 						altTargetIdx = -2
@@ -7144,7 +7541,7 @@ CustomScenario
 		SEQUENCE
 		{
 			id = 17
-			sequenceName = [1] vs [7]
+			sequenceName = [1] vs [5]
 			startImmediately = True
 			whileLoop = False
 			ListOrderIndex = 180
@@ -7168,7 +7565,7 @@ CustomScenario
 					EventTarget
 					{
 						targetType = Unit
-						targetID = 7
+						targetID = 5
 						eventName = Destroy Vehicle
 						methodName = DestroyVehicle
 						altTargetIdx = -2
@@ -7179,7 +7576,7 @@ CustomScenario
 		SEQUENCE
 		{
 			id = 18
-			sequenceName = [1] vs [8]
+			sequenceName = [1] vs [6]
 			startImmediately = True
 			whileLoop = False
 			ListOrderIndex = 190
@@ -7203,7 +7600,7 @@ CustomScenario
 					EventTarget
 					{
 						targetType = Unit
-						targetID = 8
+						targetID = 6
 						eventName = Destroy Vehicle
 						methodName = DestroyVehicle
 						altTargetIdx = -2
@@ -7214,7 +7611,7 @@ CustomScenario
 		SEQUENCE
 		{
 			id = 19
-			sequenceName = [1] vs [9]
+			sequenceName = [1] vs [7]
 			startImmediately = True
 			whileLoop = False
 			ListOrderIndex = 200
@@ -7222,6 +7619,76 @@ CustomScenario
 			EVENT
 			{
 				conditional = 18
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 1
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 7
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 20
+			sequenceName = [1] vs [8]
+			startImmediately = True
+			whileLoop = False
+			ListOrderIndex = 210
+			ListFolderName = Collisions
+			EVENT
+			{
+				conditional = 19
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 1
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 8
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 21
+			sequenceName = [1] vs [9]
+			startImmediately = True
+			whileLoop = False
+			ListOrderIndex = 220
+			ListFolderName = Collisions
+			EVENT
+			{
+				conditional = 20
 				delay = 0
 				nodeName = Kill
 				EventInfo
@@ -7248,78 +7715,8 @@ CustomScenario
 		}
 		SEQUENCE
 		{
-			id = 20
-			sequenceName = [2] vs [3]
-			startImmediately = True
-			whileLoop = False
-			ListOrderIndex = 210
-			ListFolderName = Collisions
-			EVENT
-			{
-				conditional = 19
-				delay = 0
-				nodeName = Kill
-				EventInfo
-				{
-					eventName = 
-					EventTarget
-					{
-						targetType = Unit
-						targetID = 2
-						eventName = Destroy Vehicle
-						methodName = DestroyVehicle
-						altTargetIdx = -2
-					}
-					EventTarget
-					{
-						targetType = Unit
-						targetID = 3
-						eventName = Destroy Vehicle
-						methodName = DestroyVehicle
-						altTargetIdx = -2
-					}
-				}
-			}
-		}
-		SEQUENCE
-		{
-			id = 21
-			sequenceName = [2] vs [4]
-			startImmediately = True
-			whileLoop = False
-			ListOrderIndex = 220
-			ListFolderName = Collisions
-			EVENT
-			{
-				conditional = 20
-				delay = 0
-				nodeName = Kill
-				EventInfo
-				{
-					eventName = 
-					EventTarget
-					{
-						targetType = Unit
-						targetID = 2
-						eventName = Destroy Vehicle
-						methodName = DestroyVehicle
-						altTargetIdx = -2
-					}
-					EventTarget
-					{
-						targetType = Unit
-						targetID = 4
-						eventName = Destroy Vehicle
-						methodName = DestroyVehicle
-						altTargetIdx = -2
-					}
-				}
-			}
-		}
-		SEQUENCE
-		{
 			id = 22
-			sequenceName = [2] vs [5]
+			sequenceName = [2] vs [3]
 			startImmediately = True
 			whileLoop = False
 			ListOrderIndex = 230
@@ -7343,7 +7740,7 @@ CustomScenario
 					EventTarget
 					{
 						targetType = Unit
-						targetID = 5
+						targetID = 3
 						eventName = Destroy Vehicle
 						methodName = DestroyVehicle
 						altTargetIdx = -2
@@ -7354,7 +7751,7 @@ CustomScenario
 		SEQUENCE
 		{
 			id = 23
-			sequenceName = [2] vs [6]
+			sequenceName = [2] vs [4]
 			startImmediately = True
 			whileLoop = False
 			ListOrderIndex = 240
@@ -7378,7 +7775,7 @@ CustomScenario
 					EventTarget
 					{
 						targetType = Unit
-						targetID = 6
+						targetID = 4
 						eventName = Destroy Vehicle
 						methodName = DestroyVehicle
 						altTargetIdx = -2
@@ -7389,7 +7786,7 @@ CustomScenario
 		SEQUENCE
 		{
 			id = 24
-			sequenceName = [2] vs [7]
+			sequenceName = [2] vs [5]
 			startImmediately = True
 			whileLoop = False
 			ListOrderIndex = 250
@@ -7413,7 +7810,7 @@ CustomScenario
 					EventTarget
 					{
 						targetType = Unit
-						targetID = 7
+						targetID = 5
 						eventName = Destroy Vehicle
 						methodName = DestroyVehicle
 						altTargetIdx = -2
@@ -7424,7 +7821,7 @@ CustomScenario
 		SEQUENCE
 		{
 			id = 25
-			sequenceName = [2] vs [8]
+			sequenceName = [2] vs [6]
 			startImmediately = True
 			whileLoop = False
 			ListOrderIndex = 260
@@ -7448,7 +7845,7 @@ CustomScenario
 					EventTarget
 					{
 						targetType = Unit
-						targetID = 8
+						targetID = 6
 						eventName = Destroy Vehicle
 						methodName = DestroyVehicle
 						altTargetIdx = -2
@@ -7459,7 +7856,7 @@ CustomScenario
 		SEQUENCE
 		{
 			id = 26
-			sequenceName = [2] vs [9]
+			sequenceName = [2] vs [7]
 			startImmediately = True
 			whileLoop = False
 			ListOrderIndex = 270
@@ -7467,6 +7864,76 @@ CustomScenario
 			EVENT
 			{
 				conditional = 25
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 2
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 7
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 27
+			sequenceName = [2] vs [8]
+			startImmediately = True
+			whileLoop = False
+			ListOrderIndex = 280
+			ListFolderName = Collisions
+			EVENT
+			{
+				conditional = 26
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 2
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 8
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 28
+			sequenceName = [2] vs [9]
+			startImmediately = True
+			whileLoop = False
+			ListOrderIndex = 290
+			ListFolderName = Collisions
+			EVENT
+			{
+				conditional = 27
 				delay = 0
 				nodeName = Kill
 				EventInfo
@@ -7493,78 +7960,8 @@ CustomScenario
 		}
 		SEQUENCE
 		{
-			id = 27
-			sequenceName = [3] vs [4]
-			startImmediately = True
-			whileLoop = False
-			ListOrderIndex = 280
-			ListFolderName = Collisions
-			EVENT
-			{
-				conditional = 26
-				delay = 0
-				nodeName = Kill
-				EventInfo
-				{
-					eventName = 
-					EventTarget
-					{
-						targetType = Unit
-						targetID = 3
-						eventName = Destroy Vehicle
-						methodName = DestroyVehicle
-						altTargetIdx = -2
-					}
-					EventTarget
-					{
-						targetType = Unit
-						targetID = 4
-						eventName = Destroy Vehicle
-						methodName = DestroyVehicle
-						altTargetIdx = -2
-					}
-				}
-			}
-		}
-		SEQUENCE
-		{
-			id = 28
-			sequenceName = [3] vs [5]
-			startImmediately = True
-			whileLoop = False
-			ListOrderIndex = 290
-			ListFolderName = Collisions
-			EVENT
-			{
-				conditional = 27
-				delay = 0
-				nodeName = Kill
-				EventInfo
-				{
-					eventName = 
-					EventTarget
-					{
-						targetType = Unit
-						targetID = 3
-						eventName = Destroy Vehicle
-						methodName = DestroyVehicle
-						altTargetIdx = -2
-					}
-					EventTarget
-					{
-						targetType = Unit
-						targetID = 5
-						eventName = Destroy Vehicle
-						methodName = DestroyVehicle
-						altTargetIdx = -2
-					}
-				}
-			}
-		}
-		SEQUENCE
-		{
 			id = 29
-			sequenceName = [3] vs [6]
+			sequenceName = [3] vs [4]
 			startImmediately = True
 			whileLoop = False
 			ListOrderIndex = 300
@@ -7588,7 +7985,7 @@ CustomScenario
 					EventTarget
 					{
 						targetType = Unit
-						targetID = 6
+						targetID = 4
 						eventName = Destroy Vehicle
 						methodName = DestroyVehicle
 						altTargetIdx = -2
@@ -7599,7 +7996,7 @@ CustomScenario
 		SEQUENCE
 		{
 			id = 30
-			sequenceName = [3] vs [7]
+			sequenceName = [3] vs [5]
 			startImmediately = True
 			whileLoop = False
 			ListOrderIndex = 310
@@ -7623,7 +8020,7 @@ CustomScenario
 					EventTarget
 					{
 						targetType = Unit
-						targetID = 7
+						targetID = 5
 						eventName = Destroy Vehicle
 						methodName = DestroyVehicle
 						altTargetIdx = -2
@@ -7634,7 +8031,7 @@ CustomScenario
 		SEQUENCE
 		{
 			id = 31
-			sequenceName = [3] vs [8]
+			sequenceName = [3] vs [6]
 			startImmediately = True
 			whileLoop = False
 			ListOrderIndex = 320
@@ -7658,7 +8055,7 @@ CustomScenario
 					EventTarget
 					{
 						targetType = Unit
-						targetID = 8
+						targetID = 6
 						eventName = Destroy Vehicle
 						methodName = DestroyVehicle
 						altTargetIdx = -2
@@ -7669,7 +8066,7 @@ CustomScenario
 		SEQUENCE
 		{
 			id = 32
-			sequenceName = [3] vs [9]
+			sequenceName = [3] vs [7]
 			startImmediately = True
 			whileLoop = False
 			ListOrderIndex = 330
@@ -7677,6 +8074,76 @@ CustomScenario
 			EVENT
 			{
 				conditional = 31
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 3
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 7
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 33
+			sequenceName = [3] vs [8]
+			startImmediately = True
+			whileLoop = False
+			ListOrderIndex = 340
+			ListFolderName = Collisions
+			EVENT
+			{
+				conditional = 32
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 3
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 8
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 34
+			sequenceName = [3] vs [9]
+			startImmediately = True
+			whileLoop = False
+			ListOrderIndex = 350
+			ListFolderName = Collisions
+			EVENT
+			{
+				conditional = 33
 				delay = 0
 				nodeName = Kill
 				EventInfo
@@ -7703,78 +8170,8 @@ CustomScenario
 		}
 		SEQUENCE
 		{
-			id = 33
-			sequenceName = [4] vs [5]
-			startImmediately = True
-			whileLoop = False
-			ListOrderIndex = 340
-			ListFolderName = Collisions
-			EVENT
-			{
-				conditional = 32
-				delay = 0
-				nodeName = Kill
-				EventInfo
-				{
-					eventName = 
-					EventTarget
-					{
-						targetType = Unit
-						targetID = 4
-						eventName = Destroy Vehicle
-						methodName = DestroyVehicle
-						altTargetIdx = -2
-					}
-					EventTarget
-					{
-						targetType = Unit
-						targetID = 5
-						eventName = Destroy Vehicle
-						methodName = DestroyVehicle
-						altTargetIdx = -2
-					}
-				}
-			}
-		}
-		SEQUENCE
-		{
-			id = 34
-			sequenceName = [4] vs [6]
-			startImmediately = True
-			whileLoop = False
-			ListOrderIndex = 350
-			ListFolderName = Collisions
-			EVENT
-			{
-				conditional = 33
-				delay = 0
-				nodeName = Kill
-				EventInfo
-				{
-					eventName = 
-					EventTarget
-					{
-						targetType = Unit
-						targetID = 4
-						eventName = Destroy Vehicle
-						methodName = DestroyVehicle
-						altTargetIdx = -2
-					}
-					EventTarget
-					{
-						targetType = Unit
-						targetID = 6
-						eventName = Destroy Vehicle
-						methodName = DestroyVehicle
-						altTargetIdx = -2
-					}
-				}
-			}
-		}
-		SEQUENCE
-		{
 			id = 35
-			sequenceName = [4] vs [7]
+			sequenceName = [4] vs [5]
 			startImmediately = True
 			whileLoop = False
 			ListOrderIndex = 360
@@ -7798,7 +8195,7 @@ CustomScenario
 					EventTarget
 					{
 						targetType = Unit
-						targetID = 7
+						targetID = 5
 						eventName = Destroy Vehicle
 						methodName = DestroyVehicle
 						altTargetIdx = -2
@@ -7809,7 +8206,7 @@ CustomScenario
 		SEQUENCE
 		{
 			id = 36
-			sequenceName = [4] vs [8]
+			sequenceName = [4] vs [6]
 			startImmediately = True
 			whileLoop = False
 			ListOrderIndex = 370
@@ -7833,7 +8230,7 @@ CustomScenario
 					EventTarget
 					{
 						targetType = Unit
-						targetID = 8
+						targetID = 6
 						eventName = Destroy Vehicle
 						methodName = DestroyVehicle
 						altTargetIdx = -2
@@ -7844,7 +8241,7 @@ CustomScenario
 		SEQUENCE
 		{
 			id = 37
-			sequenceName = [4] vs [9]
+			sequenceName = [4] vs [7]
 			startImmediately = True
 			whileLoop = False
 			ListOrderIndex = 380
@@ -7852,6 +8249,76 @@ CustomScenario
 			EVENT
 			{
 				conditional = 36
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 4
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 7
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 38
+			sequenceName = [4] vs [8]
+			startImmediately = True
+			whileLoop = False
+			ListOrderIndex = 390
+			ListFolderName = Collisions
+			EVENT
+			{
+				conditional = 37
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 4
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 8
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 39
+			sequenceName = [4] vs [9]
+			startImmediately = True
+			whileLoop = False
+			ListOrderIndex = 400
+			ListFolderName = Collisions
+			EVENT
+			{
+				conditional = 38
 				delay = 0
 				nodeName = Kill
 				EventInfo
@@ -7878,78 +8345,8 @@ CustomScenario
 		}
 		SEQUENCE
 		{
-			id = 38
-			sequenceName = [5] vs [6]
-			startImmediately = True
-			whileLoop = False
-			ListOrderIndex = 390
-			ListFolderName = Collisions
-			EVENT
-			{
-				conditional = 37
-				delay = 0
-				nodeName = Kill
-				EventInfo
-				{
-					eventName = 
-					EventTarget
-					{
-						targetType = Unit
-						targetID = 5
-						eventName = Destroy Vehicle
-						methodName = DestroyVehicle
-						altTargetIdx = -2
-					}
-					EventTarget
-					{
-						targetType = Unit
-						targetID = 6
-						eventName = Destroy Vehicle
-						methodName = DestroyVehicle
-						altTargetIdx = -2
-					}
-				}
-			}
-		}
-		SEQUENCE
-		{
-			id = 39
-			sequenceName = [5] vs [7]
-			startImmediately = True
-			whileLoop = False
-			ListOrderIndex = 400
-			ListFolderName = Collisions
-			EVENT
-			{
-				conditional = 38
-				delay = 0
-				nodeName = Kill
-				EventInfo
-				{
-					eventName = 
-					EventTarget
-					{
-						targetType = Unit
-						targetID = 5
-						eventName = Destroy Vehicle
-						methodName = DestroyVehicle
-						altTargetIdx = -2
-					}
-					EventTarget
-					{
-						targetType = Unit
-						targetID = 7
-						eventName = Destroy Vehicle
-						methodName = DestroyVehicle
-						altTargetIdx = -2
-					}
-				}
-			}
-		}
-		SEQUENCE
-		{
 			id = 40
-			sequenceName = [5] vs [8]
+			sequenceName = [5] vs [6]
 			startImmediately = True
 			whileLoop = False
 			ListOrderIndex = 410
@@ -7973,7 +8370,7 @@ CustomScenario
 					EventTarget
 					{
 						targetType = Unit
-						targetID = 8
+						targetID = 6
 						eventName = Destroy Vehicle
 						methodName = DestroyVehicle
 						altTargetIdx = -2
@@ -7984,7 +8381,7 @@ CustomScenario
 		SEQUENCE
 		{
 			id = 41
-			sequenceName = [5] vs [9]
+			sequenceName = [5] vs [7]
 			startImmediately = True
 			whileLoop = False
 			ListOrderIndex = 420
@@ -7992,6 +8389,76 @@ CustomScenario
 			EVENT
 			{
 				conditional = 40
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 5
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 7
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 42
+			sequenceName = [5] vs [8]
+			startImmediately = True
+			whileLoop = False
+			ListOrderIndex = 430
+			ListFolderName = Collisions
+			EVENT
+			{
+				conditional = 41
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 5
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 8
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 43
+			sequenceName = [5] vs [9]
+			startImmediately = True
+			whileLoop = False
+			ListOrderIndex = 440
+			ListFolderName = Collisions
+			EVENT
+			{
+				conditional = 42
 				delay = 0
 				nodeName = Kill
 				EventInfo
@@ -8018,78 +8485,8 @@ CustomScenario
 		}
 		SEQUENCE
 		{
-			id = 42
-			sequenceName = [6] vs [7]
-			startImmediately = True
-			whileLoop = False
-			ListOrderIndex = 430
-			ListFolderName = Collisions
-			EVENT
-			{
-				conditional = 41
-				delay = 0
-				nodeName = Kill
-				EventInfo
-				{
-					eventName = 
-					EventTarget
-					{
-						targetType = Unit
-						targetID = 6
-						eventName = Destroy Vehicle
-						methodName = DestroyVehicle
-						altTargetIdx = -2
-					}
-					EventTarget
-					{
-						targetType = Unit
-						targetID = 7
-						eventName = Destroy Vehicle
-						methodName = DestroyVehicle
-						altTargetIdx = -2
-					}
-				}
-			}
-		}
-		SEQUENCE
-		{
-			id = 43
-			sequenceName = [6] vs [8]
-			startImmediately = True
-			whileLoop = False
-			ListOrderIndex = 440
-			ListFolderName = Collisions
-			EVENT
-			{
-				conditional = 42
-				delay = 0
-				nodeName = Kill
-				EventInfo
-				{
-					eventName = 
-					EventTarget
-					{
-						targetType = Unit
-						targetID = 6
-						eventName = Destroy Vehicle
-						methodName = DestroyVehicle
-						altTargetIdx = -2
-					}
-					EventTarget
-					{
-						targetType = Unit
-						targetID = 8
-						eventName = Destroy Vehicle
-						methodName = DestroyVehicle
-						altTargetIdx = -2
-					}
-				}
-			}
-		}
-		SEQUENCE
-		{
 			id = 44
-			sequenceName = [6] vs [9]
+			sequenceName = [6] vs [7]
 			startImmediately = True
 			whileLoop = False
 			ListOrderIndex = 450
@@ -8113,7 +8510,7 @@ CustomScenario
 					EventTarget
 					{
 						targetType = Unit
-						targetID = 9
+						targetID = 7
 						eventName = Destroy Vehicle
 						methodName = DestroyVehicle
 						altTargetIdx = -2
@@ -8124,7 +8521,7 @@ CustomScenario
 		SEQUENCE
 		{
 			id = 45
-			sequenceName = [7] vs [8]
+			sequenceName = [6] vs [8]
 			startImmediately = True
 			whileLoop = False
 			ListOrderIndex = 460
@@ -8140,7 +8537,7 @@ CustomScenario
 					EventTarget
 					{
 						targetType = Unit
-						targetID = 7
+						targetID = 6
 						eventName = Destroy Vehicle
 						methodName = DestroyVehicle
 						altTargetIdx = -2
@@ -8159,7 +8556,7 @@ CustomScenario
 		SEQUENCE
 		{
 			id = 46
-			sequenceName = [7] vs [9]
+			sequenceName = [6] vs [9]
 			startImmediately = True
 			whileLoop = False
 			ListOrderIndex = 470
@@ -8167,6 +8564,76 @@ CustomScenario
 			EVENT
 			{
 				conditional = 45
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 6
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 9
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 47
+			sequenceName = [7] vs [8]
+			startImmediately = True
+			whileLoop = False
+			ListOrderIndex = 480
+			ListFolderName = Collisions
+			EVENT
+			{
+				conditional = 46
+				delay = 0
+				nodeName = Kill
+				EventInfo
+				{
+					eventName = 
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 7
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+					EventTarget
+					{
+						targetType = Unit
+						targetID = 8
+						eventName = Destroy Vehicle
+						methodName = DestroyVehicle
+						altTargetIdx = -2
+					}
+				}
+			}
+		}
+		SEQUENCE
+		{
+			id = 48
+			sequenceName = [7] vs [9]
+			startImmediately = True
+			whileLoop = False
+			ListOrderIndex = 490
+			ListFolderName = Collisions
+			EVENT
+			{
+				conditional = 47
 				delay = 0
 				nodeName = Kill
 				EventInfo
@@ -8193,15 +8660,15 @@ CustomScenario
 		}
 		SEQUENCE
 		{
-			id = 47
+			id = 49
 			sequenceName = [8] vs [9]
 			startImmediately = True
 			whileLoop = False
-			ListOrderIndex = 480
+			ListOrderIndex = 500
 			ListFolderName = Collisions
 			EVENT
 			{
-				conditional = 46
+				conditional = 48
 				delay = 0
 				nodeName = Kill
 				EventInfo
@@ -8228,15 +8695,15 @@ CustomScenario
 		}
 		SEQUENCE
 		{
-			id = 48
-			sequenceName = Start Match
+			id = 50
+			sequenceName = Start Sortie
 			startImmediately = False
 			whileLoop = False
-			ListOrderIndex = 490
+			ListOrderIndex = 510
 			ListFolderName = 
 			EVENT
 			{
-				conditional = 47
+				conditional = 49
 				delay = 1
 				nodeName = spawned
 				EventInfo
@@ -8246,7 +8713,7 @@ CustomScenario
 			}
 			EVENT
 			{
-				conditional = 48
+				conditional = 50
 				delay = 1
 				nodeName = start
 				EventInfo
@@ -8552,7 +9019,7 @@ CustomScenario
 					EventTarget
 					{
 						targetType = Event_Sequences
-						targetID = 2
+						targetID = 4
 						eventName = Restart
 						methodName = Restart
 						altTargetIdx = -1
@@ -8562,11 +9029,11 @@ CustomScenario
 		}
 		SEQUENCE
 		{
-			id = 49
-			sequenceName = Reset 551
+			id = 51
+			sequenceName = Reset Sortie
 			startImmediately = True
 			whileLoop = False
-			ListOrderIndex = 500
+			ListOrderIndex = 520
 			ListFolderName = 
 			EVENT
 			{
@@ -8585,7 +9052,7 @@ CustomScenario
 						ParamInfo
 						{
 							type = GlobalValue
-							value = 5
+							value = 6
 							name = Global Value
 						}
 					}
@@ -8599,7 +9066,7 @@ CustomScenario
 						ParamInfo
 						{
 							type = GlobalValue
-							value = 4
+							value = 5
 							name = Global Value
 						}
 					}
@@ -8638,7 +9105,7 @@ CustomScenario
 					EventTarget
 					{
 						targetType = Event_Sequences
-						targetID = 2
+						targetID = 4
 						eventName = Stop
 						methodName = Stop
 						altTargetIdx = -1
@@ -8646,10 +9113,40 @@ CustomScenario
 					EventTarget
 					{
 						targetType = Event_Sequences
-						targetID = 48
+						targetID = 50
 						eventName = Restart
 						methodName = Restart
 						altTargetIdx = -1
+					}
+					EventTarget
+					{
+						targetType = System
+						targetID = 2
+						eventName = Set Value
+						methodName = SetValue
+						altTargetIdx = -1
+						ParamInfo
+						{
+							type = GlobalValue
+							value = 4
+							name = Global Value
+						}
+						ParamInfo
+						{
+							type = System.Single
+							value = 1
+							name = Set_to
+							ParamAttrInfo
+							{
+								type = UnitSpawnAttributeRange+RangeTypes
+								data = Int
+							}
+							ParamAttrInfo
+							{
+								type = MinMax
+								data = (-99999,99999)
+							}
+						}
 					}
 					EventTarget
 					{
@@ -8896,15 +9393,15 @@ CustomScenario
 		}
 		SEQUENCE
 		{
-			id = 50
+			id = 52
 			sequenceName = Kill spectators
 			startImmediately = True
 			whileLoop = False
-			ListOrderIndex = 510
+			ListOrderIndex = 530
 			ListFolderName = 
 			EVENT
 			{
-				conditional = 50
+				conditional = 53
 				delay = 0
 				nodeName = Kill
 				EventInfo
@@ -8946,7 +9443,7 @@ CustomScenario
 			}
 			EVENT
 			{
-				conditional = 50
+				conditional = 53
 				delay = 0
 				nodeName = Restart
 				EventInfo
@@ -8955,7 +9452,7 @@ CustomScenario
 					EventTarget
 					{
 						targetType = Event_Sequences
-						targetID = 50
+						targetID = 52
 						eventName = Restart
 						methodName = Restart
 						altTargetIdx = -1
@@ -8968,7 +9465,7 @@ CustomScenario
 			FOLDER
 			{
 				name = Collisions
-				sortOrder = 30
+				sortOrder = 50
 				expanded = False
 			}
 		}
@@ -9032,15 +9529,19 @@ CustomScenario
 		}
 		gv
 		{
-			data = 4;teamAKotHTime;;0;
+			data = 4;sortieAbortable;;1;
 		}
 		gv
 		{
-			data = 5;teamBKotHTime;;0;
+			data = 5;teamAKotHTime;;0;
 		}
 		gv
 		{
-			data = 6;targetKotHTime;;120;
+			data = 6;teamBKotHTime;;0;
+		}
+		gv
+		{
+			data = 7;targetKotHTime;;120;
 		}
 	}
 	Briefing

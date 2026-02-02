@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using VtolVrRankedMissionSetup.VT;
+using VtolVrRankedMissionSetup.VT.Methods;
 
 namespace VtolVrRankedMissionSetup.VTS
 {
@@ -39,5 +40,27 @@ namespace VtolVrRankedMissionSetup.VTS
         }
 
         public override int GetHashCode() => base.GetHashCode();
+    }
+
+    public static class GlobalValueExtension
+    {
+        [EventTarget("Reset Value", "System", TargetId = 2)]
+        public static void ResetValue(
+            [ParamInfo(CustomParameterName = "Global Value")][IdLink("")] this GlobalValue GlobalValue)
+            => throw new NotSupportedException("You can't actually call this");
+
+        [EventTarget("Increment Value", "System", TargetId = 2)]
+        public static void IncrementValue(
+            [ParamInfo(CustomParameterName = "Global Value")][IdLink("")] this GlobalValue GlobalValue,
+            [ParamAttrInfo("UnitSpawnAttributeRange+RangeTypes", "Int")]
+            [ParamAttrInfo("MinMax", "(0,99999)")] float Add = 1)
+            => throw new NotSupportedException("You can't actually call this");
+
+        [EventTarget("Set Value", "System", TargetId = 2)]
+        public static void SetValue(
+            [ParamInfo(CustomParameterName = "Global Value")][IdLink("")] this GlobalValue GlobalValue,
+            [ParamAttrInfo("UnitSpawnAttributeRange+RangeTypes", "Int")]
+            [ParamAttrInfo("MinMax", "(-99999,99999)")] float Set_to)
+            => throw new NotSupportedException("You can't actually call this");
     }
 }

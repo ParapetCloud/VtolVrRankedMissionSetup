@@ -19,5 +19,7 @@ namespace VtolVrRankedMissionSetup.VT
         AH94,
         [JsonStringEnumMemberName("F-16")]
         F16,
+        [JsonStringEnumMemberName("F-22A")]
+        F22,
     }
 }

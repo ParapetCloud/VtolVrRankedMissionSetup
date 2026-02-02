@@ -145,7 +145,7 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
             ConditionalAction teamATie = scenario.ConditionalActions.CreateConditionalAction(
                 "Give tie points to A",
                 () => teamAWins < tiePointThreshold,
-                [new EventTarget(() => GameSystem.IncrementValue(teamAWins, 1))],
+                [new EventTarget(() => teamAWins.IncrementValue())],
                 [],
                 [],
                 [/* doNothing */]);
@@ -153,39 +153,39 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
             ConditionalAction teamBTie = scenario.ConditionalActions.CreateConditionalAction(
                 "Give tie points to B",
                 () => teamBWins < tiePointThreshold,
-                [new EventTarget(() => GameSystem.IncrementValue(teamBWins, 1))],
+                [new EventTarget(() => teamBWins.IncrementValue())],
                 [],
                 [],
                 [/* doNothing */]);
 
             ConditionalAction grantTeamAPointsOrTie = scenario.ConditionalActions.CreateConditionalAction(
                 "Give Points to A or tie",
-                () => SCCUnitList.SCC_NumAlive(teamASpawns) > 0,
+                () => teamASpawns.NumAlive() > 0,
                 [
-                    new EventTarget(() => GameSystem.IncrementValue(teamAWins, 1)),
+                    new EventTarget(() => teamAWins.IncrementValue()),
                     new EventTarget(() => GameSystem.DisplayMessage("Team A Victory!\nPull chutes", 10))
                 ],
                 [],
                 [],
                 [
-                    new EventTarget(() => GameSystem.FireConditionalAction(teamATie)),
-                    new EventTarget(() => GameSystem.FireConditionalAction(teamBTie)),
-                    new EventTarget(() => GameSystem.IncrementValue(totalTies, 1)),
+                    new EventTarget(() => teamATie.FireConditionalAction()),
+                    new EventTarget(() => teamBTie.FireConditionalAction()),
+                    new EventTarget(() => totalTies.IncrementValue()),
                 ]);
 
             ConditionalAction grantTeamBPointsOrTie = scenario.ConditionalActions.CreateConditionalAction(
                 "Give Points to B or tie",
-                () => SCCUnitList.SCC_NumAlive(teamBSpawns) > 0,
+                () => teamBSpawns.NumAlive() > 0,
                 [
-                    new EventTarget(() => GameSystem.IncrementValue(teamBWins, 1)),
+                    new EventTarget(() => teamBWins.IncrementValue()),
                     new EventTarget(() => GameSystem.DisplayMessage("Team B Victory!\nPull chutes", 10)),
                 ],
                 [],
                 [],
                 [
-                    new EventTarget(() => GameSystem.FireConditionalAction(teamATie)),
-                    new EventTarget(() => GameSystem.FireConditionalAction(teamBTie)),
-                    new EventTarget(() => GameSystem.IncrementValue(totalTies, 1)),
+                    new EventTarget(() => teamATie.FireConditionalAction()),
+                    new EventTarget(() => teamBTie.FireConditionalAction()),
+                    new EventTarget(() => totalTies.IncrementValue()),
                 ]);
 
             Objective teamAWinObjective = CreateObjectiveForWin(objectiveCount++, AlliedObjectives.Count, bullseye, teamAWins, targetWins, teamBWins, totalTies);
@@ -197,17 +197,71 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
             //////////////////////////////////////////////////////////////
             // Standard 551
             //////////////////////////////////////////////////////////////
-            Conditional whenTeamAIsDead = scenario.Conditionals.CreateCondition(() => SCCUnitList.SCC_NumAlive(teamASpawns) == 0);
-            Conditional whenTeamBIsDead = scenario.Conditionals.CreateCondition(() => SCCUnitList.SCC_NumAlive(teamBSpawns) == 0);
+
+            GlobalValue sortieAbortable = scenario.GlobalValues.CreateGlobalValue("sortieAbortable", 1);
+
+            Conditional whenTeamAIsDead = scenario.Conditionals.CreateCondition(() => teamASpawns.NumAlive() == 0);
+            Conditional whenTeamBIsDead = scenario.Conditionals.CreateCondition(() => teamBSpawns.NumAlive() == 0);
+
+            EventSequence abortSortieDelay = scenario.EventSequences.CreateSequence("abort sortie", false);
+
+            ConditionalAction teamAResetOrPoint = scenario.ConditionalActions.CreateConditionalAction(
+                "Team A won or Sortie Reset",
+                () => sortieAbortable == 1,
+                [
+                    new EventTarget(() => abortSortieDelay.Restart()),
+                ],
+                [],
+                [],
+                [
+                    new EventTarget(() => teamATieCheck.Restart())
+                ]);
+
+            ConditionalAction teamBResetOrPoint = scenario.ConditionalActions.CreateConditionalAction(
+                "Team B won or Sortie Reset",
+                () => sortieAbortable == 1,
+                [
+                    new EventTarget(() => abortSortieDelay.Restart()),
+                ],
+                [],
+                [],
+                [
+                    new EventTarget(() => teamBTieCheck.Restart())
+                ]);
 
             // use conditional for this instead of destroy so the count of remaining players is not visible
-            Objective teamAKillObjective = CreateObjectiveForKill(objectiveCount++, AlliedObjectives.Count, bullseye, whenTeamBIsDead);
-            teamAKillObjective.CompleteEvent.EventInfo.EventTargets = [new EventTarget(() => teamATieCheck.Restart())];
+            Objective teamAKillObjective = CreateObjectiveForKill(objectiveCount++, AlliedObjectives.Count, bullseye, whenTeamBIsDead, sortieAbortable);
+            teamAKillObjective.CompleteEvent.EventInfo.EventTargets = [new EventTarget(() => teamAResetOrPoint.FireConditionalAction())];
             AlliedObjectives.Add(teamAKillObjective);
 
-            Objective teamBKillObjective = CreateObjectiveForKill(objectiveCount++, EnemyObjectives.Count, bullseye, whenTeamAIsDead);
-            teamBKillObjective.CompleteEvent.EventInfo.EventTargets = [new EventTarget(() => teamBTieCheck.Restart())];
+            Objective teamBKillObjective = CreateObjectiveForKill(objectiveCount++, EnemyObjectives.Count, bullseye, whenTeamAIsDead, sortieAbortable);
+            teamBKillObjective.CompleteEvent.EventInfo.EventTargets = [new EventTarget(() => teamBResetOrPoint.FireConditionalAction())];
             EnemyObjectives.Add(teamBKillObjective);
+
+            EventSequence damageDealt = scenario.EventSequences.CreateSequence("Damage Dealt");
+            damageDealt.WhileLoop = true;
+            damageDealt.Events =
+                [
+                    new Event(
+                        "Resetable",
+                        TimeSpan.Zero,
+                        scenario.Conditionals.CreateCondition(() => sortieAbortable == 1),
+                        []),
+                    new Event(
+                        "When Damaged",
+                        TimeSpan.Zero,
+                        scenario.Conditionals.CreateCondition(() => teamASpawns.AnyGetsDamagedBy(teamBSpawns) || teamBSpawns.AnyGetsDamagedBy(teamASpawns)),
+                        [
+                            new EventTarget(() => sortieAbortable.SetValue(0)),
+                        ]),
+                    new Event(
+                        "Reset",
+                        TimeSpan.FromSeconds(1),
+                        null,
+                        [
+                            new EventTarget(() => damageDealt.Restart()),
+                        ]),
+                ];
 
             //////////////////////////////////////////////////////////////
             // KotH
@@ -226,16 +280,16 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
 
             ConditionalAction KothPoints = scenario.ConditionalActions.CreateConditionalAction(
                 "KotH Points",
-                () => SCCUnitList.SCC_AnyNearWaypoint(teamASpawns, bullseye, ControlRadius) && SCCUnitList.SCC_AnyNearWaypoint(teamBSpawns, bullseye, ControlRadius),
+                () => teamASpawns.AnyNearWaypoint(bullseye, ControlRadius) && teamBSpawns.AnyNearWaypoint(bullseye, ControlRadius),
                 [/* doNothing */],
-                [() => SCCUnitList.SCC_AnyNearWaypoint(teamASpawns, bullseye, ControlRadius), () => SCCUnitList.SCC_AnyNearWaypoint(teamBSpawns, bullseye, ControlRadius)],
-                [[new EventTarget(() => GameSystem.IncrementValue(teamAKotHTime, 1))], /**/ [new EventTarget(() => GameSystem.IncrementValue(teamBKotHTime, 1))]],
+                [() => teamASpawns.AnyNearWaypoint(bullseye, ControlRadius), () => teamBSpawns.AnyNearWaypoint(bullseye, ControlRadius)],
+                [[new EventTarget(() => teamAKotHTime.IncrementValue())], /**/ [new EventTarget(() => teamBKotHTime.IncrementValue())]],
                 [/* doNothing */]);
 
             EventSequence kothCheck = scenario.EventSequences.CreateSequence("KotH check", false);
             kothCheck.Events =
             [
-                new Event("Check", TimeSpan.Zero, null, [new EventTarget(() => GameSystem.FireConditionalAction(KothPoints))]),
+                new Event("Check", TimeSpan.Zero, null, [new EventTarget(() => KothPoints.FireConditionalAction())]),
                 new Event("Reset", TimeSpan.FromSeconds(1), null, [new EventTarget(() => kothCheck.Restart())]),
             ];
 
@@ -257,12 +311,16 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
 
             // At least one person alive on each team, and at least one team has no one at the runway
             Conditional atLeast1OnEachSideSpawned = scenario.Conditionals.CreateCondition(() =>
-                SCCUnitList.SCC_NumAlive(teamASpawns) > 0 &&
-                SCCUnitList.SCC_NumAlive(teamBSpawns) > 0);
+                teamASpawns.NumAlive() > 0 &&
+                teamBSpawns.NumAlive() > 0);
 
             Conditional oneTeamTakeoff = scenario.Conditionals.CreateCondition(() =>
-                teamABaseWaypoints.All(waypoint => !SCCUnitList.SCC_AnyNearWaypoint(teamASpawns, waypoint, StartDist)) ||
-                teamBBaseWaypoints.All(waypoint => !SCCUnitList.SCC_AnyNearWaypoint(teamBSpawns, waypoint, StartDist)));
+                (
+                    teamABaseWaypoints.All(waypoint => !teamASpawns.AnyNearWaypoint(waypoint, StartDist)) ||
+                    teamBBaseWaypoints.All(waypoint => !teamBSpawns.AnyNearWaypoint(waypoint, StartDist))
+                ) &&
+                teamASpawns.NumAlive() > 0 &&
+                teamBSpawns.NumAlive() > 0);
 
             teamAKillObjective.CompleteEvent.EventInfo.EventTargets =
             [
@@ -294,8 +352,8 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
             foreach (MultiplayerSpawn spawn in spawns)
                 setLives0.Add(new EventTarget(() => spawn.SetLives(0)));
 
-            EventSequence startMatch = scenario.EventSequences.CreateSequence("Start Match", false);
-            startMatch.Events =
+            EventSequence startSortie = scenario.EventSequences.CreateSequence("Start Sortie", false);
+            startSortie.Events =
             [
                 new Event(
                     "spawned",
@@ -325,28 +383,29 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
                     ]),
             ];
 
-            EventSequence resetMatch = scenario.EventSequences.CreateSequence("Reset 551");
-            resetMatch.Events =
+            EventSequence endSortie = scenario.EventSequences.CreateSequence("Reset Sortie");
+            endSortie.Events =
             [
                 new Event(
                     "reset",
                     TimeSpan.FromSeconds(1),
                     null,
                     [
-                        new EventTarget(() => GameSystem.ResetValue(teamBKotHTime)),
-                        new EventTarget(() => GameSystem.ResetValue(teamAKotHTime)),
+                        new EventTarget(() => teamBKotHTime.ResetValue()),
+                        new EventTarget(() => teamAKotHTime.ResetValue()),
                         new EventTarget(() => teamAKillObjective.CancelObjective()),
                         new EventTarget(() => teamBKillObjective.CancelObjective()),
                         new EventTarget(() => teamAKotH.CancelObjective()),
                         new EventTarget(() => teamBKotH.CancelObjective()),
                         new EventTarget(() => kothCheck.Stop()),
-                        new EventTarget(() => startMatch.Restart()),
+                        new EventTarget(() => startSortie.Restart()),
+                        new EventTarget(() => sortieAbortable.SetValue(1)),
                         //new EventTarget(() => GameSystem.DisplayMessage("Reset", 5)),
                         ..setLives100,
                     ]),
             ];
 
-            Conditional everyoneIsDead = scenario.Conditionals.CreateCondition(() => SCCUnitList.SCC_NumAlive(spawns) == 0);
+            Conditional everyoneIsDead = scenario.Conditionals.CreateCondition(() => spawns.NumAlive() == 0);
 
             teamATieCheck.Events =
             [
@@ -356,8 +415,8 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
                     new EventTarget(() => teamBKotH.FailObjective()),
                     new EventTarget(() => teamBKillObjective.FailObjective()),
                 ]),
-                new Event("Still alive?", TieTimespan, null, [new EventTarget(() => GameSystem.FireConditionalAction(grantTeamAPointsOrTie))]),
-                new Event("reset match", TimeSpan.Zero, everyoneIsDead, [new EventTarget(() => resetMatch.Restart())]),
+                new Event("Still alive?", TieTimespan, null, [new EventTarget(() => grantTeamAPointsOrTie.FireConditionalAction())]),
+                new Event("reset for next sortie", TimeSpan.Zero, everyoneIsDead, [new EventTarget(() => endSortie.Restart())]),
             ];
 
             teamBTieCheck.Events =
@@ -368,8 +427,33 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
                     new EventTarget(() => teamAKotH.FailObjective()),
                     new EventTarget(() => teamAKillObjective.FailObjective()),
                 ]),
-                new Event("Reset Sequence", TieTimespan, null, [new EventTarget(() => GameSystem.FireConditionalAction(grantTeamBPointsOrTie))]),
-                new Event("reset match", TimeSpan.Zero, everyoneIsDead, [new EventTarget(() => resetMatch.Restart())]),
+                new Event("Still alive?", TieTimespan, null, [new EventTarget(() => grantTeamBPointsOrTie.FireConditionalAction())]),
+                new Event("reset for next sortie", TimeSpan.Zero, everyoneIsDead, [new EventTarget(() => endSortie.Restart())]),
+            ];
+
+            abortSortieDelay.Events =
+            [
+                new Event(
+                    "Pull chutes",
+                    TimeSpan.Zero,
+                    null,
+                    [
+                        new EventTarget(() => GameSystem.DisplayMessage("Pull chutes to abort the sortie!", 5)),
+                        new EventTarget(() => teamBKotHTime.ResetValue()),
+                        new EventTarget(() => teamAKotHTime.ResetValue()),
+                        new EventTarget(() => teamAKillObjective.CancelObjective()),
+                        new EventTarget(() => teamBKillObjective.CancelObjective()),
+                        new EventTarget(() => teamAKotH.CancelObjective()),
+                        new EventTarget(() => teamBKotH.CancelObjective()),
+                        new EventTarget(() => kothCheck.Stop()),
+                    ]),
+                new Event(
+                    "Wait for everyone to be dead",
+                    TimeSpan.Zero,
+                    scenario.Conditionals.CreateCondition(() => teamASpawns.NumAlive() == 0 && teamBSpawns.NumAlive() == 0),
+                    [
+                        new EventTarget(() => endSortie.Restart()),
+                    ]),
             ];
 
             scenario.AlliedObjectives = AlliedObjectives.ToArray();
@@ -469,6 +553,7 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
                 AircraftType.F26 => "Foxtrot",
                 AircraftType.F16 => "Foxtrot",
                 AircraftType.T55 => "Foxtrot",
+                AircraftType.F22 => "Golf",
                 AircraftType.F45 => "Golf",
                 AircraftType.F24 => "Echo",
                 _ => "Xray",
@@ -487,7 +572,7 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
 
             EventSequence kill = scenario.EventSequences!.CreateSequence("Kill spectators");
 
-            Conditional anySpectatorSPawned = scenario.Conditionals!.CreateCondition(() => SCCUnitList.SCC_NumAlive(specs) > 0);
+            Conditional anySpectatorSPawned = scenario.Conditionals!.CreateCondition(() => specs.NumAlive() > 0);
 
             kill.Events = [
                 new Event("Kill", TimeSpan.Zero, anySpectatorSPawned,
@@ -548,12 +633,12 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
             };
         }
 
-        private static Objective CreateObjectiveForKill(int objectiveId, int orderId, Waypoint waypoint, Conditional success)
+        private static Objective CreateObjectiveForKill(int objectiveId, int orderId, Waypoint waypoint, Conditional success, GlobalValue sortieResetable)
         {
             return new Objective()
             {
                 ObjectiveName = "Happy Hunting",
-                ObjectiveInfo = "Kill all enemies\n(hint: there are 5 of them)",
+                ObjectiveInfo = $"Kill all enemies\n(hint: there are 5 of them)\nSortie Abortable: {sortieResetable}",
                 ObjectiveID = objectiveId,
                 OrderID = orderId,
                 Required = false,
@@ -597,8 +682,8 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
 
                 collisionEvents.Folder = folder;
 
-                Conditional collidesWith = scenario.Conditionals!.CreateCondition(() => 
-                    unit.SCC_NearWaypoint(otherUnit, 8) && 
+                Conditional collidesWith = scenario.Conditionals!.CreateCondition(() =>
+                    unit.SCC_NearWaypoint(otherUnit, 8) &&
                     (
                         otherUnit.SCC_IsUsingAltNumber(0) ||
                         otherUnit.SCC_IsUsingAltNumber(1) ||

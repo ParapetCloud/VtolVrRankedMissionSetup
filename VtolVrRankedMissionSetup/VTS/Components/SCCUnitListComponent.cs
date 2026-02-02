@@ -37,10 +37,17 @@ namespace VtolVrRankedMissionSetup.VTS
 
             MethodName = mce.Method.Name!;
 
-            if (MethodName == "SCC_NumAlive")
+            if (mce.Arguments.Count > 0)
             {
                 UnitList = ((IEnumerable<IUnitSpawner>)LinqExpressionHelpers.GetValue(mce.Arguments[0], values)!).ToArray();
+            }
+            else
+            {
+                throw new Exception("Can not do unit list components without a unit list!");
+            }
 
+            if (MethodName == nameof(SCCUnitList.NumAlive))
+            {
                 MethodParameters = [
                     binaryExpression.NodeType switch
                     {
@@ -52,10 +59,8 @@ namespace VtolVrRankedMissionSetup.VTS
                     new MethodParameter(((ConstantExpression)binaryExpression.Right).Value!.ToString()!)
                 ];
             }
-            else if (MethodName == nameof(SCCUnitList.SCC_NumNearWP))
+            else if (MethodName == nameof(SCCUnitList.NumNearWP))
             {
-                UnitList = ((IEnumerable<IUnitSpawner>)LinqExpressionHelpers.GetValue(mce.Arguments[0])!).ToArray();
-
                 MethodParameters = [
                     new MethodParameter(((Waypoint)LinqExpressionHelpers.GetValue(mce.Arguments[1])!).Id.ToString()),
                     new MethodParameter(LinqExpressionHelpers.GetValue(mce.Arguments[2])!.ToString()!),
@@ -69,10 +74,8 @@ namespace VtolVrRankedMissionSetup.VTS
                     new MethodParameter(((ConstantExpression)binaryExpression.Right).Value!.ToString()!)
                 ];
             }
-            else if (MethodName == nameof(SCCUnitList.SCC_AnyNearWaypoint))
+            else if (MethodName == nameof(SCCUnitList.AnyNearWaypoint))
             {
-                UnitList = ((IEnumerable<IUnitSpawner>)LinqExpressionHelpers.GetValue(mce.Arguments[0])!).ToArray();
-
                 MethodParameters = [
                     new MethodParameter(((Waypoint)LinqExpressionHelpers.GetValue(mce.Arguments[1])!).Id.ToString()),
                     new MethodParameter(LinqExpressionHelpers.GetValue(mce.Arguments[2])!.ToString()!),
@@ -82,27 +85,45 @@ namespace VtolVrRankedMissionSetup.VTS
             {
                 throw new NotSupportedException($"{binaryExpression} is not supported");
             }
+
+            MethodName = $"SCC_{MethodName}";
         }
 
         public SCCUnitListComponent(MethodCallExpression mce, Dictionary<string, object>? values = null)
         {
             Type = "SCCUnitList";
 
-            MethodName = mce.Method.Name!;
-
-            if (MethodName == nameof(SCCUnitList.SCC_AnyNearWaypoint))
+            if (mce.Arguments.Count > 0)
             {
                 UnitList = ((IEnumerable<IUnitSpawner>)LinqExpressionHelpers.GetValue(mce.Arguments[0], values)!).ToArray();
+            }
+            else
+            {
+                throw new Exception("Can not do unit list components without a unit list!");
+            }
 
+            MethodName = mce.Method.Name!;
+
+            if (MethodName == nameof(SCCUnitList.AnyNearWaypoint))
+            {
                 MethodParameters = [
                     new MethodParameter(((Waypoint)LinqExpressionHelpers.GetValue(mce.Arguments[1], values)!).Id.ToString()),
                     new MethodParameter(LinqExpressionHelpers.GetValue(mce.Arguments[2], values)!.ToString()!),
+                ];
+            }
+            else if (MethodName == nameof(SCCUnitList.AnyGetsDamagedBy))
+            {
+                IEnumerable<IUnitSpawner> damagers = (IEnumerable<IUnitSpawner>)LinqExpressionHelpers.GetValue(mce.Arguments[1])!;
+                MethodParameters = [
+                    new MethodParameter(string.Join(';', damagers.Select(d => d.UnitInstanceID)) + ";"),
                 ];
             }
             else
             {
                 throw new NotSupportedException($"{mce} is not supported");
             }
+
+            MethodName = $"SCC_{MethodName}";
         }
     }
 }
