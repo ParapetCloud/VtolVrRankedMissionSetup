@@ -89,8 +89,8 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
             BaseInfo baseA = teamABases[0];
             BaseInfo baseB = teamBBases[0];
 
-            AirbaseLayoutConfig airbaseAConfig = layoutService.GetConfig(GetLayout(baseA, true), baseA.Prefab.Prefab);
-            AirbaseLayoutConfig airbaseBConfig = layoutService.GetConfig(GetLayout(baseB, true), baseB.Prefab.Prefab);
+            AirbaseLayoutConfig airbaseAConfig = layoutService.GetConfig(GetLayout(baseA, 0), baseA.Prefab.Prefab);
+            AirbaseLayoutConfig airbaseBConfig = layoutService.GetConfig(GetLayout(baseB, 0), baseB.Prefab.Prefab);
 
             Waypoint bullseye = scenario.Waypoints.CreateWaypoint("Bullseye", (baseA.Prefab.GlobalPos + baseB.Prefab.GlobalPos) / 2.0f);
             scenario.Waypoints.Bullseye = bullseye;
@@ -510,11 +510,11 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
             canvas.Children.Add(control);
         }
 
-        protected override void PreviewBase(Canvas canvas, BaseInfo bs, VTMapCustom map, Team team, bool primary)
+        protected override void PreviewBase(Canvas canvas, BaseInfo bs, VTMapCustom map, Team team, int index)
         {
-            base.PreviewBase(canvas, bs, map, team, primary);
+            base.PreviewBase(canvas, bs, map, team, index);
 
-            string layout = GetLayout(bs, primary);
+            string layout = GetLayout(bs, index);
             if (string.IsNullOrWhiteSpace(layout))
                 return;
 
@@ -529,7 +529,7 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
             Matrix3x2 rotationMatrix = Matrix3x2.CreateRotation(MathHelpers.DegToRad(rotation));
             Vector2 lineEnd = baseLocation + Vector2.Transform(new Vector2(0, -30), rotationMatrix);
 
-            SolidColorBrush teamColor = GetTeamColor(team, primary);
+            SolidColorBrush teamColor = GetTeamColor(team, index);
 
             Line spawnDirectionLine = new()
             {

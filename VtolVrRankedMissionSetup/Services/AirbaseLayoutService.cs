@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text.Json;
 using VtolVrRankedMissionSetup.Configs;
 using VtolVrRankedMissionSetup.Configs.AirbaseLayout;
@@ -11,6 +12,12 @@ namespace VtolVrRankedMissionSetup.Services
     public class AirbaseLayoutService
     {
         private Dictionary<string, AirbaseLayoutConfig> configs = [];
+
+        public string[] GetConfigNames()
+        {
+            DirectoryInfo parent = new("Configs/AirbaseLayout");
+            return parent.GetDirectories().Select(dir => dir.Name).ToArray();
+        }
 
         public AirbaseLayoutConfig GetConfig(string layout, string prefab)
         {

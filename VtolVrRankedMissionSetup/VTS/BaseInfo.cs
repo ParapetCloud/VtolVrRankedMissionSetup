@@ -43,5 +43,6 @@ namespace VtolVrRankedMissionSetup.VTS
 
         [VTIgnore]
         public event PropertyChangedEventHandler? PropertyChanged;
+
     }
 }

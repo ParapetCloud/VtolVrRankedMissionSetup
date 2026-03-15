@@ -261,12 +261,18 @@ namespace VtolVrRankedMissionSetup.VT
                 writer.WriteLine($"{indentation}{name}");
                 writer.WriteLine($"{indentation}{{");
             }
+            
+            if (array.Length > 0 && array.GetValue(0)!.GetType() == typeof(string)) {
 
-            foreach (object obj in array)
+            }
+            else
             {
-                VTNameAttribute? typeName = obj.GetType().GetCustomAttribute<VTNameAttribute>(true);
+                foreach (object obj in array)
+                {
+                    VTNameAttribute? typeName = obj.GetType().GetCustomAttribute<VTNameAttribute>(true);
 
-                SerializeObject(obj, writer, indents, typeName?.Name);
+                    SerializeObject(obj, writer, indents, typeName?.Name);
+                }
             }
 
             if (!inline)

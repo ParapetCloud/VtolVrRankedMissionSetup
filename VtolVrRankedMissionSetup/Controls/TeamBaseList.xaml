@@ -41,11 +41,8 @@
                             <TextBlock Text="{x:Bind Prefab.Id}" Padding="0 0 8 0"/>
                             <TextBlock Text="{x:Bind Prefab.BaseName}"/>
                         </StackPanel>
-                        <ComboBox SelectedValuePath="Name" SelectedValue="{x:Bind Layout, Mode=TwoWay}" SelectionChanged="ComboBox_SelectionChanged">
+                        <ComboBox SelectedValuePath="Name" SelectedValue="{x:Bind Layout, Mode=TwoWay}" SelectionChanged="ComboBox_SelectionChanged" Loaded="BaseLayoutComboBox_Loaded">
                             <ComboBoxItem Name="">Default</ComboBoxItem>
-                            <ComboBoxItem Name="551">551</ComboBoxItem>
-                            <ComboBoxItem Name="551 Reversed">551 Reversed</ComboBoxItem>
-                            <ComboBoxItem Name="HS">HS</ComboBoxItem>
                         </ComboBox>
                     </StackPanel>
                 </Border>

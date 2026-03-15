@@ -19,6 +19,9 @@ namespace VtolVrRankedMissionSetup.Configs
     [JsonSerializable(typeof(AirbaseLayoutConfig))]
     [JsonSerializable(typeof(ScenarioModeConfig))]
     [JsonSerializable(typeof(AircraftType))]
+    [JsonSerializable(typeof(LastMissionSetup))]
+    [JsonSerializable(typeof(BaseMissionSettings))]
+    [JsonSerializable(typeof(SerializableBaseSetting))]
     public partial class ConfigSerialization : JsonSerializerContext
     {
     }

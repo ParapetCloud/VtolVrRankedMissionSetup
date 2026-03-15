@@ -1,7 +1,10 @@
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System;
 using System.Collections.ObjectModel;
+using VtolVrRankedMissionSetup.Services;
+using VtolVrRankedMissionSetup.VT;
 using VtolVrRankedMissionSetup.VTS;
 using Windows.ApplicationModel.DataTransfer;
 
@@ -32,6 +35,10 @@ namespace VtolVrRankedMissionSetup.Controls
         public event EventHandler<DragItemsCompletedEventArgs>? Reordered;
 
         public ObservableCollection<BaseInfo> Bases { get; set; }
+
+        public string[] BaseConfigNames => baseConfigGetter.Value;
+
+        private static Lazy<string[]> baseConfigGetter = new Lazy<string[]>((() => App.Services.GetRequiredService<AirbaseLayoutService>().GetConfigNames()));
 
         public TeamBaseList()
         {
@@ -72,6 +79,21 @@ namespace VtolVrRankedMissionSetup.Controls
         {
             //((BaseInfo)((ComboBox)sender).DataContext).Layout = ((ComboBoxItem)e.AddedItems[0]).Content.ToString();
             Reordered?.Invoke(this, null!);
+        }
+
+        private void BaseLayoutComboBox_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (sender is not ComboBox layoutBox)
+                return;
+
+            foreach (string config in BaseConfigNames)
+            {
+                layoutBox.Items.Add(new ComboBoxItem()
+                {
+                    Name = config,
+                    Content = config,
+                });
+            }
         }
     }
 }

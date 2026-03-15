@@ -118,7 +118,15 @@ namespace VtolVrRankedMissionSetup
                 return;
             }
 
-            scenarioCreationService.SetUpScenario(Scenario, TeamABases.Bases.ToArray(), TeamBBases.Bases.ToArray());
+            try
+            {
+                scenarioCreationService.SetUpScenario(Scenario, TeamABases.Bases.ToArray(), TeamBBases.Bases.ToArray());
+            }
+            catch (ScenarioCreationException ex)
+            {
+                ShowDialog("Couldn't save scenario", ex.Message);
+                return;
+            }
 
             string name = file.DisplayName;
 

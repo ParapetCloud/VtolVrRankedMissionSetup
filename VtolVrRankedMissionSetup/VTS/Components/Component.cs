@@ -132,7 +132,7 @@ namespace VtolVrRankedMissionSetup.VTS
                 return new SCCUnitComponent(mce);
             else if (methodContainer.IsAssignableTo(typeof(Enumerable)))
             {
-                if (mce.Method.Name == "AnyTrue")
+                if (mce.Method.Name == "Any")
                 {
                     IEnumerable<object> list = (IEnumerable<object>)LinqExpressionHelpers.GetValue(mce.Arguments[0])!;
 

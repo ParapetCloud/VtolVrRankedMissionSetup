@@ -3,6 +3,7 @@ using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Shapes;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Numerics;
 using VtolVrRankedMissionSetup.Configs.AirbaseLayout;
 using VtolVrRankedMissionSetup.VT;
@@ -37,13 +38,13 @@ namespace VtolVrRankedMissionSetup.Services
             for (int i = 0; i < teamABases.Length; ++i)
             {
                 BaseInfo bs = teamABases[i];
-                PopulateAirbase(bs, spawners, Team.Allied, i == 0);
+                PopulateAirbase(bs, spawners, Team.Allied, i);
             }
 
             for (int i = 0; i < teamBBases.Length; ++i)
             {
                 BaseInfo bs = teamBBases[i];
-                PopulateAirbase(bs, spawners, Team.Enemy, i == 0);
+                PopulateAirbase(bs, spawners, Team.Enemy, i);
             }
 
             scenario.Units = spawners.ToArray();
@@ -66,19 +67,24 @@ namespace VtolVrRankedMissionSetup.Services
             for (int i = 0; i < teamABases.Length; ++i)
             {
                 BaseInfo bs = teamABases[i];
-                PreviewBase(canvas, bs, map, Team.Allied, i == 0);
+                PreviewBase(canvas, bs, map, Team.Allied, i);
             }
 
             for (int i = 0; i < teamBBases.Length; ++i)
             {
                 BaseInfo bs = teamBBases[i];
-                PreviewBase(canvas, bs, map, Team.Enemy, i == 0);
+                PreviewBase(canvas, bs, map, Team.Enemy, i);
             }
         }
 
-        protected virtual void PreviewBase(Canvas canvas, BaseInfo bs, VTMapCustom map, Team team, bool primary)
+        public virtual void SaveMissionSettings()
         {
-            SolidColorBrush teamColor = GetTeamColor(team, primary);
+
+        }
+
+        protected virtual void PreviewBase(Canvas canvas, BaseInfo bs, VTMapCustom map, Team team, int index)
+        {
+            SolidColorBrush teamColor = GetTeamColor(team, index);
 
             Rectangle baseRepresentation = new()
             {
@@ -113,9 +119,9 @@ namespace VtolVrRankedMissionSetup.Services
             canvas.Children.Add(textBlock);
         }
 
-        protected virtual void PopulateAirbase(BaseInfo baseInfo, List<IUnitSpawner> spawners, Team team, bool primary)
+        protected virtual void PopulateAirbase(BaseInfo baseInfo, List<IUnitSpawner> spawners, Team team, int index)
         {
-            string layout = GetLayout(baseInfo, primary);
+            string layout = GetLayout(baseInfo, index);
             if (string.IsNullOrWhiteSpace(layout))
                 return;
 
@@ -209,15 +215,15 @@ namespace VtolVrRankedMissionSetup.Services
             return (world / mapSize) * 640;
         }
 
-        protected virtual SolidColorBrush GetTeamColor(Team team, bool primary)
+        protected virtual SolidColorBrush GetTeamColor(Team team, int index)
         {
-            byte primaryColor = (byte)(primary ? 255 : 127);
-            byte secondaryColor = (byte)(primary ? 80 : 0);
+            byte primaryColor = (byte)(index == 0 ? 255 : 127);
+            byte secondaryColor = (byte)(index == 0 ? 80 : 0);
 
             return team == Team.Allied ? new SolidColorBrush(Windows.UI.Color.FromArgb(255, secondaryColor, secondaryColor, primaryColor)) : new SolidColorBrush(Windows.UI.Color.FromArgb(255, primaryColor, secondaryColor, secondaryColor));
         }
 
-        protected string GetLayout(BaseInfo baseInfo, bool primary) => baseInfo.Layout.ValueOrDefault(primary ? scenarioMode.ActiveMode.PrimaryDefaultLayout : scenarioMode.ActiveMode.SecondaryDefaultLayout!);
+        protected string GetLayout(BaseInfo baseInfo, int index) => baseInfo.Layout.ValueOrDefault(scenarioMode.ActiveMode.DefaultLayouts.ElementAtOrDefault(index) ?? scenarioMode.ActiveMode.OtherLayout!);
 
         protected abstract string GetAircraftGroup(Team team, AircraftConfig aircraft);
 
