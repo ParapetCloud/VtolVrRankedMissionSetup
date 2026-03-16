@@ -5,6 +5,7 @@ using Microsoft.UI.Xaml.Media.Imaging;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -124,6 +125,10 @@ namespace VtolVrRankedMissionSetup
             }
             catch (ScenarioCreationException ex)
             {
+                // If there is a debugger, let it handle the exception
+                if (Debugger.IsAttached)
+                    Debugger.BreakForUserUnhandledException(ex);
+
                 ShowDialog("Couldn't save scenario", ex.Message);
                 return;
             }

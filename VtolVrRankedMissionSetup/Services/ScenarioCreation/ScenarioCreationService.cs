@@ -17,8 +17,8 @@ namespace VtolVrRankedMissionSetup.Services
     {
         protected readonly ScenarioModeService scenarioMode;
         protected readonly AirbaseLayoutService layoutService;
-        private readonly Dictionary<string, int> alliedGroupCounts;
-        private readonly Dictionary<string, int> enemyGroupCounts;
+        protected readonly Dictionary<string, int> alliedGroupCounts;
+        protected readonly Dictionary<string, int> enemyGroupCounts;
 
         public ScenarioCreationService(ScenarioModeService scenarioMode, AirbaseLayoutService layoutService)
         {
@@ -145,57 +145,71 @@ namespace VtolVrRankedMissionSetup.Services
 
                 string group = GetAircraftGroup(team, aircraft);
 
-                MultiplayerSpawn spawn = new(team, $"{group} 1-{GetAndIncrement(team, group) + 1}")
-                {
-                    UnitInstanceID = spawners.Count,
-                    GlobalPosition = location,
-                    Rotation = rotation,
-                };
-
-                spawn.MultiplayerSpawnFields.SelectableAltSpawn = aircraft.Spawns.Length > 1;
-                spawn.MultiplayerSpawnFields.UnitGroup = $"{team}:{group}";
-                spawn.MultiplayerSpawnFields.Vehicle = aircraft.Spawns[0].Type;
-                spawn.MultiplayerSpawnFields.Equipment = scenarioMode.ActiveMode.DefaultEquipment[aircraft.Spawns[0].Type];
-                spawn.MultiplayerSpawnFields.Slots = aircraft.Spawns[0].Slots ?? 0;
-
-                string? forceEquipment = scenarioMode.ActiveMode.ForcedEquipment?[aircraft.Spawns[0].Type];
-
-                if (!string.IsNullOrWhiteSpace(forceEquipment))
-                {
-                    spawn.MultiplayerSpawnFields.ForcedEquipsList = forceEquipment;
-                }
+                MultiplayerSpawn spawn = CreateAircraft(team, group, aircraft, location, rotation, spawners.Count);
 
                 List<AltSpawn> altSpawns = [];
                 for (int sp = 1; sp < aircraft.Spawns.Length; ++sp)
                 {
-                    AltSpawnConfig alt = aircraft.Spawns[sp];
-
-                    AltSpawn altSpawn = new()
-                    {
-                        GlobalPosition = alt.AltPosition ?? location,
-                        Rotation = alt.Rotation == null ? rotation : new Vector3(0, (float)alt.Rotation, 0),
-                    };
-
-                    altSpawn.MultiplayerSpawnFields.UnitGroup = spawn.MultiplayerSpawnFields.UnitGroup;
-
-                    altSpawn.MultiplayerSpawnFields.Vehicle = alt.Type;
-                    altSpawn.MultiplayerSpawnFields.Equipment = scenarioMode.ActiveMode.DefaultEquipment[alt.Type];
-                    altSpawn.MultiplayerSpawnFields.Slots = alt.Slots ?? 0;
-
-                    forceEquipment = scenarioMode.ActiveMode.ForcedEquipment?[alt.Type];
-
-                    if (!string.IsNullOrWhiteSpace(forceEquipment))
-                    {
-                        altSpawn.MultiplayerSpawnFields.ForcedEquipsList = forceEquipment;
-                    }
-
-                    altSpawns.Add(altSpawn);
+                    AddAltSpawn(aircraft, location, rotation, spawn.MultiplayerSpawnFields.UnitGroup, sp, altSpawns);
                 }
 
                 spawn.AltSpawns = altSpawns.ToArray();
 
                 spawners.Add(spawn);
             }
+        }
+
+        protected AltSpawn AddAltSpawn(AircraftConfig aircraft, in Vector3 location, in Vector3 rotation, string group, int index, List<AltSpawn> altSpawns)
+        {
+            AltSpawnConfig alt = aircraft.Spawns[index];
+
+            AltSpawn altSpawn = new()
+            {
+                GlobalPosition = alt.AltPosition ?? location,
+                Rotation = alt.Rotation == null ? rotation : new Vector3(0, (float)alt.Rotation, 0),
+            };
+
+            altSpawn.MultiplayerSpawnFields.UnitGroup = group;
+
+            altSpawn.MultiplayerSpawnFields.Vehicle = alt.Type;
+            altSpawn.MultiplayerSpawnFields.Equipment = scenarioMode.ActiveMode.DefaultEquipment[alt.Type];
+            altSpawn.MultiplayerSpawnFields.Slots = alt.Slots ?? 0;
+
+            string? forceEquipment = scenarioMode.ActiveMode.ForcedEquipment?[alt.Type];
+
+            if (!string.IsNullOrWhiteSpace(forceEquipment))
+            {
+                altSpawn.MultiplayerSpawnFields.ForcedEquipsList = forceEquipment;
+            }
+
+            altSpawns.Add(altSpawn);
+
+            return altSpawn;
+        }
+
+        protected MultiplayerSpawn CreateAircraft(Team team, string group, AircraftConfig aircraft, in Vector3 location, in Vector3 rotation, int id)
+        {
+            MultiplayerSpawn spawn = new(team, $"{group} 1-{GetAndIncrement(team, group) + 1}")
+            {
+                UnitInstanceID = id,
+                GlobalPosition = location,
+                Rotation = rotation,
+            };
+
+            spawn.MultiplayerSpawnFields.SelectableAltSpawn = aircraft.Spawns.Length > 1;
+            spawn.MultiplayerSpawnFields.UnitGroup = $"{team}:{group}";
+            spawn.MultiplayerSpawnFields.Vehicle = aircraft.Spawns[0].Type;
+            spawn.MultiplayerSpawnFields.Equipment = scenarioMode.ActiveMode.DefaultEquipment[aircraft.Spawns[0].Type];
+            spawn.MultiplayerSpawnFields.Slots = aircraft.Spawns[0].Slots ?? 0;
+
+            string? forceEquipment = scenarioMode.ActiveMode.ForcedEquipment?[aircraft.Spawns[0].Type];
+
+            if (!string.IsNullOrWhiteSpace(forceEquipment))
+            {
+                spawn.MultiplayerSpawnFields.ForcedEquipsList = forceEquipment;
+            }
+
+            return spawn;
         }
 
         protected Vector2 worldToPreview(Vector3 world, VTMapCustom map)
@@ -227,7 +241,7 @@ namespace VtolVrRankedMissionSetup.Services
 
         protected abstract string GetAircraftGroup(Team team, AircraftConfig aircraft);
 
-        private int GetAndIncrement(Team team, string group)
+        protected int GetAndIncrement(Team team, string group)
         {
             var counts = team == Team.Allied ? alliedGroupCounts : enemyGroupCounts;
 

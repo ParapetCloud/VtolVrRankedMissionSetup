@@ -1,18 +1,20 @@
-﻿using System.Collections.Generic;
-using System.Numerics;
-using VtolVrRankedMissionSetup.VTS;
-using VtolVrRankedMissionSetup.Configs.AirbaseLayout;
-using Microsoft.Extensions.DependencyInjection;
-using VtolVrRankedMissionSetup.VTS.Events;
-using VtolVrRankedMissionSetup.VTS.Objectives;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.UI;
 using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Documents;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Shapes;
-using Microsoft.UI;
-using VtolVrRankedMissionSetup.VTM;
-using VtolVrRankedMissionSetup.VT;
 using System;
+using System.Collections.Generic;
+using System.Numerics;
+using VtolVrRankedMissionSetup.Configs.AirbaseLayout;
+using VtolVrRankedMissionSetup.VT;
 using VtolVrRankedMissionSetup.VT.Methods;
+using VtolVrRankedMissionSetup.VTM;
+using VtolVrRankedMissionSetup.VTS;
+using VtolVrRankedMissionSetup.VTS.Events;
+using VtolVrRankedMissionSetup.VTS.Objectives;
+using VtolVrRankedMissionSetup.VTS.UnitSpawners;
 
 namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
 {
@@ -38,7 +40,33 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
             if (teamABases.Length < 2 || teamBBases.Length < 2)
                 throw new ScenarioCreationException("This scenario mode requires 2 bases for each team");
 
-            base.SetUpScenario(scenario, teamABases, teamBBases);
+            //////////////////////////////////////////////////////////////////////
+            // Replaced base functionality instead of a call to base.SetUpScenario
+            //////////////////////////////////////////////////////////////////////
+            alliedGroupCounts.Clear();
+            enemyGroupCounts.Clear();
+            List<IUnitSpawner> spawners = [];
+
+            AddAircraftToBases(teamABases[0], teamABases[1], spawners, Team.Allied);
+            AddAircraftToBases(teamBBases[0], teamBBases[1], spawners, Team.Enemy);
+
+            scenario.Units = spawners.ToArray();
+
+            if (scenarioMode.ActiveMode.WeatherPresets != null)
+            {
+                List<WeatherPreset> presets = [];
+
+                for (int i = 0; i < scenarioMode.ActiveMode.WeatherPresets.Length; ++i)
+                {
+                    presets.Add(new WeatherPreset() { Id = i + 8, Data = scenarioMode.ActiveMode.WeatherPresets[i] });
+                }
+
+                scenario.WeatherPresets = presets.ToArray();
+            }
+
+            //////////////////////////////////////////////////////////////////////
+            // End of replaced functionality
+            //////////////////////////////////////////////////////////////////////
 
             scenario.CampaignID = "Ranked Playlist";
             scenario.ScenarioDescription = "Join the discord to link your account and see your stats | https://discord.gg/UVYvpJ4jkf";
@@ -285,6 +313,58 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
             else
             {
                 return ((AircraftGroup)((int)AircraftGroup.Zulu - (int)aircraft.Spawns[0].Type)).ToString();
+            }
+        }
+
+        private void AddAircraftToBases(BaseInfo baseInfo1, BaseInfo baseInfo2, List<IUnitSpawner> spawners, Team team)
+        {
+            string layout1 = GetLayout(baseInfo1, 0);
+            if (string.IsNullOrWhiteSpace(layout1))
+                throw new ScenarioCreationException($"Layout for base 1 of team {team} can not be nothing");
+
+            string layout2 = GetLayout(baseInfo2, 0);
+            if (string.IsNullOrWhiteSpace(layout2))
+                throw new ScenarioCreationException($"Layout for base 2 of team {team} can not be nothing");
+
+            AirbaseLayoutConfig layoutConfig1 = layoutService.GetConfig(layout1, baseInfo1.Prefab.Prefab);
+            AirbaseLayoutConfig layoutConfig2 = layoutService.GetConfig(layout2, baseInfo2.Prefab.Prefab);
+
+            if (layoutConfig1.Aircraft.Length != layoutConfig2.Aircraft.Length)
+                throw new ScenarioCreationException($"Layouts for base 1 and 2 of team {team} are not compatible. The number of aircraft must be the same.");
+
+            for (int i = 0; i < layoutConfig1.Aircraft.Length; ++i)
+            {
+                AircraftConfig aircraft1 = layoutConfig1.Aircraft[i];
+                AircraftConfig aircraft2 = layoutConfig2.Aircraft[i];
+
+                Vector3 location1 = MathHelpers.BaseToWorld(aircraft1.Location, baseInfo1);
+                Vector3 rotation1 = baseInfo1.Prefab.Rotation + aircraft1.Rotation;
+                MathHelpers.ClampRotation(ref rotation1);
+
+                Vector3 location2 = MathHelpers.BaseToWorld(aircraft2.Location, baseInfo2);
+                Vector3 rotation2 = baseInfo2.Prefab.Rotation + aircraft2.Rotation;
+                MathHelpers.ClampRotation(ref rotation2);
+
+                string group = GetAircraftGroup(team, layoutConfig1.Aircraft[0]);
+                MultiplayerSpawn spawn = CreateAircraft(team, group, aircraft1, location1, rotation1, spawners.Count);
+                spawn.MultiplayerSpawnFields.SlotLabel = "Airbase 1";
+
+                List<AltSpawn> altSpawns = [];
+                for (int sp = 1; sp < aircraft1.Spawns.Length; ++sp)
+                {
+                    AltSpawn alt = AddAltSpawn(aircraft1, location1, rotation1, spawn.MultiplayerSpawnFields.UnitGroup, sp, altSpawns);
+                    alt.MultiplayerSpawnFields.SlotLabel = "Airbase 1";
+                }
+
+                for (int sp = 0; sp < aircraft2.Spawns.Length; ++sp)
+                {
+                    AltSpawn alt = AddAltSpawn(aircraft2, location2, rotation2, spawn.MultiplayerSpawnFields.UnitGroup, sp, altSpawns);
+                    alt.MultiplayerSpawnFields.SlotLabel = "Airbase 2";
+                }
+
+                spawn.AltSpawns = altSpawns.ToArray();
+
+                spawners.Add(spawn);
             }
         }
     }
