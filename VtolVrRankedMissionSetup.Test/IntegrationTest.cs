@@ -86,7 +86,8 @@ namespace VtolVrRankedMissionSetup.Test
             TestContext.AddResultFile($"{TestContext.TestName}_Actual.vts");
             TestContext.WriteLine("Comparing files");
 
-            if (await expectedTask != await actualTask)
+            // Use equals here with invariant culture because we do not care about what the newlines are doing
+            if ((await expectedTask).Equals(await actualTask, System.StringComparison.InvariantCulture))
             {
                 Process process = new();
                 Process devenv = Process.GetProcessesByName("devenv").First();
