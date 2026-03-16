@@ -71,6 +71,13 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
             scenario.CampaignID = "Ranked Playlist";
             scenario.ScenarioDescription = "Join the discord to link your account and see your stats | https://discord.gg/UVYvpJ4jkf";
 
+            scenario.Briefing = [
+                    new BriefingNote() {
+                        Text = "Welcome to the Ranked Server. Missile intercepts are off, but aircraft collisions are on. Entering the enemy spawn protection zone initiates a 15-second kill timer. To understand how the ranking system works and view the leaderboard, join the discord: https://discord.gg/UVYvpJ4jkf",
+                        ImagePath = "Server Profile RankedBadge.png",
+                    },
+                ];
+
             BaseInfo baseA1 = teamABases[0];
             BaseInfo baseA2 = teamABases[1];
             BaseInfo baseB1 = teamBBases[0];

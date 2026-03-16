@@ -263,7 +263,10 @@ namespace VtolVrRankedMissionSetup.VT
             }
             
             if (array.Length > 0 && array.GetValue(0)!.GetType() == typeof(string)) {
-
+                for (int i = 0; i < array.Length; ++i)
+                {
+                    writer.WriteLine($"\t{indentation}{i} = {array.GetValue(i)}");
+                }
             }
             else
             {

@@ -146,6 +146,7 @@ namespace VtolVrRankedMissionSetup.VTS
         public BriefingNote[]? Briefing { get; set; }
         public BriefingNote[]? Briefing_B { get; set; }
 
+        [VTIgnore(VTIgnoreCondition.WhenWritingNull)]
         public string[]? ResourceManifest { get; set; }
 
         public CustomScenario(VTMapCustom map)

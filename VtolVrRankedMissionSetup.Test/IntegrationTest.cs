@@ -51,6 +51,17 @@ namespace VtolVrRankedMissionSetup.Test
             await ConfirmBaseline(service, scenario);
         }
 
+        [TestMethod]
+        public async Task LeaguenBaseline()
+        {
+            modeService.ActiveMode = modeService.Configs["Glicko"];
+
+            LeaguenScenarioCreationService service = new(modeService, airbaseLayoutService);
+            CustomScenario scenario = new(map);
+
+            await ConfirmBaseline(service, scenario);
+        }
+
         private async Task ConfirmBaseline(ScenarioCreationService service, CustomScenario scenario)
         {
 
