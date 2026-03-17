@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -78,7 +79,8 @@ namespace VtolVrRankedMissionSetup.Test
 
             service.SetUpScenario(scenario, teamABases, teamBBases);
 
-            VTSerializer.SerializeToFile(scenario, $"{TestContext.TestName}_Actual.vts");
+            // Pass the newline in from the environment since GIT can change it from LF to CRLF when checking out in Windows
+            VTSerializer.SerializeToFile(scenario, $"{TestContext.TestName}_Actual.vts", Environment.NewLine);
 
             Task<string> expectedTask = File.ReadAllTextAsync($"../../../../TestFiles/{TestContext.TestName}_Expected.vts");
             Task<string> actualTask = File.ReadAllTextAsync($"{TestContext.TestName}_Actual.vts");
@@ -86,8 +88,7 @@ namespace VtolVrRankedMissionSetup.Test
             TestContext.AddResultFile($"{TestContext.TestName}_Actual.vts");
             TestContext.WriteLine("Comparing files");
 
-            // Use equals here with invariant culture because we do not care about what the newlines are doing
-            if ((await expectedTask).Equals(await actualTask, System.StringComparison.InvariantCulture))
+            if (await expectedTask != await actualTask)
             {
                 Process process = new();
                 Process devenv = Process.GetProcessesByName("devenv").First();

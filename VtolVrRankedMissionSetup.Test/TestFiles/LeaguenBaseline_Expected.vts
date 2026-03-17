@@ -94,7 +94,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -121,7 +121,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -147,7 +147,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = F/A-26B
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -173,7 +173,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -200,7 +200,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -255,7 +255,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -282,7 +282,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -308,7 +308,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = F/A-26B
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -334,7 +334,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -361,7 +361,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -416,7 +416,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -443,7 +443,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -469,7 +469,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = F/A-26B
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -495,7 +495,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -522,7 +522,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -577,7 +577,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -604,7 +604,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -630,7 +630,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = F/A-26B
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -656,7 +656,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -683,7 +683,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -738,7 +738,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -765,7 +765,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -791,7 +791,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = F/A-26B
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -817,7 +817,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -844,7 +844,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -899,7 +899,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -926,7 +926,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -952,7 +952,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = F/A-26B
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -978,7 +978,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -1005,7 +1005,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -1060,7 +1060,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -1087,7 +1087,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -1113,7 +1113,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = F/A-26B
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -1139,7 +1139,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -1166,7 +1166,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -1221,7 +1221,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -1248,7 +1248,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -1274,7 +1274,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = F/A-26B
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -1300,7 +1300,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -1327,7 +1327,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -1382,7 +1382,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -1409,7 +1409,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -1435,7 +1435,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = F/A-26B
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -1461,7 +1461,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -1488,7 +1488,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -1543,7 +1543,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -1570,7 +1570,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -1596,7 +1596,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = F/A-26B
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -1622,7 +1622,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -1649,7 +1649,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -1704,7 +1704,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -1731,7 +1731,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -1757,7 +1757,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = F/A-26B
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -1783,7 +1783,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -1810,7 +1810,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -1865,7 +1865,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -1892,7 +1892,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -1918,7 +1918,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = F/A-26B
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -1944,7 +1944,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -1971,7 +1971,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -2026,7 +2026,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -2053,7 +2053,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -2079,7 +2079,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = F/A-26B
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -2105,7 +2105,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -2132,7 +2132,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -2187,7 +2187,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -2214,7 +2214,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -2240,7 +2240,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = F/A-26B
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -2266,7 +2266,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -2293,7 +2293,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -2348,7 +2348,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -2375,7 +2375,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -2401,7 +2401,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = F/A-26B
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -2427,7 +2427,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -2454,7 +2454,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -2509,7 +2509,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -2536,7 +2536,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -2562,7 +2562,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = F/A-26B
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -2588,7 +2588,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -2615,7 +2615,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -2670,7 +2670,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = EF-24G
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -2725,7 +2725,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = EF-24G
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -2780,7 +2780,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = EF-24G
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -2835,7 +2835,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = F-45A
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Allied:Alpha
 					startMode = FlightReady
@@ -2890,7 +2890,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -2917,7 +2917,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -2943,7 +2943,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = F/A-26B
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -2969,7 +2969,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -2996,7 +2996,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -3051,7 +3051,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -3078,7 +3078,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -3104,7 +3104,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = F/A-26B
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -3130,7 +3130,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -3157,7 +3157,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -3212,7 +3212,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -3239,7 +3239,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -3265,7 +3265,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = F/A-26B
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -3291,7 +3291,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -3318,7 +3318,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -3373,7 +3373,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -3400,7 +3400,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -3426,7 +3426,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = F/A-26B
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -3452,7 +3452,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -3479,7 +3479,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -3534,7 +3534,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -3561,7 +3561,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -3587,7 +3587,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = F/A-26B
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -3613,7 +3613,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -3640,7 +3640,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -3695,7 +3695,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -3722,7 +3722,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -3748,7 +3748,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = F/A-26B
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -3774,7 +3774,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -3801,7 +3801,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -3856,7 +3856,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -3883,7 +3883,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -3909,7 +3909,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = F/A-26B
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -3935,7 +3935,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -3962,7 +3962,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -4017,7 +4017,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -4044,7 +4044,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -4070,7 +4070,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = F/A-26B
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -4096,7 +4096,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -4123,7 +4123,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -4178,7 +4178,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -4205,7 +4205,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -4231,7 +4231,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = F/A-26B
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -4257,7 +4257,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -4284,7 +4284,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -4339,7 +4339,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -4366,7 +4366,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -4392,7 +4392,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = F/A-26B
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -4418,7 +4418,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -4445,7 +4445,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -4500,7 +4500,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -4527,7 +4527,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -4553,7 +4553,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = F/A-26B
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -4579,7 +4579,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -4606,7 +4606,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -4661,7 +4661,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -4688,7 +4688,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -4714,7 +4714,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = F/A-26B
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -4740,7 +4740,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -4767,7 +4767,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -4822,7 +4822,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -4849,7 +4849,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -4875,7 +4875,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = F/A-26B
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -4901,7 +4901,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -4928,7 +4928,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -4983,7 +4983,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -5010,7 +5010,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -5036,7 +5036,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = F/A-26B
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -5062,7 +5062,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -5089,7 +5089,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -5144,7 +5144,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -5171,7 +5171,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -5197,7 +5197,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = F/A-26B
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -5223,7 +5223,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -5250,7 +5250,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -5305,7 +5305,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -5332,7 +5332,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 1
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -5358,7 +5358,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = F/A-26B
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -5384,7 +5384,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -5411,7 +5411,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = AV-42C
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -5466,7 +5466,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = EF-24G
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -5521,7 +5521,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = EF-24G
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -5576,7 +5576,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = EF-24G
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady
@@ -5631,7 +5631,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = F-45A
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = Airbase 2
 					unitGroup = Enemy:Zulu
 					startMode = FlightReady

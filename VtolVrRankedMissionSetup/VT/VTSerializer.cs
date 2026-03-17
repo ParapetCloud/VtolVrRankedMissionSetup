@@ -13,12 +13,12 @@ namespace VtolVrRankedMissionSetup.VT
     {
         public static T DeserializeFromFile<T>(string path) => (T)DeserializeFromFile(path);
 
-        public static void SerializeToFile(object obj, string path)
+        public static void SerializeToFile(object obj, string path, string newline = "\n")
         {
             using FileStream fileStream = new(path, FileMode.Create);
             using StreamWriter writer = new(fileStream);
 
-            writer.NewLine = "\n";
+            writer.NewLine = newline;
 
             SerializeObject(obj, writer);
         }

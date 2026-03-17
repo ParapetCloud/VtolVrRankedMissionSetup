@@ -100,7 +100,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = 
 					unitGroup = Allied:Foxtrot
 					startMode = FlightReady
@@ -128,7 +128,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = F-16
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = 
 					unitGroup = Allied:Foxtrot
 					startMode = FlightReady
@@ -185,7 +185,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = 
 					unitGroup = Allied:Foxtrot
 					startMode = FlightReady
@@ -213,7 +213,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = F-16
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = 
 					unitGroup = Allied:Foxtrot
 					startMode = FlightReady
@@ -270,7 +270,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = 
 					unitGroup = Allied:Foxtrot
 					startMode = FlightReady
@@ -298,7 +298,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = F-16
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = 
 					unitGroup = Allied:Foxtrot
 					startMode = FlightReady
@@ -355,7 +355,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = F/A-26B
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = 
 					unitGroup = Allied:Golf
 					startMode = FlightReady
@@ -382,7 +382,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = 
 					unitGroup = Allied:Golf
 					startMode = FlightReady
@@ -410,7 +410,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = F-16
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = 
 					unitGroup = Allied:Golf
 					startMode = FlightReady
@@ -468,7 +468,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = F/A-26B
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = 
 					unitGroup = Allied:Echo
 					startMode = FlightReady
@@ -495,7 +495,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = 
 					unitGroup = Allied:Echo
 					startMode = FlightReady
@@ -523,7 +523,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = F-16
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = 
 					unitGroup = Allied:Echo
 					startMode = FlightReady
@@ -580,7 +580,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = 
 					unitGroup = Enemy:Foxtrot
 					startMode = FlightReady
@@ -608,7 +608,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = F-16
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = 
 					unitGroup = Enemy:Foxtrot
 					startMode = FlightReady
@@ -665,7 +665,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = 
 					unitGroup = Enemy:Foxtrot
 					startMode = FlightReady
@@ -693,7 +693,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = F-16
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = 
 					unitGroup = Enemy:Foxtrot
 					startMode = FlightReady
@@ -750,7 +750,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = 
 					unitGroup = Enemy:Foxtrot
 					startMode = FlightReady
@@ -778,7 +778,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = F-16
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = 
 					unitGroup = Enemy:Foxtrot
 					startMode = FlightReady
@@ -835,7 +835,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = F/A-26B
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = 
 					unitGroup = Enemy:Golf
 					startMode = FlightReady
@@ -862,7 +862,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = 
 					unitGroup = Enemy:Golf
 					startMode = FlightReady
@@ -890,7 +890,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = F-16
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = 
 					unitGroup = Enemy:Golf
 					startMode = FlightReady
@@ -948,7 +948,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = F/A-26B
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = 
 					unitGroup = Enemy:Echo
 					startMode = FlightReady
@@ -975,7 +975,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = T-55
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = 
 					unitGroup = Enemy:Echo
 					startMode = FlightReady
@@ -1003,7 +1003,7 @@ CustomScenario
 				unitFields
 				{
 					vehicle = F-16
-					selectableAltSpawn = False
+					selectableAltSpawn = True
 					slotLabel = 
 					unitGroup = Enemy:Echo
 					startMode = FlightReady

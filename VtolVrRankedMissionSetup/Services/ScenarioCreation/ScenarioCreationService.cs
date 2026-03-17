@@ -170,7 +170,7 @@ namespace VtolVrRankedMissionSetup.Services
             };
 
             altSpawn.MultiplayerSpawnFields.UnitGroup = group;
-
+            altSpawn.MultiplayerSpawnFields.SelectableAltSpawn = true;
             altSpawn.MultiplayerSpawnFields.Vehicle = alt.Type;
             altSpawn.MultiplayerSpawnFields.Equipment = scenarioMode.ActiveMode.DefaultEquipment[alt.Type];
             altSpawn.MultiplayerSpawnFields.Slots = alt.Slots ?? 0;
