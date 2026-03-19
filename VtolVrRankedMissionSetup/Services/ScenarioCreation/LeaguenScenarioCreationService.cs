@@ -352,7 +352,7 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
                 Vector3 rotation2 = baseInfo2.Prefab.Rotation + aircraft2.Rotation;
                 MathHelpers.ClampRotation(ref rotation2);
 
-                string group = GetAircraftGroup(team, layoutConfig1.Aircraft[0]);
+                string group = GetAircraftGroup(team, layoutConfig1.Aircraft[i]);
                 MultiplayerSpawn spawn = CreateAircraft(team, group, aircraft1, location1, rotation1, spawners.Count);
                 spawn.MultiplayerSpawnFields.SlotLabel = "Airbase 1";
 
