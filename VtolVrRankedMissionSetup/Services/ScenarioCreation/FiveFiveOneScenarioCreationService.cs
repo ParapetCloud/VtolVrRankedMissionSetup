@@ -48,6 +48,18 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
         /// The radius of the control point
         /// </summary>
         private const double ControlRadius = 10 * Units.NauticalMiles;
+        /// <summary>
+        /// The radius of the Arena
+        /// </summary>
+        private const double ArenaRadius = 50 * Units.NauticalMiles;
+        /// <summary>
+        /// How high in the sky the CSO ring is
+        /// </summary>
+        private const float RingAltitude = (float)(24000 * Units.Feet);
+        /// <summary>
+        /// How high in the sky the Arena ring is
+        /// </summary>
+        private const float ArenaAltitude = (float)(12000 * Units.Feet);
 
         public FiveFiveOneScenarioCreationService(ScenarioModeService scenarioMode, AirbaseLayoutService layoutService) : base(scenarioMode, layoutService) { }
 
@@ -459,6 +471,24 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
             scenario.AlliedObjectives = AlliedObjectives.ToArray();
             scenario.EnemyObjectives = EnemyObjectives.ToArray();
 
+            scenario.StaticObjects = [
+                new StaticObject() {
+                    Id = 0,
+                    GlobalPos = new Vector3(bullseye.GlobalPoint.X, RingAltitude, bullseye.GlobalPoint.Z),
+                    PrefabID = "Random Scructures.ArenaRingEP2_packed",
+                },
+                new StaticObject() {
+                    Id = 1,
+                    GlobalPos = new Vector3(bullseye.GlobalPoint.X, ArenaAltitude, bullseye.GlobalPoint.Z),
+                    PrefabID = "Random Scructures.ArenaStadumEP2_packed",
+                },
+                new StaticObject() {
+                    Id = 2,
+                    GlobalPos = new Vector3(bullseye.GlobalPoint.X, RingAltitude, bullseye.GlobalPoint.Z),
+                    PrefabID = "3800594454.MAXWELL_KILLABLE_packed",
+                },
+            ];
+
             AddSpectatorSeats(scenario);
         }
 
@@ -505,9 +535,23 @@ namespace VtolVrRankedMissionSetup.Services.ScenarioCreation
             Canvas.SetLeft(control, bullseyeMapLocation.X - (size / 2));
             Canvas.SetTop(control, bullseyeMapLocation.Y - (size / 2));
 
+            double arenaSize = worldToPreview(ArenaRadius, map);
+            Ellipse arena = new()
+            {
+                Stroke = new SolidColorBrush(Colors.Red),
+                Height = arenaSize,
+                Width = arenaSize,
+                StrokeThickness = 1,
+            };
+
+            Canvas.SetLeft(arena, bullseyeMapLocation.X - (arenaSize / 2));
+            Canvas.SetTop(arena, bullseyeMapLocation.Y - (arenaSize / 2));
+
             canvas.Children.Add(outer);
             canvas.Children.Add(inner);
             canvas.Children.Add(control);
+            canvas.Children.Add(arena);
+
         }
 
         protected override void PreviewBase(Canvas canvas, BaseInfo bs, VTMapCustom map, Team team, int index)

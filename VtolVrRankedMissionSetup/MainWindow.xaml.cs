@@ -140,7 +140,12 @@ namespace VtolVrRankedMissionSetup
 
             VTSerializer.SerializeToFile(Scenario, file.Path);
 
-            string path = $"{(await file.GetParentAsync()).Path}\\image.jpg";
+            string parentPath = (await file.GetParentAsync()).Path;
+
+            if (Directory.Exists($"CustomAssets/{scenarioMode.ActiveModeName}"))
+                CopyFilesRecursively(new DirectoryInfo($"CustomAssets/{scenarioMode.ActiveModeName}"), new DirectoryInfo($"{parentPath}\\CustomAssets"));
+
+            string path = $"{parentPath}\\image.jpg";
 
             RenderTargetBitmap rtBitmap = new();
             await rtBitmap.RenderAsync(MapPreviewCanvas, 1024, 1024);
@@ -167,6 +172,18 @@ namespace VtolVrRankedMissionSetup
 
             _ = d.ShowAsync();
         }
+
+        // Source - https://stackoverflow.com/a/58779
+        // Posted by Konrad Rudolph, modified by community. See post 'Timeline' for change history
+        // Retrieved 2026-09-24, License - CC BY-SA 2.5
+        public static void CopyFilesRecursively(DirectoryInfo source, DirectoryInfo target)
+        {
+            foreach (DirectoryInfo dir in source.GetDirectories())
+                CopyFilesRecursively(dir, target.CreateSubdirectory(dir.Name));
+            foreach (FileInfo file in source.GetFiles())
+                file.CopyTo(Path.Combine(target.FullName, file.Name));
+        }
+
 
         private bool SetProperty<T>(ref T storage, T value, [CallerMemberName] string? propertyName = null, bool forceUpdate = false)
         {
@@ -210,7 +227,7 @@ namespace VtolVrRankedMissionSetup
         {
             string newKey = (string)e.AddedItems[0];
 
-            scenarioMode.ActiveMode = scenarioMode.Configs[newKey];
+            scenarioMode.SetActiveMode(newKey);
 
             if (Map == null)
                 return;

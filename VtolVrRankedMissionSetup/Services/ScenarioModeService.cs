@@ -10,7 +10,9 @@ namespace VtolVrRankedMissionSetup.Services
     [Service(ServiceLifetime.Singleton)]
     public class ScenarioModeService
     {
-        public ScenarioModeConfig ActiveMode { get; set; }
+        public ScenarioModeConfig ActiveMode { get; private set; }
+        public string ActiveModeName { get; private set; }
+
         public Dictionary<string, ScenarioModeConfig> Configs { get; set; } = [];
 
         public ScenarioModeService()
@@ -19,6 +21,13 @@ namespace VtolVrRankedMissionSetup.Services
 
             // Look at this hard coding!
             ActiveMode = Configs["HS"];
+            ActiveModeName = "HS";
+        }
+
+        public void SetActiveMode(string name)
+        {
+            ActiveModeName = name;
+            ActiveMode = Configs[name];
         }
 
         private void LoadConfig()

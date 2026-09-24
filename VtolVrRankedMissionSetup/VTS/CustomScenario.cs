@@ -21,6 +21,7 @@ namespace VtolVrRankedMissionSetup.VTS
         public string Vehicle { get; set; } = "F-45A";
         public bool Multiplayer { get; set; } = true;
         public string AllowedEquips { get; set; } = "f45_gun;f45_sidewinderx2;f45_aim9x1;f45_amraamInternal;f45_amraamRail;f45_mk82x1;f45_mk82Internal;f45_mk82x4Internal;f45_gbu12x2Internal;f45_gbu12x1;f45-gbu39;f45_agm161;f45_agm161Internal;f45_droptank;f45_gbu38x1;f45_gbu38x2Internal;f45_gbu38x4Internal;f45_mk83x1;f45_mk83x1Internal;f45-agm145I;f45-agm145ISide;f45-agm145x3;f45-gbu53;";
+        public AddNewEquipOptions AddNewEquips { get; set; } = AddNewEquipOptions.Add;
         public bool ForceEquips { get; set; } = false;
         public double NormForcedFuel { get; set; } = 1;
         public bool EquipsConfigurable { get; set; } = true;
@@ -129,7 +130,7 @@ namespace VtolVrRankedMissionSetup.VTS
         [VTName("OBJECTIVES_OPFOR")]
         public Objective[]? EnemyObjectives { get; set; }
 
-        public object? StaticObjects { get; set; }
+        public StaticObject[]? StaticObjects { get; set; }
 
         public ConditionalCollection? Conditionals { get; set; }
 

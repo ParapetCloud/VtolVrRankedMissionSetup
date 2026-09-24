@@ -5,9 +5,8 @@
         "F/A-26B",
         {
           "type": "T-55",
-          "slots": 1
-        },
-        "F-16"
+          "slots": 2
+        }
       ],
       "location": {
         "x": 380,
@@ -25,9 +24,8 @@
         "F/A-26B",
         {
           "type": "T-55",
-          "slots": 1
-        },
-        "F-16"
+          "slots": 2
+        }
       ],
       "location": {
         "x": 363,
@@ -45,9 +43,8 @@
         "F/A-26B",
         {
           "type": "T-55",
-          "slots": 1
-        },
-        "F-16"
+          "slots": 2
+        }
       ],
       "location": {
         "x": 396,
@@ -66,9 +63,8 @@
         "F/A-26B",
         {
           "type": "T-55",
-          "slots": 1
-        },
-        "F-16"
+          "slots": 2
+        }
       ],
       "location": {
         "x": 380,
@@ -90,9 +86,8 @@
         "F/A-26B",
         {
           "type": "T-55",
-          "slots": 1
-        },
-        "F-16"
+          "slots": 2
+        }
       ],
       "location": {
         "x": 380,

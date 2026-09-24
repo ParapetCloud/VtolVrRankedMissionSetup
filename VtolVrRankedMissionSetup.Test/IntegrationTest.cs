@@ -31,7 +31,7 @@ namespace VtolVrRankedMissionSetup.Test
         [TestMethod]
         public async Task FiveFiveOneBaseline()
         {
-            modeService.ActiveMode = modeService.Configs["551"];
+            modeService.SetActiveMode("551");
 
             FiveFiveOneScenarioCreationService service = new(modeService, airbaseLayoutService);
             CustomScenario scenario = new(map);
@@ -44,7 +44,7 @@ namespace VtolVrRankedMissionSetup.Test
         [TestMethod]
         public async Task HSBaseline()
         {
-            modeService.ActiveMode = modeService.Configs["HS"];
+            modeService.SetActiveMode("HS");
 
             HSScenarioCreationService service = new(modeService, airbaseLayoutService);
             CustomScenario scenario = new(map);
@@ -55,7 +55,7 @@ namespace VtolVrRankedMissionSetup.Test
         [TestMethod]
         public async Task LeaguenBaseline()
         {
-            modeService.ActiveMode = modeService.Configs["Glicko"];
+            modeService.SetActiveMode("Glicko");
 
             LeaguenScenarioCreationService service = new(modeService, airbaseLayoutService);
             CustomScenario scenario = new(map);

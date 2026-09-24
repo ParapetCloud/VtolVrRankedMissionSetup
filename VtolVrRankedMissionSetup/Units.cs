@@ -10,5 +10,7 @@ namespace VtolVrRankedMissionSetup
     {
         public const double NauticalMiles = 1852;
         public const double Kilometers = 1000;
+
+        public const double Feet = 0.3048;
     }
 }

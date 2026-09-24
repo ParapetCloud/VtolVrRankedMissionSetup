@@ -10,6 +10,7 @@ CustomScenario
 	vehicle = F-45A
 	multiplayer = True
 	allowedEquips = f45_gun;f45_sidewinderx2;f45_aim9x1;f45_amraamInternal;f45_amraamRail;f45_mk82x1;f45_mk82Internal;f45_mk82x4Internal;f45_gbu12x2Internal;f45_gbu12x1;f45-gbu39;f45_agm161;f45_agm161Internal;f45_droptank;f45_gbu38x1;f45_gbu38x2Internal;f45_gbu38x4Internal;f45_mk83x1;f45_mk83x1Internal;f45-agm145I;f45-agm145ISide;f45-agm145x3;f45-gbu53;
+	addNewEquips = Add
 	forceEquips = False
 	normForcedFuel = 1
 	equipsConfigurable = True
@@ -78,7 +79,7 @@ CustomScenario
 				slotLabel = 
 				unitGroup = Allied:Foxtrot
 				startMode = FlightReady
-				equipment = fa26_iris-t-x1;fa26_iris-t-x2;fa26_iris-t-x3;af_mk82;fa26_mk82x2;fa26_mk82x3;fa26_mk82HDx1;fa26_mk82HDx2;fa26_mk82HDx3;fa26_mk83x1;fa26_cbu97x1;h70-x7ld;h70-x7ld-under;h70-x14ld;h70-x14ld-under;fa26_cagm-6;fa26_gbu38x1;fa26_gbu38x2;fa26_gbu38x3;fa26_gbu39x4uFront;fa26_gbu39x4uRear;fa26_maverickx1;fa26_maverickx3;fa26_agm89x1;af_amraamRailx2;fa26_gbu12x1;fa26_gbu12x2;fa26_gbu12x3;fa26_agm161;
+				equipment = fa26_iris-t-x2;fa26_iris-t-x3;af_mk82;fa26_mk82x2;fa26_mk82x3;fa26_mk82HDx1;fa26_mk82HDx2;fa26_mk82HDx3;fa26_mk83x1;fa26_cbu97x1;h70-x7ld;h70-x7ld-under;h70-x14ld;h70-x14ld-under;fa26_cagm-6;fa26_gbu38x1;fa26_gbu38x2;fa26_gbu38x3;fa26_gbu39x4uFront;fa26_gbu39x4uRear;fa26_maverickx1;fa26_maverickx3;fa26_agm89x1;fa26_gbu12x1;fa26_gbu12x2;fa26_gbu12x3;
 				initialSpeed = 0
 				rtbIsSpawn = False
 				limitedLives = True
@@ -86,7 +87,7 @@ CustomScenario
 				costToSpawn = 0
 				liveryRef = 0;
 				receiveFriendlyDamage = True
-				forcedEquipsList = free;free;free;free;free;af_amraam;af_amraam;free;free;free;free;free;free;free;free;free;|
+				forcedEquipsList = fa26_gun;af_amraamRailx2;af_aim9;fa26_iris-t-x1;fa26_aim7;fa26_aim7;fa26_aim7;fa26_aim7;fa26_iris-t-x1;af_aim9;af_amraamRailx2;af_amraamRailx2;af_amraamRailx2;free;free;free;|
 				b_eqAssignmentMode = True
 			}
 			altSpawn
@@ -104,7 +105,7 @@ CustomScenario
 					slotLabel = 
 					unitGroup = Allied:Foxtrot
 					startMode = FlightReady
-					equipment = t55_iris-t-x1;t55_iris-t-x2;t55_mk82;t55_mk82x2;t55_mk82x3;t55_mk82HDx1;t55_mk82HDx2;t55_mk82HDx3;t55_mk83x1;t55_cbu97x1;t55_gbu12x1;t55_gbu12x2;t55_gbu12x3;t55_gbu38x1;t55_gbu38x2;t55_gbu38x3;t55_gbu39x4u;t55_maverickx1;t55_maverickx3;t55_cagm-6;t55_h70-x7ld;t55_h70-x14ld;t55_apkws-x7;t55_agm161;t55_agm89x1;
+					equipment = t55_mk82;t55_mk82x2;t55_mk82x3;t55_mk82HDx1;t55_mk82HDx2;t55_mk82HDx3;t55_mk83x1;t55_cbu97x1;t55_gbu12x1;t55_gbu12x2;t55_gbu12x3;t55_gbu38x1;t55_gbu38x2;t55_gbu38x3;t55_gbu39x4u;t55_maverickx1;t55_maverickx3;t55_cagm-6;t55_h70-x7ld;t55_h70-x14ld;t55_apkws-x7;t55_agm161;
 					initialSpeed = 0
 					rtbIsSpawn = False
 					limitedLives = False
@@ -112,35 +113,8 @@ CustomScenario
 					costToSpawn = 0
 					liveryRef = 0;
 					receiveFriendlyDamage = True
-					slots = 1
-					forcedEquipsList = free;free;free;t55_amraamRailx2;free;free;free;free;free;|
-					b_eqAssignmentMode = True
-				}
-			}
-			altSpawn
-			{
-				globalPos = (37215.414, 112.74512, 66720.664)
-				rotation = (0, 10.60602, 0)
-				weight = 100
-				placementMode = Ground
-				onCarrier = False
-				mpSelectEnabled = True
-				unitFields
-				{
-					vehicle = F-16
-					selectableAltSpawn = True
-					slotLabel = 
-					unitGroup = Allied:Foxtrot
-					startMode = FlightReady
-					equipment = ViperHTS;viper_maverickx1;viper_maverickx3;viper_apkws-x7;viper_apkws-x19;viper_gbu31;viper_gbu38x2;viper_gbu39x4uFront;viper_gbu10;viper_gbu12x1;viper_gbu12x2;viper_gbu12x3;viper_mk82;viper_mk82x2;viper_mk82x3;viper_mk82x6;viper_mk82HDx1;viper_mk82HDx2;viper_mk82HDx3;viper_mk82HDx6;viper_mk84x1;viper_cbu97x1;viper_agm161;viper_agm89x1;
-					initialSpeed = 0
-					rtbIsSpawn = False
-					limitedLives = False
-					lifeCount = 1
-					costToSpawn = 0
-					liveryRef = 0;
-					receiveFriendlyDamage = True
-					forcedEquipsList = free;viper_amraamRail;free;free;free;free;free;free;free;free;free;viper_amraamRail;|
+					slots = 2
+					forcedEquipsList = t55_gun;t55_iris-t-x1;t55_amraamRail;t55_amraamRailx2;t55_amraamRailx2;t55_amraamRail;t55_iris-t-x1;free;free;|
 					b_eqAssignmentMode = True
 				}
 			}
@@ -163,7 +137,7 @@ CustomScenario
 				slotLabel = 
 				unitGroup = Allied:Foxtrot
 				startMode = FlightReady
-				equipment = fa26_iris-t-x1;fa26_iris-t-x2;fa26_iris-t-x3;af_mk82;fa26_mk82x2;fa26_mk82x3;fa26_mk82HDx1;fa26_mk82HDx2;fa26_mk82HDx3;fa26_mk83x1;fa26_cbu97x1;h70-x7ld;h70-x7ld-under;h70-x14ld;h70-x14ld-under;fa26_cagm-6;fa26_gbu38x1;fa26_gbu38x2;fa26_gbu38x3;fa26_gbu39x4uFront;fa26_gbu39x4uRear;fa26_maverickx1;fa26_maverickx3;fa26_agm89x1;af_amraamRailx2;fa26_gbu12x1;fa26_gbu12x2;fa26_gbu12x3;fa26_agm161;
+				equipment = fa26_iris-t-x2;fa26_iris-t-x3;af_mk82;fa26_mk82x2;fa26_mk82x3;fa26_mk82HDx1;fa26_mk82HDx2;fa26_mk82HDx3;fa26_mk83x1;fa26_cbu97x1;h70-x7ld;h70-x7ld-under;h70-x14ld;h70-x14ld-under;fa26_cagm-6;fa26_gbu38x1;fa26_gbu38x2;fa26_gbu38x3;fa26_gbu39x4uFront;fa26_gbu39x4uRear;fa26_maverickx1;fa26_maverickx3;fa26_agm89x1;fa26_gbu12x1;fa26_gbu12x2;fa26_gbu12x3;
 				initialSpeed = 0
 				rtbIsSpawn = False
 				limitedLives = True
@@ -171,7 +145,7 @@ CustomScenario
 				costToSpawn = 0
 				liveryRef = 0;
 				receiveFriendlyDamage = True
-				forcedEquipsList = free;free;free;free;free;af_amraam;af_amraam;free;free;free;free;free;free;free;free;free;|
+				forcedEquipsList = fa26_gun;af_amraamRailx2;af_aim9;fa26_iris-t-x1;fa26_aim7;fa26_aim7;fa26_aim7;fa26_aim7;fa26_iris-t-x1;af_aim9;af_amraamRailx2;af_amraamRailx2;af_amraamRailx2;free;free;free;|
 				b_eqAssignmentMode = True
 			}
 			altSpawn
@@ -189,7 +163,7 @@ CustomScenario
 					slotLabel = 
 					unitGroup = Allied:Foxtrot
 					startMode = FlightReady
-					equipment = t55_iris-t-x1;t55_iris-t-x2;t55_mk82;t55_mk82x2;t55_mk82x3;t55_mk82HDx1;t55_mk82HDx2;t55_mk82HDx3;t55_mk83x1;t55_cbu97x1;t55_gbu12x1;t55_gbu12x2;t55_gbu12x3;t55_gbu38x1;t55_gbu38x2;t55_gbu38x3;t55_gbu39x4u;t55_maverickx1;t55_maverickx3;t55_cagm-6;t55_h70-x7ld;t55_h70-x14ld;t55_apkws-x7;t55_agm161;t55_agm89x1;
+					equipment = t55_mk82;t55_mk82x2;t55_mk82x3;t55_mk82HDx1;t55_mk82HDx2;t55_mk82HDx3;t55_mk83x1;t55_cbu97x1;t55_gbu12x1;t55_gbu12x2;t55_gbu12x3;t55_gbu38x1;t55_gbu38x2;t55_gbu38x3;t55_gbu39x4u;t55_maverickx1;t55_maverickx3;t55_cagm-6;t55_h70-x7ld;t55_h70-x14ld;t55_apkws-x7;t55_agm161;
 					initialSpeed = 0
 					rtbIsSpawn = False
 					limitedLives = False
@@ -197,35 +171,8 @@ CustomScenario
 					costToSpawn = 0
 					liveryRef = 0;
 					receiveFriendlyDamage = True
-					slots = 1
-					forcedEquipsList = free;free;free;t55_amraamRailx2;free;free;free;free;free;|
-					b_eqAssignmentMode = True
-				}
-			}
-			altSpawn
-			{
-				globalPos = (37193.92, 112.74512, 66698.234)
-				rotation = (0, 10.60602, 0)
-				weight = 100
-				placementMode = Ground
-				onCarrier = False
-				mpSelectEnabled = True
-				unitFields
-				{
-					vehicle = F-16
-					selectableAltSpawn = True
-					slotLabel = 
-					unitGroup = Allied:Foxtrot
-					startMode = FlightReady
-					equipment = ViperHTS;viper_maverickx1;viper_maverickx3;viper_apkws-x7;viper_apkws-x19;viper_gbu31;viper_gbu38x2;viper_gbu39x4uFront;viper_gbu10;viper_gbu12x1;viper_gbu12x2;viper_gbu12x3;viper_mk82;viper_mk82x2;viper_mk82x3;viper_mk82x6;viper_mk82HDx1;viper_mk82HDx2;viper_mk82HDx3;viper_mk82HDx6;viper_mk84x1;viper_cbu97x1;viper_agm161;viper_agm89x1;
-					initialSpeed = 0
-					rtbIsSpawn = False
-					limitedLives = False
-					lifeCount = 1
-					costToSpawn = 0
-					liveryRef = 0;
-					receiveFriendlyDamage = True
-					forcedEquipsList = free;viper_amraamRail;free;free;free;free;free;free;free;free;free;viper_amraamRail;|
+					slots = 2
+					forcedEquipsList = t55_gun;t55_iris-t-x1;t55_amraamRail;t55_amraamRailx2;t55_amraamRailx2;t55_amraamRail;t55_iris-t-x1;free;free;|
 					b_eqAssignmentMode = True
 				}
 			}
@@ -248,7 +195,7 @@ CustomScenario
 				slotLabel = 
 				unitGroup = Allied:Foxtrot
 				startMode = FlightReady
-				equipment = fa26_iris-t-x1;fa26_iris-t-x2;fa26_iris-t-x3;af_mk82;fa26_mk82x2;fa26_mk82x3;fa26_mk82HDx1;fa26_mk82HDx2;fa26_mk82HDx3;fa26_mk83x1;fa26_cbu97x1;h70-x7ld;h70-x7ld-under;h70-x14ld;h70-x14ld-under;fa26_cagm-6;fa26_gbu38x1;fa26_gbu38x2;fa26_gbu38x3;fa26_gbu39x4uFront;fa26_gbu39x4uRear;fa26_maverickx1;fa26_maverickx3;fa26_agm89x1;af_amraamRailx2;fa26_gbu12x1;fa26_gbu12x2;fa26_gbu12x3;fa26_agm161;
+				equipment = fa26_iris-t-x2;fa26_iris-t-x3;af_mk82;fa26_mk82x2;fa26_mk82x3;fa26_mk82HDx1;fa26_mk82HDx2;fa26_mk82HDx3;fa26_mk83x1;fa26_cbu97x1;h70-x7ld;h70-x7ld-under;h70-x14ld;h70-x14ld-under;fa26_cagm-6;fa26_gbu38x1;fa26_gbu38x2;fa26_gbu38x3;fa26_gbu39x4uFront;fa26_gbu39x4uRear;fa26_maverickx1;fa26_maverickx3;fa26_agm89x1;fa26_gbu12x1;fa26_gbu12x2;fa26_gbu12x3;
 				initialSpeed = 0
 				rtbIsSpawn = False
 				limitedLives = True
@@ -256,7 +203,7 @@ CustomScenario
 				costToSpawn = 0
 				liveryRef = 0;
 				receiveFriendlyDamage = True
-				forcedEquipsList = free;free;free;free;free;af_amraam;af_amraam;free;free;free;free;free;free;free;free;free;|
+				forcedEquipsList = fa26_gun;af_amraamRailx2;af_aim9;fa26_iris-t-x1;fa26_aim7;fa26_aim7;fa26_aim7;fa26_aim7;fa26_iris-t-x1;af_aim9;af_amraamRailx2;af_amraamRailx2;af_amraamRailx2;free;free;free;|
 				b_eqAssignmentMode = True
 			}
 			altSpawn
@@ -274,7 +221,7 @@ CustomScenario
 					slotLabel = 
 					unitGroup = Allied:Foxtrot
 					startMode = FlightReady
-					equipment = t55_iris-t-x1;t55_iris-t-x2;t55_mk82;t55_mk82x2;t55_mk82x3;t55_mk82HDx1;t55_mk82HDx2;t55_mk82HDx3;t55_mk83x1;t55_cbu97x1;t55_gbu12x1;t55_gbu12x2;t55_gbu12x3;t55_gbu38x1;t55_gbu38x2;t55_gbu38x3;t55_gbu39x4u;t55_maverickx1;t55_maverickx3;t55_cagm-6;t55_h70-x7ld;t55_h70-x14ld;t55_apkws-x7;t55_agm161;t55_agm89x1;
+					equipment = t55_mk82;t55_mk82x2;t55_mk82x3;t55_mk82HDx1;t55_mk82HDx2;t55_mk82HDx3;t55_mk83x1;t55_cbu97x1;t55_gbu12x1;t55_gbu12x2;t55_gbu12x3;t55_gbu38x1;t55_gbu38x2;t55_gbu38x3;t55_gbu39x4u;t55_maverickx1;t55_maverickx3;t55_cagm-6;t55_h70-x7ld;t55_h70-x14ld;t55_apkws-x7;t55_agm161;
 					initialSpeed = 0
 					rtbIsSpawn = False
 					limitedLives = False
@@ -282,35 +229,8 @@ CustomScenario
 					costToSpawn = 0
 					liveryRef = 0;
 					receiveFriendlyDamage = True
-					slots = 1
-					forcedEquipsList = free;free;free;t55_amraamRailx2;free;free;free;free;free;|
-					b_eqAssignmentMode = True
-				}
-			}
-			altSpawn
-			{
-				globalPos = (37226.355, 112.74512, 66692.164)
-				rotation = (0, 10.60602, 0)
-				weight = 100
-				placementMode = Ground
-				onCarrier = False
-				mpSelectEnabled = True
-				unitFields
-				{
-					vehicle = F-16
-					selectableAltSpawn = True
-					slotLabel = 
-					unitGroup = Allied:Foxtrot
-					startMode = FlightReady
-					equipment = ViperHTS;viper_maverickx1;viper_maverickx3;viper_apkws-x7;viper_apkws-x19;viper_gbu31;viper_gbu38x2;viper_gbu39x4uFront;viper_gbu10;viper_gbu12x1;viper_gbu12x2;viper_gbu12x3;viper_mk82;viper_mk82x2;viper_mk82x3;viper_mk82x6;viper_mk82HDx1;viper_mk82HDx2;viper_mk82HDx3;viper_mk82HDx6;viper_mk84x1;viper_cbu97x1;viper_agm161;viper_agm89x1;
-					initialSpeed = 0
-					rtbIsSpawn = False
-					limitedLives = False
-					lifeCount = 1
-					costToSpawn = 0
-					liveryRef = 0;
-					receiveFriendlyDamage = True
-					forcedEquipsList = free;viper_amraamRail;free;free;free;free;free;free;free;free;free;viper_amraamRail;|
+					slots = 2
+					forcedEquipsList = t55_gun;t55_iris-t-x1;t55_amraamRail;t55_amraamRailx2;t55_amraamRailx2;t55_amraamRail;t55_iris-t-x1;free;free;|
 					b_eqAssignmentMode = True
 				}
 			}
@@ -333,7 +253,7 @@ CustomScenario
 				slotLabel = 
 				unitGroup = Allied:Golf
 				startMode = FlightReady
-				equipment = f45_amraamInternal;f45_amraamRail;f45_mk82x1;f45_mk82Internal;f45_mk82x4Internal;f45_gbu12x2Internal;f45_gbu12x1;f45-gbu39;f45_agm161;f45_agm161Internal;f45_gbu38x1;f45_gbu38x2Internal;f45_gbu38x4Internal;f45_mk83x1;f45_mk83x1Internal;f45-agm145I;f45-agm145ISide;f45-agm145x3;f45-gbu53;
+				equipment = f45_amraamRail;f45_mk82x1;f45_mk82Internal;f45_mk82x4Internal;f45_gbu12x2Internal;f45_gbu12x1;f45-gbu39;f45_agm161;f45_agm161Internal;f45_gbu38x1;f45_gbu38x2Internal;f45_gbu38x4Internal;f45_mk83x1;f45_mk83x1Internal;f45-agm145I;f45-agm145ISide;f45-agm145x3;
 				initialSpeed = 0
 				rtbIsSpawn = False
 				limitedLives = True
@@ -359,7 +279,7 @@ CustomScenario
 					slotLabel = 
 					unitGroup = Allied:Golf
 					startMode = FlightReady
-					equipment = fa26_iris-t-x1;fa26_iris-t-x2;fa26_iris-t-x3;af_mk82;fa26_mk82x2;fa26_mk82x3;fa26_mk82HDx1;fa26_mk82HDx2;fa26_mk82HDx3;fa26_mk83x1;fa26_cbu97x1;h70-x7ld;h70-x7ld-under;h70-x14ld;h70-x14ld-under;fa26_cagm-6;fa26_gbu38x1;fa26_gbu38x2;fa26_gbu38x3;fa26_gbu39x4uFront;fa26_gbu39x4uRear;fa26_maverickx1;fa26_maverickx3;fa26_agm89x1;af_amraamRailx2;fa26_gbu12x1;fa26_gbu12x2;fa26_gbu12x3;fa26_agm161;
+					equipment = fa26_iris-t-x2;fa26_iris-t-x3;af_mk82;fa26_mk82x2;fa26_mk82x3;fa26_mk82HDx1;fa26_mk82HDx2;fa26_mk82HDx3;fa26_mk83x1;fa26_cbu97x1;h70-x7ld;h70-x7ld-under;h70-x14ld;h70-x14ld-under;fa26_cagm-6;fa26_gbu38x1;fa26_gbu38x2;fa26_gbu38x3;fa26_gbu39x4uFront;fa26_gbu39x4uRear;fa26_maverickx1;fa26_maverickx3;fa26_agm89x1;fa26_gbu12x1;fa26_gbu12x2;fa26_gbu12x3;
 					initialSpeed = 0
 					rtbIsSpawn = False
 					limitedLives = False
@@ -367,7 +287,7 @@ CustomScenario
 					costToSpawn = 0
 					liveryRef = 0;
 					receiveFriendlyDamage = True
-					forcedEquipsList = free;free;free;free;free;af_amraam;af_amraam;free;free;free;free;free;free;free;free;free;|
+					forcedEquipsList = fa26_gun;af_amraamRailx2;af_aim9;fa26_iris-t-x1;fa26_aim7;fa26_aim7;fa26_aim7;fa26_aim7;fa26_iris-t-x1;af_aim9;af_amraamRailx2;af_amraamRailx2;af_amraamRailx2;free;free;free;|
 					b_eqAssignmentMode = True
 				}
 			}
@@ -386,7 +306,7 @@ CustomScenario
 					slotLabel = 
 					unitGroup = Allied:Golf
 					startMode = FlightReady
-					equipment = t55_iris-t-x1;t55_iris-t-x2;t55_mk82;t55_mk82x2;t55_mk82x3;t55_mk82HDx1;t55_mk82HDx2;t55_mk82HDx3;t55_mk83x1;t55_cbu97x1;t55_gbu12x1;t55_gbu12x2;t55_gbu12x3;t55_gbu38x1;t55_gbu38x2;t55_gbu38x3;t55_gbu39x4u;t55_maverickx1;t55_maverickx3;t55_cagm-6;t55_h70-x7ld;t55_h70-x14ld;t55_apkws-x7;t55_agm161;t55_agm89x1;
+					equipment = t55_mk82;t55_mk82x2;t55_mk82x3;t55_mk82HDx1;t55_mk82HDx2;t55_mk82HDx3;t55_mk83x1;t55_cbu97x1;t55_gbu12x1;t55_gbu12x2;t55_gbu12x3;t55_gbu38x1;t55_gbu38x2;t55_gbu38x3;t55_gbu39x4u;t55_maverickx1;t55_maverickx3;t55_cagm-6;t55_h70-x7ld;t55_h70-x14ld;t55_apkws-x7;t55_agm161;
 					initialSpeed = 0
 					rtbIsSpawn = False
 					limitedLives = False
@@ -394,35 +314,8 @@ CustomScenario
 					costToSpawn = 0
 					liveryRef = 0;
 					receiveFriendlyDamage = True
-					slots = 1
-					forcedEquipsList = free;free;free;t55_amraamRailx2;free;free;free;free;free;|
-					b_eqAssignmentMode = True
-				}
-			}
-			altSpawn
-			{
-				globalPos = (37206.027, 112.74512, 66670.54)
-				rotation = (0, 10.60602, 0)
-				weight = 100
-				placementMode = Ground
-				onCarrier = False
-				mpSelectEnabled = True
-				unitFields
-				{
-					vehicle = F-16
-					selectableAltSpawn = True
-					slotLabel = 
-					unitGroup = Allied:Golf
-					startMode = FlightReady
-					equipment = ViperHTS;viper_maverickx1;viper_maverickx3;viper_apkws-x7;viper_apkws-x19;viper_gbu31;viper_gbu38x2;viper_gbu39x4uFront;viper_gbu10;viper_gbu12x1;viper_gbu12x2;viper_gbu12x3;viper_mk82;viper_mk82x2;viper_mk82x3;viper_mk82x6;viper_mk82HDx1;viper_mk82HDx2;viper_mk82HDx3;viper_mk82HDx6;viper_mk84x1;viper_cbu97x1;viper_agm161;viper_agm89x1;
-					initialSpeed = 0
-					rtbIsSpawn = False
-					limitedLives = False
-					lifeCount = 1
-					costToSpawn = 0
-					liveryRef = 0;
-					receiveFriendlyDamage = True
-					forcedEquipsList = free;viper_amraamRail;free;free;free;free;free;free;free;free;free;viper_amraamRail;|
+					slots = 2
+					forcedEquipsList = t55_gun;t55_iris-t-x1;t55_amraamRail;t55_amraamRailx2;t55_amraamRailx2;t55_amraamRail;t55_iris-t-x1;free;free;|
 					b_eqAssignmentMode = True
 				}
 			}
@@ -445,7 +338,7 @@ CustomScenario
 				slotLabel = 
 				unitGroup = Allied:Echo
 				startMode = FlightReady
-				equipment = ef24_airst-x1;ef24_harmx1;ef24_harmSDx1;ef24_marmx1;ef24_sidearmx1;ef24_gbu12x1;ef24_gbu12x2;ef24_gbu12x3;ef24_gbu38x1;ef24_gbu38x2;ef24_gbu38x3;ef24_gbu39x4;ef24_mk82x1;ef24_mk82x2;ef24_mk82x3;ef24_mk82x4;ef24_mk82HDx1;ef24_mk82HDx2;ef24_mk82HDx3;ef24_mk82HDx4;ef24_mk83x1;ef24_mk83x2;ef24_agm161;ef24_agm89x1;
+				equipment = ef24_airst-x1;ef24_amraamRail;ef24_amraamUnder;ef24_marmx1;ef24_gbu12x1;ef24_gbu12x2;ef24_gbu12x3;ef24_gbu38x1;ef24_gbu38x2;ef24_gbu38x3;ef24_gbu39x4;ef24_mk82x1;ef24_mk82x2;ef24_mk82x3;ef24_mk82x4;ef24_mk82HDx1;ef24_mk82HDx2;ef24_mk82HDx3;ef24_mk82HDx4;ef24_mk83x1;ef24_mk83x2;ef24_agm161;
 				initialSpeed = 0
 				rtbIsSpawn = False
 				limitedLives = True
@@ -454,7 +347,7 @@ CustomScenario
 				liveryRef = 0;
 				receiveFriendlyDamage = True
 				slots = 2
-				forcedEquipsList = ef24_gun;free;free;free;free;free;free;free;free;free;free;free;free;ef24_tgp;|
+				forcedEquipsList = ef24_gun;ef24_phoenixUnder;ef24_phoenixUnder;ef24_phoenixUnder;ef24_phoenixUnder;ef24_aim9x1;ef24_amraamRail;ef24_phoenixSide;ef24_amraamRail;ef24_aim9x1;ef24_phoenixSide;free;free;ef24_tgp;|
 				b_eqAssignmentMode = True
 			}
 			altSpawn
@@ -472,7 +365,7 @@ CustomScenario
 					slotLabel = 
 					unitGroup = Allied:Echo
 					startMode = FlightReady
-					equipment = fa26_iris-t-x1;fa26_iris-t-x2;fa26_iris-t-x3;af_mk82;fa26_mk82x2;fa26_mk82x3;fa26_mk82HDx1;fa26_mk82HDx2;fa26_mk82HDx3;fa26_mk83x1;fa26_cbu97x1;h70-x7ld;h70-x7ld-under;h70-x14ld;h70-x14ld-under;fa26_cagm-6;fa26_gbu38x1;fa26_gbu38x2;fa26_gbu38x3;fa26_gbu39x4uFront;fa26_gbu39x4uRear;fa26_maverickx1;fa26_maverickx3;fa26_agm89x1;af_amraamRailx2;fa26_gbu12x1;fa26_gbu12x2;fa26_gbu12x3;fa26_agm161;
+					equipment = fa26_iris-t-x2;fa26_iris-t-x3;af_mk82;fa26_mk82x2;fa26_mk82x3;fa26_mk82HDx1;fa26_mk82HDx2;fa26_mk82HDx3;fa26_mk83x1;fa26_cbu97x1;h70-x7ld;h70-x7ld-under;h70-x14ld;h70-x14ld-under;fa26_cagm-6;fa26_gbu38x1;fa26_gbu38x2;fa26_gbu38x3;fa26_gbu39x4uFront;fa26_gbu39x4uRear;fa26_maverickx1;fa26_maverickx3;fa26_agm89x1;fa26_gbu12x1;fa26_gbu12x2;fa26_gbu12x3;
 					initialSpeed = 0
 					rtbIsSpawn = False
 					limitedLives = False
@@ -480,7 +373,7 @@ CustomScenario
 					costToSpawn = 0
 					liveryRef = 0;
 					receiveFriendlyDamage = True
-					forcedEquipsList = free;free;free;free;free;af_amraam;af_amraam;free;free;free;free;free;free;free;free;free;|
+					forcedEquipsList = fa26_gun;af_amraamRailx2;af_aim9;fa26_iris-t-x1;fa26_aim7;fa26_aim7;fa26_aim7;fa26_aim7;fa26_iris-t-x1;af_aim9;af_amraamRailx2;af_amraamRailx2;af_amraamRailx2;free;free;free;|
 					b_eqAssignmentMode = True
 				}
 			}
@@ -499,7 +392,7 @@ CustomScenario
 					slotLabel = 
 					unitGroup = Allied:Echo
 					startMode = FlightReady
-					equipment = t55_iris-t-x1;t55_iris-t-x2;t55_mk82;t55_mk82x2;t55_mk82x3;t55_mk82HDx1;t55_mk82HDx2;t55_mk82HDx3;t55_mk83x1;t55_cbu97x1;t55_gbu12x1;t55_gbu12x2;t55_gbu12x3;t55_gbu38x1;t55_gbu38x2;t55_gbu38x3;t55_gbu39x4u;t55_maverickx1;t55_maverickx3;t55_cagm-6;t55_h70-x7ld;t55_h70-x14ld;t55_apkws-x7;t55_agm161;t55_agm89x1;
+					equipment = t55_mk82;t55_mk82x2;t55_mk82x3;t55_mk82HDx1;t55_mk82HDx2;t55_mk82HDx3;t55_mk83x1;t55_cbu97x1;t55_gbu12x1;t55_gbu12x2;t55_gbu12x3;t55_gbu38x1;t55_gbu38x2;t55_gbu38x3;t55_gbu39x4u;t55_maverickx1;t55_maverickx3;t55_cagm-6;t55_h70-x7ld;t55_h70-x14ld;t55_apkws-x7;t55_agm161;
 					initialSpeed = 0
 					rtbIsSpawn = False
 					limitedLives = False
@@ -507,35 +400,8 @@ CustomScenario
 					costToSpawn = 0
 					liveryRef = 0;
 					receiveFriendlyDamage = True
-					slots = 1
-					forcedEquipsList = free;free;free;t55_amraamRailx2;free;free;free;free;free;|
-					b_eqAssignmentMode = True
-				}
-			}
-			altSpawn
-			{
-				globalPos = (37199.957, 112.74512, 66638.1)
-				rotation = (0, 10.60602, 0)
-				weight = 100
-				placementMode = Ground
-				onCarrier = False
-				mpSelectEnabled = True
-				unitFields
-				{
-					vehicle = F-16
-					selectableAltSpawn = True
-					slotLabel = 
-					unitGroup = Allied:Echo
-					startMode = FlightReady
-					equipment = ViperHTS;viper_maverickx1;viper_maverickx3;viper_apkws-x7;viper_apkws-x19;viper_gbu31;viper_gbu38x2;viper_gbu39x4uFront;viper_gbu10;viper_gbu12x1;viper_gbu12x2;viper_gbu12x3;viper_mk82;viper_mk82x2;viper_mk82x3;viper_mk82x6;viper_mk82HDx1;viper_mk82HDx2;viper_mk82HDx3;viper_mk82HDx6;viper_mk84x1;viper_cbu97x1;viper_agm161;viper_agm89x1;
-					initialSpeed = 0
-					rtbIsSpawn = False
-					limitedLives = False
-					lifeCount = 1
-					costToSpawn = 0
-					liveryRef = 0;
-					receiveFriendlyDamage = True
-					forcedEquipsList = free;viper_amraamRail;free;free;free;free;free;free;free;free;free;viper_amraamRail;|
+					slots = 2
+					forcedEquipsList = t55_gun;t55_iris-t-x1;t55_amraamRail;t55_amraamRailx2;t55_amraamRailx2;t55_amraamRail;t55_iris-t-x1;free;free;|
 					b_eqAssignmentMode = True
 				}
 			}
@@ -558,7 +424,7 @@ CustomScenario
 				slotLabel = 
 				unitGroup = Enemy:Foxtrot
 				startMode = FlightReady
-				equipment = fa26_iris-t-x1;fa26_iris-t-x2;fa26_iris-t-x3;af_mk82;fa26_mk82x2;fa26_mk82x3;fa26_mk82HDx1;fa26_mk82HDx2;fa26_mk82HDx3;fa26_mk83x1;fa26_cbu97x1;h70-x7ld;h70-x7ld-under;h70-x14ld;h70-x14ld-under;fa26_cagm-6;fa26_gbu38x1;fa26_gbu38x2;fa26_gbu38x3;fa26_gbu39x4uFront;fa26_gbu39x4uRear;fa26_maverickx1;fa26_maverickx3;fa26_agm89x1;af_amraamRailx2;fa26_gbu12x1;fa26_gbu12x2;fa26_gbu12x3;fa26_agm161;
+				equipment = fa26_iris-t-x2;fa26_iris-t-x3;af_mk82;fa26_mk82x2;fa26_mk82x3;fa26_mk82HDx1;fa26_mk82HDx2;fa26_mk82HDx3;fa26_mk83x1;fa26_cbu97x1;h70-x7ld;h70-x7ld-under;h70-x14ld;h70-x14ld-under;fa26_cagm-6;fa26_gbu38x1;fa26_gbu38x2;fa26_gbu38x3;fa26_gbu39x4uFront;fa26_gbu39x4uRear;fa26_maverickx1;fa26_maverickx3;fa26_agm89x1;fa26_gbu12x1;fa26_gbu12x2;fa26_gbu12x3;
 				initialSpeed = 0
 				rtbIsSpawn = False
 				limitedLives = True
@@ -566,7 +432,7 @@ CustomScenario
 				costToSpawn = 0
 				liveryRef = 0;
 				receiveFriendlyDamage = True
-				forcedEquipsList = free;free;free;free;free;af_amraam;af_amraam;free;free;free;free;free;free;free;free;free;|
+				forcedEquipsList = fa26_gun;af_amraamRailx2;af_aim9;fa26_iris-t-x1;fa26_aim7;fa26_aim7;fa26_aim7;fa26_aim7;fa26_iris-t-x1;af_aim9;af_amraamRailx2;af_amraamRailx2;af_amraamRailx2;free;free;free;|
 				b_eqAssignmentMode = True
 			}
 			altSpawn
@@ -584,7 +450,7 @@ CustomScenario
 					slotLabel = 
 					unitGroup = Enemy:Foxtrot
 					startMode = FlightReady
-					equipment = t55_iris-t-x1;t55_iris-t-x2;t55_mk82;t55_mk82x2;t55_mk82x3;t55_mk82HDx1;t55_mk82HDx2;t55_mk82HDx3;t55_mk83x1;t55_cbu97x1;t55_gbu12x1;t55_gbu12x2;t55_gbu12x3;t55_gbu38x1;t55_gbu38x2;t55_gbu38x3;t55_gbu39x4u;t55_maverickx1;t55_maverickx3;t55_cagm-6;t55_h70-x7ld;t55_h70-x14ld;t55_apkws-x7;t55_agm161;t55_agm89x1;
+					equipment = t55_mk82;t55_mk82x2;t55_mk82x3;t55_mk82HDx1;t55_mk82HDx2;t55_mk82HDx3;t55_mk83x1;t55_cbu97x1;t55_gbu12x1;t55_gbu12x2;t55_gbu12x3;t55_gbu38x1;t55_gbu38x2;t55_gbu38x3;t55_gbu39x4u;t55_maverickx1;t55_maverickx3;t55_cagm-6;t55_h70-x7ld;t55_h70-x14ld;t55_apkws-x7;t55_agm161;
 					initialSpeed = 0
 					rtbIsSpawn = False
 					limitedLives = False
@@ -592,35 +458,8 @@ CustomScenario
 					costToSpawn = 0
 					liveryRef = 0;
 					receiveFriendlyDamage = True
-					slots = 1
-					forcedEquipsList = free;free;free;t55_amraamRailx2;free;free;free;free;free;|
-					b_eqAssignmentMode = True
-				}
-			}
-			altSpawn
-			{
-				globalPos = (119086.69, 566.79663, 179953.3)
-				rotation = (0, 161.5459, 0)
-				weight = 100
-				placementMode = Ground
-				onCarrier = False
-				mpSelectEnabled = True
-				unitFields
-				{
-					vehicle = F-16
-					selectableAltSpawn = True
-					slotLabel = 
-					unitGroup = Enemy:Foxtrot
-					startMode = FlightReady
-					equipment = ViperHTS;viper_maverickx1;viper_maverickx3;viper_apkws-x7;viper_apkws-x19;viper_gbu31;viper_gbu38x2;viper_gbu39x4uFront;viper_gbu10;viper_gbu12x1;viper_gbu12x2;viper_gbu12x3;viper_mk82;viper_mk82x2;viper_mk82x3;viper_mk82x6;viper_mk82HDx1;viper_mk82HDx2;viper_mk82HDx3;viper_mk82HDx6;viper_mk84x1;viper_cbu97x1;viper_agm161;viper_agm89x1;
-					initialSpeed = 0
-					rtbIsSpawn = False
-					limitedLives = False
-					lifeCount = 1
-					costToSpawn = 0
-					liveryRef = 0;
-					receiveFriendlyDamage = True
-					forcedEquipsList = free;viper_amraamRail;free;free;free;free;free;free;free;free;free;viper_amraamRail;|
+					slots = 2
+					forcedEquipsList = t55_gun;t55_iris-t-x1;t55_amraamRail;t55_amraamRailx2;t55_amraamRailx2;t55_amraamRail;t55_iris-t-x1;free;free;|
 					b_eqAssignmentMode = True
 				}
 			}
@@ -643,7 +482,7 @@ CustomScenario
 				slotLabel = 
 				unitGroup = Enemy:Foxtrot
 				startMode = FlightReady
-				equipment = fa26_iris-t-x1;fa26_iris-t-x2;fa26_iris-t-x3;af_mk82;fa26_mk82x2;fa26_mk82x3;fa26_mk82HDx1;fa26_mk82HDx2;fa26_mk82HDx3;fa26_mk83x1;fa26_cbu97x1;h70-x7ld;h70-x7ld-under;h70-x14ld;h70-x14ld-under;fa26_cagm-6;fa26_gbu38x1;fa26_gbu38x2;fa26_gbu38x3;fa26_gbu39x4uFront;fa26_gbu39x4uRear;fa26_maverickx1;fa26_maverickx3;fa26_agm89x1;af_amraamRailx2;fa26_gbu12x1;fa26_gbu12x2;fa26_gbu12x3;fa26_agm161;
+				equipment = fa26_iris-t-x2;fa26_iris-t-x3;af_mk82;fa26_mk82x2;fa26_mk82x3;fa26_mk82HDx1;fa26_mk82HDx2;fa26_mk82HDx3;fa26_mk83x1;fa26_cbu97x1;h70-x7ld;h70-x7ld-under;h70-x14ld;h70-x14ld-under;fa26_cagm-6;fa26_gbu38x1;fa26_gbu38x2;fa26_gbu38x3;fa26_gbu39x4uFront;fa26_gbu39x4uRear;fa26_maverickx1;fa26_maverickx3;fa26_agm89x1;fa26_gbu12x1;fa26_gbu12x2;fa26_gbu12x3;
 				initialSpeed = 0
 				rtbIsSpawn = False
 				limitedLives = True
@@ -651,7 +490,7 @@ CustomScenario
 				costToSpawn = 0
 				liveryRef = 0;
 				receiveFriendlyDamage = True
-				forcedEquipsList = free;free;free;free;free;af_amraam;af_amraam;free;free;free;free;free;free;free;free;free;|
+				forcedEquipsList = fa26_gun;af_amraamRailx2;af_aim9;fa26_iris-t-x1;fa26_aim7;fa26_aim7;fa26_aim7;fa26_aim7;fa26_iris-t-x1;af_aim9;af_amraamRailx2;af_amraamRailx2;af_amraamRailx2;free;free;free;|
 				b_eqAssignmentMode = True
 			}
 			altSpawn
@@ -669,7 +508,7 @@ CustomScenario
 					slotLabel = 
 					unitGroup = Enemy:Foxtrot
 					startMode = FlightReady
-					equipment = t55_iris-t-x1;t55_iris-t-x2;t55_mk82;t55_mk82x2;t55_mk82x3;t55_mk82HDx1;t55_mk82HDx2;t55_mk82HDx3;t55_mk83x1;t55_cbu97x1;t55_gbu12x1;t55_gbu12x2;t55_gbu12x3;t55_gbu38x1;t55_gbu38x2;t55_gbu38x3;t55_gbu39x4u;t55_maverickx1;t55_maverickx3;t55_cagm-6;t55_h70-x7ld;t55_h70-x14ld;t55_apkws-x7;t55_agm161;t55_agm89x1;
+					equipment = t55_mk82;t55_mk82x2;t55_mk82x3;t55_mk82HDx1;t55_mk82HDx2;t55_mk82HDx3;t55_mk83x1;t55_cbu97x1;t55_gbu12x1;t55_gbu12x2;t55_gbu12x3;t55_gbu38x1;t55_gbu38x2;t55_gbu38x3;t55_gbu39x4u;t55_maverickx1;t55_maverickx3;t55_cagm-6;t55_h70-x7ld;t55_h70-x14ld;t55_apkws-x7;t55_agm161;
 					initialSpeed = 0
 					rtbIsSpawn = False
 					limitedLives = False
@@ -677,35 +516,8 @@ CustomScenario
 					costToSpawn = 0
 					liveryRef = 0;
 					receiveFriendlyDamage = True
-					slots = 1
-					forcedEquipsList = free;free;free;t55_amraamRailx2;free;free;free;free;free;|
-					b_eqAssignmentMode = True
-				}
-			}
-			altSpawn
-			{
-				globalPos = (119062.336, 566.79663, 179972.58)
-				rotation = (0, 161.5459, 0)
-				weight = 100
-				placementMode = Ground
-				onCarrier = False
-				mpSelectEnabled = True
-				unitFields
-				{
-					vehicle = F-16
-					selectableAltSpawn = True
-					slotLabel = 
-					unitGroup = Enemy:Foxtrot
-					startMode = FlightReady
-					equipment = ViperHTS;viper_maverickx1;viper_maverickx3;viper_apkws-x7;viper_apkws-x19;viper_gbu31;viper_gbu38x2;viper_gbu39x4uFront;viper_gbu10;viper_gbu12x1;viper_gbu12x2;viper_gbu12x3;viper_mk82;viper_mk82x2;viper_mk82x3;viper_mk82x6;viper_mk82HDx1;viper_mk82HDx2;viper_mk82HDx3;viper_mk82HDx6;viper_mk84x1;viper_cbu97x1;viper_agm161;viper_agm89x1;
-					initialSpeed = 0
-					rtbIsSpawn = False
-					limitedLives = False
-					lifeCount = 1
-					costToSpawn = 0
-					liveryRef = 0;
-					receiveFriendlyDamage = True
-					forcedEquipsList = free;viper_amraamRail;free;free;free;free;free;free;free;free;free;viper_amraamRail;|
+					slots = 2
+					forcedEquipsList = t55_gun;t55_iris-t-x1;t55_amraamRail;t55_amraamRailx2;t55_amraamRailx2;t55_amraamRail;t55_iris-t-x1;free;free;|
 					b_eqAssignmentMode = True
 				}
 			}
@@ -728,7 +540,7 @@ CustomScenario
 				slotLabel = 
 				unitGroup = Enemy:Foxtrot
 				startMode = FlightReady
-				equipment = fa26_iris-t-x1;fa26_iris-t-x2;fa26_iris-t-x3;af_mk82;fa26_mk82x2;fa26_mk82x3;fa26_mk82HDx1;fa26_mk82HDx2;fa26_mk82HDx3;fa26_mk83x1;fa26_cbu97x1;h70-x7ld;h70-x7ld-under;h70-x14ld;h70-x14ld-under;fa26_cagm-6;fa26_gbu38x1;fa26_gbu38x2;fa26_gbu38x3;fa26_gbu39x4uFront;fa26_gbu39x4uRear;fa26_maverickx1;fa26_maverickx3;fa26_agm89x1;af_amraamRailx2;fa26_gbu12x1;fa26_gbu12x2;fa26_gbu12x3;fa26_agm161;
+				equipment = fa26_iris-t-x2;fa26_iris-t-x3;af_mk82;fa26_mk82x2;fa26_mk82x3;fa26_mk82HDx1;fa26_mk82HDx2;fa26_mk82HDx3;fa26_mk83x1;fa26_cbu97x1;h70-x7ld;h70-x7ld-under;h70-x14ld;h70-x14ld-under;fa26_cagm-6;fa26_gbu38x1;fa26_gbu38x2;fa26_gbu38x3;fa26_gbu39x4uFront;fa26_gbu39x4uRear;fa26_maverickx1;fa26_maverickx3;fa26_agm89x1;fa26_gbu12x1;fa26_gbu12x2;fa26_gbu12x3;
 				initialSpeed = 0
 				rtbIsSpawn = False
 				limitedLives = True
@@ -736,7 +548,7 @@ CustomScenario
 				costToSpawn = 0
 				liveryRef = 0;
 				receiveFriendlyDamage = True
-				forcedEquipsList = free;free;free;free;free;af_amraam;af_amraam;free;free;free;free;free;free;free;free;free;|
+				forcedEquipsList = fa26_gun;af_amraamRailx2;af_aim9;fa26_iris-t-x1;fa26_aim7;fa26_aim7;fa26_aim7;fa26_aim7;fa26_iris-t-x1;af_aim9;af_amraamRailx2;af_amraamRailx2;af_amraamRailx2;free;free;free;|
 				b_eqAssignmentMode = True
 			}
 			altSpawn
@@ -754,7 +566,7 @@ CustomScenario
 					slotLabel = 
 					unitGroup = Enemy:Foxtrot
 					startMode = FlightReady
-					equipment = t55_iris-t-x1;t55_iris-t-x2;t55_mk82;t55_mk82x2;t55_mk82x3;t55_mk82HDx1;t55_mk82HDx2;t55_mk82HDx3;t55_mk83x1;t55_cbu97x1;t55_gbu12x1;t55_gbu12x2;t55_gbu12x3;t55_gbu38x1;t55_gbu38x2;t55_gbu38x3;t55_gbu39x4u;t55_maverickx1;t55_maverickx3;t55_cagm-6;t55_h70-x7ld;t55_h70-x14ld;t55_apkws-x7;t55_agm161;t55_agm89x1;
+					equipment = t55_mk82;t55_mk82x2;t55_mk82x3;t55_mk82HDx1;t55_mk82HDx2;t55_mk82HDx3;t55_mk83x1;t55_cbu97x1;t55_gbu12x1;t55_gbu12x2;t55_gbu12x3;t55_gbu38x1;t55_gbu38x2;t55_gbu38x3;t55_gbu39x4u;t55_maverickx1;t55_maverickx3;t55_cagm-6;t55_h70-x7ld;t55_h70-x14ld;t55_apkws-x7;t55_agm161;
 					initialSpeed = 0
 					rtbIsSpawn = False
 					limitedLives = False
@@ -762,35 +574,8 @@ CustomScenario
 					costToSpawn = 0
 					liveryRef = 0;
 					receiveFriendlyDamage = True
-					slots = 1
-					forcedEquipsList = free;free;free;t55_amraamRailx2;free;free;free;free;free;|
-					b_eqAssignmentMode = True
-				}
-			}
-			altSpawn
-			{
-				globalPos = (119093.63, 566.79663, 179983.02)
-				rotation = (0, 161.5459, 0)
-				weight = 100
-				placementMode = Ground
-				onCarrier = False
-				mpSelectEnabled = True
-				unitFields
-				{
-					vehicle = F-16
-					selectableAltSpawn = True
-					slotLabel = 
-					unitGroup = Enemy:Foxtrot
-					startMode = FlightReady
-					equipment = ViperHTS;viper_maverickx1;viper_maverickx3;viper_apkws-x7;viper_apkws-x19;viper_gbu31;viper_gbu38x2;viper_gbu39x4uFront;viper_gbu10;viper_gbu12x1;viper_gbu12x2;viper_gbu12x3;viper_mk82;viper_mk82x2;viper_mk82x3;viper_mk82x6;viper_mk82HDx1;viper_mk82HDx2;viper_mk82HDx3;viper_mk82HDx6;viper_mk84x1;viper_cbu97x1;viper_agm161;viper_agm89x1;
-					initialSpeed = 0
-					rtbIsSpawn = False
-					limitedLives = False
-					lifeCount = 1
-					costToSpawn = 0
-					liveryRef = 0;
-					receiveFriendlyDamage = True
-					forcedEquipsList = free;viper_amraamRail;free;free;free;free;free;free;free;free;free;viper_amraamRail;|
+					slots = 2
+					forcedEquipsList = t55_gun;t55_iris-t-x1;t55_amraamRail;t55_amraamRailx2;t55_amraamRailx2;t55_amraamRail;t55_iris-t-x1;free;free;|
 					b_eqAssignmentMode = True
 				}
 			}
@@ -813,7 +598,7 @@ CustomScenario
 				slotLabel = 
 				unitGroup = Enemy:Golf
 				startMode = FlightReady
-				equipment = f45_amraamInternal;f45_amraamRail;f45_mk82x1;f45_mk82Internal;f45_mk82x4Internal;f45_gbu12x2Internal;f45_gbu12x1;f45-gbu39;f45_agm161;f45_agm161Internal;f45_gbu38x1;f45_gbu38x2Internal;f45_gbu38x4Internal;f45_mk83x1;f45_mk83x1Internal;f45-agm145I;f45-agm145ISide;f45-agm145x3;f45-gbu53;
+				equipment = f45_amraamRail;f45_mk82x1;f45_mk82Internal;f45_mk82x4Internal;f45_gbu12x2Internal;f45_gbu12x1;f45-gbu39;f45_agm161;f45_agm161Internal;f45_gbu38x1;f45_gbu38x2Internal;f45_gbu38x4Internal;f45_mk83x1;f45_mk83x1Internal;f45-agm145I;f45-agm145ISide;f45-agm145x3;
 				initialSpeed = 0
 				rtbIsSpawn = False
 				limitedLives = True
@@ -839,7 +624,7 @@ CustomScenario
 					slotLabel = 
 					unitGroup = Enemy:Golf
 					startMode = FlightReady
-					equipment = fa26_iris-t-x1;fa26_iris-t-x2;fa26_iris-t-x3;af_mk82;fa26_mk82x2;fa26_mk82x3;fa26_mk82HDx1;fa26_mk82HDx2;fa26_mk82HDx3;fa26_mk83x1;fa26_cbu97x1;h70-x7ld;h70-x7ld-under;h70-x14ld;h70-x14ld-under;fa26_cagm-6;fa26_gbu38x1;fa26_gbu38x2;fa26_gbu38x3;fa26_gbu39x4uFront;fa26_gbu39x4uRear;fa26_maverickx1;fa26_maverickx3;fa26_agm89x1;af_amraamRailx2;fa26_gbu12x1;fa26_gbu12x2;fa26_gbu12x3;fa26_agm161;
+					equipment = fa26_iris-t-x2;fa26_iris-t-x3;af_mk82;fa26_mk82x2;fa26_mk82x3;fa26_mk82HDx1;fa26_mk82HDx2;fa26_mk82HDx3;fa26_mk83x1;fa26_cbu97x1;h70-x7ld;h70-x7ld-under;h70-x14ld;h70-x14ld-under;fa26_cagm-6;fa26_gbu38x1;fa26_gbu38x2;fa26_gbu38x3;fa26_gbu39x4uFront;fa26_gbu39x4uRear;fa26_maverickx1;fa26_maverickx3;fa26_agm89x1;fa26_gbu12x1;fa26_gbu12x2;fa26_gbu12x3;
 					initialSpeed = 0
 					rtbIsSpawn = False
 					limitedLives = False
@@ -847,7 +632,7 @@ CustomScenario
 					costToSpawn = 0
 					liveryRef = 0;
 					receiveFriendlyDamage = True
-					forcedEquipsList = free;free;free;free;free;af_amraam;af_amraam;free;free;free;free;free;free;free;free;free;|
+					forcedEquipsList = fa26_gun;af_amraamRailx2;af_aim9;fa26_iris-t-x1;fa26_aim7;fa26_aim7;fa26_aim7;fa26_aim7;fa26_iris-t-x1;af_aim9;af_amraamRailx2;af_amraamRailx2;af_amraamRailx2;free;free;free;|
 					b_eqAssignmentMode = True
 				}
 			}
@@ -866,7 +651,7 @@ CustomScenario
 					slotLabel = 
 					unitGroup = Enemy:Golf
 					startMode = FlightReady
-					equipment = t55_iris-t-x1;t55_iris-t-x2;t55_mk82;t55_mk82x2;t55_mk82x3;t55_mk82HDx1;t55_mk82HDx2;t55_mk82HDx3;t55_mk83x1;t55_cbu97x1;t55_gbu12x1;t55_gbu12x2;t55_gbu12x3;t55_gbu38x1;t55_gbu38x2;t55_gbu38x3;t55_gbu39x4u;t55_maverickx1;t55_maverickx3;t55_cagm-6;t55_h70-x7ld;t55_h70-x14ld;t55_apkws-x7;t55_agm161;t55_agm89x1;
+					equipment = t55_mk82;t55_mk82x2;t55_mk82x3;t55_mk82HDx1;t55_mk82HDx2;t55_mk82HDx3;t55_mk83x1;t55_cbu97x1;t55_gbu12x1;t55_gbu12x2;t55_gbu12x3;t55_gbu38x1;t55_gbu38x2;t55_gbu38x3;t55_gbu39x4u;t55_maverickx1;t55_maverickx3;t55_cagm-6;t55_h70-x7ld;t55_h70-x14ld;t55_apkws-x7;t55_agm161;
 					initialSpeed = 0
 					rtbIsSpawn = False
 					limitedLives = False
@@ -874,35 +659,8 @@ CustomScenario
 					costToSpawn = 0
 					liveryRef = 0;
 					receiveFriendlyDamage = True
-					slots = 1
-					forcedEquipsList = free;free;free;t55_amraamRailx2;free;free;free;free;free;|
-					b_eqAssignmentMode = True
-				}
-			}
-			altSpawn
-			{
-				globalPos = (119070.55, 566.79663, 180001.67)
-				rotation = (0, 161.5459, 0)
-				weight = 100
-				placementMode = Ground
-				onCarrier = False
-				mpSelectEnabled = True
-				unitFields
-				{
-					vehicle = F-16
-					selectableAltSpawn = True
-					slotLabel = 
-					unitGroup = Enemy:Golf
-					startMode = FlightReady
-					equipment = ViperHTS;viper_maverickx1;viper_maverickx3;viper_apkws-x7;viper_apkws-x19;viper_gbu31;viper_gbu38x2;viper_gbu39x4uFront;viper_gbu10;viper_gbu12x1;viper_gbu12x2;viper_gbu12x3;viper_mk82;viper_mk82x2;viper_mk82x3;viper_mk82x6;viper_mk82HDx1;viper_mk82HDx2;viper_mk82HDx3;viper_mk82HDx6;viper_mk84x1;viper_cbu97x1;viper_agm161;viper_agm89x1;
-					initialSpeed = 0
-					rtbIsSpawn = False
-					limitedLives = False
-					lifeCount = 1
-					costToSpawn = 0
-					liveryRef = 0;
-					receiveFriendlyDamage = True
-					forcedEquipsList = free;viper_amraamRail;free;free;free;free;free;free;free;free;free;viper_amraamRail;|
+					slots = 2
+					forcedEquipsList = t55_gun;t55_iris-t-x1;t55_amraamRail;t55_amraamRailx2;t55_amraamRailx2;t55_amraamRail;t55_iris-t-x1;free;free;|
 					b_eqAssignmentMode = True
 				}
 			}
@@ -925,7 +683,7 @@ CustomScenario
 				slotLabel = 
 				unitGroup = Enemy:Echo
 				startMode = FlightReady
-				equipment = ef24_airst-x1;ef24_harmx1;ef24_harmSDx1;ef24_marmx1;ef24_sidearmx1;ef24_gbu12x1;ef24_gbu12x2;ef24_gbu12x3;ef24_gbu38x1;ef24_gbu38x2;ef24_gbu38x3;ef24_gbu39x4;ef24_mk82x1;ef24_mk82x2;ef24_mk82x3;ef24_mk82x4;ef24_mk82HDx1;ef24_mk82HDx2;ef24_mk82HDx3;ef24_mk82HDx4;ef24_mk83x1;ef24_mk83x2;ef24_agm161;ef24_agm89x1;
+				equipment = ef24_airst-x1;ef24_amraamRail;ef24_amraamUnder;ef24_marmx1;ef24_gbu12x1;ef24_gbu12x2;ef24_gbu12x3;ef24_gbu38x1;ef24_gbu38x2;ef24_gbu38x3;ef24_gbu39x4;ef24_mk82x1;ef24_mk82x2;ef24_mk82x3;ef24_mk82x4;ef24_mk82HDx1;ef24_mk82HDx2;ef24_mk82HDx3;ef24_mk82HDx4;ef24_mk83x1;ef24_mk83x2;ef24_agm161;
 				initialSpeed = 0
 				rtbIsSpawn = False
 				limitedLives = True
@@ -934,7 +692,7 @@ CustomScenario
 				liveryRef = 0;
 				receiveFriendlyDamage = True
 				slots = 2
-				forcedEquipsList = ef24_gun;free;free;free;free;free;free;free;free;free;free;free;free;ef24_tgp;|
+				forcedEquipsList = ef24_gun;ef24_phoenixUnder;ef24_phoenixUnder;ef24_phoenixUnder;ef24_phoenixUnder;ef24_aim9x1;ef24_amraamRail;ef24_phoenixSide;ef24_amraamRail;ef24_aim9x1;ef24_phoenixSide;free;free;ef24_tgp;|
 				b_eqAssignmentMode = True
 			}
 			altSpawn
@@ -952,7 +710,7 @@ CustomScenario
 					slotLabel = 
 					unitGroup = Enemy:Echo
 					startMode = FlightReady
-					equipment = fa26_iris-t-x1;fa26_iris-t-x2;fa26_iris-t-x3;af_mk82;fa26_mk82x2;fa26_mk82x3;fa26_mk82HDx1;fa26_mk82HDx2;fa26_mk82HDx3;fa26_mk83x1;fa26_cbu97x1;h70-x7ld;h70-x7ld-under;h70-x14ld;h70-x14ld-under;fa26_cagm-6;fa26_gbu38x1;fa26_gbu38x2;fa26_gbu38x3;fa26_gbu39x4uFront;fa26_gbu39x4uRear;fa26_maverickx1;fa26_maverickx3;fa26_agm89x1;af_amraamRailx2;fa26_gbu12x1;fa26_gbu12x2;fa26_gbu12x3;fa26_agm161;
+					equipment = fa26_iris-t-x2;fa26_iris-t-x3;af_mk82;fa26_mk82x2;fa26_mk82x3;fa26_mk82HDx1;fa26_mk82HDx2;fa26_mk82HDx3;fa26_mk83x1;fa26_cbu97x1;h70-x7ld;h70-x7ld-under;h70-x14ld;h70-x14ld-under;fa26_cagm-6;fa26_gbu38x1;fa26_gbu38x2;fa26_gbu38x3;fa26_gbu39x4uFront;fa26_gbu39x4uRear;fa26_maverickx1;fa26_maverickx3;fa26_agm89x1;fa26_gbu12x1;fa26_gbu12x2;fa26_gbu12x3;
 					initialSpeed = 0
 					rtbIsSpawn = False
 					limitedLives = False
@@ -960,7 +718,7 @@ CustomScenario
 					costToSpawn = 0
 					liveryRef = 0;
 					receiveFriendlyDamage = True
-					forcedEquipsList = free;free;free;free;free;af_amraam;af_amraam;free;free;free;free;free;free;free;free;free;|
+					forcedEquipsList = fa26_gun;af_amraamRailx2;af_aim9;fa26_iris-t-x1;fa26_aim7;fa26_aim7;fa26_aim7;fa26_aim7;fa26_iris-t-x1;af_aim9;af_amraamRailx2;af_amraamRailx2;af_amraamRailx2;free;free;free;|
 					b_eqAssignmentMode = True
 				}
 			}
@@ -979,7 +737,7 @@ CustomScenario
 					slotLabel = 
 					unitGroup = Enemy:Echo
 					startMode = FlightReady
-					equipment = t55_iris-t-x1;t55_iris-t-x2;t55_mk82;t55_mk82x2;t55_mk82x3;t55_mk82HDx1;t55_mk82HDx2;t55_mk82HDx3;t55_mk83x1;t55_cbu97x1;t55_gbu12x1;t55_gbu12x2;t55_gbu12x3;t55_gbu38x1;t55_gbu38x2;t55_gbu38x3;t55_gbu39x4u;t55_maverickx1;t55_maverickx3;t55_cagm-6;t55_h70-x7ld;t55_h70-x14ld;t55_apkws-x7;t55_agm161;t55_agm89x1;
+					equipment = t55_mk82;t55_mk82x2;t55_mk82x3;t55_mk82HDx1;t55_mk82HDx2;t55_mk82HDx3;t55_mk83x1;t55_cbu97x1;t55_gbu12x1;t55_gbu12x2;t55_gbu12x3;t55_gbu38x1;t55_gbu38x2;t55_gbu38x3;t55_gbu39x4u;t55_maverickx1;t55_maverickx3;t55_cagm-6;t55_h70-x7ld;t55_h70-x14ld;t55_apkws-x7;t55_agm161;
 					initialSpeed = 0
 					rtbIsSpawn = False
 					limitedLives = False
@@ -987,35 +745,8 @@ CustomScenario
 					costToSpawn = 0
 					liveryRef = 0;
 					receiveFriendlyDamage = True
-					slots = 1
-					forcedEquipsList = free;free;free;t55_amraamRailx2;free;free;free;free;free;|
-					b_eqAssignmentMode = True
-				}
-			}
-			altSpawn
-			{
-				globalPos = (119060.1, 566.79663, 180032.97)
-				rotation = (0, 161.5459, 0)
-				weight = 100
-				placementMode = Ground
-				onCarrier = False
-				mpSelectEnabled = True
-				unitFields
-				{
-					vehicle = F-16
-					selectableAltSpawn = True
-					slotLabel = 
-					unitGroup = Enemy:Echo
-					startMode = FlightReady
-					equipment = ViperHTS;viper_maverickx1;viper_maverickx3;viper_apkws-x7;viper_apkws-x19;viper_gbu31;viper_gbu38x2;viper_gbu39x4uFront;viper_gbu10;viper_gbu12x1;viper_gbu12x2;viper_gbu12x3;viper_mk82;viper_mk82x2;viper_mk82x3;viper_mk82x6;viper_mk82HDx1;viper_mk82HDx2;viper_mk82HDx3;viper_mk82HDx6;viper_mk84x1;viper_cbu97x1;viper_agm161;viper_agm89x1;
-					initialSpeed = 0
-					rtbIsSpawn = False
-					limitedLives = False
-					lifeCount = 1
-					costToSpawn = 0
-					liveryRef = 0;
-					receiveFriendlyDamage = True
-					forcedEquipsList = free;viper_amraamRail;free;free;free;free;free;free;free;free;free;viper_amraamRail;|
+					slots = 2
+					forcedEquipsList = t55_gun;t55_iris-t-x1;t55_amraamRail;t55_amraamRailx2;t55_amraamRailx2;t55_amraamRail;t55_iris-t-x1;free;free;|
 					b_eqAssignmentMode = True
 				}
 			}
@@ -1548,6 +1279,27 @@ CustomScenario
 	}
 	StaticObjects
 	{
+		StaticObject
+		{
+			prefabID = Random Scructures.ArenaRingEP2_packed
+			id = 0
+			globalPos = (77976.3, 7315.2, 123324.99)
+			rotation = (0, 0, 0)
+		}
+		StaticObject
+		{
+			prefabID = Random Scructures.ArenaStadumEP2_packed
+			id = 1
+			globalPos = (77976.3, 3657.6, 123324.99)
+			rotation = (0, 0, 0)
+		}
+		StaticObject
+		{
+			prefabID = 3800594454.MAXWELL_KILLABLE_packed
+			id = 2
+			globalPos = (77976.3, 7315.2, 123324.99)
+			rotation = (0, 0, 0)
+		}
 	}
 	Conditionals
 	{
