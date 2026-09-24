@@ -10,6 +10,7 @@
 		<EnableMsixTooling>true</EnableMsixTooling>
 		<UseWinUI>true</UseWinUI>
 		<Nullable>enable</Nullable>
+		<TreatWarningsAsErrors>True</TreatWarningsAsErrors>
 	</PropertyGroup>
 
 
@@ -68,11 +69,5 @@
 		<DefineConstants>$(DefineConstants);</DefineConstants>
 		<ApplicationManifest>app.manifest</ApplicationManifest>
 		<PublishAot>False</PublishAot>
-	</PropertyGroup>
-	<PropertyGroup Condition="'$(Configuration)'=='Debug'">
-	  <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
-	</PropertyGroup>
-	<PropertyGroup Condition="'$(Configuration)'=='Release'">
-	  <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
 	</PropertyGroup>
 </Project>

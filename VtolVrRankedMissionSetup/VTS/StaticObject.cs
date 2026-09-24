@@ -9,7 +9,7 @@ namespace VtolVrRankedMissionSetup.VTS
 {
     public class StaticObject
     {
-        public string PrefabID { get; set; }
+        public required string PrefabID { get; set; }
         [Id]
         public int Id { get; set; }
         public Vector3 GlobalPos { get; set; }
